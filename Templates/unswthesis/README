@@ -1,0 +1,29 @@
+This directory contains the UNSW Thesis class.  The following files are
+supplied:
+
+unswthesis.cls          - The actual thesis class.  Some comments on its use
+                          appear in the file itself.
+fancyheadings.sty	- Required package by "unswthesis.cls".
+
+testunsw.tex            - Test out some of the UNSW Thesis class.  Requires
+                          the above two files.
+thesis.tex              - A severly trimmed-down version of my thesis, to
+                          show how *I* used the class.  Learning is often
+                          best done by example...
+mythesis.sty            - Required by "thesis.tex".  Shows how some useful
+                          things may be defined in LaTeX-2e.
+fancybox.sty            - Required by "thesis.tex" for fancy boxes.
+
+Note that these files are supplied AS IS, without any guarantee as to their
+suitability or even complience with university regulations.  Also, I cannot
+guarantee that I will support these files, nor provide any help for you to
+use them.
+
+I am interested in receiving feedback about these files; please contact me on
+John Zaitseff <J.Zaitseff@unsw.edu.au>.
+
+For anyone thinking of using LaTeX-2e seriously for their thesis, etc, I
+highly recommend the two books "LaTeX: A document preparation system",
+by Leslie Lamport, original author of LaTeX (2nd ed, published by
+Addison Wesley), and "The LaTeX Companion", by Goossens, Mittelbach
+and Samarin, (Addison Wesley).

@@ -1,0 +1,31 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {australian}
+\defcounter {refsection}{0}\relax 
+\select@language {australian}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Contents}{iv}{section*.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\chapternumberline {2}Information Extraction from Natural Language Text}{3}{chapter.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Knowledge Graphs}{3}{section.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Information Extraction}{5}{section.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}Natural Language Processing}{9}{section.2.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\chapternumberline {3}Challenges with Academic Text}{11}{chapter.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\chapternumberline {4}Developed Workflow}{13}{chapter.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Tools}{13}{section.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Developed process and new scripts}{13}{section.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\chapternumberline {5}Results}{15}{chapter.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{17}{chapter.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{19}{section*.4}

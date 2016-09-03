@@ -1,0 +1,94 @@
+%% unswcover.sty
+%% Olivier Mehani
+%% A titlepage (not using the titlepage environment) can be inserted with
+%%  \makeunswphdtitlepage
+%% The name of the school can be specified with 
+%%  \unswschool{SCHOOL}
+%% If the thesis is done in cotutelle, the other Uni can be introduced with
+%%  \unswcotutelle{OTHERUNI}
+%% A more complete front matter including all statements (originality, copyright
+%% and authenticity) for final publication can be inserted with
+%%  \makeunswfrontmatter
+%% With this command, aPDF version of the Thesis/Dissertation Sheet can be
+%% inserted at the back of the titlepage. That file can be specified with
+%%  \unswdissertationsheet{FILENAME.pdf}
+%% Based on the code in Guillaume Jourjon's PhD thesis
+\ProvidesPackage{unswcover}[2013/03/20 v1.0 Initial CTAN release]
+%% Release history:
+%% - no version, 2011, Olivier Mehani: Used in my PhD thesis template
+%% - v1.0pre, 2013, Olivier Mehani: Split out from the thesis into a proper
+%%   package
+%% - v1.0, 2013, Olivier Mehani: Added version and history for CTAN
+%%
+%% Source available in Git at [0].
+%% [0] https://scm.narf.ssji.net/git/unswcover/
+\RequirePackage[australian]{babel}
+\RequirePackage{graphicx}
+\RequirePackage{pdfpages}
+
+\def\unswschool{\def\UNSW@school}
+\unswschool{}
+
+\def\unswdegree{\def\UNSW@degree}
+\unswdegree{}
+\def\UNSW@degree{Masters of Computing and Information Technology}
+
+\newif\ifUNSW@cotutelle
+\def\unswcotutelle{\UNSW@cotutelletrue%
+  \def\UNSW@cotutelle}
+\UNSW@cotutellefalse
+
+\newif\ifUNSW@dissertationsheet
+\def\unswdissertationsheet{\UNSW@dissertationsheettrue%
+  \def\UNSW@dissertationsheet}
+\UNSW@dissertationsheetfalse
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\def\makeunswphdtitlepage{%
+  \clearpage{\pagestyle{empty}\cleardoublepage}%
+  \@ifundefined{pdfbookmark}{}{% Add PDF bookmark if hypertext has been loaded
+    \pdfbookmark{UNSW Cover Page}{unswcover}
+  }
+  \selectlanguage{australian}
+  \setcounter{page}{1}
+  \thispagestyle{empty}
+  \begin{center}
+    \vspace{4\bigskipamount}
+    %% XXX: This is a hack to have proper line spacing in the title
+    %% For some reason, when no character in a line of the title goes below the 
+    %% baseline, the descent is ignored...
+    {\Huge {\textbf{\vphantom{g}\@title}}}\\
+    %{\Huge {\textbf{\@title}}}\\
+    \vspace{5\bigskipamount}
+    {\Large {\textbf{\@author}}}\\
+    \vspace{3\bigskipamount}
+    A research project report submitted for \\
+    the degree of  \\
+    {\textbf{\UNSW@degree}}\\
+    \vspace{2\bigskipamount}
+    \begin{center}
+      \includegraphics[width=3cm]{./images/unsw_high_res_logo}
+    \end{center}
+    \vspace{2\bigskipamount}
+    {\textbf{\UNSW@school}
+    \textbf{The University of New South Wales}}\\
+    \ifUNSW@cotutelle
+    \bigskip{}
+    in a cotutelle agreement with\\
+    \bigskip{}
+    {\textbf{\UNSW@cotutelle}}\\
+    \else
+    \vspace{3\bigskipamount}
+    \fi
+    \bigskip{}
+    \@date
+  \end{center}}
+
+\def\makeunswfrontmatter{%
+\makeunswphdtitlepage
+
+\ifUNSW@dissertationsheet
+\includepdf{\UNSW@dissertationsheet}
+\fi
+}

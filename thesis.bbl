@@ -1,0 +1,536 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.4 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{pdf}{misc}{}
+  \field{sortinit}{A}
+  \field{howpublished}{\url{https://acrobat.adobe.com/us/en/why-adobe/about-adobe-pdf.html}}
+  \field{note}{[Online; accessed 14-August-2016]}
+  \field{title}{{Adobe: What is PDF?}}
+  \field{year}{2016}
+\endentry
+
+\entry{bing}{misc}{}
+  \field{sortinit}{B}
+  \field{howpublished}{\url{https://www.bing.com/partners/knowledgegraph}}
+  \field{note}{[Online; accessed 14-August-2016]}
+  \field{title}{{Bing Knowledge and Action Graph}}
+  \field{year}{2016}
+\endentry
+
+\entry{BirdKleinLoper09}{book}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Bird}{B.}%
+     {Steven}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Klein}{K.}%
+     {Ewan}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Loper}{L.}%
+     {Edward}{E.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {O'Reilly Media}%
+  }
+  \strng{namehash}{BSKELE1}
+  \strng{fullhash}{BSKELE1}
+  \field{sortinit}{B}
+  \field{title}{{Natural Language Processing with Python}}
+  \field{year}{2009}
+\endentry
+
+\entry{Bollacker2008}{inproceedings}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Bollacker}{B.}%
+     {Kurt}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Evans}{E.}%
+     {Colin}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Paritosh}{P.}%
+     {Praveen}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sturge}{S.}%
+     {Tim}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Taylor}{T.}%
+     {Jamie}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {ACM}%
+  }
+  \keyw{collaborative systems, semantic network, tuple store}
+  \strng{namehash}{BK+1}
+  \strng{fullhash}{BKECPPSTTJ1}
+  \field{sortinit}{B}
+  \field{booktitle}{Proceedings of the 2008 ACM SIGMOD International Conference
+  on Management of Data}
+  \field{isbn}{978-1-60558-102-6}
+  \field{pages}{1247\bibrangedash 1250}
+  \field{series}{SIGMOD '08}
+  \field{title}{Freebase: A Collaboratively Created Graph Database for
+  Structuring Human Knowledge}
+  \list{location}{1}{%
+    {New York, NY, USA}%
+  }
+  \field{year}{2008}
+\endentry
+
+\entry{Finkel:2005:INI:1219840.1219885}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Finkel}{F.}%
+     {Jenny~Rose}{J.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Grenager}{G.}%
+     {Trond}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Manning}{M.}%
+     {Christopher}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Association for Computational Linguistics}%
+  }
+  \strng{namehash}{FJRGTMC1}
+  \strng{fullhash}{FJRGTMC1}
+  \field{sortinit}{F}
+  \field{booktitle}{Proceedings of the 43rd Annual Meeting on Association for
+  Computational Linguistics}
+  \field{pages}{363\bibrangedash 370}
+  \field{series}{ACL '05}
+  \field{title}{Incorporating Non-local Information into Information Extraction
+  Systems by Gibbs Sampling}
+  \list{location}{1}{%
+    {Stroudsburg, PA, USA}%
+  }
+  \field{year}{2005}
+\endentry
+
+\entry{google}{misc}{}
+  \field{sortinit}{G}
+  \field{howpublished}{\url{https://www.google.com/insidesearch/features/search/knowledge.html}}
+  \field{note}{[Online; accessed 14-August-2016]}
+  \field{title}{{Google Knowledge Graph}}
+  \field{year}{2016}
+\endentry
+
+\entry{hixon-clark-hajishirzi-2015}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Hixon}{H.}%
+     {Ben}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Clark}{C.}%
+     {Peter}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hajishirzi}{H.}%
+     {Hannaneh}{H.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Association for Computational Linguistics}%
+  }
+  \strng{namehash}{HBCPHH1}
+  \strng{fullhash}{HBCPHH1}
+  \field{sortinit}{H}
+  \field{booktitle}{Proceedings of the 2015 Conference of the North American
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies}
+  \field{pages}{851\bibrangedash 861}
+  \field{title}{Learning Knowledge Graphs for Question Answering through
+  Conversational Dialog}
+  \list{location}{1}{%
+    {Denver, Colorado}%
+  }
+  \field{year}{2015}
+\endentry
+
+\entry{Jurafsky:2000:SLP:555733}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Jurafsky}{J.}%
+     {Daniel}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Martin}{M.}%
+     {James~H.}{J.~H.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Prentice Hall PTR}%
+  }
+  \strng{namehash}{JDMJH1}
+  \strng{fullhash}{JDMJH1}
+  \field{sortinit}{J}
+  \field{edition}{1st}
+  \field{isbn}{0130950696}
+  \field{title}{Speech and Language Processing: An Introduction to Natural
+  Language Processing, Computational Linguistics, and Speech Recognition}
+  \list{location}{1}{%
+    {Upper Saddle River, NJ, USA}%
+  }
+  \field{year}{2000}
+\endentry
+
+\entry{dbpedia-swj}{article}{}
+  \name{author}{11}{}{%
+    {{}%
+     {Lehmann}{L.}%
+     {Jens}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Isele}{I.}%
+     {Robert}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jakob}{J.}%
+     {Max}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jentzsch}{J.}%
+     {Anja}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kontokostas}{K.}%
+     {Dimitris}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mendes}{M.}%
+     {Pablo~N.}{P.~N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hellmann}{H.}%
+     {Sebastian}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Morsey}{M.}%
+     {Mohamed}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kleef}{K.}%
+     {Patrick}{P.}%
+     {van}{v.}%
+     {}{}}%
+    {{}%
+     {Auer}{A.}%
+     {S{\"o}ren}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bizer}{B.}%
+     {Christian}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{2014 MOLE dllearner geoknow group_aksw kontokostas lehmann lod2page
+  topic_Classification}
+  \strng{namehash}{LJ+1}
+  \strng{fullhash}{LJIRJMJAKDMPNHSMMKPvASBC1}
+  \field{sortinit}{L}
+  \field{number}{2}
+  \field{pages}{167\bibrangedash 195}
+  \field{title}{{DBpedia} - A Large-scale, Multilingual Knowledge Base
+  Extracted from Wikipedia}
+  \field{volume}{6}
+  \field{journaltitle}{Semantic Web Journal}
+  \field{year}{2015}
+\endentry
+
+\entry{manning-EtAl:2014:P14-5}{inproceedings}{}
+  \name{author}{6}{}{%
+    {{}%
+     {Manning}{M.}%
+     {Christopher~D.}{C.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Surdeanu}{S.}%
+     {Mihai}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bauer}{B.}%
+     {John}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Finkel}{F.}%
+     {Jenny}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bethard}{B.}%
+     {Steven~J.}{S.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McClosky}{M.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{MCD+1}
+  \strng{fullhash}{MCDSMBJFJBSJMD1}
+  \field{sortinit}{M}
+  \field{booktitle}{Association for Computational Linguistics (ACL) System
+  Demonstrations}
+  \field{pages}{55\bibrangedash 60}
+  \field{title}{The {Stanford} {CoreNLP} Natural Language Processing Toolkit}
+  \field{year}{2014}
+\endentry
+
+\entry{Miller:1995:WLD:219717.219748}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Miller}{M.}%
+     {George~A.}{G.~A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {ACM}%
+  }
+  \strng{namehash}{MGA1}
+  \strng{fullhash}{MGA1}
+  \field{sortinit}{M}
+  \field{issn}{0001-0782}
+  \field{number}{11}
+  \field{pages}{39\bibrangedash 41}
+  \field{title}{WordNet: A Lexical Database for English}
+  \field{volume}{38}
+  \list{location}{1}{%
+    {New York, NY, USA}%
+  }
+  \field{journaltitle}{Commun. ACM}
+  \field{month}{11}
+  \field{year}{1995}
+\endentry
+
+\entry{Nakashole:2011:SKH:1935826.1935869}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Nakashole}{N.}%
+     {Ndapandula}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Theobald}{T.}%
+     {Martin}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Weikum}{W.}%
+     {Gerhard}{G.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {ACM}%
+  }
+  \keyw{information extraction, knowledhe harvesting, scalability}
+  \strng{namehash}{NNTMWG1}
+  \strng{fullhash}{NNTMWG1}
+  \field{sortinit}{N}
+  \field{booktitle}{Proceedings of the Fourth ACM International Conference on
+  Web Search and Data Mining}
+  \field{pages}{227\bibrangedash 236}
+  \field{series}{WSDM '11}
+  \field{title}{Scalable Knowledge Harvesting with High Precision and High
+  Recall}
+  \list{location}{1}{%
+    {New York, NY, USA}%
+  }
+  \field{year}{2011}
+\endentry
+
+\entry{Nakashole:2012:PTR:2390948.2391076}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Nakashole}{N.}%
+     {Ndapandula}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Weikum}{W.}%
+     {Gerhard}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Suchanek}{S.}%
+     {Fabian}{F.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Association for Computational Linguistics}%
+  }
+  \strng{namehash}{NNWGSF1}
+  \strng{fullhash}{NNWGSF1}
+  \field{sortinit}{N}
+  \field{booktitle}{Proceedings of the 2012 Joint Conference on Empirical
+  Methods in Natural Language Processing and Computational Natural Language
+  Learning}
+  \field{pages}{1135\bibrangedash 1145}
+  \field{series}{EMNLP-CoNLL '12}
+  \field{title}{PATTY: A Taxonomy of Relational Patterns with Semantic Types}
+  \list{location}{1}{%
+    {Stroudsburg, PA, USA}%
+  }
+  \field{year}{2012}
+\endentry
+
+\entry{semanticscholar}{misc}{}
+  \field{sortinit}{S}
+  \field{howpublished}{\url{http://allenai.org/semantic-scholar/}}
+  \field{note}{[Online; accessed 20-August-2016]}
+  \field{title}{{Semantic Scholar}}
+  \field{year}{2016}
+\endentry
+
+\entry{Suchanek2007}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Suchanek}{S.}%
+     {Fabian~M.}{F.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kasneci}{K.}%
+     {Gjergji}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Weikum}{W.}%
+     {Gerhard}{G.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {ACM}%
+  }
+  \keyw{WordNet, wikipedia}
+  \strng{namehash}{SFMKGWG1}
+  \strng{fullhash}{SFMKGWG1}
+  \field{sortinit}{S}
+  \field{booktitle}{Proceedings of the 16th International Conference on World
+  Wide Web}
+  \field{isbn}{978-1-59593-654-7}
+  \field{pages}{697\bibrangedash 706}
+  \field{series}{WWW '07}
+  \field{title}{Yago: A Core of Semantic Knowledge}
+  \list{location}{1}{%
+    {New York, NY, USA}%
+  }
+  \field{year}{2007}
+\endentry
+
+\entry{Surdeanu:2011:CIE:2021153.2021155}{inproceedings}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Surdeanu}{S.}%
+     {Mihai}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McClosky}{M.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Smith}{S.}%
+     {Mason~R.}{M.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gusev}{G.}%
+     {Andrey}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Manning}{M.}%
+     {Christopher~D.}{C.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Association for Computational Linguistics}%
+  }
+  \strng{namehash}{SM+1}
+  \strng{fullhash}{SMMDSMRGAMCD1}
+  \field{sortinit}{S}
+  \field{booktitle}{Proceedings of the ACL 2011 Workshop on Relational Models
+  of Semantics}
+  \field{pages}{2\bibrangedash 10}
+  \field{series}{RELMS '11}
+  \field{title}{Customizing an Information Extraction System to a New Domain}
+  \list{location}{1}{%
+    {Stroudsburg, PA, USA}%
+  }
+  \field{year}{2011}
+\endentry
+
+\entry{wiki}{misc}{}
+  \field{sortinit}{W}
+  \field{howpublished}{\url{http://www.wikipedia.org/}}
+  \field{note}{[Online; accessed 21-August-2016]}
+  \field{title}{Wikipedia, The Free Encyclopedia}
+  \field{year}{2010}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput
