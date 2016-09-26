@@ -1,6 +1,6 @@
 \documentclass[11pt,a4paper,openright]{memoir}
 % \usepackage[utf8]{inputenc}
-\usepackage{csquotes}
+\usepackage[threshold=1]{csquotes}
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{soul}
@@ -72,9 +72,37 @@
 \mainmatter
 
 \chapter{Introduction}
-A Knowledge Graph (KG), also known as the knowledge base, is a collection of the machine-readable database that contains entities, the attributes of entities and the relationships between entities \cite{google}. It is an essential foundation for many applications that requires machine understanding.
+Information extraction (IE) is the process of obtaining in an automatic fashion facts and information from unstructured text that can be read by a machine \cite{Jurafsky:2000:SLP:555733}.
 
-Popular search engines such as Google \cite{google} and Bing \cite{bing} are all leveraging Knowledge Graphs as to provide entity summary information and the related entities based on the query that the user is searching for.
+Historically, it mostly started with exercises on template filling based on raw natural text \cite{Moens:2006:IEA:1177314} as part of the Message Understanding Conferences (MUC) from the late 1980s and 1990s. As part of the MUC, competitions would take place in which a corpus would be made available of a specific domain, and different teams with different programs would try to extract the information from the natural text as to fill in the intended templates.
+
+Note the following text from a news report regarding the result of a soccer match:
+
+\blockquote{\enquote{\emph{Though Brazilian star Diego Tardelli's equaliser denied the Sky Blues victory at Jinan Olympic Sports Centre Stadium on Wednesday night, David Carney banked a precious away goal that will bode well for Graham Arnold's side when they host Shandong in next week's second round-of-16 leg. Sydney FC have taken a sizeable step towards a maiden Asian Champions League quarter-final berth after securing a 1-1 draw with Shandong Luneng in China.}}}
+
+\begin{figure}[!htbp]
+  \centering
+  \RaggedRight
+    \texttt{Team 1:\ \ \ \ \ \ \ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_} \\
+    \texttt{Team 2:\ \ \ \ \ \ \ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_} \\
+    \texttt{Winner:\ \ \ \ \ \ \ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_} \\
+    \texttt{Location:\ \ \ \ \ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_} \\
+    \texttt{Final Score:\ \ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_} \\
+  \caption[An example of template to be filled in the sports domain.]{An example of template to be filled in the sports domain.}
+  \label{fig:template_to_be_filled}
+\end{figure}
+
+An example of a task would be, to solely based on the above raw text, to fill in the template shown in Figure \ref{fig:template_to_be_filled}. The MUC competition would be based in various corpus and tasks based on varieties of news reports, such as satellite launches, plane crashes, joint ventures and other different data in these specific domains.
+
+On the above example, one can observe that the \emph{Team 1} is \emph{Sydney FC}, \emph{Team 2} is \emph{Shandong Luneng}, there was no \emph{Winner}, and consequently the \emph{Location} and the \emph{Final Score}. It gets more interesting as you observe the same type of information being delivered by a different reported:
+
+\blockquote{\enquote{\emph{SYDNEY FC take the advantage of an away goal in China, leaving the second leg of their Asian Champions League Round of 16 tie with a 1-1 draw with Shandong Luneng.}}}
+
+Although roughly similar in this case, the approach to retrieve the data from Natural Language text needs to be able to generalise to the various ways a reporter might write such information. This effort becomes more complex as one moves through different domains and audiences of a text, such as: technical manuals, academic papers from different areas, legal text, contracts, financial news, biomedical, among others.
+
+More recently, the output of such Information Extraction systems are used as to build other systems, more prominently Knowledge Graphs. A Knowledge Graph (KG), also known as the knowledge base, is a collection of the machine-readable database that contains entities, the attributes of entities and the relationships between entities \cite{google}. Information Extraction tools would harvest data form unstructured or semi-structured text and provide such databases.
+
+Popular search engines such as Google \cite{google} and Bing \cite{bing} leverage Knowledge Graphs as to provide entity summary information and the related entities based on the query that the user is searching for. It is an essential foundation for many applications that requires machine understanding.
 
 \begin{figure}[!htbp]
   \centering
@@ -85,20 +113,30 @@ Popular search engines such as Google \cite{google} and Bing \cite{bing} are all
 
 The use of Knowledge Graphs then allow users to be able to see extra information in a summarised table-like form, as to resolve their query without having to navigate to other sites. Note in the example in Figure \ref{fig:google_knowledge_graph} how the right column represents a sequence of facts of the \emph{Jimi Hendrix} entity, in this case an entity of the class (or type) \emph{person}, such as: his official website; where and when he was born; where and when he died; and a list of movies where this person is the subject of.
 
-In this project, we focus on building a domain-specific knowledge graph from research literatures. More specifically, we focus on papers from the topic of databases and attempt to extract information from these papers in order to build a knowledge graph. The first step to achieve in achieving our goal is obtaining the raw natural language text from papers n the area. Most research products such as thesis, papers, or any other report, are mostly available primarily in the Portable Document Format (PDF) format \cite{pdf} - which then needs to then be parsed into a raw text in an automated manner. Once this text is available, it is then parsed and processed into the following workflow:
+Modern pipelines for building Knowledge Graphs from raw text would then encompass several Information Extraction techniques, such as the steps shown below. Some of these techniques will be explained further as part of this document. The steps are:
 \begin{enumerate}
   \item Discover entities in the text;
   \item Discover relationships between these entities;
-  \item Design effective and efficient algorithms to extract entities and relationships;
-  \item \hl{Perform entity disambiguation and linking to a reference Knowledge Graph (e.g., Yago2 or DBPedia).}
+  \item Perform entity disambiguation
+  \item Link entities to a reference Knowledge Graph (e.g., Yago2 \cite{Suchanek2007} or DBPedia \cite{dbpedia-swj}).
   \item Improve the quality of the output via input data cleaning, robust extraction, and learning-based post-processing methods;
-  \item Presenting the facts in a graph (the Knowledge Graph).
+  \item Reason about how accurate these facts are;
+  \item Finally presenting the facts in a graph (the Knowledge Graph).
 \end{enumerate}
 
-In the next sections, this document will give some background information on the techniques needed to achieve the above (Chapter 2), and it will also define the problem more precisely (Chapter 3), building as to introduce the development of this research (Chapter 4). In Chapter 5 we will describe some of the results, followed by the some final remarks in Chapter 6.
+In this project, we focus on studying and presenting some Information Extraction techniques as to build a domain-specific verb-centric information extraction tool that extracts relations from academic papers. More specifically, we focus on papers from the topic of databases and attempt to extract information from these papers for posterior usage by other systems with applications such as:
+\begin{itemize}
+\item Allow for structured and fast search of techniques in the papers and the possible relations between them;
+\item Possibly group papers by their used techniques;
+\item Discovery of techniques to improve performance on a certain problem;
+\item Generate a hierarchy of concepts, and their use;
+\item Among others.
+\end{itemize}
+
+\hl{In the next sections, this document will give some background information on the techniques needed to achieve the above (Chapter 2), and it will also define the problem more precisely (Chapter 3), building as to introduce the development of this research (Chapter 4). In Chapter 5 we will describe some of the results, followed by the some final remarks in Chapter 6.}
 
 
-\chapter{Information Extraction from Natural Language Text}
+\chapter{Information Extraction}
 
 In this project, we focus on building a domain-specific knowledge graph for research literatures. A similar service is the Semantic Scholar \cite{semanticscholar} project by Professor Oren Etzioni from Allen Institute for AI. However, Semantic Scholar can only understand a very limited number of relationships (such as 'cite', 'comment', 'use\_data\_set', and 'has\_caption'), \hl{and it does not offer entity disambiguation (e.g., mixing all "Wei Wang"'s publication together)}.
 
@@ -154,7 +192,7 @@ WordNet is a semantically-oriented dictionary of English, similar to a tradition
 
 \section{Information Extraction}
 
-Information extraction (IE) is the process of obtaining in an automatic fashion facts and information from unstructured text that can be read by a machine \cite{Jurafsky:2000:SLP:555733}. Also according to \cite{Jurafsky:2000:SLP:555733}, the IE process is, in general, divided in the following subtasks: Named Entity Recognition (NER), Coreference Resolution, Entity Disambiguation, Relation Extraction (RE), Event Detection, Temporal Analysis. The main subtasks relevant to this report will be described further in this section.
+Also according to \cite{Jurafsky:2000:SLP:555733}, the IE process is, in general, divided in the following subtasks: Named Entity Recognition (NER), Coreference Resolution, Entity Disambiguation, Relation Extraction (RE), Event Detection, Temporal Analysis. The main subtasks relevant to this report will be described further in this section.
 
 Once the information is extracted it is then used for tasks such as Template Filling \cite{Jurafsky:2000:SLP:555733}, or stored as a Knowledge Graph for downstream logical reasoning or for further queries.
 
@@ -281,7 +319,9 @@ The linguistic data of the text is the base for features in which the classifier
 
 \hl{To be completed.}
 
-\chapter{Challenges with Academic Text}
+\chapter{Challenges and Related Work}
+
+\section{Challenges with Academic Text}
 
 Difficult to manually tag.
 
@@ -300,8 +340,20 @@ Methods:
 * Design effective postprocessing methods to improve the quality of the extraction.
 * Evaluate the entire extraction system.
 
+\section{Related Work}
+
+Other methods for relation extraction such as the ones from papers:
+
+ClausIE: Clause-Based Open Information Extraction
+
+Extreme Extraction: Only One Hour per Relation
+
+IKE - An Interactive Tool for Knowledge Extraction
+
 
 \chapter{Developed Workflow}
+
+\hl{The first step to in achieving our goal is obtaining the raw natural language text from papers in the area. Most research products such as thesis, papers, or any other report, are mostly available primarily in the Portable Document Format (PDF) format} \cite{pdf} \hl{- which then needs to then be parsed into a raw text in an automated manner.}
 
 \section{Tools}
 
@@ -309,7 +361,9 @@ Python
 
 Java
 
-BeautifulSoup
+requests
+
+BeautifulSoup4
 
 PDF extraction generates noisy output
 

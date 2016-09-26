@@ -359,6 +359,29 @@
   \field{year}{1995}
 \endentry
 
+\entry{Moens:2006:IEA:1177314}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Moens}{M.}%
+     {Marie-Francine}{M.-F.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer-Verlag New York, Inc.}%
+  }
+  \strng{namehash}{MMF1}
+  \strng{fullhash}{MMF1}
+  \field{sortinit}{M}
+  \field{isbn}{1402049870}
+  \field{title}{Information Extraction: Algorithms and Prospects in a Retrieval
+  Context (The Information Retrieval Series)}
+  \list{location}{1}{%
+    {Secaucus, NJ, USA}%
+  }
+  \field{year}{2006}
+\endentry
+
 \entry{Nakashole:2011:SKH:1935826.1935869}{inproceedings}{}
   \name{author}{3}{}{%
     {{}%
