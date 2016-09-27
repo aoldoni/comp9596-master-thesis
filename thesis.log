@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.4.28)  26 SEP 2016 22:52
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.4.28)  27 SEP 2016 23:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -970,7 +970,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ) [4
 
 ]
-Overfull \hbox (6.3694pt too wide) in paragraph at lines 81--81
+Overfull \hbox (6.3694pt too wide) in paragraph at lines 89--89
 \OT1/cmr/m/it/10.95 quarter-final berth after se-cur-ing a 1-1 draw with Shan-d
 ong Lun-eng in China.\OT1/cmr/m/n/10.95 '  
  []
@@ -982,121 +982,148 @@ ong Lun-eng in China.\OT1/cmr/m/n/10.95 '
 ]
 File: ./images/google_knowledge_graph.png Graphic file (type QTm)
  <use  "./images/google_knowledge_graph.png" > [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 129.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 139.
 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 129.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 139.
  [3] [4]
+Overfull \hbox (2.32698pt too wide) in paragraph at lines 162--163
+\OT1/cmr/m/n/10.95 per, an aca-demic form the ideas of what facts he wants to e
+x-press in his/hers 
+ []
+
+[5
+
+] [6]
+Overfull \hbox (0.22827pt too wide) in paragraph at lines 279--280
+\OT1/cmr/m/n/10.95 what are the en-tit-ies that are part of it. Once the en-tit
+y is de-tec-ted, it needs 
+ []
+
+[7] [8]
+Underfull \vbox (badness 3579) has occurred while \output is active []
+
+ [9]
+File: ./images/patty.png Graphic file (type QTm)
+
+<use  "./images/patty.png" > [10]
 Missing character: There is no ’ in font cmr10!
 
-Overfull \hbox (3.11787pt too wide) in paragraph at lines 145--146
-\OT1/cmr/m/n/10.95 provide table-like facts about an en-tity[[][]6[][]], and qu
-estion-answering sys-tems[[][]7[][]]. 
+Overfull \hbox (3.11787pt too wide) in paragraph at lines 388--389
+\OT1/cmr/m/n/10.95 provide table-like facts about an en-tity[[][]7[][]], and qu
+estion-answering sys-tems[[][]9[][]]. 
  []
 
 
-Overfull \hbox (8.74486pt too wide) in paragraph at lines 145--146
+Overfull \hbox (8.74486pt too wide) in paragraph at lines 388--389
 \OT1/cmr/m/n/10.95 Moreover, re-cent years have wit-nessed a surge in large sca
 le know-ledge graphs, 
  []
 
 
-Underfull \vbox (badness 1005) has occurred while \output is active []
-
- [5
-
-]
-File: ./images/yago_graph.png Graphic file (type QTm)
-
-<use  "./images/yago_graph.png" > [6]
-File: ./images/yago.png Graphic file (type QTm)
- <use  "./images/yago.png" >
-Overfull \hbox (0.22827pt too wide) in paragraph at lines 207--208
-\OT1/cmr/m/n/10.95 what are the en-tit-ies that are part of it. Once the en-tit
-y is de-tec-ted, it needs 
+Overfull \hbox (4.28886pt too wide) in paragraph at lines 388--389
+\OT1/cmr/m/n/10.95 such as DB-pe-dia [[][]12[][]], Free-base [[][]4[][]], Googl
+es Know-ledge Graph [[][]7[][]], and YAGO 
  []
 
-[7] [8] [9]
-File: ./images/patty.png Graphic file (type QTm)
- <use  "./images/patty.png" > [10] [11] [12
+[11]
+File: ./images/yago_graph.png Graphic file (type QTm)
+ <use  "./images/yago_graph.png" > [12]
+File: ./images/yago.png Graphic file (type QTm)
+ <use  "./images/yago.png" >
+[13] [14
 
 ]
 Missing character: There is no ﬁ in font cmr10!
- [13] [14
 
-]
+Underfull \vbox (badness 3514) has occurred while \output is active []
+
+ [15]
+[16]
 Missing character: There is no “ in font cmr10!
 Missing character: There is no ” in font cmr10!
 Missing character: There is no “ in font cmr10!
 Missing character: There is no ” in font cmr10!
 
-Overfull \hbox (13.64204pt too wide) in paragraph at lines 394--395
+Overfull \hbox (13.64204pt too wide) in paragraph at lines 561--562
 \OT1/cmr/m/n/10.95 Sunday (from Fig-ure 1) are en-coded as O O NFLTEAM NFLTEAM 
 O DATE). 
  []
 
 
-Overfull \hbox (1.29282pt too wide) in paragraph at lines 394--395
+Overfull \hbox (1.29282pt too wide) in paragraph at lines 561--562
 \OT1/cmr/m/n/10.95 tions with the same type. AS PER STAN-FORD RE-LA-TION EX-TRA
 CTOR 
  []
 
-[15] [16] [17
+[17
 
-] [18
+] [18] [19
 
-] [19] [20
+] [20
 
-] [21
+] [21] [22
+
+] [23
 
 ]
-Overfull \hbox (1.78847pt too wide) in paragraph at lines 422--422
+Overfull \hbox (0.85558pt too wide) in paragraph at lines 605--605
+[]\OT1/cmr/m/it/10.95 Microsoft Aca-demic Graph\OT1/cmr/m/n/10.95 . [][]$\OT1/c
+mtt/m/n/10.95 https : / / www . microsoft . com / cognitive -[] 
+ []
+
+
+Overfull \hbox (1.78847pt too wide) in paragraph at lines 605--605
 []\OT1/cmr/m/n/10.95 George A. Miller. `  Word-Net: A Lex-ical Data-base for En
 g-lish'. In: \OT1/cmr/m/it/10.95 Com- 
  []
 
 
-Overfull \hbox (18.33212pt too wide) in paragraph at lines 422--422
+Overfull \hbox (18.33212pt too wide) in paragraph at lines 605--605
 \OT1/cmr/m/n/10.95 caucus, NJ, USA: Springer-Verlag New York, Inc., 2006. \OT1/
 cmr/m/sc/10.95 isbn\OT1/cmr/m/n/10.95 : 1402049870.  
  []
 
 
-Overfull \hbox (14.75226pt too wide) in paragraph at lines 422--422
+Overfull \hbox (14.75226pt too wide) in paragraph at lines 605--605
 []\OT1/cmr/m/n/10.95 Ndapandula Na-kashole, Ger-hard Weikum and Fa-bian Suchane
 k. `  PATTY: 
  []
 
 
-Overfull \hbox (0.78783pt too wide) in paragraph at lines 422--422
+Overfull \hbox (0.78783pt too wide) in paragraph at lines 605--605
 \OT1/cmr/m/it/10.95 ing\OT1/cmr/m/n/10.95 . EMNLP-CoNLL '12. Strouds-burg, PA, 
 USA: As-so-ci-ation for Com- 
  []
 
-[22]
+[24] [25]
 \tf@toc=\write6
 \openout6 = `thesis.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 425.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 425.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 608.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 608.
  (./thesis.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 425.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 425.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 608.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 608.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 18789 strings out of 493724
- 280290 string characters out of 6145899
+ 18798 strings out of 493724
+ 280537 string characters out of 6145899
  519069 words of memory out of 5000000
- 21947 multiletter control sequences out of 15000+600000
+ 21956 multiletter control sequences out of 15000+600000
  10644 words of font info for 37 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 48i,12n,49p,914b,1684s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,12n,49p,914b,2333s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (26 pages).
+Output written on thesis.pdf (29 pages).

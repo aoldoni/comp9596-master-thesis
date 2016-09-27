@@ -108,6 +108,14 @@
   \field{year}{2008}
 \endentry
 
+\entry{citeseer-x}{misc}{}
+  \field{sortinit}{C}
+  \field{howpublished}{\url{http://csxstatic.ist.psu.edu/about}}
+  \field{note}{[Online; accessed 27-September-2016]}
+  \field{title}{CiteSeerX}
+  \field{year}{2016}
+\endentry
+
 \entry{Finkel:2005:INI:1219840.1219885}{inproceedings}{}
   \name{author}{3}{}{%
     {{}%
@@ -152,6 +160,14 @@
   \field{year}{2016}
 \endentry
 
+\entry{google-scholar}{misc}{}
+  \field{sortinit}{G}
+  \field{howpublished}{\url{https://scholar.google.com/intl/en/scholar/about.html}}
+  \field{note}{[Online; accessed 27-September-2016]}
+  \field{title}{Google Scholar}
+  \field{year}{2016}
+\endentry
+
 \entry{hixon-clark-hajishirzi-2015}{inproceedings}{}
   \name{author}{3}{}{%
     {{}%
@@ -184,6 +200,39 @@
   Conversational Dialog}
   \list{location}{1}{%
     {Denver, Colorado}%
+  }
+  \field{year}{2015}
+\endentry
+
+\entry{honnibal-johnson:2015:EMNLP}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Honnibal}{H.}%
+     {Matthew}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Johnson}{J.}%
+     {Mark}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Association for Computational Linguistics}%
+  }
+  \strng{namehash}{HMJM1}
+  \strng{fullhash}{HMJM1}
+  \field{sortinit}{H}
+  \field{booktitle}{Proceedings of the 2015 Conference on Empirical Methods in
+  Natural Language Processing}
+  \field{pages}{1373\bibrangedash 1378}
+  \field{title}{An Improved Non-monotonic Transition System for Dependency
+  Parsing}
+  \verb{url}
+  \verb https://aclweb.org/anthology/D/D15/D15-1162
+  \endverb
+  \list{location}{1}{%
+    {Lisbon, Portugal}%
   }
   \field{year}{2015}
 \endentry
@@ -332,6 +381,51 @@
   \field{year}{2014}
 \endentry
 
+\entry{Marcus:1993:BLA:972470.972475}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Marcus}{M.}%
+     {Mitchell~P.}{M.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Marcinkiewicz}{M.}%
+     {Mary~Ann}{M.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Santorini}{S.}%
+     {Beatrice}{B.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {MIT Press}%
+  }
+  \strng{namehash}{MMPMMASB1}
+  \strng{fullhash}{MMPMMASB1}
+  \field{sortinit}{M}
+  \field{number}{2}
+  \field{pages}{313\bibrangedash 330}
+  \field{title}{Building a Large Annotated Corpus of English: The Penn
+  Treebank}
+  \field{volume}{19}
+  \list{location}{1}{%
+    {Cambridge, MA, USA}%
+  }
+  \field{journaltitle}{Comput. Linguist.}
+  \field{month}{06}
+  \field{year}{1993}
+\endentry
+
+\entry{microsoft-academic-data}{misc}{}
+  \field{sortinit}{M}
+  \field{howpublished}{\url{https://www.microsoft.com/cognitive-services/en-us/academic-knowledge-api}}
+  \field{note}{[Online; accessed 27-September-2016]}
+  \field{title}{Microsoft Academic Graph}
+  \field{year}{2016}
+\endentry
+
 \entry{Miller:1995:WLD:219717.219748}{article}{}
   \name{author}{1}{}{%
     {{}%
@@ -463,6 +557,14 @@
   \field{year}{2016}
 \endentry
 
+\entry{spacy}{misc}{}
+  \field{sortinit}{S}
+  \field{howpublished}{\url{https://spacy.io/}}
+  \field{note}{[Online; accessed 27-September-2016]}
+  \field{title}{spaCy: Industrial-strength Natural Language Processing}
+  \field{year}{2016}
+\endentry
+
 \entry{Suchanek2007}{inproceedings}{}
   \name{author}{3}{}{%
     {{}%
@@ -543,6 +645,48 @@
     {Stroudsburg, PA, USA}%
   }
   \field{year}{2011}
+\endentry
+
+\entry{Toutanova:2003:FPT:1073445.1073478}{inproceedings}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Toutanova}{T.}%
+     {Kristina}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Klein}{K.}%
+     {Dan}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Manning}{M.}%
+     {Christopher~D.}{C.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Singer}{S.}%
+     {Yoram}{Y.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Association for Computational Linguistics}%
+  }
+  \strng{namehash}{TK+1}
+  \strng{fullhash}{TKKDMCDSY1}
+  \field{sortinit}{T}
+  \field{booktitle}{Proceedings of the 2003 Conference of the North American
+  Chapter of the Association for Computational Linguistics on Human Language
+  Technology - Volume 1}
+  \field{pages}{173\bibrangedash 180}
+  \field{series}{NAACL '03}
+  \field{title}{Feature-rich Part-of-speech Tagging with a Cyclic Dependency
+  Network}
+  \list{location}{1}{%
+    {Stroudsburg, PA, USA}%
+  }
+  \field{year}{2003}
 \endentry
 
 \entry{wiki}{misc}{}

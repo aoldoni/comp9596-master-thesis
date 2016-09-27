@@ -71,6 +71,14 @@
 
 \mainmatter
 
+
+%
+%
+% INTRODUCTION
+%
+%
+
+
 \chapter{Introduction}
 Information extraction (IE) is the process of obtaining in an automatic fashion facts and information from unstructured text that can be read by a machine \cite{Jurafsky:2000:SLP:555733}.
 
@@ -113,7 +121,7 @@ Popular search engines such as Google \cite{google} and Bing \cite{bing} leverag
 
 The use of Knowledge Graphs then allow users to be able to see extra information in a summarised table-like form, as to resolve their query without having to navigate to other sites. Note in the example in Figure \ref{fig:google_knowledge_graph} how the right column represents a sequence of facts of the \emph{Jimi Hendrix} entity, in this case an entity of the class (or type) \emph{person}, such as: his official website; where and when he was born; where and when he died; and a list of movies where this person is the subject of.
 
-Modern pipelines for building Knowledge Graphs from raw text would then encompass several Information Extraction techniques, such as the steps shown below. Some of these techniques will be explained further as part of this document. The steps are:
+Modern pipelines for building Knowledge Graphs from raw text would then encompass several Information Extraction techniques, such as the ones below:
 \begin{enumerate}
   \item Discover entities in the text;
   \item Discover relationships between these entities;
@@ -124,6 +132,8 @@ Modern pipelines for building Knowledge Graphs from raw text would then encompas
   \item Finally presenting the facts in a graph (the Knowledge Graph).
 \end{enumerate}
 
+Some of these techniques will be explained further as part of this document.
+
 In this project, we focus on studying and presenting some Information Extraction techniques as to build a domain-specific verb-centric information extraction tool that extracts relations from academic papers. More specifically, we focus on papers from the topic of databases and attempt to extract information from these papers for posterior usage by other systems with applications such as:
 \begin{itemize}
 \item Allow for structured and fast search of techniques in the papers and the possible relations between them;
@@ -133,62 +143,124 @@ In this project, we focus on studying and presenting some Information Extraction
 \item Among others.
 \end{itemize}
 
+An existing service that organises data from academic papers is the Semantic Scholar \cite{semanticscholar} project, by Professor Oren Etzioni from Allen Institute for AI. However, Semantic Scholar only understands a limited number of relationships (such as 'cite', 'comment', 'use\_data\_set', and 'has\_caption') which are also more closely related to the meta-data about the paper, but not from the knowledge that the paper itself presents. Other similar services are Microsoft Academic Graph \cite{microsoft-academic-data}, Google Scholar \cite{google-scholar}, and CiteSeerX \cite{citeseer-x}.
+
 \hl{In the next sections, this document will give some background information on the techniques needed to achieve the above (Chapter 2), and it will also define the problem more precisely (Chapter 3), building as to introduce the development of this research (Chapter 4). In Chapter 5 we will describe some of the results, followed by the some final remarks in Chapter 6.}
+
+
+%
+%
+% INFORMATION EXTRACTION
+%
+%
 
 
 \chapter{Information Extraction}
 
-In this project, we focus on building a domain-specific knowledge graph for research literatures. A similar service is the Semantic Scholar \cite{semanticscholar} project by Professor Oren Etzioni from Allen Institute for AI. However, Semantic Scholar can only understand a very limited number of relationships (such as 'cite', 'comment', 'use\_data\_set', and 'has\_caption'), \hl{and it does not offer entity disambiguation (e.g., mixing all "Wei Wang"'s publication together)}.
+Information Extraction, a term already defined in the introduction, is a hard problem which mostly relies in attempting to use a computer to understand information explicitly stated in the form of natural language.
 
-\section{Knowledge Graphs}
+It is interesting to observe that, before writing down thoughts in a paper, an academic form the ideas of what facts he wants to express in his/hers head, and then attempt a structure to most clearly state these in text form. These multiple facts, and the relations between them, are then stated in a sentence in what is assumed to be a somewhat logical format, following the semantics of the language, whether English or any other. Following this example, one must then also assume that the future reader of this paper will use the reverse process to decode this information into facts or ideas to be understood. In fact, this assumption is what justifies the attempt of Information Extraction.
 
-Knowledge Graphs contain a valuable of information in a structured format, traditionally originally mined from table-like structures form places like Wikipedia \cite{wiki} tables \cite{dbpedia-swj}. It can be used for a diverse range of applications, such as helping other systems reason about quality of harvested facts\cite{Suchanek2007}, provide table-like facts about an entity\cite{google}, and question-answering systems\cite{hixon-clark-hajishirzi-2015}. Moreover, recent years have witnessed a surge in large scale knowledge graphs, such as DBpedia \cite{dbpedia-swj}, Freebase \cite{Bollacker2008}, Google’s Knowledge Graph \cite{google}, and YAGO \cite{Suchanek2007}.
+Several initiatives in the Natural Language Processing area attempt to understand and map what these semantic rules are, and how one could use a computer for tackling natural language related tasks. These initiatives are fruitful and provide advanced tools and techniques in which some will be described in this chapter.
 
-The Knowledge Graph name follows from the data structure that is created from the facts in its final form, a graph with nodes representing entities and edges representing various relations between entities. In Figure \ref{fig:yago_knowledge_graph}, it is possible to observe an example plotted in this form. The list of possible entities classes, and allowable relations between entities is known as a schema. The schema represented in Figure \ref{fig:yago_knowledge_graph} is detailed in Table \ref{tab:max_planck}; one can observe that, as an example, \emph{Max Planck} is an entity of the type \emph{physicist}.
 
-\begin{table}[!htbp]
-  \centering
-  \RaggedRight
-    \texttt{type(A, D) :- type(A, B), subclassOf(B, C), subclassOf(C, D)} \\
-  \caption[An example of entailment.]{This entailment example allows one to assert that \texttt{type(Max Planck, person)} is also true, based on the fact tuples presented in Table \ref{tab:max_planck}.}
-  \label{tab:entailment_example_max}
-\end{table}
+%
+%
+% NATURAL LANGUAGE PROCESSING
+%
+%
 
-Moreover, based on the facts presented, entailments can be made and one trivial example is denoted in Table \ref{tab:entailment_example_max}. More complex examples of possible reasoning can be seen in \cite{Surdeanu:2011:CIE:2021153.2021155}. This is equivalent to traversing the graph from a node that represents a more specific information, to a node that represents a more general information - e.g.: another possible child node of \emph{scientist} could be the type \emph{biologist}.
 
-\begin{table}[!htbp]
-  \centering
-  \RaggedRight
-    \texttt{type(Max Planck, physicist)} \\
-    \texttt{subclassOf(physicist, scientist)} \\
-    \texttt{subclassOf(scientist, person)} \\
-    \texttt{bornIn(Max Planck, Kiel, 1858)} \\
-    \texttt{type(Kiel, city)} \\
-    \texttt{locatedIn(Kiel, Germany)} \\
-    \texttt{hasWon(Max Planck, Nobel Prize, 1919)} \\
-  \caption[Some facts regarding Max Planck.]{Some facts regarding Max Planck, also depicted in Figure \ref{fig:yago_knowledge_graph}.}
-  \label{tab:max_planck}
-\end{table}
+\section{Natural Language Processing}
 
-This example denotes a classical domain, more precisely important persons, companies, locations, and the relations between them, in which Information Extraction (IE) tools have been very successful on.
+When information is laid out in natural language form, one start by construct based on smaller pieces of information such as verbs, nouns, and adjectives which are called the constituents. These then build up to form sequences of simple and complex sentences.
+
+Observing more carefully a simple sentence, such as \emph{\enquote{The police chased him.}}, it is possible to attempt to sample the different syntactic information presented in it As a first step it is possible to dissect its constituent parts as per Figure \ref{fig:pos_tags}.
 
 \begin{figure}[!htbp]
   \centering
-    \includegraphics[width=0.6\textwidth]{./images/yago_graph}
-  \caption[An example of knowledge graph plotted with vertices and edges.]{An example of knowledge graph from \cite{Suchanek2007} plotted with vertices and edges.}
-  \label{fig:yago_knowledge_graph}
+    \texttt{The/DT police/NN chased/VBD him/PRP ./.}
+  \caption[An example of tagged sentence.]{An example of tagged sentence.}
+  \label{fig:pos_tags}
 \end{figure}
 
-As mentioned previously, YAGO \cite{Suchanek2007} is a prominent Knowledge Graph database, and possesses several advanced characteristics. Every relation in its database is annotated with its confidence value. See the example of the resulting graph in Figure \ref{fig:yago_examples}. Moreover, YAGO combines the provided taxonomy with WordNet \cite{Miller:1995:WLD:219717.219748} and with the Wikipedia category system \cite{wiki}, assigning the entities to more than 350,000 classes. This allow for very powerful querying. Finally, it attaches a temporal and a spacial dimension to many of its facts and entities, being then capable to answer questions such as \emph{when} and \emph{where} such event took place.
+The first word in the sentence, \emph{The}, is a \emph{DT} or determiner. Other possible determiners include \emph{my}, \emph{your}, \emph{his}, \emph{her}. The second word is \emph{police} is a \emph{NN} which is the tag for a singular noun. With this information we can already tell that this sentence is speaking about something, and this something is the noun \emph{police}. Subsequently the tag \emph{VBD} is presented which specifically indicates the word \emph{chased} is a verb (an action) in the past tense. At this point one can observe that something or someone (in this case the \emph{police}) did something in the past.
 
-WordNet is a semantically-oriented dictionary of English, similar to a traditional thesaurus but with a richer structure \cite{BirdKleinLoper09}. More specifically, it provides relations to synonyms, hypernyms and hyponyms, among others.
+This is already great information to have about the sentence. These tags that were added to the text in Figure \ref{fig:pos_tags} are called Part-Of-Speech tags, or POS tags \cite{Jurafsky:2000:SLP:555733}. The standardization of these tags and work to develop and tag existing text with them is done by the Penn Treebank project \cite{Marcus:1993:BLA:972470.972475}.
 
-\begin{figure}[!htbp]
+\begin{table}[!htbp]
   \centering
-    \includegraphics[width=0.6\textwidth]{./images/yago}
-  \caption[An example of patterns existants in YAGO.]{An example of patterns existants in YAGO.}
-  \label{fig:yago_examples}
-\end{figure}
+    \begin{tabular}{lll}
+      \textbf{POS tag}     & \textbf{Meaning}     & \textbf{Sample} \\
+      DT   & Determiner                            & The                     \\
+      JJ   & Adjective                             & She is \emph{tired}     \\
+      JJR  & Adjective, comparative                & That one is \emph{larger} \\
+      JJS  & Adjective, superlative                & That is the \emph{largest}     \\
+      NN   & Noun, singular or mass                & Car                     \\
+      NNS  & Noun, plural                          & Cars                    \\
+      NNP  & Proper noun, singular                 & Microsoft               \\
+      NNPS & Proper noun, plural                   & The \emph{Kennedys}            \\
+      RB   & Adverb                                & She said \emph{firmly}         \\
+      VB   & Verb, base form                       & Attack                  \\
+      VBD  & Verb, past tense                      & Attacked                \\
+      VBG  & Verb, gerund or present participle    & Attacking               \\
+      VBN  & Verb, past participle                 & Broken                  \\
+      VBP  & Verb, non-3rd person singular present & I \emph{attack}                \\
+      VBZ  & Verb, 3rd person singular present     & He \emph{attacks}               
+    \end{tabular}
+  \caption[List of some of the possible Part-Of-Speech (POS) tags.]{List of some of the possible Part-Of-Speech (POS) tags.}
+  \label{tab:pos_tags}
+\end{table}
+
+Note how specific the tags are, dictating the type of the word, a verb for an example, and its variation either in either quantity or tense. Some other examples of these tags are shown in Table \ref{tab:pos_tags}. Some systems, such as the spaCy Natural Language Processing parser \cite{honnibal-johnson:2015:EMNLP, spacy} also maps these more specific tags into more general ones, for an example, while three different words in a sentence are tagged independently as \emph{VBD}, \emph{VBG} and \emph{VBZ}, they are also tagged with a \emph{VERB} tag. This is useful, if the user is not too interested in the detail of which verb variation was used.
+
+A Part-Of-Speech Tagger is a system that, given a raw text as input, assigns parts of speech to each word (or token) and is able to produce as output the tagged version of this text. The text in Figure \ref{fig:pos_tags} was tagged using the Stanford Log-linear Part-Of-Speech Tagger \cite{Toutanova:2003:FPT:1073445.1073478}.
+
+The task of assigning these tags starts by deciding what are the tokens in a raw text sentence, and what are its sentences. The tokenizer needs to decide if a period symbol represent an abbreviation or a sentence boundary, as in case of an abbreviation it is then considered simply a token within the sentence. Another common problem in this step is deciding if a single quote is parts of a word, or is delimiting a quoted part of the sentence. The Stanford POS Tagger used in this example also contain a tokenizer, which is part of the Stanford CoreNLP \cite{manning-EtAl:2014:P14-5}, a set of natural language analysis tools.
+
+Modern POS Taggers tackle this task using a technique called Sequence Classification. A sequence classifier
+
+We present a new part-of-speech tagger that
+demonstrates the following ideas: (i) explicit
+use of both preceding and following tag contexts
+via a dependency network representation,
+(ii) broad use of lexical features, including
+jointly conditioning on multiple consecutive
+words, (iii) effective use of priors in conditional
+loglinear models, and (iv) fine-grained
+modeling of unknown word features. Using
+these ideas together, the resulting tagger gives
+a 97.24% accuracy on the Penn Treebank WSJ,
+an error reduction of 4.4% on the best previous
+single automatically learned tagging result.
+
+The linguistic data of the text is the base for features in which the classifiers for Information Extraction act on.
+
+
+
+\hl{To be completed: basic concepts?}
+
+\hl{To be completed: lemmatization.}
+
+\hl{To be completed: POS tags?}
+
+\hl{To be completed: Dependency path?}
+
+\hl{To be completed: coreference resolution?}
+
+\hl{To be completed: querying a corpus?}
+
+\hl{To be completed: sentence segmentation.}
+
+\hl{To be completed.}
+
+
+%
+%
+% INFORMATION EXTRACTION
+%
+%
+
 
 \section{Information Extraction}
 
@@ -303,25 +375,89 @@ For RMD, we implemented an additive feature se- lection algorithm similar to the
 
 \hl{To be completed: entity disambiguation?}
 
-\section{Natural Language Processing}
 
-The linguistic data of the text is the base for features in which the classifiers for Information Extraction act on.
+%
+%
+% KNOWLEDGE GRAPHS
+%
+%
 
-\hl{To be completed: basic concepts?}
 
-\hl{To be completed: POS tags?}
+\section{Knowledge Graphs}
 
-\hl{To be completed: Dependency path?}
+Knowledge Graphs contain a valuable of information in a structured format, traditionally originally mined from table-like structures form places like Wikipedia \cite{wiki} tables \cite{dbpedia-swj}. It can be used for a diverse range of applications, such as helping other systems reason about quality of harvested facts\cite{Suchanek2007}, provide table-like facts about an entity\cite{google}, and question-answering systems\cite{hixon-clark-hajishirzi-2015}. Moreover, recent years have witnessed a surge in large scale knowledge graphs, such as DBpedia \cite{dbpedia-swj}, Freebase \cite{Bollacker2008}, Google’s Knowledge Graph \cite{google}, and YAGO \cite{Suchanek2007}.
 
-\hl{To be completed: coreference resolution?}
+The Knowledge Graph name follows from the data structure that is created from the facts in its final form, a graph with nodes representing entities and edges representing various relations between entities. In Figure \ref{fig:yago_knowledge_graph}, it is possible to observe an example plotted in this form. The list of possible entities classes, and allowable relations between entities is known as a schema. The schema represented in Figure \ref{fig:yago_knowledge_graph} is detailed in Table \ref{tab:max_planck}; one can observe that, as an example, \emph{Max Planck} is an entity of the type \emph{physicist}.
 
-\hl{To be completed: querying a corpus?}
+\begin{table}[!htbp]
+  \centering
+  \RaggedRight
+    \texttt{type(A, D) :- type(A, B), subclassOf(B, C), subclassOf(C, D)} \\
+  \caption[An example of entailment.]{This entailment example allows one to assert that \texttt{type(Max Planck, person)} is also true, based on the fact tuples presented in Table \ref{tab:max_planck}.}
+  \label{tab:entailment_example_max}
+\end{table}
 
-\hl{To be completed.}
+Moreover, based on the facts presented, entailments can be made and one trivial example is denoted in Table \ref{tab:entailment_example_max}. More complex examples of possible reasoning can be seen in \cite{Surdeanu:2011:CIE:2021153.2021155}. This is equivalent to traversing the graph from a node that represents a more specific information, to a node that represents a more general information - e.g.: another possible child node of \emph{scientist} could be the type \emph{biologist}.
+
+\begin{table}[!htbp]
+  \centering
+  \RaggedRight
+    \texttt{type(Max Planck, physicist)} \\
+    \texttt{subclassOf(physicist, scientist)} \\
+    \texttt{subclassOf(scientist, person)} \\
+    \texttt{bornIn(Max Planck, Kiel, 1858)} \\
+    \texttt{type(Kiel, city)} \\
+    \texttt{locatedIn(Kiel, Germany)} \\
+    \texttt{hasWon(Max Planck, Nobel Prize, 1919)} \\
+  \caption[Some facts regarding Max Planck.]{Some facts regarding Max Planck, also depicted in Figure \ref{fig:yago_knowledge_graph}.}
+  \label{tab:max_planck}
+\end{table}
+
+This example denotes a classical domain, more precisely important persons, companies, locations, and the relations between them, in which Information Extraction (IE) tools have been very successful on.
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=0.6\textwidth]{./images/yago_graph}
+  \caption[An example of knowledge graph plotted with vertices and edges.]{An example of knowledge graph from \cite{Suchanek2007} plotted with vertices and edges.}
+  \label{fig:yago_knowledge_graph}
+\end{figure}
+
+As mentioned previously, YAGO \cite{Suchanek2007} is a prominent Knowledge Graph database, and possesses several advanced characteristics. Every relation in its database is annotated with its confidence value. See the example of the resulting graph in Figure \ref{fig:yago_examples}. Moreover, YAGO combines the provided taxonomy with WordNet \cite{Miller:1995:WLD:219717.219748} and with the Wikipedia category system \cite{wiki}, assigning the entities to more than 350,000 classes. This allow for very powerful querying. Finally, it attaches a temporal and a spacial dimension to many of its facts and entities, being then capable to answer questions such as \emph{when} and \emph{where} such event took place.
+
+WordNet is a semantically-oriented dictionary of English, similar to a traditional thesaurus but with a richer structure \cite{BirdKleinLoper09}. More specifically, it provides relations to synonyms, hypernyms and hyponyms, among others.
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=0.6\textwidth]{./images/yago}
+  \caption[An example of patterns existants in YAGO.]{An example of patterns existants in YAGO.}
+  \label{fig:yago_examples}
+\end{figure}
+
+
+%
+%
+% CHALLENGES AND RELATED WORK
+%
+%
+
 
 \chapter{Challenges and Related Work}
 
-\section{Challenges with Academic Text}
+Problem accross domains, strict language vs. creative language.
+
+Sarcasm.
+
+We are extracting explicit information, and not trying to infer implicit information. That would be a different logical problem that would need to reason about using a database of information to compare what is being learned from the natural text with.
+
+
+%
+%
+% PECULIARITIES OF ACADEMIC TEXT
+%
+%
+
+
+\section{Peculiarities with Academic Text}
 
 Difficult to manually tag.
 
@@ -340,6 +476,14 @@ Methods:
 * Design effective postprocessing methods to improve the quality of the extraction.
 * Evaluate the entire extraction system.
 
+
+%
+%
+% RELATED WORK
+%
+%
+
+
 \section{Related Work}
 
 Other methods for relation extraction such as the ones from papers:
@@ -351,9 +495,24 @@ Extreme Extraction: Only One Hour per Relation
 IKE - An Interactive Tool for Knowledge Extraction
 
 
+%
+%
+% DEVELOPED WORKFLOW
+%
+%
+
+
 \chapter{Developed Workflow}
 
 \hl{The first step to in achieving our goal is obtaining the raw natural language text from papers in the area. Most research products such as thesis, papers, or any other report, are mostly available primarily in the Portable Document Format (PDF) format} \cite{pdf} \hl{- which then needs to then be parsed into a raw text in an automated manner.}
+
+
+%
+%
+% USED TOOLS
+%
+%
+
 
 \section{Tools}
 
@@ -387,7 +546,15 @@ Tregex
 
 Graphviz
 
-\section{Developed process and new scripts}
+
+%
+%
+% DEVELOPED PROCESS AND PROGRAMS
+%
+%
+
+
+\section{Developed process and programs}
 
 We leverage on existing pipeline for NER and Relatino Extraction (Stanford) , instead of independent tools.
 
@@ -407,9 +574,25 @@ Expected Outcome:
 2. A written report about the detailed designs and implementations of this system.
 3. A seminar to present the process and outcome of this project.
 
+
+%
+%
+% RESULTS
+%
+%
+
+
 \chapter{Results}
 
-\chapter{Conclusion}
+
+%
+%
+% CONCLUSION AND FUTURE WORK
+%
+%
+
+
+\chapter{Conclusion and Future Work}
 
 Furhter ideas:
 - Research relations through time. You could have a certain feature.
