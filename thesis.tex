@@ -1,5 +1,6 @@
 \documentclass[11pt,a4paper,openright]{memoir}
 % \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[threshold=1]{csquotes}
 \usepackage{graphicx}
 \usepackage{url}
@@ -7,6 +8,9 @@
 \usepackage{multicol}
 \usepackage[document]{ragged2e}
 \usepackage[backend=bibtex,bibencoding=ascii]{biblatex}
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage{tikz-dependency}
 \addbibresource{thesis.bib} 
 
 \usepackage{unswcover} % This one includes babel in Australian mode
@@ -159,7 +163,7 @@ An existing service that organises data from academic papers is the Semantic Sch
 
 Information Extraction, a term already defined in the introduction, is a hard problem which mostly relies in attempting to use a computer to understand information explicitly stated in the form of natural language.
 
-It is interesting to observe that, before writing down thoughts in a paper, an academic form the ideas of what facts he wants to express in his/hers head, and then attempt a structure to most clearly state these in text form. These multiple facts, and the relations between them, are then stated in a sentence in what is assumed to be a somewhat logical format, following the semantics of the language, whether English or any other. Following this example, one must then also assume that the future reader of this paper will use the reverse process to decode this information into facts or ideas to be understood. In fact, this assumption is what justifies the attempt of Information Extraction.
+It is interesting to observe that, before writing down thoughts in a paper, an academic form the ideas of what facts he/she wants to express in his/hers head, and then attempt a structure to most clearly state these in text form. These multiple facts, and the relations between them, are then stated in a sentence in what is assumed to be a somewhat logical format, following the semantics of the language, whether English or any other. Following this example, one must then also assume that the future reader of this paper will use the reverse process to decode this information into facts or ideas to be understood. In fact, this assumption is what justifies the attempt of Information Extraction.
 
 Several initiatives in the Natural Language Processing area attempt to understand and map what these semantic rules are, and how one could use a computer for tackling natural language related tasks. These initiatives are fruitful and provide advanced tools and techniques in which some will be described in this chapter.
 
@@ -191,7 +195,8 @@ This is already great information to have about the sentence. These tags that we
 \begin{table}[!htbp]
   \centering
     \begin{tabular}{lll}
-      \textbf{POS tag}     & \textbf{Meaning}     & \textbf{Sample} \\
+      \textbf{POS tag}     & \textbf{Meaning}      & \textbf{Sample} \\
+      ADP  & Adpositions                           & \emph{at}, or \emph{in}        \\  
       DT   & Determiner                            & The                     \\
       JJ   & Adjective                             & She is \emph{tired}     \\
       JJR  & Adjective, comparative                & That one is \emph{larger} \\
@@ -209,50 +214,124 @@ This is already great information to have about the sentence. These tags that we
       VBZ  & Verb, 3rd person singular present     & He \emph{attacks}               
     \end{tabular}
   \caption[List of some of the possible Part-Of-Speech (POS) tags.]{List of some of the possible Part-Of-Speech (POS) tags.}
-  \label{tab:pos_tags}
+  \label{tab:pos_tags_list}
 \end{table}
 
-Note how specific the tags are, dictating the type of the word, a verb for an example, and its variation either in either quantity or tense. Some other examples of these tags are shown in Table \ref{tab:pos_tags}. Some systems, such as the spaCy Natural Language Processing parser \cite{honnibal-johnson:2015:EMNLP, spacy} also maps these more specific tags into more general ones, for an example, while three different words in a sentence are tagged independently as \emph{VBD}, \emph{VBG} and \emph{VBZ}, they are also tagged with a \emph{VERB} tag. This is useful, if the user is not too interested in the detail of which verb variation was used.
+Note how specific the tags are, dictating the type of the word, a verb for an example, and its variation either in quantity or tense. Some other examples of these tags are shown in Table \ref{tab:pos_tags_list}. Although most of them are simple to understand, note that \emph{ADP} are the adpositions, which encompasses prepositions and postpositions. Some systems, such as the spaCy Natural Language Processing parser \cite{honnibal-johnson:2015:EMNLP, spacy} also maps these more specific tags into more general ones, for an example, while three different words in a sentence are tagged independently as \emph{VBD}, \emph{VBG} and \emph{VBZ}, they are also tagged with a \emph{VERB} tag. This is useful, if the user is not too interested in the detail of which verb variation was used.
 
-A Part-Of-Speech Tagger is a system that, given a raw text as input, assigns parts of speech to each word (or token) and is able to produce as output the tagged version of this text. The text in Figure \ref{fig:pos_tags} was tagged using the Stanford Log-linear Part-Of-Speech Tagger \cite{Toutanova:2003:FPT:1073445.1073478}.
+A Part-Of-Speech Tagger is then a system that, given a raw text as input, assigns parts of speech to each word (or token) and is able to produce as output the tagged version of this text. The text in Figure \ref{fig:pos_tags} was tagged using the Stanford Log-linear Part-Of-Speech Tagger \cite{Toutanova:2003:FPT:1073445.1073478}.
 
-The task of assigning these tags starts by deciding what are the tokens in a raw text sentence, and what are its sentences. The tokenizer needs to decide if a period symbol represent an abbreviation or a sentence boundary, as in case of an abbreviation it is then considered simply a token within the sentence. Another common problem in this step is deciding if a single quote is parts of a word, or is delimiting a quoted part of the sentence. The Stanford POS Tagger used in this example also contain a tokenizer, which is part of the Stanford CoreNLP \cite{manning-EtAl:2014:P14-5}, a set of natural language analysis tools.
+\begin{table}[!htbp]
+  \centering
+    \begin{tabular}{llll}
+      \textbf{POS Tag} & \textbf{Word} & \textbf{Prev. Word} & \textbf{Prev. Tag}  \\
+      DT               & The           & <START>             & <START>             \\
+      NN               & police        & The                 & DT                  \\
+      VBD              & chased        & police              & NN                  \\
+      PRP              & him           & chased              & VBD                 \\
+      .                & .             & him                 & PRP                 \\             
+    \end{tabular}
+  \caption[Features for sequential POS tagging.]{Features for sequential POS tagging.}
+  \label{tab:pos_tags_features}
+\end{table}
 
-Modern POS Taggers tackle this task using a technique called Sequence Classification. A sequence classifier
+The task of assigning these tags starts by deciding what are the tokens in a raw text sentence, and what are its sentences. As an example, the tokenizer needs to decide if a period symbol near a word represents an abbreviation (e.g. \emph{Dr.}) or a sentence boundary - in case of an abbreviation, this period is then considered simply a token within the sentence. Another common problem in this step is deciding if a single quote is part of a word,(e.g. \emph{It's}), or is delimiting a quoted part of the sentence, thus potentially hinting other semantic meanings. The Stanford POS Tagger used in this example also contain a tokenizer, which is part of the Stanford CoreNLP \cite{manning-EtAl:2014:P14-5}, a set of natural language analysis tools.
 
-We present a new part-of-speech tagger that
-demonstrates the following ideas: (i) explicit
-use of both preceding and following tag contexts
-via a dependency network representation,
-(ii) broad use of lexical features, including
-jointly conditioning on multiple consecutive
-words, (iii) effective use of priors in conditional
-loglinear models, and (iv) fine-grained
-modeling of unknown word features. Using
-these ideas together, the resulting tagger gives
-a 97.24% accuracy on the Penn Treebank WSJ,
-an error reduction of 4.4% on the best previous
-single automatically learned tagging result.
+Modern POS Taggers tackle this task using a technique called Sequence Classification. A machine learning classifier model is then trained with a corpus of manually tagged text and has as an input certain features that might indicate which tag a token being currently analysed should be assigned with. Observing again the example from Figure \ref{fig:pos_tags}, but now presented in table format in \ref{tab:pos_tags_features}, it is easier to see how this learning algorithm would be trained to predict tags on unseen test. Note the second word \emph{police}. For this word we are providing 4 features for the learning algorithm: the manually labelled POS Tag, the word itself, the previous word and the previous POS Tag. Suppose now that this sentence in included in a bigger corpus, and this pattern is a common one and the learning algorithm is provided with a substantial amount of labelled data in which this situation repeats itself: a \emph{NN} is the second word in a setence, with \emph{The} and \emph{DT} being the previous word and tag respectively.
 
-The linguistic data of the text is the base for features in which the classifiers for Information Extraction act on.
+After the training, this model would behave in a similar fashion once presented with unseen data. Suppose now the first column on Table \ref{tab:pos_tags_features} is not presented. The model would pick the first word \emph{The} and observe the features: \emph{<START>} and \emph{<START>} respectively and given that in our previously described corpus this is a common occurrence, it would then label this word with \emph{DT}. Now, for the second word \emph{police}, the features would be \emph{The} for previous word, and \emph{DT} for previous tag. Again, it is common for a noun to be placed after a determiner so the model assigns the label \emph{NN} to the word \emph{police}. The features used by the Sequence Classifies both while training and when using the model may vary and they impact the quality of the predictions it makes. The Stanford POS Tagger uses a broad use of lexical features, including jointly conditioning on multiple consecutive words \cite{Toutanova:2003:FPT:1073445.1073478}.
+
+A helpful concept at this stage is known as the lemma. A lemma is a canonical way of representing a word which strips out variations for quantity, tense, among others \cite{Jurafsky:2000:SLP:555733}. For an example, given the words \emph{running} or \emph{runs}, NLTK \cite{BirdKleinLoper09} outputs \emph{run} as their lemma. The lemma can, for an example, be used together or instead of the existing features for training models.
+
+\begin{figure}[!htbp]
+  \centering
+    \texttt{Jetstar/NNP Airways/NNPS ,/PUNC a/DET unit/NN of/ADP Qantas/NNP Airways/NNP Limited/NNP}
+  \caption[An example of another tagged sentence.]{An example of another tagged sentence.}
+  \label{fig:pos_tags_2}
+\end{figure}
+
+When reading a text, it is also important to understand the relation between the words or sub-sentences that are contained in the phrase, and this is specially useful for information extraction. As an example, suppose the sentence \emph{\enquote{Jetstar Airways, a unit of Qantas Airways Limited}}. There are different ways of breaking down the relationship of the words in this sentence. 
+
+Starting again with the POS tagging discussed earlier, one can see in \ref{fig:pos_tags_2} what are the types of the words that constitutes this sentence. As a further step, it's possible to see what are the sub-sentences or parts that form the phrase structure. The sub-sentences are connected upwards to one head (also called, \emph{parent}), and downwards to one or more governors (also called \emph{dependants}, or \emph{children}), in a recursive structure.  In \ref{fig:sub_sentences_phrase_structure}, the phrase \emph{of Qantas Airways Limited}, which is part of the bigger phrase we are using as an example, is a prepositional phrase. A prepositional phrase lacks either a verb or a subject, and serve to assert binary relations between their heads and the constituents to which they are attached, in this case \emph{a unit} \cite{Jurafsky:2000:SLP:555733}. The sub-sentence \emph{a unit of Qantas Airways Limited} is then a noun phrase, since it contains and talks about a noun \emph{unit}.
+
+\begin{figure}[!htbp]
+  \centering
+\Tree[.NP [.NP [.NNP \textit{Jetstar} ]
+               [.NNPS \textit{Airways} ]]
+          [.PUNC [., ]]
+          [.NP [.NP [.DT \textit{a}    ]
+                    [.NN \textit{unit} ]]
+               [.PP [.IN \textit{of}    ]
+                    [.NP [.NNP \textit{Qantas} ]
+                         [.NNP \textit{Airways} ]
+                         [.NNP \textit{Limited} ]]]]]
+  \caption[A sentence and its components.]{A sentence broken down to its Phrase Structure (sub-sentences).}
+  \label{fig:sub_sentences_phrase_structure}
+\end{figure}
+
+After discovering the structure between the phrases and its sub-phrases, finding the syntactical dependency between words themselves is also a very interesting and useful task. Continuing on the same example, one can see how the sentence states the simple fact that one company (\emph{Jetstar}) is a unit of another company (\emph{Qantas}). The dependency tree in this case tells us that \emph{Jetstar/NN} is the head of another noun \emph{Airways} and that the relation between them is of the \emph{compound} type. This relation is held between any noun that serves to modify the head noun and in this case indicate that this single entity is formed by two different words that are nouns. Note that \emph{Jetstar} has no parents and thus is the root of the sentence. The dependencies can be fully viewed is Figure \ref{fig:sub_sentences_dependency}.
+
+The next relation is the \emph{appos} from \emph{Airways} to \emph{unit}. The appositional modifier relation indicates that the noun  immediately to the right of the first noun that serves to define or modify the meaning of the former. One now already knows that \emph{Jetstar Airways} is a \emph{unit}, and, in the business context, it probably means that it is a company that belongs to a bigger company.
+
+\begin{figure}[!htbp]
+  \centering
+\begin{dependency}[theme = simple]
+   \begin{deptext}[column sep=1em]
+      Jetstar \& Airways \& , \& a \& unit \& of \& Qantas \& Airways \& Limited \\
+   \end{deptext}
+   \deproot{1}{ROOT}
+   \depedge{2}{1}{compound}
+   \depedge{2}{5}{appos}
+   \depedge{5}{4}{det}
+   \depedge{5}{6}{prep}
+   \depedge[edge start x offset=+2pt]{6}{9}{pobj}
+   \depedge{9}{7}{compound}
+   \depedge[arc angle=50]{9}{8}{compound}
+\end{dependency}
+  \caption[A sentence and the dependencies between the words.]{A sentence and the dependencies between the words.}
+  \label{fig:sub_sentences_dependency}
+\end{figure}
+
+The next relation is of the \emph{prep} type and it indicates a prepositional modifier of a verb, adjective, or noun (our case), and it serves to modify the meaning of the verb, adjective, noun, or even another preposition. Note that this relatin simply indicates the word that is the preposition (in this case \emph{of}). The next relation, \emph{pobj},  indicates the object of a preposition and the noun phrase following the preposition. This tree was created by the spaCy dependency parser \cite{honnibal-johnson:2015:EMNLP, spacy}. The explanations for the relations were obtained from \cite{Marneffe08stanfordtyped}, which is the reference for and a full lists of possible relations and their meanings. This same tree can be visualised in a more traditional tree structure in Figure \ref{fig:sub_sentences_dependency_tree}.
+
+\begin{figure}[!htbp]
+  \centering
+
+\Tree[.\textit{Jetstar} \edge node[auto=right] {compound};
+		[.\textit{Airways} \edge node[auto=right] {appos};
+			[.\textit{unit} 
+				 \edge node[auto=right] {det}; [.\textit{a} ]
+				  \edge node[auto=left] {prep}; [.\textit{of}
+				  	\edge node[auto=left] {pobj}; [.\textit{Limited}
+				  		\edge node[auto=right] {compound}; [.\textit{Airways} ]
+				  		\edge node[auto=left] {compound}; [.\textit{Qantas} ] ] ] ] ] ]
+
+  \caption[A sentence and the dependency tree, showing the syntactical relation between these words.]{A sentence and the dependency tree, showing the syntactical relation between these words.}
+  \label{fig:sub_sentences_dependency_tree}
+\end{figure}
+
+The software that is able to output a syntactical dependency tree, given a sentence, is called a dependency parser. Several different methods can be used to achieve this. One way is by defining dependency grammars, and then parsing text using these grammar. The grammar would contain words and its possible heads, and it would be applied repeatedly into the text in a process called cascaded chunking \cite{BirdKleinLoper09}. More recent methods use a process called Shift-reduce, in which the sentence is kept in a queue with the left-most token in front of the queue. The model could then decide between applying 3 operations:
+\begin{enumerate}
+  \item Shift: move one token from queue to stack.
+  \item Reduce left: top word on stack is head of second word.
+  \item Reduce right: second word on stack is head of top word.
+\end{enumerate}
+
+A model is then trained to predict, given a text that is added to the queue, what is the next move that it should take, and what is the sequence of moves that will result in the best possible final dependency tree. This is done in a monotonic manner, in the sense that once a decision is made by the model, it cannot change it. Full working examples of this method are described in \cite{chen-manning:2014:EMNLP2014}.
+
+Other methods also use these 3 possible decisions, but allow the parser to be non-monotonic and go back in the tree and change previous decisions given new evidence form the features, such as spaCy and its dependency parser \cite{honnibal-johnson:2015:EMNLP, spacy}. Another method also uses the same set of decisions, but does a beam-search observing multiple partial hypotheses and keeping them at each step, with hypotheses only being discarded when there are several other higher-ranked hypotheses under consideration, such as the Syntaxnet parser \cite{google-syntaxnet, DBLP:journals/corr/AndorAWSPGPC16}. All these cited models use neural networks as the method to form the model.
 
 
+\hl{To be completed: Coreference resolution?}
 
-\hl{To be completed: basic concepts?}
+\hl{To be completed: Querying a corpus?}
 
-\hl{To be completed: lemmatization.}
+\hl{To be completed: Sentence segmentation.}
 
-\hl{To be completed: POS tags?}
+\hl{To be completed: Noun chunk.}
 
-\hl{To be completed: Dependency path?}
+All this linguistic data that can be obtained from the text is then the base for several features in which the classifiers for Information Extraction act on.
 
-\hl{To be completed: coreference resolution?}
-
-\hl{To be completed: querying a corpus?}
-
-\hl{To be completed: sentence segmentation.}
-
-\hl{To be completed.}
 
 
 %

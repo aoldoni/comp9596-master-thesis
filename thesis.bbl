@@ -24,6 +24,58 @@
   \field{year}{2016}
 \endentry
 
+\entry{DBLP:journals/corr/AndorAWSPGPC16}{article}{}
+  \name{author}{8}{}{%
+    {{}%
+     {Andor}{A.}%
+     {Daniel}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Alberti}{A.}%
+     {Chris}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Weiss}{W.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Severyn}{S.}%
+     {Aliaksei}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Presta}{P.}%
+     {Alessandro}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ganchev}{G.}%
+     {Kuzman}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Petrov}{P.}%
+     {Slav}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Collins}{C.}%
+     {Michael}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{AD+1}
+  \strng{fullhash}{ADACWDSAPAGKPSCM1}
+  \field{sortinit}{A}
+  \field{title}{Globally Normalized Transition-Based Neural Networks}
+  \field{volume}{abs/1603.06042}
+  \field{journaltitle}{CoRR}
+  \field{year}{2016}
+\endentry
+
 \entry{bing}{misc}{}
   \field{sortinit}{B}
   \field{howpublished}{\url{https://www.bing.com/partners/knowledgegraph}}
@@ -108,12 +160,61 @@
   \field{year}{2008}
 \endentry
 
+\entry{chen-manning:2014:EMNLP2014}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Chen}{C.}%
+     {Danqi}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Manning}{M.}%
+     {Christopher}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Association for Computational Linguistics}%
+  }
+  \strng{namehash}{CDMC1}
+  \strng{fullhash}{CDMC1}
+  \field{sortinit}{C}
+  \field{booktitle}{Proceedings of the 2014 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}
+  \field{pages}{740\bibrangedash 750}
+  \field{title}{A Fast and Accurate Dependency Parser using Neural Networks}
+  \list{location}{1}{%
+    {Doha, Qatar}%
+  }
+  \field{year}{2014}
+\endentry
+
 \entry{citeseer-x}{misc}{}
   \field{sortinit}{C}
   \field{howpublished}{\url{http://csxstatic.ist.psu.edu/about}}
   \field{note}{[Online; accessed 27-September-2016]}
   \field{title}{CiteSeerX}
   \field{year}{2016}
+\endentry
+
+\entry{Marneffe08stanfordtyped}{misc}{}
+  \name{author}{2}{}{%
+    {{}%
+     {De~Marneffe}{D.~M.}%
+     {Marie}{M.}%
+     {catherine}{c.}%
+     {}{}}%
+    {{}%
+     {Manning}{M.}%
+     {Christopher~D.}{C.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DMMcMCD1}
+  \strng{fullhash}{DMMcMCD1}
+  \field{sortinit}{D}
+  \field{title}{Stanford typed dependencies manual}
+  \field{year}{2008}
 \endentry
 
 \entry{Finkel:2005:INI:1219840.1219885}{inproceedings}{}
@@ -645,6 +746,14 @@
     {Stroudsburg, PA, USA}%
   }
   \field{year}{2011}
+\endentry
+
+\entry{google-syntaxnet}{misc}{}
+  \field{sortinit}{S}
+  \field{howpublished}{\url{https://github.com/tensorflow/models/tree/master/syntaxnet}}
+  \field{note}{[Online; accessed 01-October-2016]}
+  \field{title}{SyntaxNet: Neural Models of Syntax}
+  \field{year}{2016}
 \endentry
 
 \entry{Toutanova:2003:FPT:1073445.1073478}{inproceedings}{}
