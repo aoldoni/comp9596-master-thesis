@@ -177,7 +177,9 @@ Several initiatives in the Natural Language Processing area attempt to understan
 
 \section{Natural Language Processing}
 
-When information is laid out in natural language form, one start by construct based on smaller pieces of information such as verbs, nouns, and adjectives which are called the constituents. These then build up to form sequences of simple and complex sentences.
+\emph{Natural Language Processing} (or \emph{NLP}) can be a term used to discuss any kind of computer manipulation of natural language text, also called raw text. It can mean simple things such as counting words and obtain their frequency distribution to compare different writing styles, or in a more complex sense it would require the understanding of human writings, to the extent of being able to extract information and meaning from it, or also give useful responses to them \cite{BirdKleinLoper09}. On this more complex end of the spectrum, where one wants to understand raw text, language technology and existing tools rely on formal models, or representations, of knowledge of language at the levels of morphology, syntax, semantics, among others linguistic concepts. A number of formal models including state machines, formal rule systems, logic, and probabilistic models are used to capture this knowledge from text and reason with it \cite{Jurafsky:2000:SLP:555733}.
+
+When information is laid out in natural language form, one start the analysis of the information presented by constructing a phrase or sentence based on smaller pieces of information such as verbs, nouns, and adjectives which are called the constituents. These then build up to form sequences of simple and complex sentences.
 
 Observing more carefully a simple sentence, such as \emph{\enquote{The police chased him.}}, it is possible to attempt to sample the different syntactic information presented in it As a first step it is possible to dissect its constituent parts as per Figure \ref{fig:pos_tags}.
 
@@ -197,6 +199,7 @@ This is already great information to have about the sentence. These tags that we
     \begin{tabular}{lll}
       \textbf{POS tag}     & \textbf{Meaning}      & \textbf{Sample} \\
       ADP  & Adpositions                           & \emph{at}, or \emph{in}        \\  
+      CONJ & Coordinating conjunction              & \emph{and}, or \emph{or} \\
       DT   & Determiner                            & The                     \\
       JJ   & Adjective                             & She is \emph{tired}     \\
       JJR  & Adjective, comparative                & That one is \emph{larger} \\
@@ -252,7 +255,7 @@ A helpful concept at this stage is known as the lemma. A lemma is a canonical wa
 
 When reading a text, it is also important to understand the relation between the words or sub-sentences that are contained in the phrase, and this is specially useful for information extraction. As an example, suppose the sentence \emph{\enquote{Jetstar Airways, a unit of Qantas Airways Limited}}. There are different ways of breaking down the relationship of the words in this sentence. 
 
-Starting again with the POS tagging discussed earlier, one can see in \ref{fig:pos_tags_2} what are the types of the words that constitutes this sentence. As a further step, it's possible to see what are the sub-sentences or parts that form the phrase structure. The sub-sentences are connected upwards to one head (also called, \emph{parent}), and downwards to one or more governors (also called \emph{dependants}, or \emph{children}), in a recursive structure.  In \ref{fig:sub_sentences_phrase_structure}, the phrase \emph{of Qantas Airways Limited}, which is part of the bigger phrase we are using as an example, is a prepositional phrase. A prepositional phrase lacks either a verb or a subject, and serve to assert binary relations between their heads and the constituents to which they are attached, in this case \emph{a unit} \cite{Jurafsky:2000:SLP:555733}. The sub-sentence \emph{a unit of Qantas Airways Limited} is then a noun phrase, since it contains and talks about a noun \emph{unit}.
+Starting again with the POS tagging discussed earlier, one can see in \ref{fig:pos_tags_2} what are the types of the words that constitutes this sentence. As a further step, it's possible to see what are the sub-sentences or parts that form the phrase structure. The sub-sentences are connected upwards to one head (also called, \emph{parent}), and downwards to one or more governors (also called \emph{dependants}, or \emph{children}), in a recursive structure.  In Figure \ref{fig:sub_sentences_phrase_structure}, the phrase \emph{of Qantas Airways Limited}, which is part of the bigger phrase we are using as an example, is a prepositional phrase. A prepositional phrase lacks either a verb or a subject, and serve to assert binary relations between their heads and the constituents to which they are attached, in this case \emph{a unit} \cite{Jurafsky:2000:SLP:555733}. The sub-sentence \emph{a unit of Qantas Airways Limited} is then a noun phrase, since it contains and talks about a noun \emph{unit}.
 
 \begin{figure}[!htbp]
   \centering
@@ -292,7 +295,7 @@ The next relation is the \emph{appos} from \emph{Airways} to \emph{unit}. The ap
   \label{fig:sub_sentences_dependency}
 \end{figure}
 
-The next relation is of the \emph{prep} type and it indicates a prepositional modifier of a verb, adjective, or noun (our case), and it serves to modify the meaning of the verb, adjective, noun, or even another preposition. Note that this relatin simply indicates the word that is the preposition (in this case \emph{of}). The next relation, \emph{pobj},  indicates the object of a preposition and the noun phrase following the preposition. This tree was created by the spaCy dependency parser \cite{honnibal-johnson:2015:EMNLP, spacy}. The explanations for the relations were obtained from \cite{Marneffe08stanfordtyped}, which is the reference for and a full lists of possible relations and their meanings. This same tree can be visualised in a more traditional tree structure in Figure \ref{fig:sub_sentences_dependency_tree}.
+Continuing the analysis, the next relation is of the \emph{prep} type and it indicates a prepositional modifier of a verb, adjective, or noun (our case), and it serves to modify the meaning of the verb, adjective, noun, or even another preposition. Note that this relation simply indicates the word pointed to by the edge is the preposition (in this case \emph{of}). The next relation, \emph{pobj}, indicates the actual object of the preposition and the noun phrase following the preposition and what it related to. This tree was created by the spaCy dependency parser \cite{honnibal-johnson:2015:EMNLP, spacy}. This same tree can be visualised in a more traditional tree structure in Figure \ref{fig:sub_sentences_dependency_tree}. Although not in this example, another very common relation is the relative clause modifier \emph{recmod} (or \emph{relcl} in some notations) relation. A relative clause modifier of an NP (\emph{Noun Phrase}) is a relative clause modifying the NP. The relation then in the tree points from the head noun of the NP to the head of the relative clause, normally a verb. The explanations for the cited relations in this document were obtained from the Stanford typed dependencies manual \cite{Marneffe08stanfordtyped}, and the Universal Dependencies (UD) project \cite{universal-dependencies-11234/1-1699}, both which are reference for the possible relation and contain a full lists of their meanings.
 
 \begin{figure}[!htbp]
   \centering
@@ -312,26 +315,36 @@ The next relation is of the \emph{prep} type and it indicates a prepositional mo
 
 The software that is able to output a syntactical dependency tree, given a sentence, is called a dependency parser. Several different methods can be used to achieve this. One way is by defining dependency grammars, and then parsing text using these grammar. The grammar would contain words and its possible heads, and it would be applied repeatedly into the text in a process called cascaded chunking \cite{BirdKleinLoper09}. More recent methods use a process called Shift-reduce, in which the sentence is kept in a queue with the left-most token in front of the queue. The model could then decide between applying 3 operations:
 \begin{enumerate}
-  \item Shift: move one token from queue to stack.
+  \item Shift: move one token from the queue to stack.
   \item Reduce left: top word on stack is head of second word.
   \item Reduce right: second word on stack is head of top word.
 \end{enumerate}
 
-A model is then trained to predict, given a text that is added to the queue, what is the next move that it should take, and what is the sequence of moves that will result in the best possible final dependency tree. This is done in a monotonic manner, in the sense that once a decision is made by the model, it cannot change it. Full working examples of this method are described in \cite{chen-manning:2014:EMNLP2014}.
+A model is then trained to predict, given a text that is added to the queue, what is the next move that it should take, and what is the sequence of moves that will result in the best possible final dependency tree. This is done in a monotonic manner, in the sense that once a decision is made by the model, it cannot change it. Full working examples of this method are described in \cite{chen-manning:2014:EMNLP2014}. Other methods also use these 3 possible decisions, but allow the parser to be non-monotonic and go back in the tree and change previous decisions given new evidence form the features, such as spaCy and its dependency parser \cite{honnibal-johnson:2015:EMNLP, spacy}. Another method also uses the same set of decisions, but does a beam-search observing multiple partial hypotheses and keeping them at each step, with hypotheses only being discarded when there are several other higher-ranked hypotheses under consideration, such as the Syntaxnet parser \cite{google-syntaxnet, DBLP:journals/corr/AndorAWSPGPC16}. All these cited models use neural networks as the method to form the model.
 
-Other methods also use these 3 possible decisions, but allow the parser to be non-monotonic and go back in the tree and change previous decisions given new evidence form the features, such as spaCy and its dependency parser \cite{honnibal-johnson:2015:EMNLP, spacy}. Another method also uses the same set of decisions, but does a beam-search observing multiple partial hypotheses and keeping them at each step, with hypotheses only being discarded when there are several other higher-ranked hypotheses under consideration, such as the Syntaxnet parser \cite{google-syntaxnet, DBLP:journals/corr/AndorAWSPGPC16}. All these cited models use neural networks as the method to form the model.
+As a further example, besides providing dependency parsing tree, spaCy also provides an iterator so you can obtain what is called the noun chunks of the document. The noun chunks are smaller pieces of the sentences within the document that are base noun phrases, or a 'NP chunk' (as per Figure \ref{fig:sub_sentences_phrase_structure}). They are noun phrases that do not permit other NPs to be nested within it – so no NP-level coordination (e.g.: \emph{\enquote{cat/NN and/CONJ dog/NN}}), no prepositional phrases, and no relative clauses \cite{spacy}.
 
+Other problems tackled by the Natural Language Processing discipline and that are relevant for Information Extraction are \emph{Coreference resolution} and \emph{pronominal anaphora resolution}. Coreference resolution intends to define all possible entities that a text can reference to in some sort of definitive list, or more precisely a \emph{discourse model}, find in the text all the chained references to these entities, and link them to the specific entities. While very similar in nature, pronominal anaphora resolution is more simple as it is the problem of resolving in a given sentence to which previous NN (noun) or NNP (proper noun) a single PRP (pronoun) refers to \cite{Jurafsky:2000:SLP:555733}.
 
-\hl{To be completed: Coreference resolution?}
+Take for an example the sentence \emph{\enquote{John is a quiet guy, but today he is furious.}}, the initial mention of the entity \emph{John} appears in the first token. Token 5 talks about a \emph{guy}, which although not a pronoun, is still a reference to the previous entity in the first word. The ninth token is a pronoun and again refers to the same \emph{John}, so is part of the chain of mentions. The full resolution chain would be denoted in Figure \ref{fig:sub_sentences_coreference}.
 
-\hl{To be completed: Querying a corpus?}
+Normally these systems work towards analysing pairs of tokens using a probabilistic model, and then decide how likely they are references for the same entity. More recent approaches also group possible tokens in a cluster and use cluster-level features to determine the chains of coreferences \cite{clark2015entity}. The tool used to extract is the Stanford Coreference Resolution annotator \cite{clark2015entity}, which is part of the latter group of tools that use cluster level features. This annotator is also part of the CoreNLP toolset \cite{manning-EtAl:2014:P14-5}.
 
-\hl{To be completed: Sentence segmentation.}
+\begin{figure}[!htbp]
+  \centering
+\begin{dependency}[theme = simple]
+   \begin{deptext}[column sep=1em]
+      John \& is \& a \& quiet \& guy \& , \& but \& today \& he \& is \& furious \& . \\
+   \end{deptext}
+   \deproot{1}{mention}
+   \depedge{9}{5}{coref}
+   \depedge{5}{1}{coref}
+\end{dependency}
+  \caption[A sentence, the mentions of an entity, and the proposed coreference resolutions.]{A sentence, the mentions of an entity, and the proposed coreference resolutions.}
+  \label{fig:sub_sentences_coreference}
+\end{figure}
 
-\hl{To be completed: Noun chunk.}
-
-All this linguistic data that can be obtained from the text is then the base for several features in which the classifiers for Information Extraction act on.
-
+All linguistic data mentioned in this section is data that can be obtained from the raw text itself, and is then the base for several features in which the classifiers for Information Extraction act on.
 
 
 %
@@ -612,6 +625,8 @@ Brat
 standoff2conll
 
 corpkit
+
+\hl{To be completed: Querying a corpus? How to check for similar words statistically, etc}
 
 corenlp-xml
 

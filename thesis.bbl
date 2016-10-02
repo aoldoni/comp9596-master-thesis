@@ -149,7 +149,6 @@
   \field{sortinit}{B}
   \field{booktitle}{Proceedings of the 2008 ACM SIGMOD International Conference
   on Management of Data}
-  \field{isbn}{978-1-60558-102-6}
   \field{pages}{1247\bibrangedash 1250}
   \field{series}{SIGMOD '08}
   \field{title}{Freebase: A Collaboratively Created Graph Database for
@@ -195,6 +194,27 @@
   \field{note}{[Online; accessed 27-September-2016]}
   \field{title}{CiteSeerX}
   \field{year}{2016}
+\endentry
+
+\entry{clark2015entity}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Clark}{C.}%
+     {Kevin}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Manning}{M.}%
+     {Christopher~D.}{C.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CKMCD1}
+  \strng{fullhash}{CKMCD1}
+  \field{sortinit}{C}
+  \field{booktitle}{Association for Computational Linguistics (ACL)}
+  \field{title}{Entity-Centric Coreference Resolution with Model Stacking}
+  \field{year}{2015}
 \endentry
 
 \entry{Marneffe08stanfordtyped}{misc}{}
@@ -358,7 +378,6 @@
   \strng{fullhash}{JDMJH1}
   \field{sortinit}{J}
   \field{edition}{1st}
-  \field{isbn}{0130950696}
   \field{title}{Speech and Language Processing: An Introduction to Natural
   Language Processing, Computational Linguistics, and Speech Recognition}
   \list{location}{1}{%
@@ -568,7 +587,6 @@
   \strng{namehash}{MMF1}
   \strng{fullhash}{MMF1}
   \field{sortinit}{M}
-  \field{isbn}{1402049870}
   \field{title}{Information Extraction: Algorithms and Prospects in a Retrieval
   Context (The Information Retrieval Series)}
   \list{location}{1}{%
@@ -650,6 +668,79 @@
   \field{year}{2012}
 \endentry
 
+\entry{universal-dependencies-11234/1-1699}{misc}{}
+  \name{author}{12}{}{%
+    {{}%
+     {Nivre}{N.}%
+     {Joakim}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ginter}{G.}%
+     {Filip}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pyysalo}{P.}%
+     {Sampo}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dan~Zeman}{D.~Z.}%
+     {Marie de~Marneffe}{M.~d.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Goldberg}{G.}%
+     {Yoav}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hajic}{H.}%
+     {Jan}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Manning}{M.}%
+     {Chris}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McDonald}{M.}%
+     {Ryan}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Petrov}{P.}%
+     {Slav}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Silveira}{S.}%
+     {Natalia}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tsarfaty}{T.}%
+     {Reut}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zeman}{Z.}%
+     {Dan}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{NJ+1}
+  \strng{fullhash}{NJGFPSDZMdMGYHJMCMRPSSNTRZD1}
+  \field{sortinit}{N}
+  \field{howpublished}{\url{http://universaldependencies.org/}}
+  \field{note}{{LINDAT}/{CLARIN} digital library at the Institute of Formal and
+  Applied Linguistics, Charles University in Prague}
+  \field{title}{Universal Dependencies 1.3}
+  \field{year}{2016}
+\endentry
+
 \entry{semanticscholar}{misc}{}
   \field{sortinit}{S}
   \field{howpublished}{\url{http://allenai.org/semantic-scholar/}}
@@ -693,7 +784,6 @@
   \field{sortinit}{S}
   \field{booktitle}{Proceedings of the 16th International Conference on World
   Wide Web}
-  \field{isbn}{978-1-59593-654-7}
   \field{pages}{697\bibrangedash 706}
   \field{series}{WWW '07}
   \field{title}{Yago: A Core of Semantic Knowledge}
