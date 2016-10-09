@@ -1,0 +1,22 @@
+<relation id="RelationMention-6728">Uses
+  <arguments>
+    <entity id="EntityMention-1324">O
+      <span start="46" end="47"/>
+      <probabilities/>
+    </entity>
+    <entity id="EntityMention-1319">CONCEPT
+      <span start="36" end="37"/>
+      <probabilities/>
+    </entity>
+  </arguments>
+  <probabilities>
+    <probability>
+      <label>Uses</label>
+      <value>0.7379587661527921</value>
+    </probability>
+    <probability>
+      <label>Improves</label>
+      <value>0.06475441029357998</value>
+    </probability>
+  </probabilities>
+</relation>

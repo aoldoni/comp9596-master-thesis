@@ -1,35 +1,57 @@
 \documentclass[11pt,a4paper,openright]{memoir}
-% \usepackage[utf8]{inputenc}
+
+% font encoding
 \usepackage[T1]{fontenc}
+
+% being able to quote
 \usepackage[threshold=1]{csquotes}
+
+% being able to use images
 \usepackage{graphicx}
-\usepackage{url}
+
+% columns hyphenation spacing
 \usepackage{soul}
 \usepackage{multicol}
 \usepackage[document]{ragged2e}
+
+% bibtex
 \usepackage[backend=bibtex,bibencoding=ascii]{biblatex}
+\usepackage{url}
+
+% tables and NLP
 \usepackage{tikz}
 \usepackage{tikz-qtree}
 \usepackage{tikz-dependency}
+
+% graphs
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.12}
+
+% use xml
+\usepackage{listings}
+
+% This one includes babel in Australian mode
+\usepackage{unswcover} 
+
+% Include bibliography
 \addbibresource{thesis.bib} 
 
-\usepackage{unswcover} % This one includes babel in Australian mode
+% TOC configuration
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\setsecnumdepth{subsection}
 
 \newcommand{\theTitle}{Knowledge graph construction for research literatures}
 \newcommand{\theAuthor}{Alisson Oldoni}
-\newcommand{\theKeywords}{natural language processing, information extraction, name entity recognition, relationship extraction}
+\newcommand{\theKeywords}{natural language processing, information extraction, named entity recognition, relationship extraction}
+
+%unicode package
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue, pdftitle={\theTitle}, pdfauthor={\theAuthor}, pdfkeywords={\theKeywords}}
 
 \unswschool{School of Computer Science and Engineering\\}
 %% PhD is the default
 \unswdegree{Master of Computing and Information Technology}
-%\unswcotutelle{Dép. Mathématiques et Systèmes---Centre de Robotique\\
-% École Nationale Supérieure des Mines--ParisTech, France}
-%% Needed for final submission
-%\unswdissertationsheet{unsw_thesis_dissertation_sheet.pdf}
-
-\usepackage[unicode]{hyperref}
-\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue,
-  pdftitle={\theTitle}, pdfauthor={\theAuthor}, pdfkeywords={\theKeywords}}
 
 \title{\theTitle}
 \author{\theAuthor}
@@ -38,9 +60,9 @@
 %\date{\today (document compilation)}
 %% By forcing the date as follows, we let Babel do its job of formatting it
 %% properly
-\renewcommand\day{14}
-\renewcommand\month{12}
-\renewcommand\year{2011}
+\renewcommand\day{01}
+\renewcommand\month{11}
+\renewcommand\year{2016}
 
 \begin{document}
 \setlength\parindent{24pt}
@@ -123,7 +145,7 @@ Popular search engines such as Google \cite{google} and Bing \cite{bing} leverag
   \label{fig:google_knowledge_graph}
 \end{figure}
 
-The use of Knowledge Graphs then allow users to be able to see extra information in a summarised table-like form, as to resolve their query without having to navigate to other sites. Note in the example in Figure \ref{fig:google_knowledge_graph} how the right column represents a sequence of facts of the \emph{Jimi Hendrix} entity, in this case an entity of the class (or type) \emph{person}, such as: his official website; where and when he was born; where and when he died; and a list of movies where this person is the subject of.
+The use of Knowledge Graphs then allow users to be able to see extra information in a summarised table-like form, as to resolve their query without having to navigate to other sites. Note in the example in Figure \ref{fig:google_knowledge_graph} how the right column represents a sequence of facts of the \emph{\enquote{Jimi Hendrix}} entity, in this case an entity of the class (or type) \emph{PERSON}, such as: his official website; where and when he was born; where and when he died; and a list of movies where this person is the subject of.
 
 Modern pipelines for building Knowledge Graphs from raw text would then encompass several Information Extraction techniques, such as the ones below:
 \begin{enumerate}
@@ -140,11 +162,11 @@ Some of these techniques will be explained further as part of this document.
 
 In this project, we focus on studying and presenting some Information Extraction techniques as to build a domain-specific verb-centric information extraction tool that extracts relations from academic papers. More specifically, we focus on papers from the topic of databases and attempt to extract information from these papers for posterior usage by other systems with applications such as:
 \begin{itemize}
-\item Allow for structured and fast search of techniques in the papers and the possible relations between them;
-\item Possibly group papers by their used techniques;
-\item Discovery of techniques to improve performance on a certain problem;
-\item Generate a hierarchy of concepts, and their use;
-\item Among others.
+	\item Allow for structured and fast search of techniques in the papers and the possible relations between them;
+	\item Possibly group papers by their used techniques;
+	\item Discovery of techniques to improve performance on a certain problem;
+	\item Generate a hierarchy of concepts, and their use;
+	\item Among others.
 \end{itemize}
 
 An existing service that organises data from academic papers is the Semantic Scholar \cite{semanticscholar} project, by Professor Oren Etzioni from Allen Institute for AI. However, Semantic Scholar only understands a limited number of relationships (such as 'cite', 'comment', 'use\_data\_set', and 'has\_caption') which are also more closely related to the meta-data about the paper, but not from the knowledge that the paper itself presents. Other similar services are Microsoft Academic Graph \cite{microsoft-academic-data}, Google Scholar \cite{google-scholar}, and CiteSeerX \cite{citeseer-x}.
@@ -190,7 +212,7 @@ Observing more carefully a simple sentence, such as \emph{\enquote{The police ch
   \label{fig:pos_tags}
 \end{figure}
 
-The first word in the sentence, \emph{The}, is a \emph{DT} or determiner. Other possible determiners include \emph{my}, \emph{your}, \emph{his}, \emph{her}. The second word is \emph{police} is a \emph{NN} which is the tag for a singular noun. With this information we can already tell that this sentence is speaking about something, and this something is the noun \emph{police}. Subsequently the tag \emph{VBD} is presented which specifically indicates the word \emph{chased} is a verb (an action) in the past tense. At this point one can observe that something or someone (in this case the \emph{police}) did something in the past.
+The first word in the sentence, \emph{The}, is a \emph{DT} or determiner. Other possible determiners include \emph{\enquote{my}}, \emph{\enquote{your}}, \emph{\enquote{his}}, \emph{\enquote{her}}. The second word is \emph{\enquote{police}} is a \emph{NN} which is the tag for a singular noun. With this information we can already tell that this sentence is speaking about something, and this something is the noun \emph{\enquote{police}}. Subsequently the tag \emph{VBD} is presented which specifically indicates the word \emph{\enquote{chased}} is a verb (an action) in the past tense. At this point one can observe that something or someone (in this case the \emph{\enquote{police}}) did something in the past.
 
 This is already great information to have about the sentence. These tags that were added to the text in Figure \ref{fig:pos_tags} are called Part-Of-Speech tags, or POS tags \cite{Jurafsky:2000:SLP:555733}. The standardization of these tags and work to develop and tag existing text with them is done by the Penn Treebank project \cite{Marcus:1993:BLA:972470.972475}.
 
@@ -238,13 +260,13 @@ A Part-Of-Speech Tagger is then a system that, given a raw text as input, assign
   \label{tab:pos_tags_features}
 \end{table}
 
-The task of assigning these tags starts by deciding what are the tokens in a raw text sentence, and what are its sentences. As an example, the tokenizer needs to decide if a period symbol near a word represents an abbreviation (e.g. \emph{Dr.}) or a sentence boundary - in case of an abbreviation, this period is then considered simply a token within the sentence. Another common problem in this step is deciding if a single quote is part of a word,(e.g. \emph{It's}), or is delimiting a quoted part of the sentence, thus potentially hinting other semantic meanings. The Stanford POS Tagger used in this example also contain a tokenizer, which is part of the Stanford CoreNLP \cite{manning-EtAl:2014:P14-5}, a set of natural language analysis tools.
+The task of assigning these tags starts by deciding what are the tokens in a raw text sentence, and what are its sentences. As an example, the tokenizer needs to decide if a period symbol near a word represents an abbreviation (e.g. \emph{Dr.}) or a sentence boundary - in case of an abbreviation, this period is then considered simply a token within the sentence. Another common problem in this step is deciding if a single quote is part of a word,(e.g. \emph{\enquote{It's}}), or is delimiting a quoted part of the sentence, thus potentially hinting other semantic meanings. The Stanford POS Tagger used in this example also contain a tokenizer, which is part of the Stanford CoreNLP \cite{manning-EtAl:2014:P14-5}, a set of natural language analysis tools.
 
-Modern POS Taggers tackle this task using a technique called Sequence Classification. A machine learning classifier model is then trained with a corpus of manually tagged text and has as an input certain features that might indicate which tag a token being currently analysed should be assigned with. Observing again the example from Figure \ref{fig:pos_tags}, but now presented in table format in \ref{tab:pos_tags_features}, it is easier to see how this learning algorithm would be trained to predict tags on unseen test. Note the second word \emph{police}. For this word we are providing 4 features for the learning algorithm: the manually labelled POS Tag, the word itself, the previous word and the previous POS Tag. Suppose now that this sentence in included in a bigger corpus, and this pattern is a common one and the learning algorithm is provided with a substantial amount of labelled data in which this situation repeats itself: a \emph{NN} is the second word in a setence, with \emph{The} and \emph{DT} being the previous word and tag respectively.
+Modern POS Taggers tackle this task using a technique called Sequence Classification. A machine learning classifier model is then trained with a corpus of manually tagged text and has as an input certain features that might indicate which tag a token being currently analysed should be assigned with. Observing again the example from Figure \ref{fig:pos_tags}, but now presented in table format in \ref{tab:pos_tags_features}, it is easier to see how this learning algorithm would be trained to predict tags on unseen test. Note the second word \emph{\enquote{police}}. For this word we are providing 4 features for the learning algorithm: the manually labelled POS Tag, the word itself, the previous word and the previous POS Tag. Suppose now that this sentence in included in a bigger corpus, and this pattern is a common one and the learning algorithm is provided with a substantial amount of labelled data in which this situation repeats itself: a \emph{NN} is the second word in a sentence, with \emph{\enquote{The}} and \emph{DT} being the previous word and tag respectively.
 
-After the training, this model would behave in a similar fashion once presented with unseen data. Suppose now the first column on Table \ref{tab:pos_tags_features} is not presented. The model would pick the first word \emph{The} and observe the features: \emph{<START>} and \emph{<START>} respectively and given that in our previously described corpus this is a common occurrence, it would then label this word with \emph{DT}. Now, for the second word \emph{police}, the features would be \emph{The} for previous word, and \emph{DT} for previous tag. Again, it is common for a noun to be placed after a determiner so the model assigns the label \emph{NN} to the word \emph{police}. The features used by the Sequence Classifies both while training and when using the model may vary and they impact the quality of the predictions it makes. The Stanford POS Tagger uses a broad use of lexical features, including jointly conditioning on multiple consecutive words \cite{Toutanova:2003:FPT:1073445.1073478}.
+After the training, this model would behave in a similar fashion once presented with unseen data. Suppose now the first column on Table \ref{tab:pos_tags_features} is not presented. The model would pick the first word \emph{\enquote{The}} and observe the features: \emph{<START>} and \emph{<START>} respectively and given that in our previously described corpus this is a common occurrence, it would then label this word with \emph{DT}. Now, for the second word \emph{\enquote{police}}, the features would be \emph{\enquote{The}} for previous word, and \emph{DT} for previous tag. Again, it is common for a noun to be placed after a determiner so the model assigns the label \emph{NN} to the word \emph{\enquote{police}}. The features used by the Sequence Classifies both while training and when using the model may vary and they impact the quality of the predictions it makes. The Stanford POS Tagger uses a broad use of lexical features, including jointly conditioning on multiple consecutive words \cite{Toutanova:2003:FPT:1073445.1073478}.
 
-A helpful concept at this stage is known as the lemma. A lemma is a canonical way of representing a word which strips out variations for quantity, tense, among others \cite{Jurafsky:2000:SLP:555733}. For an example, given the words \emph{running} or \emph{runs}, NLTK \cite{BirdKleinLoper09} outputs \emph{run} as their lemma. The lemma can, for an example, be used together or instead of the existing features for training models.
+A helpful concept at this stage is known as the lemma. A lemma is a canonical way of representing a word which strips out variations for quantity, tense, among others \cite{Jurafsky:2000:SLP:555733}. For an example, given the words \emph{\enquote{running}} or \emph{\enquote{runs}}, NLTK \cite{BirdKleinLoper09} outputs \emph{run} as their lemma. The lemma can, for an example, be used together or instead of the existing features for training models.
 
 \begin{figure}[!htbp]
   \centering
@@ -255,7 +277,7 @@ A helpful concept at this stage is known as the lemma. A lemma is a canonical wa
 
 When reading a text, it is also important to understand the relation between the words or sub-sentences that are contained in the phrase, and this is specially useful for information extraction. As an example, suppose the sentence \emph{\enquote{Jetstar Airways, a unit of Qantas Airways Limited}}. There are different ways of breaking down the relationship of the words in this sentence. 
 
-Starting again with the POS tagging discussed earlier, one can see in \ref{fig:pos_tags_2} what are the types of the words that constitutes this sentence. As a further step, it's possible to see what are the sub-sentences or parts that form the phrase structure. The sub-sentences are connected upwards to one head (also called, \emph{parent}), and downwards to one or more governors (also called \emph{dependants}, or \emph{children}), in a recursive structure.  In Figure \ref{fig:sub_sentences_phrase_structure}, the phrase \emph{of Qantas Airways Limited}, which is part of the bigger phrase we are using as an example, is a prepositional phrase. A prepositional phrase lacks either a verb or a subject, and serve to assert binary relations between their heads and the constituents to which they are attached, in this case \emph{a unit} \cite{Jurafsky:2000:SLP:555733}. The sub-sentence \emph{a unit of Qantas Airways Limited} is then a noun phrase, since it contains and talks about a noun \emph{unit}.
+Starting again with the POS tagging discussed earlier, one can see in \ref{fig:pos_tags_2} what are the types of the words that constitutes this sentence. As a further step, it's possible to see what are the sub-sentences or parts that form the phrase structure, also called constituency parsing. The sub-sentences are connected upwards to one head (also called, \emph{parent}), and downwards to one or more governors (also called \emph{dependants}, or \emph{children}), in a recursive structure.  In Figure \ref{fig:sub_sentences_phrase_structure}, the phrase \emph{\enquote{of Qantas Airways Limited}}, which is part of the bigger phrase we are using as an example, is a prepositional phrase. A prepositional phrase lacks either a verb or a subject, and serve to assert binary relations between their heads and the constituents to which they are attached, in this case \emph{\enquote{a unit}} \cite{Jurafsky:2000:SLP:555733}. The sub-sentence \emph{\enquote{a unit of Qantas Airways Limited}} is then a noun phrase, since it contains and talks about a noun \emph{\enquote{unit}}.
 
 \begin{figure}[!htbp]
   \centering
@@ -268,13 +290,13 @@ Starting again with the POS tagging discussed earlier, one can see in \ref{fig:p
                     [.NP [.NNP \textit{Qantas} ]
                          [.NNP \textit{Airways} ]
                          [.NNP \textit{Limited} ]]]]]
-  \caption[A sentence and its components.]{A sentence broken down to its Phrase Structure (sub-sentences).}
+  \caption[A sentence and its components.]{A sentence broken down to its Phrase Structure (sub-sentences), also known as constituency parsing.}
   \label{fig:sub_sentences_phrase_structure}
 \end{figure}
 
 After discovering the structure between the phrases and its sub-phrases, finding the syntactical dependency between words themselves is also a very interesting and useful task. Continuing on the same example, one can see how the sentence states the simple fact that one company (\emph{Jetstar}) is a unit of another company (\emph{Qantas}). The dependency tree in this case tells us that \emph{Jetstar/NN} is the head of another noun \emph{Airways} and that the relation between them is of the \emph{compound} type. This relation is held between any noun that serves to modify the head noun and in this case indicate that this single entity is formed by two different words that are nouns. Note that \emph{Jetstar} has no parents and thus is the root of the sentence. The dependencies can be fully viewed is Figure \ref{fig:sub_sentences_dependency}.
 
-The next relation is the \emph{appos} from \emph{Airways} to \emph{unit}. The appositional modifier relation indicates that the noun  immediately to the right of the first noun that serves to define or modify the meaning of the former. One now already knows that \emph{Jetstar Airways} is a \emph{unit}, and, in the business context, it probably means that it is a company that belongs to a bigger company.
+The next relation is the \emph{appos} from \emph{\enquote{Airways}} to \emph{\enquote{unit}}. The appositional modifier relation indicates that the noun  immediately to the right of the first noun that serves to define or modify the meaning of the former. One now already knows that \emph{\enquote{Jetstar Airways}} is a \emph{\enquote{unit}}, and, in the business context, it probably means that it is a company that belongs to a bigger company.
 
 \begin{figure}[!htbp]
   \centering
@@ -295,7 +317,7 @@ The next relation is the \emph{appos} from \emph{Airways} to \emph{unit}. The ap
   \label{fig:sub_sentences_dependency}
 \end{figure}
 
-Continuing the analysis, the next relation is of the \emph{prep} type and it indicates a prepositional modifier of a verb, adjective, or noun (our case), and it serves to modify the meaning of the verb, adjective, noun, or even another preposition. Note that this relation simply indicates the word pointed to by the edge is the preposition (in this case \emph{of}). The next relation, \emph{pobj}, indicates the actual object of the preposition and the noun phrase following the preposition and what it related to. This tree was created by the spaCy dependency parser \cite{honnibal-johnson:2015:EMNLP, spacy}. This same tree can be visualised in a more traditional tree structure in Figure \ref{fig:sub_sentences_dependency_tree}. Although not in this example, another very common relation is the relative clause modifier \emph{recmod} (or \emph{relcl} in some notations) relation. A relative clause modifier of an NP (\emph{Noun Phrase}) is a relative clause modifying the NP. The relation then in the tree points from the head noun of the NP to the head of the relative clause, normally a verb. The explanations for the cited relations in this document were obtained from the Stanford typed dependencies manual \cite{Marneffe08stanfordtyped}, and the Universal Dependencies (UD) project \cite{universal-dependencies-11234/1-1699}, both which are reference for the possible relation and contain a full lists of their meanings.
+Continuing the analysis, the next relation is of the \emph{prep} type and it indicates a prepositional modifier of a verb, adjective, or noun (our case), and it serves to modify the meaning of the verb, adjective, noun, or even another preposition. Note that this relation simply indicates the word pointed to by the edge is the preposition (in this case \emph{\enquote{of}}). The next relation, \emph{pobj}, indicates the actual object of the preposition and the noun phrase following the preposition and what it related to. This tree was created by the spaCy dependency parser \cite{honnibal-johnson:2015:EMNLP, spacy}. This same tree can be visualised in a more traditional tree structure in Figure \ref{fig:sub_sentences_dependency_tree}. Although not in this example, another very common relation is the relative clause modifier \emph{recmod} (or \emph{relcl} in some notations) relation. A relative clause modifier of an NP (\emph{Noun Phrase}) is a relative clause modifying the NP. The relation then in the tree points from the head noun of the NP to the head of the relative clause, normally a verb. The explanations for the cited relations in this document were obtained from the Stanford typed dependencies manual \cite{Marneffe08stanfordtyped}, and the Universal Dependencies (UD) project \cite{universal-dependencies-11234/1-1699}, both which are reference for the possible relation and contain a full lists of their meanings.
 
 \begin{figure}[!htbp]
   \centering
@@ -326,9 +348,9 @@ As a further example, besides providing dependency parsing tree, spaCy also prov
 
 Other problems tackled by the Natural Language Processing discipline and that are relevant for Information Extraction are \emph{Coreference resolution} and \emph{pronominal anaphora resolution}. Coreference resolution intends to define all possible entities that a text can reference to in some sort of definitive list, or more precisely a \emph{discourse model}, find in the text all the chained references to these entities, and link them to the specific entities. While very similar in nature, pronominal anaphora resolution is more simple as it is the problem of resolving in a given sentence to which previous NN (noun) or NNP (proper noun) a single PRP (pronoun) refers to \cite{Jurafsky:2000:SLP:555733}.
 
-Take for an example the sentence \emph{\enquote{John is a quiet guy, but today he is furious.}}, the initial mention of the entity \emph{John} appears in the first token. Token 5 talks about a \emph{guy}, which although not a pronoun, is still a reference to the previous entity in the first word. The ninth token is a pronoun and again refers to the same \emph{John}, so is part of the chain of mentions. The full resolution chain would be denoted in Figure \ref{fig:sub_sentences_coreference}.
+Take for an example the sentence \emph{\enquote{John is a quiet guy, but today he is furious.}}, the initial mention of the entity \emph{John} appears in the first token. Token five talks about a \emph{guy}, which although not a pronoun, is still a reference to the previous entity in the first word. The ninth token is a pronoun and again refers to the same \emph{John}, so is part of the chain of mentions. The full resolution chain would be denoted in Figure \ref{fig:sub_sentences_coreference}.
 
-Normally these systems work towards analysing pairs of tokens using a probabilistic model, and then decide how likely they are references for the same entity. More recent approaches also group possible tokens in a cluster and use cluster-level features to determine the chains of coreferences \cite{clark2015entity}. The tool used to extract is the Stanford Coreference Resolution annotator \cite{clark2015entity}, which is part of the latter group of tools that use cluster level features. This annotator is also part of the CoreNLP toolset \cite{manning-EtAl:2014:P14-5}.
+Normally these systems work towards analysing pairs of tokens using a probabilistic model, and then decide how likely they are references for the same entity. More recent approaches also group possible tokens in a cluster and use cluster-level features to determine the chains of coreferences \cite{clark2015entity}. The tool used to extract Figure \ref{fig:sub_sentences_coreference} is the Stanford Coreference Resolution annotator \cite{clark2015entity}, which is part of the latter group of tools that use cluster level features. This annotator is also part of the CoreNLP toolset \cite{manning-EtAl:2014:P14-5}.
 
 \begin{figure}[!htbp]
   \centering
@@ -344,7 +366,7 @@ Normally these systems work towards analysing pairs of tokens using a probabilis
   \label{fig:sub_sentences_coreference}
 \end{figure}
 
-All linguistic data mentioned in this section is data that can be obtained from the raw text itself, and is then the base for several features in which the classifiers for Information Extraction act on.
+All linguistic data mentioned in this section is data that can be obtained from the raw text itself, and is then the base for several features in which methods for Information Extraction act on.
 
 
 %
@@ -356,9 +378,9 @@ All linguistic data mentioned in this section is data that can be obtained from 
 
 \section{Information Extraction}
 
-Also according to \cite{Jurafsky:2000:SLP:555733}, the IE process is, in general, divided in the following subtasks: Named Entity Recognition (NER), Coreference Resolution, Entity Disambiguation, Relation Extraction (RE), Event Detection, Temporal Analysis. The main subtasks relevant to this report will be described further in this section.
+The IE (Information Extraction) process is described by the following subtasks: Named Entity Recognition (NER), Coreference Resolution, Entity Disambiguation, Relation Extraction (RE), Event Detection, and Temporal Analysis \cite{Jurafsky:2000:SLP:555733}. The main subtasks relevant to this report will be described further in this section.
 
-Once the information is extracted it is then used for tasks such as Template Filling \cite{Jurafsky:2000:SLP:555733}, or stored as a Knowledge Graph for downstream logical reasoning or for further queries.
+Once the information is extracted it is then used for tasks such as Template Filling \cite{Jurafsky:2000:SLP:555733}, Question and Answering systems \cite{Moens:2006:IEA:1177314}, or stored as a Knowledge Graph for downstream logical reasoning or for further queries.
 
 \begin{table}[!htbp]
   \centering
@@ -368,7 +390,7 @@ Once the information is extracted it is then used for tasks such as Template Fil
   \label{tab:james_cook}
 \end{table}
 
-Name Entity Recognition is the process of, given a sentence, mark what are the entities that are part of it. Once the entity is detected, it needs to be classified within the classes of the given domain - in the spirit of the previous examples this would be e.g.: \emph{City} or \emph{Person}. A few approaches exist for the problem of NER, mostly related to Pattern Matching or Sequence Classification.
+Named Entity Recognition is the process of, given a sentence, identify and extract what are the entities that are part of it. Once the entity is detected, it needs to be classified within the classes of the given domain - in the spirit of the previous examples this would be e.g.: \emph{CITY} or \emph{PERSON}. Different types of entities are relevant to context of the data being worked with. A few approaches exist for the problem of NER, mostly related to Pattern Matching or Sequence Classification.
 
 \begin{table}[!htbp]
   \centering
@@ -382,11 +404,11 @@ Name Entity Recognition is the process of, given a sentence, mark what are the e
   \label{tab:james_cook_patterns}
 \end{table}
 
-Observe, for an example, the sentence in Table \ref{tab:james_cook}. Several articles regarding prominent figures, either historical or of our current society, can start with the text \emph{[ENTITY] was born}. One approach might be Pattern Matching, which is to mine the input natural language text while looking for this pattern using Regular Expressions - or a Finite-State Automata \cite{Jurafsky:2000:SLP:555733}. The entities found by this pattern would then also receive the \emph{person} class. Other possible patterns can be found in Table \ref{tab:james_cook_patterns}.
+Observe, for an example, the sentence in Table \ref{tab:james_cook}. Several articles regarding prominent figures, either historical or of our current society, can be of the format \emph{\enquote{Jimi Hendrix was born}}. One approach might be Pattern Matching, which is to mine the input natural language text while looking for the pattern \emph{\enquote{[ENTITY] was born}}, using Regular Expressions (Finite-State Automata) \cite{Jurafsky:2000:SLP:555733}. The entities found by this pattern would then also receive the \emph{PERSON} class. This pattern would miss the sentence \emph{\enquote{Jimi Hendrix, born in Seattle}} since it does not fit the pattern and, because of this, one generally needs to build a list or database of patterns to work with in a corpus. An example of such database was generated by the PATTY system \cite{Nakashole:2012:PTR:2390948.2391076}. Table \ref{tab:james_cook_patterns} depicts other possible similar patterns.
 
-Another way to extract entities from text is to frame the NER problem as a Sequence Classification problem. It requires the training of a classifier in which, given the class of the previous word, and other surrounding features of the current word, will attempt to guess if the current word is an entity, and if it is, also guesses its class.
+Another way to extract entities from text is to frame the NER problem as a Sequence Classification problem, similar to the POS tagging problem described earlier. It requires the training of a classifier in which, given the class of the previous word, and other surrounding features of the current word, will attempt to guess if the current word is an entity, and if it is, also guesses its class.
 
-To achieve this, previously annotated data with existing sentences and its entities is needed. The format in which this annotated data is provided varies, however more commonly the IOB format (Table \ref{tab:james_cook_iob}) is used in several of the NER tools, including NLTK \cite{BirdKleinLoper09} and the popular Stanford Named Entity Recognizer (NER), part of the Stanford CoreNLP \cite{manning-EtAl:2014:P14-5}. Stanford CoreNLP provides a set of natural language analysis tools.
+To achieve this, previously annotated data with existing sentences and its entities is needed. This can be obtained by manually labelling data, or by semi-automated methods, like the one proposed later by this document. The format in which this annotated data is provided varies, however the IOB format (Table \ref{tab:james_cook_iob}) is more commonly used in several of the NER tools, including NLTK \cite{BirdKleinLoper09} and the popular Stanford Named Entity Recognizer (NER) \cite{Finkel:2005:INI:1219840.1219885}, part of the Stanford CoreNLP \cite{manning-EtAl:2014:P14-5}. Stanford CoreNLP provides a set of natural language analysis and information extraction tools.
 
 \begin{table}[!htbp]
   \centering
@@ -413,11 +435,11 @@ To achieve this, previously annotated data with existing sentences and its entit
   \label{tab:james_cook_iob}
 \end{table}
 
-The IOB format also helps remove ambiguity in case there are two contiguous entities of same class without any word tagged as \emph{O} in between. In practice, these cases are somewhat rare in several domains, and thus a simplified version without the \emph{B-} and \emph{I-} prefixes are used \cite{Surdeanu:2011:CIE:2021153.2021155}.
+The IOB format also helps remove ambiguity in case there are two contiguous entities of same class without any word tagged as \emph{O} in between. In practice these cases are somewhat rare in several domains, and even when trained with such tags classifiers struggle to accurately determine the boundaries of an entities, and thus a simplified version of this annotation without the \emph{B-} and \emph{I-} prefixes is more commonly used \cite{Surdeanu:2011:CIE:2021153.2021155}.
 
 The Stanford Named Entity Recognizer (NER), also known as CRFClassifier \cite{Finkel:2005:INI:1219840.1219885}, provides a general implementation of (arbitrary order) linear chain Conditional Random Field (CRF) sequence models. A CRF is a conditional sequence model which represents the probability of a hidden state sequence given some observations.
 
-Several useful features can be used during the training of a NER CRF classifier model. In Table \ref{tab:ner_features}, several examples are presented. The Word Shape feature is an interesting addition from recent research, as it captures the notion that most entities are written in capital letters, or starting with capital letter, or containing numbers in the middle of the word, and other specific shapes.
+Several relevant features can be used as an input during the training of a NER CRF classifier model. In Table \ref{tab:ner_features}, examples are presented. The Word Shape feature is an interesting addition from recent research, as it captures the notion that most entities are written in capital letters, or starting with capital letter, or containing numbers in the middle of the word, and other specific shapes.
 
 \begin{table}[!htbp]
   \centering
@@ -430,15 +452,21 @@ Several useful features can be used during the training of a NER CRF classifier 
       Disjunctive               & \parbox[t]{9cm}{Disjunctions of words anywhere in the left or right.} \\
       Word Shape                & \parbox[t]{9cm}{The shape of the word being processed captured using. In general replaces numbers with \emph{d}, \emph{x} to lower-case letters, and \emph{X} to upper-case letters.} \\
     \end{tabular}
-  \caption[Possible features to train the CRFClassifier.]{Examples of features used to train the CRFClassifier.}
+  \caption[Possible features to train the CRFClassifier.]{Examples of features used to train the CRFClassifier \cite{Finkel:2005:INI:1219840.1219885}.}
   \label{tab:ner_features}
 \end{table}
 
 In addition to the above methods another useful technique is the use of gazetteers. Gazetteers are common for geographical data, where government provided lists of names can contain millions of entries names for all manner of locations along with detailed geographical, geologic and political information \cite{Jurafsky:2000:SLP:555733}.
 
-Relation Extraction (RE) is the ability to discern the relationships that exist among the entities detected in a text \cite{Jurafsky:2000:SLP:555733}, and is naturally the next challenge after being able to detect entities. It can be done using Pattern Matching, Classifiers, or purely by exploiting linguistic data available form a sentence.
+Relation Extraction (RE) is the ability to discern the relationships that exist among the entities detected in a text \cite{Jurafsky:2000:SLP:555733}, and is naturally the next challenge after being able to detect entities. It is generally denoted as a triplet: two entities, and the one relation between them (Table \ref{tab:relation_example}). It can be done using Pattern Matching, Classifiers, or purely by exploiting linguistic data available form a sentence. The previously described Pattern Matching technique from NER can be improved upon in the Relation Extraction step, and involve more than one entity, yielding binary relations. This approach is used in tools such as PROSPERA \cite{Nakashole:2011:SKH:1935826.1935869} or those mined by PATTY \cite{Nakashole:2012:PTR:2390948.2391076}. More specifically, examples of patterns mined by PATTY for the \emph{graduatedFrom} relation are seen in Figure \ref{fig:patty_examples}.
 
-The Pattern Matching technique from NER is then built upon in the Relation Extraction step, and now involves more than one entity, yielding binary relations. This approach is used in tools such as PROSPERA \cite{Nakashole:2011:SKH:1935826.1935869} or those mined by PATTY \cite{Nakashole:2012:PTR:2390948.2391076}. More specifically, examples of patterns mined by PATTY for the \emph{graduatedFrom} relation are seen in Figure \ref{fig:patty_examples}.
+\begin{table}[!htbp]
+  \centering
+  \RaggedRight
+    \texttt{Located\_In(Kiel, Germany)} \\
+  \caption[An example of a triplet that represents a relation.]{An example of a triplet that represents a relation.}
+  \label{tab:relation_example}
+\end{table}
 
 \begin{figure}[!htbp]
   \centering
@@ -447,25 +475,54 @@ The Pattern Matching technique from NER is then built upon in the Relation Extra
   \label{fig:patty_examples}
 \end{figure}
 
-PROSPERA's main technique is that not only it obtain facts based on a small set of initial seed patterns, but also obtain new candidate patterns based on the mined facts. Once the process finishes, these new candidate patterns are evaluated and then added to the the existing pattern repository for re-use. The whole process then iterates again finding even more facts from these new patterns, and new candidate patterns.
+PROSPERA's main technique is that not only it obtain facts based on a small set of initial seed patterns, but also obtain new candidate patterns that can be extrapolated from the corpus based on the mined known facts. Once the process of obtaining new candidate patterns finishes, these are evaluated and then added to the the existing pattern repository for re-use. The whole process then iterates again finding even more facts from these new patterns, and new candidate patterns \cite{Nakashole:2011:SKH:1935826.1935869}. Moreover, another interesting characteristic of the PROSPERA's approach is the care in Entity Disambiguation. For an example, given that in a text it finds a name, such as \emph{\enquote{Captain James Cook}}. It then uses a knowledge base such as YAGO \cite{Suchanek2007} to compare this with existing known entities, using techniques such as N-gram comparison \cite{Nakashole:2011:SKH:1935826.1935869}. With such effort, PROSPERA is able to know that \emph{Captain James Cook} and \emph{James Cook} are actually the same entity with a certain confidence, and thus don't differentiate these and assigns \emph{\enquote{Captain James Cook}} as a representation of the canonical unambiguous entity \emph{\enquote{James Cook}}. This helps in several ways, such as: it can then know other information about this entity, such as the fact that it is of the class \emph{PERSON}; and it can also facilitate future queries in this knowledge base, centralizing the new information found about this existing entity.
 
-Another tool in the Stanford CoreNLP package, the Relation Extractor \cite{Surdeanu:2011:CIE:2021153.2021155} is a classifier to predict relations in sentences.
+Another tool in the Stanford CoreNLP package, the Relation Extractor \cite{Surdeanu:2011:CIE:2021153.2021155} is a classifier to predict relations in sentences. This program has a model that extracts binary relations between entity mentions in the same sentence. The output is normally in the XML \cite{xml} format and denotes the tokens of each sentence, the possible relations, and the confidence level of these relations. The XML demonstrated in Figure \ref{fig:xml_output1} depicts a guess that 2 words in the sentence \emph{\enquote{..., including approaches that use parallel computation [1, 2, 6, 13, 24].}} have the \emph{Uses} relation with a confidence above 70\%. The classifier in this case also indicates that one of the entities is of the class \emph{CONCEPT}.
 
-The RMD model was built from scratch as a multi-class classifier that extracts binary relations between entity mentions in the same sentence. Dur- ing training, known relation mentions become pos- itive examples for the corresponding label and all other possible combinations between entity men- tions in the same sentence become negative exam- ples. We used a multiclass logistic regression classi- fier with L2 regularization. Our feature set is taken from (Yao et al., 2010; Mintz et al., 2009; Roth and Yih, 2007; Surdeanu and Ciaramita, 2007) and mod- els the relation arguments, the surface distance be- tween the relation arguments, and the syntactic path between the two arguments, using both constituency and dependency representations. For syntactic in- formation, we used the Stanford parser (Klein and Manning, 2003) and the Stanford dependency repre- sentation (de Marneffe et al., 2006).
-For RMD, we implemented an additive feature se- lection algorithm similar to the one in (Surdeanu et al., 2008), which iteratively adds the feature with the highest improvement in F1 score to the current feature set, until no improvement is seen. The algorithm was configured to select features that yielded the best combined performance on the dataset from Roth and Yih (2007) and the training partition of ACE 2007.4 
+\begin{figure}[!htbp]
+  \centering
+    \lstset{
+    language=xml,
+    tabsize=3,
+    %frame=lines,
+    %caption=Test,
+    %label=code:sample,
+    %frame=shadowbox,
+    rulesepcolor=\color{blue},
+    xleftmargin=20pt,
+    framexleftmargin=15pt,
+    keywordstyle=\color{blue}\bf,
+    commentstyle=\color{OliveGreen},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize,
+    emph={relation,arguments,entity,span,probabilities,probability,label,value},emphstyle={\color{blue}}
+    }
+    \lstinputlisting{images/relations.xml}
+  \caption[An example of relation extracted with the Stanford Relation Extractor.]{An example of relation extracted with the Stanford Relation Extractor that demonstrated the \emph{\enquote{Uses}} relation.}
+  \label{fig:xml_output1}
+\end{figure}
 
+As part of its training, annotated relation mentions are used as an input together with the text it belongs to, and the annotation becomes a positive example for the corresponding label, while all the other possible combinations between entity mentions in the same sentence become negative examples. The feature set models the relation between the arguments by using the distance between the relation arguments, the syntactic path between the two arguments, using both constituency and dependency representations.
 
-\hl{- Classification}
+Note how at this point it's important to no note the notion of a \emph{pipeline} of natural language processing tasks. Stanford's CoreNLP is able to, by itself, perform all the steps needed to produce such relation extraction output from the raw text input. The steps of this pipeline are executed in a certain order, as they depend on the previous step (e.g.: POS tagging is needed for Dependency Parsing). In this case, the process was:
 
-\hl{- Possible features}
+\begin{enumerate}
+  \item Tokenize;
+  \item Sentence Splitter;
+  \item Part-of-Speech tagging;
+  \item Lemmatization;
+  \item Constituency parsing;
+  \item Dependency Parsing;
+  \item Named Entity Recognition;
+  \item and finally, Relation Extraction.
+\end{enumerate}
 
-\hl{- Open Information Extraction}
-
-\hl{- Evaluation}
-
-\hl{- What drives the field forward}
-
-\hl{To be completed: entity disambiguation?}
+The Stanford Relation Extractor comes with a model that was trained to extract the following relations: \emph{Live\_In}, \emph{Located\_In}, \emph{OrgBased\_In}, \emph{Work\_For} - and the following classes: \emph{PERSON}, \emph{ORGANIZATION}, \emph{LOCATION}. There are big challenges if one attempts to train the model for any relation outside of these, mainly in obtaining or generating annotated data to train the classifier as to generate a useful model. There are attempts in which relation extraction is not based on annotated data, but on linguistic characteristics of the text itself, such as its semantics. These tools are normally called Open Relation Extractors and will be further described in Section \ref{section:related}.
 
 
 %
@@ -477,9 +534,16 @@ For RMD, we implemented an additive feature se- lection algorithm similar to the
 
 \section{Knowledge Graphs}
 
-Knowledge Graphs contain a valuable of information in a structured format, traditionally originally mined from table-like structures form places like Wikipedia \cite{wiki} tables \cite{dbpedia-swj}. It can be used for a diverse range of applications, such as helping other systems reason about quality of harvested facts\cite{Suchanek2007}, provide table-like facts about an entity\cite{google}, and question-answering systems\cite{hixon-clark-hajishirzi-2015}. Moreover, recent years have witnessed a surge in large scale knowledge graphs, such as DBpedia \cite{dbpedia-swj}, Freebase \cite{Bollacker2008}, Google’s Knowledge Graph \cite{google}, and YAGO \cite{Suchanek2007}.
+Knowledge Graphs contain a valuable of information in a structured format, traditionally originally mined from table-like structures form places like Wikipedia \cite{wiki} tables \cite{dbpedia-swj}, or from processes like Information Extraction as described in the previous section. It can be used for a diverse range of applications, such as helping other systems reason about quality of harvested facts \cite{Suchanek2007}, provide table-like facts about an entity \cite{google}, and question-answering systems \cite{hixon-clark-hajishirzi-2015}. Moreover, recent years have witnessed a surge in large scale knowledge graphs, such as DBpedia \cite{dbpedia-swj}, Freebase \cite{Bollacker2008}, Google’s Knowledge Graph \cite{google}, and YAGO \cite{Suchanek2007}.
 
-The Knowledge Graph name follows from the data structure that is created from the facts in its final form, a graph with nodes representing entities and edges representing various relations between entities. In Figure \ref{fig:yago_knowledge_graph}, it is possible to observe an example plotted in this form. The list of possible entities classes, and allowable relations between entities is known as a schema. The schema represented in Figure \ref{fig:yago_knowledge_graph} is detailed in Table \ref{tab:max_planck}; one can observe that, as an example, \emph{Max Planck} is an entity of the type \emph{physicist}.
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=0.6\textwidth]{./images/yago_graph}
+  \caption[An example of knowledge graph plotted with vertices and edges.]{An example of knowledge graph from \cite{Suchanek2007} plotted with vertices and edges.}
+  \label{fig:yago_knowledge_graph}
+\end{figure}
+
+The Knowledge Graph name follows from the data structure that is created from the facts in its final form, a graph with nodes representing entities and edges representing various relations between entities. In Figure \ref{fig:yago_knowledge_graph}, it is possible to observe an example plotted in this form. The list of possible entities classes, and allowable relations between entities is known as a schema. The schema represented in Figure \ref{fig:yago_knowledge_graph} is detailed in Table \ref{tab:max_planck}; one can observe that, as an example, \emph{\enquote{Max Planck}} is an entity of the type \emph{physicist}.
 
 \begin{table}[!htbp]
   \centering
@@ -489,7 +553,14 @@ The Knowledge Graph name follows from the data structure that is created from th
   \label{tab:entailment_example_max}
 \end{table}
 
-Moreover, based on the facts presented, entailments can be made and one trivial example is denoted in Table \ref{tab:entailment_example_max}. More complex examples of possible reasoning can be seen in \cite{Surdeanu:2011:CIE:2021153.2021155}. This is equivalent to traversing the graph from a node that represents a more specific information, to a node that represents a more general information - e.g.: another possible child node of \emph{scientist} could be the type \emph{biologist}.
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=0.6\textwidth]{./images/yago}
+  \caption[An example of patterns existants in YAGO.]{An example of patterns existants in YAGO.}
+  \label{fig:yago_examples}
+\end{figure}
+
+Moreover, based on the facts presented, entailments can be made and one trivial example is denoted in Table \ref{tab:entailment_example_max}. More complex examples of possible reasoning can be seen in \cite{Surdeanu:2011:CIE:2021153.2021155}. This is equivalent to traversing the graph from a node that represents a more specific information, to a node that represents a more general information - e.g.: another possible child node of \emph{\enquote{scientist}} could be the type \emph{\enquote{biologist}}.
 
 \begin{table}[!htbp]
   \centering
@@ -507,23 +578,9 @@ Moreover, based on the facts presented, entailments can be made and one trivial 
 
 This example denotes a classical domain, more precisely important persons, companies, locations, and the relations between them, in which Information Extraction (IE) tools have been very successful on.
 
-\begin{figure}[!htbp]
-  \centering
-    \includegraphics[width=0.6\textwidth]{./images/yago_graph}
-  \caption[An example of knowledge graph plotted with vertices and edges.]{An example of knowledge graph from \cite{Suchanek2007} plotted with vertices and edges.}
-  \label{fig:yago_knowledge_graph}
-\end{figure}
-
 As mentioned previously, YAGO \cite{Suchanek2007} is a prominent Knowledge Graph database, and possesses several advanced characteristics. Every relation in its database is annotated with its confidence value. See the example of the resulting graph in Figure \ref{fig:yago_examples}. Moreover, YAGO combines the provided taxonomy with WordNet \cite{Miller:1995:WLD:219717.219748} and with the Wikipedia category system \cite{wiki}, assigning the entities to more than 350,000 classes. This allow for very powerful querying. Finally, it attaches a temporal and a spacial dimension to many of its facts and entities, being then capable to answer questions such as \emph{when} and \emph{where} such event took place.
 
 WordNet is a semantically-oriented dictionary of English, similar to a traditional thesaurus but with a richer structure \cite{BirdKleinLoper09}. More specifically, it provides relations to synonyms, hypernyms and hyponyms, among others.
-
-\begin{figure}[!htbp]
-  \centering
-    \includegraphics[width=0.6\textwidth]{./images/yago}
-  \caption[An example of patterns existants in YAGO.]{An example of patterns existants in YAGO.}
-  \label{fig:yago_examples}
-\end{figure}
 
 
 %
@@ -533,13 +590,113 @@ WordNet is a semantically-oriented dictionary of English, similar to a tradition
 %
 
 
-\chapter{Challenges and Related Work}
+\chapter{Analysis and Related Work}
 
-Problem accross domains, strict language vs. creative language.
+This work intends to deliver a tool or a process in which one can extract information from academic text, more specifically Computer Science papers form the Database and Data Mining topics. The intention is to obtain entities, and relations between these entities. The motivation is that, with such tool, one could for an example:
+\begin{itemize}
+	\item Historically research algorithms that were mostly used during a certain time period;
+	\item Find which algorithms are used to resolve, or related to, a certain problem;
+	\item Find techniques that improve a certain algorithm problem, among others.
+\end{itemize}
 
-Sarcasm.
+\section{Analysis of Academic Text}
 
-We are extracting explicit information, and not trying to infer implicit information. That would be a different logical problem that would need to reason about using a database of information to compare what is being learned from the natural text with.
+The corpus of text used was generated utilising papers published from the following conferences during various years: ACL \cite{acl}, EMNLP \cite{emnlp}, ICDE \cite{icde}, SIGMOD \cite{sigmod}, VLDB \cite{vldb}. More specifically, the section of \emph{Related Work of} these papers were the ones used to build the corpus. This was done due to the characteristics and patterns of this section compared to the rest of the paper. After careful reading, we observed that the \emph{Related Work} section generally contains objective comparisons between other algorithms or softwares in contrast with more opaque or abstract explanations form other parts of the paper. This would mean that this section was a good candidate to start the analysis from. Note the following examples of sentences from the \emph{Related Work} section of papers from the corpus:
+\begin{enumerate}
+	\item \emph{\enquote{Bergsma et al (2013) show that large-scale clustering of user names improves gender, ethnicity and location classification on Twitter.}}
+	\item \emph{\enquote{N-Best ROVER (Stolcke et al, 2000) improves the original method by combining multiple alternatives from each combined system.}}
+	\item \emph{\enquote{By partitioning the velocity space, the Bdual -tree improves the query performance of the B x -tree.}}
+\end{enumerate}
+
+Entities from academic text in this setting are not as straightforward to define as in, for an example, business news, or criminal news. Observe the following sentence:
+\begin{itemize}
+	\item \emph{\enquote{Japan's Toshiba Corp said it had nominated Satoshi Tsunakawa, a former head of its medical equipment division, to be its next chief executive officer.}}
+\end{itemize}
+
+\begin{table}[!htbp]
+  \centering
+    \begin{tabular}{ll}
+      \textbf{Text}             & \textbf{Entity Type} \\
+      Japan                     & LOCATION            \\
+      Toshiba Corp              & ORGANIZATION          \\
+      Satoshi Tsunakawa         & PERSON           
+    \end{tabular}
+  \caption[NER from the business news example.]{Examples of Named Entity Recognition (NER) from the business news text example.}
+  \label{tab:entities_from_business_text}
+\end{table}
+
+From the news text example above, Table \ref{tab:entities_from_business_text} lists the entities that are clearly notes in the text. One can observe a very strong feature which is the common capitalization of the first letter of each of these entities. Another characteristic is how entities from this news text example are \emph{global} or \emph{unconditional}: \emph{\enquote{Japan}} is a location regardless of any condition or any context in this document. Another observation is that, referring to the Stanfords Relation Extraction default relations, \emph{\enquote{Toshiba Corp}} is an organisation \emph{Located\_In} \emph{\enquote{Japan}} regardless of other context in this document. This contrasts with concepts and their relations observed in academic papers, thus that while \emph{\enquote{large-scale clustering}} has the \emph{Improves} with \emph{\enquote{gender classification}} in the context of the paper where this data is presented, it might not be true in all cases.
+
+\begin{table}[!htbp]
+  \centering
+    \begin{tabular}{ll}
+      \textbf{Text}             & \textbf{Entity Type} \\
+      Bergsma et al (2013)      & AUTHOR          \\
+      large-scale clustering    & CONCEPT         \\
+      gender classification     & CONCEPT         \\
+      ethnicity classification  & CONCEPT         \\
+      location classification   & CONCEPT         \\
+    \end{tabular}
+  \caption[NER from the academic text example.]{Examples of Named Entity Recognition (NER) from the academic text example.}
+  \label{tab:entities_from_academic_text}
+\end{table}
+
+Moreover, the entities in Table \ref{tab:entities_from_academic_text} are harder to classify in universally agreed classes. For an example, \emph{\enquote{gender classification}} can be considered an action, or a task, or an algorithm. More generally, one can simply classify these as concepts.
+
+\begin{table}[!htbp]
+  \centering
+  \RaggedRight
+    \texttt{IsA(Concept,Concept)} \\
+    \texttt{SimilarTo(Concept,Concept)} \\
+    \texttt{Improves(Concept,Concept)} \\
+    \texttt{Employs(Concept,Concept)} \\
+    \texttt{Uses(Concept,Concept)} \\
+    \texttt{Supports(Concept,Concept)} \\
+    \texttt{Proposes(Author,ComplexConcept)} \\
+    \texttt{Introduces(Author,ComplexConcept)} \\
+  \caption[Some observed and possible relations between concepts.]{Some observed and possible relations between concepts.}
+  \label{tab:possible_academic_relations}
+\end{table}
+
+Other possible relations from the Stanford Relation Extractor standard relations that are applicable to the above news text example are: \emph{OrgBased\_In} (again for \emph{\enquote{Toshiba Corp}} and \emph{\enquote{Japan}}) and \emph{Work\_For} regarding its newly placed chief executive officer. Again, contrasting with the academic text, one might consider relations such as the one possibles between concepts as denoted in Table \ref{tab:possible_academic_relations}. In fact, by analysing the corpus for the top 50 words in the singular third-person form, such as \emph{\enquote{improves}} or \emph{\enquote{employs}}, one can have an idea of the possible relations that can be extracted. This process is illustrated in Figure \ref{fig:words_most_used_all}. The same data is illustrated in Figure \ref{fig:words_most_use_no_top2}, but with the top two words removed (\emph{\enquote{is}} and \emph{\enquote{has}}).
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=1.0\textwidth]{./images/words_most_used_all}
+  \caption[Samples of the most common words in the singular third-person form.]{Samples of the most common words in the singular third-person form.}
+  \label{fig:words_most_used_all}
+\end{figure}
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=1.0\textwidth]{./images/words_most_use_no_top2}
+  \caption[Samples of the most common words in the singular third-person form, after removing the top 2 words.]{Samples of the most common words in the singular third-person form, after removing the top 2 words.}
+  \label{fig:words_most_use_no_top2}
+\end{figure}
+
+One of the initial attempts to explore how to extract information from the generated corpus was to use the Stanford Named Entity Recognizer (NER) to recognize the concepts discussed so far in the academic text. To do so, a small set of around 20 papers' \emph{Related Work} section was annotated for the concepts contained in them using Brat \cite{Stenetorp:2012:BWT:2380921.2380942}. An example of this annotated data can be seen in \hl{BRAT IMAGE REFERENCE}.
+
+The model was trained mostly with the recommended settings and features.
+
+The success was moderated with the NER model recognizing some clearly delineated concepts by its shape (.e.g: capital words), but for non-capitalized words it appeared as it would only recognize the concepts if its words were present in the training set.
+
+\hl{STANFORD NER EXAMPLE TABLE}
+
+\hl{- Attempt of using Stanford NER}
+
+\hl{- Attempt of using Stanford NER with Gazetter}
+
+\hl{- Attempt of using Stanford REL}
+
+\hl{- Attempt of using Stanford OpenIE}
+
+\hl{- Heuristics attempted with OpenIE results}
+
+\hl{To be completed: Querying a corpus? How to check for similar words statistically, etc}
+
+\hl{- Any further results?}
+
+Please refer to Section \ref{section:tools} for more information on tools mentioned in this section.
 
 
 %
@@ -550,6 +707,12 @@ We are extracting explicit information, and not trying to infer implicit informa
 
 
 \section{Peculiarities with Academic Text}
+
+Problem accross domains, strict language vs. creative language.
+
+Sarcasm.
+
+We are extracting explicit information, and not trying to infer implicit information. That would be a different logical problem that would need to reason about using a database of information to compare what is being learned from the natural text with.
 
 Difficult to manually tag.
 
@@ -577,6 +740,9 @@ Methods:
 
 
 \section{Related Work}
+\label{section:related}
+
+\hl{- Open Information Extraction}
 
 Other methods for relation extraction such as the ones from papers:
 
@@ -607,38 +773,43 @@ IKE - An Interactive Tool for Knowledge Extraction
 
 
 \section{Tools}
+\label{section:tools}
+
+\subsection{PDF extraction generates noisy output}
+
+\subsection{Programming Languages}
+
+Java
 
 Python
 
-Java
+\subsection{Python Modules}
 
 requests
 
 BeautifulSoup4
 
-PDF extraction generates noisy output
-
-NLTK
-
-Brat
-
 standoff2conll
 
 corpkit
 
-\hl{To be completed: Querying a corpus? How to check for similar words statistically, etc}
+Tregex
 
 corenlp-xml
 
-Parsey
+\subsection{NLTK}
 
-Spacey
+\subsection{Brat}
 
-Stanford CoreNLP
+\subsection{Jupyter}
 
-Tregex
+\subsection{Parsey}
 
-Graphviz
+\subsection{SpaCy}
+
+\subsection{Stanford CoreNLP}
+
+\subsection{Graphviz}
 
 
 %
@@ -678,6 +849,8 @@ Expected Outcome:
 
 \chapter{Results}
 
+\hl{- Evaluation}
+
 
 %
 %
@@ -687,6 +860,8 @@ Expected Outcome:
 
 
 \chapter{Conclusion and Future Work}
+
+\hl{- What drives the field forward}d
 
 Furhter ideas:
 - Research relations through time. You could have a certain feature.

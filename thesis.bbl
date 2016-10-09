@@ -16,6 +16,14 @@
   {}
 \endgroup
 
+\entry{sigmod}{misc}{}
+  \field{sortinit}{A}
+  \field{howpublished}{\url{https://sigmod.org/about-sigmod/}}
+  \field{note}{[Online; accessed 09-October-2016]}
+  \field{title}{About SIGMOD}
+  \field{year}{2016}
+\endentry
+
 \entry{pdf}{misc}{}
   \field{sortinit}{A}
   \field{howpublished}{\url{https://acrobat.adobe.com/us/en/why-adobe/about-adobe-pdf.html}}
@@ -217,23 +225,27 @@
   \field{year}{2015}
 \endentry
 
-\entry{Marneffe08stanfordtyped}{misc}{}
-  \name{author}{2}{}{%
-    {{}%
-     {De~Marneffe}{D.~M.}%
-     {Marie}{M.}%
-     {catherine}{c.}%
-     {}{}}%
-    {{}%
-     {Manning}{M.}%
-     {Christopher~D.}{C.~D.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{DMMcMCD1}
-  \strng{fullhash}{DMMcMCD1}
+\entry{icde}{misc}{}
   \field{sortinit}{D}
-  \field{title}{Stanford typed dependencies manual}
+  \field{howpublished}{\url{http://ieeexplore.ieee.org/xpl/conhome.jsp?reload=true&punumber=1000178}}
+  \field{note}{[Online; accessed 09-October-2016]}
+  \field{title}{Data Engineering, International Conference on}
+  \field{year}{2016}
+\endentry
+
+\entry{emnlp}{misc}{}
+  \field{sortinit}{E}
+  \field{howpublished}{\url{https://www.aclweb.org/website/emnlp}}
+  \field{note}{[Online; accessed 09-October-2016]}
+  \field{title}{Empirical Methods in Natural Language Processing}
+  \field{year}{2016}
+\endentry
+
+\entry{xml}{misc}{}
+  \field{sortinit}{E}
+  \field{howpublished}{\url{https://www.w3.org/TR/REC-xml/}}
+  \field{note}{[Online; accessed 09-October-2016]}
+  \field{title}{{Extensible Markup Language (XML) 1.0 (Fifth Edition)}}
   \field{year}{2008}
 \endentry
 
@@ -349,9 +361,6 @@
   \field{pages}{1373\bibrangedash 1378}
   \field{title}{An Improved Non-monotonic Transition System for Dependency
   Parsing}
-  \verb{url}
-  \verb https://aclweb.org/anthology/D/D15/D15-1162
-  \endverb
   \list{location}{1}{%
     {Lisbon, Portugal}%
   }
@@ -536,6 +545,26 @@
   \field{journaltitle}{Comput. Linguist.}
   \field{month}{06}
   \field{year}{1993}
+\endentry
+
+\entry{Marneffe08stanfordtyped}{misc}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Marneffe}{M.}%
+     {Marie{-}Catherine~De}{M.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Manning}{M.}%
+     {Christopher~D.}{C.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{MMDMCD1}
+  \strng{fullhash}{MMDMCD1}
+  \field{sortinit}{M}
+  \field{title}{Stanford typed dependencies manual}
+  \field{year}{2008}
 \endentry
 
 \entry{microsoft-academic-data}{misc}{}
@@ -757,6 +786,56 @@
   \field{year}{2016}
 \endentry
 
+\entry{Stenetorp:2012:BWT:2380921.2380942}{inproceedings}{}
+  \name{author}{6}{}{%
+    {{}%
+     {Stenetorp}{S.}%
+     {Pontus}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pyysalo}{P.}%
+     {Sampo}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Topi\'{c}}{T.}%
+     {Goran}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ohta}{O.}%
+     {Tomoko}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ananiadou}{A.}%
+     {Sophia}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tsujii}{T.}%
+     {Jun'ichi}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Association for Computational Linguistics}%
+  }
+  \strng{namehash}{SP+1}
+  \strng{fullhash}{SPPSTGOTASTJ1}
+  \field{sortinit}{S}
+  \field{booktitle}{Proceedings of the Demonstrations at the 13th Conference of
+  the European Chapter of the Association for Computational Linguistics}
+  \field{pages}{102\bibrangedash 107}
+  \field{series}{EACL '12}
+  \field{title}{BRAT: A Web-based Tool for NLP-assisted Text Annotation}
+  \list{location}{1}{%
+    {Stroudsburg, PA, USA}%
+  }
+  \field{year}{2012}
+\endentry
+
 \entry{Suchanek2007}{inproceedings}{}
   \name{author}{3}{}{%
     {{}%
@@ -886,6 +965,22 @@
     {Stroudsburg, PA, USA}%
   }
   \field{year}{2003}
+\endentry
+
+\entry{vldb}{misc}{}
+  \field{sortinit}{V}
+  \field{howpublished}{\url{http://www.vldb.org/}}
+  \field{note}{[Online; accessed 09-October-2016]}
+  \field{title}{Very Large Data Base Endowment Inc. (VLDB Endowment)}
+  \field{year}{2016}
+\endentry
+
+\entry{acl}{misc}{}
+  \field{sortinit}{W}
+  \field{howpublished}{\url{https://www.aclweb.org/website/what-is-cl}}
+  \field{note}{[Online; accessed 09-October-2016]}
+  \field{title}{What is the ACL and what is Computational Linguistics?}
+  \field{year}{2016}
 \endentry
 
 \entry{wiki}{misc}{}

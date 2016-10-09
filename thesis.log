@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.4.28)  2 OCT 2016 15:34
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.4.28)  9 OCT 2016 23:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -396,10 +396,6 @@ e/RRM/JK)
 \Gin@req@height=\dimen147
 \Gin@req@width=\dimen148
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip10
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/soul/soul.sty
 Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 \SOUL@word=\toks24
@@ -512,6 +508,10 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 \c@tabx@nest=\count157
 \c@listtotal=\count158
@@ -1141,7 +1141,159 @@ File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.0 (rcs-revision 1.2)
 \yca=\skip211
 \xcb=\skip212
 \ycb=\skip213
-) (./unswcover.sty
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2015/01/31 v1.12 Data Visualization (1.12)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks46
+\t@pgfplots@tokb=\toks47
+\t@pgfplots@tokc=\toks48
+\pgfplots@tmpa=\dimen257
+\c@pgfplots@coordindex=\count342
+\c@pgfplots@scanlineindex=\count343
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric
+.code.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.c
+ode.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_loader.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.cod
+e.tex)
+Package pgfplots: loading complementary arithmetics for your pgf version...
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_pgflibraryfpu.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count344
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_trig_format.code.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code
+.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+liststructure.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+liststructureext.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+array.code.tex
+\c@pgfplotsarray@tmp=\count345
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+matrix.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
+shared.code.tex
+\c@pgfplotstable@counta=\count346
+\t@pgfplotstable@a=\toks49
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+deque.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.co
+de.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.da
+ta.code.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb
+.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplot
+s.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count347
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots
+.surfshading.pgfsys-xetex.def
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots
+.surfshading.pgfsys-dvipdfmx.def
+\c@pgfplotslibrarysurf@streamlen=\count348
+))))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.
+code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.cod
+e.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.c
+ode.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.c
+ode.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandle
+r.code.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.
+tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessin
+g.code.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.cod
+e.tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.
+tex)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.te
+x)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
+s.code.tex
+\pgfdecoratedcompleteddistance=\dimen258
+\pgfdecoratedremainingdistance=\dimen259
+\pgfdecoratedinputsegmentcompleteddistance=\dimen260
+\pgfdecoratedinputsegmentremainingdistance=\dimen261
+\pgf@decorate@distancetomove=\dimen262
+\pgf@decorate@repeatstate=\count349
+\pgfdecorationsegmentamplitude=\dimen263
+\pgfdecorationsegmentlength=\dimen264
+)
+\tikz@lib@dec@box=\box91
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathmorphing.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathmorphing.code.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathreplacing.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathreplacing.code.tex))
+\pgfplots@numplots=\count350
+\pgfplots@xmin@reg=\dimen265
+\pgfplots@xmax@reg=\dimen266
+\pgfplots@ymin@reg=\dimen267
+\pgfplots@ymax@reg=\dimen268
+\pgfplots@zmin@reg=\dimen269
+\pgfplots@zmax@reg=\dimen270
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmar
+ks.code.tex
+File: pgflibraryplotmarks.code.tex 2013/07/20 v3.0.0 (rcs-revision 1.13)
+)))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count351
+\lst@gtempboxa=\box92
+\lst@token=\toks50
+\lst@length=\count352
+\lst@currlwidth=\dimen271
+\lst@column=\count353
+\lst@pos=\count354
+\lst@lostspace=\dimen272
+\lst@width=\dimen273
+\lst@newlines=\count355
+\lst@lineno=\count356
+\lst@maxwidth=\dimen274
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+\c@lstnumber=\count357
+\lst@skipnumbers=\count358
+\lst@framebox=\box93
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2014/09/06 1.5e listings configuration
+))
+Package: listings 2014/09/06 1.5e (Carsten Heinz)
+
+(./unswcover.sty
 Package: unswcover 2013/03/20 v1.0 Initial CTAN release
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.sty
@@ -1152,8 +1304,8 @@ Language: english 2012/08/20 v3.3p English support from the babel system
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2014/09/25 3.9l Babel common definitions
-\babel@savecnt=\count342
-\U@D=\dimen257
+\babel@savecnt=\count359
+\U@D=\dimen275
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/babel/xebabel.def))
 \l@canadian = a dialect from \language\l@american 
@@ -1165,15 +1317,15 @@ Package: pdfpages 2013/08/25 v0.4v Insert pages of external PDF documents (AM)
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count343
-\calc@Bcount=\count344
-\calc@Adimen=\dimen258
-\calc@Bdimen=\dimen259
+\calc@Acount=\count360
+\calc@Bcount=\count361
+\calc@Adimen=\dimen276
+\calc@Bdimen=\dimen277
 \calc@Askip=\skip214
 \calc@Bskip=\skip215
 LaTeX Info: Redefining \setlength on input line 75.
 LaTeX Info: Redefining \addtolength on input line 76.
-\calc@Ccount=\count345
+\calc@Ccount=\count362
 \calc@Cskip=\skip216
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/eso-pic/eso-pic.sty
@@ -1191,10 +1343,10 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/pdfpages/ppxetex.def
 File: ppxetex.def 2013/08/25 v0.4v Pdfpages driver for XeTeX (AM)
 )
-\AM@pagebox=\box91
-\AM@toc@title=\toks46
-\c@AM@survey=\count346
-\AM@templatesizebox=\box92
+\AM@pagebox=\box94
+\AM@toc@title=\toks51
+\c@AM@survey=\count363
+\AM@templatesizebox=\box95
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
@@ -1248,14 +1400,14 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen260
-\Hy@linkcounter=\count347
-\Hy@pagecounter=\count348
+\@linkdim=\dimen278
+\Hy@linkcounter=\count364
+\Hy@pagecounter=\count365
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count349
+\Hy@SavedSpaceFactor=\count366
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -1272,12 +1424,12 @@ Package hyperref Info: Plain pages OFF on input line 4458.
 Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count350
+\c@Hy@tempcnt=\count367
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen261
-\Fld@menulength=\count351
-\Field@Width=\dimen262
-\Fld@charsize=\dimen263
+\XeTeXLinkMargin=\dimen279
+\Fld@menulength=\count368
+\Field@Width=\dimen280
+\Fld@charsize=\dimen281
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -1287,15 +1439,15 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count352
-\c@Item=\count353
-\c@Hfootnote=\count354
+\Hy@abspage=\count369
+\c@Item=\count370
+\c@Hfootnote=\count371
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/memoir/memhfixc.sty
 Package: memhfixc 2013/05/30 v1.17 nameref/hyperref package fixes for memoir cl
 ass
-\c@memhycontfloat=\count355
-\c@Hpagenote=\count356
+\c@memhycontfloat=\count372
+\c@Hpagenote=\count373
 )
 
 Package hyperref Message: Driver (autodetected): hxetex.
@@ -1307,11 +1459,11 @@ File: hxetex.def 2012/11/06 v6.83m Hyperref driver for XeTeX
 Package: stringenc 2011/12/02 v1.10 Convert strings between diff. encodings (HO
 )
 )
-\pdfm@box=\box93
-\c@Hy@AnnotLevel=\count357
-\HyField@AnnotCount=\count358
-\Fld@listcount=\count359
-\c@bookmark@seq@number=\count360
+\pdfm@box=\box96
+\c@Hy@AnnotLevel=\count374
+\HyField@AnnotCount=\count375
+\Fld@listcount=\count376
+\c@bookmark@seq@number=\count377
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
@@ -1324,8 +1476,8 @@ tly
 )
 \Hy@SectionHShift=\skip217
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 32.
-\compiledate=\box94
+Package hyperref Info: Option `colorlinks' set `true' on input line 50.
+\compiledate=\box97
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -1349,25 +1501,25 @@ File: english.lbx 2014/06/25 v2.9a biblatex localization (PK/JW/AB)
 (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-Package ragged2e Info: ABD: executing \RaggedRight on input line 45.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+Package ragged2e Info: ABD: executing \RaggedRight on input line 67.
  ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 45.
+LaTeX Info: Redefining \selectfont on input line 67.
 Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Data encoding 'ascii' specified.
@@ -1377,27 +1529,30 @@ Package biblatex Info: Data encoding 'ascii' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
  (./thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 45.
-Package biblatex Info: Reference segment=0 on input line 45.
+Package biblatex Info: Reference section=0 on input line 67.
+Package biblatex Info: Reference segment=0 on input line 67.
 
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box95
-Package hyperref Info: Link coloring ON on input line 45.
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.12}).
 
+\c@lstlisting=\count378
+\AtBeginShipoutBox=\box98
+Package hyperref Info: Link coloring ON on input line 67.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count361
+\c@section@level=\count379
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 45.
-LaTeX Info: Redefining \ref on input line 45.
-LaTeX Info: Redefining \pageref on input line 45.
-LaTeX Info: Redefining \nameref on input line 45.
+LaTeX Info: Redefining \nameref on input line 67.
+LaTeX Info: Redefining \ref on input line 67.
+LaTeX Info: Redefining \pageref on input line 67.
+LaTeX Info: Redefining \nameref on input line 67.
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write6
 \openout6 = `thesis.out'.
@@ -1421,12 +1576,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ) [4
 
 ]
-Overfull \hbox (3.44751pt too wide) in paragraph at lines 93--93
+Overfull \hbox (3.44751pt too wide) in paragraph at lines 115--115
 \T1/cmr/m/it/10.95 quarter-final berth after se-cur-ing a 1-1 draw with Shan-do
 ng Lun-eng in China.\T1/cmr/m/n/10.95 '  
  []
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 98.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 120.
+
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ) [1
@@ -1434,167 +1590,207 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 
 
 ]
-Overfull \hbox (5.7456pt too wide) in paragraph at lines 111--111
+Overfull \hbox (5.7456pt too wide) in paragraph at lines 133--133
 []\T1/cmr/m/n/10.95 `  \T1/cmr/m/it/10.95 SYDNEY FC take the ad-vant-age of an 
 away goal in China, leav-ing the second 
  []
 
 File: ./images/google_knowledge_graph.png Graphic file (type QTm)
 <use  "./images/google_knowledge_graph.png" > [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 143.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 165.
 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 143.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 165.
  [3] [4] [5
 
 ]
 [6]
-Overfull \hbox (1.52078pt too wide) in paragraph at lines 241--242
+Overfull \hbox (1.52078pt too wide) in paragraph at lines 263--264
 \T1/cmr/m/n/10.95 in a raw text sen-tence, and what are its sen-tences. As an e
 x-ample, the token- 
  []
 
 [7] [8]
-Underfull \hbox (badness 1057) in paragraph at lines 271--271
+Underfull \hbox (badness 1057) in paragraph at lines 293--293
 []\T1/cmr/bx/n/10.95 Figure 2.3: []\T1/cmr/m/n/10.95 A sen-tence broken down to
  its Phrase Struc-ture (sub- 
  []
 
 [9] [10]
 Missing character: There is no – in font ecrm1095!
- [11] [12]
-Overfull \hbox (20.23749pt too wide) in paragraph at lines 389--390
-\T1/cmr/m/n/10.95 En-tity Re-cog-nizer (NER), part of the Stan-ford CoreNLP [[]
-[]17[][]]. Stan-ford CoreNLP 
+ [11]
+Overfull \hbox (0.27718pt too wide) in paragraph at lines 383--384
+\T1/cmr/m/n/10.95 plate Filling [[][]18[][]], Ques-tion and An-swer-ing sys-tem
+s [[][]25[][]], or stored as a Know- 
  []
 
-[13] [14]
+[12] [13]
+Underfull \vbox (badness 1466) has occurred while \output is active []
+
+ [14]
 File: ./images/patty.png Graphic file (type QTm)
- <use  "./images/patty.png" > [15]
+
+<use  "./images/patty.png" > [15]
+(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2014/09/06 1.5e listings language file
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+)
+(./images/relations.xml
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 1.
+) [16]
+Overfull \hbox (20.3838pt too wide) in paragraph at lines 525--526
+\T1/cmr/m/n/10.95 to ex-tract the fol-low-ing re-la-tions: \T1/cmr/m/it/10.95 L
+ive_In\T1/cmr/m/n/10.95 , \T1/cmr/m/it/10.95 Loc-ated_In\T1/cmr/m/n/10.95 , \T1
+/cmr/m/it/10.95 Or-gBased_In\T1/cmr/m/n/10.95 , \T1/cmr/m/it/10.95 Work_For 
+ []
+
+
+Overfull \hbox (1.4938pt too wide) in paragraph at lines 525--526
+\T1/cmr/m/n/10.95 - and the fol-low-ing classes: \T1/cmr/m/it/10.95 PER-SON\T1/
+cmr/m/n/10.95 , \T1/cmr/m/it/10.95 OR-GAN-IZ-A-TION\T1/cmr/m/n/10.95 , \T1/cmr/
+m/it/10.95 LOC-A-TION\T1/cmr/m/n/10.95 . There 
+ []
+
 Missing character: There is no ’ in font ecrm1095!
 
-Overfull \hbox (2.6202pt too wide) in paragraph at lines 480--481
+Overfull \hbox (2.6202pt too wide) in paragraph at lines 537--538
 \T1/cmr/m/n/10.95 tra-di-tion-ally ori-gin-ally mined from table-like struc-tur
 es form places like Wiki- 
  []
 
-[16]
+[17]
 File: ./images/yago_graph.png Graphic file (type QTm)
  <use  "./images/yago_graph.png" >
-Overfull \hbox (0.94797pt too wide) in paragraph at lines 517--518
+File: ./images/yago.png Graphic file (type QTm)
+ <use  "./images/yago.png" > [18]
+Overfull \hbox (0.94797pt too wide) in paragraph at lines 581--582
 \T1/cmr/m/n/10.95 ful query-ing. Fi-nally, it at-taches a tem-poral and a spa-c
 ial di-men-sion to many 
  []
 
-File: ./images/yago.png Graphic file (type QTm)
-<use  "./images/yago.png" > [17] [18]
-Missing character: There is no ﬁ in font ecrm1095!
-
-Underfull \vbox (badness 3514) has occurred while \output is active []
-
- [19
-
-]
-[20]
-Missing character: There is no “ in font ecrm1095!
-Missing character: There is no ” in font ecrm1095!
-Missing character: There is no “ in font ecrm1095!
-Missing character: There is no ” in font ecrm1095!
-
-Overfull \hbox (11.33087pt too wide) in paragraph at lines 655--656
-\T1/cmr/m/n/10.95 Sunday (from Fig-ure 1) are en-coded as O O NFLTEAM NFLTEAM O
- DATE). 
+[19] [20]
+Overfull \hbox (1.10722pt too wide) in paragraph at lines 598--599
+[]\T1/cmr/m/n/10.95 Find which al-gorithms are used to re-solve, or re-lated to
+, a cer-tain prob- 
  []
 
 [21
 
-] [22] [23
+] [22]
+File: ./images/words_most_used_all.png Graphic file (type QTm)
+ <use  "./images/words_most_used_all.png" >
+File: ./images/words_most_use_no_top2.png Graphic file (type QTm)
 
-] [24
-
-] [25] [26
+<use  "./images/words_most_use_no_top2.png" > [23]
+Missing character: There is no ﬁ in font ecrm1095!
+ [24] [25] [26
 
 ]
-Overfull \hbox (0.89635pt too wide) in paragraph at lines 699--699
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27]
+Missing character: There is no “ in font ecrm1095!
+Missing character: There is no ” in font ecrm1095!
+Missing character: There is no “ in font ecrm1095!
+Missing character: There is no ” in font ecrm1095!
+
+Overfull \hbox (11.33087pt too wide) in paragraph at lines 814--815
+\T1/cmr/m/n/10.95 Sunday (from Fig-ure 1) are en-coded as O O NFLTEAM NFLTEAM O
+ DATE). 
+ []
+
+[28] [29
+
+] [30
+
+] [31] [32
+
+]
+Overfull \hbox (0.89635pt too wide) in paragraph at lines 862--862
 []\T1/cmr/m/it/10.95 Bing Know-ledge and Ac-tion Graph\T1/cmr/m/n/10.95 . [][]$
 \T1/cmtt/m/n/10.95 https : / / www . bing . com / partners / 
  []
 
 
-Overfull \hbox (1.25372pt too wide) in paragraph at lines 699--699
+Overfull \hbox (1.25372pt too wide) in paragraph at lines 862--862
 []\T1/cmr/m/n/10.95 Kurt Bol-lacker et al. `  Free-base: A Col-lab-or-at-ively 
 Cre-ated Graph Data- 
  []
 
 
-Overfull \hbox (8.83812pt too wide) in paragraph at lines 699--699
+Overfull \hbox (8.83812pt too wide) in paragraph at lines 862--862
 \T1/cmr/m/it/10.95 fer-ence on Em-pir-ical Meth-ods in Nat-ural Lan-guage Pro-c
 essing (EMNLP)\T1/cmr/m/n/10.95 . 
  []
 
 
-Overfull \hbox (1.818pt too wide) in paragraph at lines 699--699
+Overfull \hbox (1.818pt too wide) in paragraph at lines 862--862
 \T1/cmr/m/n/10.95 Doha, Qatar: As-so-ci-ation for Com-pu-ta-tional Lin-guist-ic
 s, 2014, pp. 740^^U 
  []
 
-[27
+[33
 
 ]
-Overfull \hbox (2.24106pt too wide) in paragraph at lines 699--699
+Overfull \hbox (2.24106pt too wide) in paragraph at lines 862--862
 \T1/cmr/m/it/10.95 2015 Con-fer-ence on Em-pir-ical Meth-ods in Nat-ural Lan-gu
 age Pro-cessing\T1/cmr/m/n/10.95 . 
  []
 
 
-Overfull \hbox (1.96327pt too wide) in paragraph at lines 699--699
+Overfull \hbox (1.96327pt too wide) in paragraph at lines 862--862
 []\T1/cmr/m/n/10.95 Daniel Jur-af-sky and James H. Mar-tin. \T1/cmr/m/it/10.95 
 Speech and Lan-guage Pro-cessing: 
  []
 
-[28]
-Overfull \hbox (12.5609pt too wide) in paragraph at lines 699--699
+[34]
+Overfull \hbox (12.5609pt too wide) in paragraph at lines 862--862
 []\T1/cmr/m/n/10.95 Ndapandula Na-kashole, Ger-hard Weikum and Fa-bian Suchanek
 . `  PATTY: 
  []
 
 
-Overfull \hbox (55.86662pt too wide) in paragraph at lines 699--699
+Overfull \hbox (55.86662pt too wide) in paragraph at lines 862--862
 []\T1/cmr/m/n/10.95 Joakim Nivre et al. \T1/cmr/m/it/10.95 Uni-ver-sal De-pend-
 en-cies 1.3\T1/cmr/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 http : / / universaldepe
 ndencies . 
  []
 
 
-Overfull \hbox (6.80707pt too wide) in paragraph at lines 699--699
+Overfull \hbox (6.80707pt too wide) in paragraph at lines 862--862
 []\T1/cmr/m/it/10.95 SyntaxNet: Neural Mod-els of Syn-tax\T1/cmr/m/n/10.95 . []
 []$\T1/cmtt/m/n/10.95 https : / / github . com / tensorflow / 
  []
 
-[29]
+[35] [36]
 \tf@toc=\write7
 \openout7 = `thesis.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 702.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 702.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 865.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 865.
  (./thesis.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 702.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 702.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 865.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 865.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32509 strings out of 493724
- 603328 string characters out of 6145899
- 860249 words of memory out of 5000000
- 35356 multiletter control sequences out of 15000+600000
- 16811 words of font info for 39 fonts, out of 8000000 for 9000
+ 42733 strings out of 493724
+ 920741 string characters out of 6145899
+ 1259518 words of memory out of 5000000
+ 45411 multiletter control sequences out of 15000+600000
+ 20497 words of font info for 45 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 60i,14n,104p,1489b,2343s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,14n,104p,1586b,2339s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (33 pages).
+Output written on thesis.pdf (40 pages).
