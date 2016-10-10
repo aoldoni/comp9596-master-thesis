@@ -20,38 +20,38 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}Analysis of Academic Text}{21}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Peculiarities with Academic Text}{24}{section.3.2}
+\contentsline {section}{\numberline {3.2}Peculiarities with Academic Text}{27}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Related Work}{25}{section.3.3}
+\contentsline {section}{\numberline {3.3}Related Work}{27}{section.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {4}Developed Workflow}{27}{chapter.4}
+\contentsline {chapter}{\chapternumberline {4}Developed Workflow}{29}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Tools}{27}{section.4.1}
+\contentsline {section}{\numberline {4.1}Tools}{29}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.1}PDF extraction generates noisy output}{27}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.1}PDF extraction generates noisy output}{29}{subsection.4.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.2}Programming Languages}{27}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.2}Programming Languages}{29}{subsection.4.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.3}Python Modules}{27}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.3}Python Modules}{29}{subsection.4.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.4}NLTK}{28}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.4}NLTK}{30}{subsection.4.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.5}Brat}{28}{subsection.4.1.5}
+\contentsline {subsection}{\numberline {4.1.5}Brat}{30}{subsection.4.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.6}Jupyter}{28}{subsection.4.1.6}
+\contentsline {subsection}{\numberline {4.1.6}Jupyter}{30}{subsection.4.1.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.7}Parsey}{28}{subsection.4.1.7}
+\contentsline {subsection}{\numberline {4.1.7}Parsey}{30}{subsection.4.1.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.8}SpaCy}{28}{subsection.4.1.8}
+\contentsline {subsection}{\numberline {4.1.8}SpaCy}{30}{subsection.4.1.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.9}Stanford CoreNLP}{28}{subsection.4.1.9}
+\contentsline {subsection}{\numberline {4.1.9}Stanford CoreNLP}{30}{subsection.4.1.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.10}Graphviz}{28}{subsection.4.1.10}
+\contentsline {subsection}{\numberline {4.1.10}Graphviz}{30}{subsection.4.1.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Developed process and programs}{28}{section.4.2}
+\contentsline {section}{\numberline {4.2}Developed process and programs}{30}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {5}Results}{29}{chapter.5}
+\contentsline {chapter}{\chapternumberline {5}Results}{33}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {6}Conclusion and Future Work}{31}{chapter.6}
+\contentsline {chapter}{\chapternumberline {6}Conclusion and Future Work}{35}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{33}{section*.4}
+\contentsline {chapter}{Bibliography}{37}{section*.4}

@@ -390,7 +390,7 @@ Once the information is extracted it is then used for tasks such as Template Fil
   \label{tab:james_cook}
 \end{table}
 
-Named Entity Recognition is the process of, given a sentence, identify and extract what are the entities that are part of it. Once the entity is detected, it needs to be classified within the classes of the given domain - in the spirit of the previous examples this would be e.g.: \emph{CITY} or \emph{PERSON}. Different types of entities are relevant to context of the data being worked with. A few approaches exist for the problem of NER, mostly related to Pattern Matching or Sequence Classification.
+Named Entity Recognition (NER) is the process of, given a sentence, identify and extract what are the entities that are part of it. Once the entity is detected, it needs to be classified within the classes of the given domain - in the spirit of the previous examples this would be e.g.: \emph{CITY} or \emph{PERSON}. Different types of entities are relevant to context of the data being worked with. A few approaches exist for the problem of NER, mostly related to Pattern Matching or Sequence Classification.
 
 \begin{table}[!htbp]
   \centering
@@ -625,7 +625,7 @@ Entities from academic text in this setting are not as straightforward to define
   \label{tab:entities_from_business_text}
 \end{table}
 
-From the news text example above, Table \ref{tab:entities_from_business_text} lists the entities that are clearly notes in the text. One can observe a very strong feature which is the common capitalization of the first letter of each of these entities. Another characteristic is how entities from this news text example are \emph{global} or \emph{unconditional}: \emph{\enquote{Japan}} is a location regardless of any condition or any context in this document. Another observation is that, referring to the Stanfords Relation Extraction default relations, \emph{\enquote{Toshiba Corp}} is an organisation \emph{Located\_In} \emph{\enquote{Japan}} regardless of other context in this document. This contrasts with concepts and their relations observed in academic papers, thus that while \emph{\enquote{large-scale clustering}} has the \emph{Improves} with \emph{\enquote{gender classification}} in the context of the paper where this data is presented, it might not be true in all cases.
+From the news text example above, Table \ref{tab:entities_from_business_text} lists the entities that are clearly notes in the text. One can observe a very strong feature which is the common capitalization of the first letter of each of these entities. Another characteristic is how entities from this news text example are \emph{global} or \emph{unconditional}: \emph{\enquote{Japan}} is a location regardless of any condition or any context in this document. Another observation is that, referring to the Stanford's Relation Extraction default relations, \emph{\enquote{Toshiba Corp}} is an organisation \emph{Located\_In} \emph{\enquote{Japan}} regardless of other context in this document. This contrasts with concepts and their relations observed in academic papers, thus that while \emph{\enquote{large-scale clustering}} has the \emph{Improves} with \emph{\enquote{gender classification}} in the context of the paper where this data is presented, it might not be true in all cases.
 
 \begin{table}[!htbp]
   \centering
@@ -663,30 +663,79 @@ Other possible relations from the Stanford Relation Extractor standard relations
 \begin{figure}[!htbp]
   \centering
     \includegraphics[width=1.0\textwidth]{./images/words_most_used_all}
-  \caption[Samples of the most common words in the singular third-person form.]{Samples of the most common words in the singular third-person form.}
+  \caption[Samples of the most common words in the singular third-person form.]{Samples of the most common words in the singular third-person form. The \emph{y} axis represents the number of times the word in the \emph{x} axis appeared in the text.}
   \label{fig:words_most_used_all}
 \end{figure}
 
 \begin{figure}[!htbp]
   \centering
     \includegraphics[width=1.0\textwidth]{./images/words_most_use_no_top2}
-  \caption[Samples of the most common words in the singular third-person form, after removing the top 2 words.]{Samples of the most common words in the singular third-person form, after removing the top 2 words.}
+  \caption[Samples of the most common words in the singular third-person form, after removing the top 2 words.]{Samples of the most common words in the singular third-person form, after removing the top 2 words (\emph{\enquote{is}} and \emph{\enquote{has}}). The \emph{y} axis represents the number of times the word in the \emph{x} axis appeared in the text.}
   \label{fig:words_most_use_no_top2}
 \end{figure}
 
-One of the initial attempts to explore how to extract information from the generated corpus was to use the Stanford Named Entity Recognizer (NER) to recognize the concepts discussed so far in the academic text. To do so, a small set of around 20 papers' \emph{Related Work} section was annotated for the concepts contained in them using Brat \cite{Stenetorp:2012:BWT:2380921.2380942}. An example of this annotated data can be seen in \hl{BRAT IMAGE REFERENCE}.
+One of the initial attempts to explore how to extract information from the generated corpus was to use the Stanford Named Entity Recognizer (NER) to recognize the concepts discussed so far in the academic text. To do so, a small set of around 20 papers' \emph{Related Work} section was annotated for the concepts contained in them using Brat \cite{Stenetorp:2012:BWT:2380921.2380942}. An example of this annotated data can be seen in Figure \ref{fig:brat_img}.
 
-The model was trained mostly with the recommended settings and features.
+The annotated data is then transformed form Brat's standoff format \cite{Stenetorp:2012:BWT:2380921.2380942} into a Table Separated Value (TSV) format, using a custom script, based on customised version of from standoff2conll \cite{standoff2conll}, renamed standoff2others. The output is similar to the one showed in Table \ref{tab:james_cook_iob}, but its simplified version without the \emph{B-} and \emph{I-} prefixes.
 
-The success was moderated with the NER model recognizing some clearly delineated concepts by its shape (.e.g: capital words), but for non-capitalized words it appeared as it would only recognize the concepts if its words were present in the training set.
+The model was trained mostly with the recommended settings and features, such as the word itself, its class, surrounding words and word shapes. When applying this trained NER model (Figure \ref{fig:stanford_ner_usage}), we observed that the success was moderated, as it was, at times, able to detect clearly delineated concepts by its shape (.e.g: capital words), but for non-capitalized words it appeared as it would only recognize the concepts if its words were present in the training set.
 
-\hl{STANFORD NER EXAMPLE TABLE}
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=0.9\textwidth]{./images/stanford_ner}
+  \caption[The Stanford NER GUI (Graphic User Interface) using our trained model.]{The Stanford NER GUI (Graphic User Interface) using our trained model.}
+  \label{fig:stanford_ner_usage}
+\end{figure}
 
-\hl{- Attempt of using Stanford NER}
+In this image, please observer the attempt of differentiate entities such as \emph{CONCEPT} and \emph{ENTITY}. We also annotated references to other papers using the \emph{PAPER} entity, in general they appears as numbers between square brackets. Initially, we attempted to annotated using a hierarchy where entities were very specific proper nouns, while concepts had a more loose definition, and would likely be more general concepts. During the process, however, this type of annotation also proved to be difficult as it would require domain-specific knowledge of very deep database discussions in order to differentiate concepts by these two classes, and could still sometimes generate debates.
 
-\hl{- Attempt of using Stanford NER with Gazetter}
+As an attempt of further improve the quality of the NER model, we made use of a gazetteer. As part of this research, the Microsoft Academic Graph \cite{microsoft-academic-data} was found to contain a very relevant list of \emph{keywords} and \emph{fields of study} available for download and academic use. Another custom script was developed to transform the data from the format provided by Microsoft into the input format accepted by Stanford's NER shown in Table \ref{tab:concept_list_from_gazetteer}. The Stanford NER utilises the gazetteer input in both ways: matching the concepts token by token in their entirety, or in a \enquote{sloppy} manner accepting a positive match even if only one of the tokens in the gazetteer entry had a match \cite{Finkel:2005:INI:1219840.1219885}. In both cases, however, the gazetteer is treated simply as another feature and does not guarantee that if the entries are found in the text they would be marked as an entity \cite{Finkel:2005:INI:1219840.1219885}. We did not observed improvement with this addition.
 
-\hl{- Attempt of using Stanford REL}
+\begin{table}[!htbp]
+  \centering
+    \begin{tabular}{l}
+CONCEPT SMOOTHSORT \\
+CONCEPT CUSTOMISED APPLICATIONS FOR MOBILE NETWORKS \\
+CONCEPT XML DOCUMENTS \\
+CONCEPT JOSEPHUS PROBLEM \\
+CONCEPT RECOGNIZABLE 
+    \end{tabular}
+  \caption[Format in which Stanford's NER supports a gazetteer input.]{Format in which Stanford's NER supports a gazetteer input.}
+  \label{tab:concept_list_from_gazetteer}
+\end{table}
+
+The next step was to attempt to use the Stanford Relation Extractor (RE). The same small annotated sample by us in Brat would also contain the following relations: \emph{Improves}, \emph{Worsen}, \emph{IsA}, \emph{Uses}. The standoff2others custom library was then improved to be able to generate the more complex CoNLL format, accepted as an input for training of the Stanford's RE, denoted in Table \ref{tab:format_for_relation_extractor_input} \cite{Surdeanu:2011:CIE:2021153.2021155}.
+
+\begin{table}[!htbp]
+  \centering
+    \begin{tabular}{lllllllll}
+2 &	Concept &	0 &	O &	NNP/NNS &	LSH/functions &	O &	O &	O \\
+2 &	O &	1 &	O &	VBP &	are & 	O &	O &	O \\
+2 &	O &	2 &	O &	NFP &	fi &	O &	O &	O \\
+2 &	O &	3 &	O &	RB &	 rst &	O &	O &	O \\
+2 &	O &	4 &	O &	VBN &	introduced &	O &	O &	O \\
+2 &	O &	5 &	O &	IN &	for &	O &	O &	O \\
+2 &	O &	6 &	O &	NN &	use &	O &	O &	O \\
+2 &	O &	7 &	O &	IN &	in &	O &	O &	O \\
+2 &	Concept &	8 &	O &	NNP/NN &	Hamming/space &	O &	O &	O \\
+2 &	O &	9 &	O &	IN &	by &	O &	O &	O \\
+2 &	O &	10 &	O &	NNP &	Indyk &	O &	O &	O \\
+2 &	O &	11 &	 O &	CC &	and &	O &	O &	O \\
+2 &	O &	12 &	O &	NNP &	Motwani &	O &	O &	O \\
+2 &	O &	13 &	O &	-LRB- &	[ &	O &	O &	O \\
+2 &	O &	14 &	O &	CD &	7 &	O &	O &	O \\
+2 &	O &	15 &	O &	-RRB- &	] &	O &	O &	O \\
+2 &	O &	16 &	O &	. &	. &	O &	O &	O \\
+ & & & & & & & & \\
+0 & 8 & Uses & & & & & & \\
+    \end{tabular}
+  \caption[Format in which Stanford's Relation Extractor accepts its training input.]{Format in which Stanford's Relation Extractor accepts its training input.}
+  \label{tab:format_for_relation_extractor_input}
+\end{table}
+
+The important columns of this format are: column 2 which denotes the entity tag, column 3 denotes the token ID in the sentence, column 5 contains its Part-Of-Speech tag, and column 6 which contains the token itself. For this specific process, POS tags were obtained from the Google Syntaxnet Software \cite{google-syntaxnet, DBLP:journals/corr/AndorAWSPGPC16}, which were generated in separated and then joined with the token for the final CoNLL output.
+
+The results from the RE trained model, one of which is depicted in Figure \ref{fig:xml_output1}, were much poorer compared to the NER output, and we failed to find interesting relations with confidences above 50\%. In both cases, after analysing the models we were able to generate using the NER and the Relation Extractor software from Stanford, it was clear that much more annotated data would be needed as to achieve higher quality results.
 
 \hl{- Attempt of using Stanford OpenIE}
 
@@ -800,6 +849,14 @@ corenlp-xml
 \subsection{NLTK}
 
 \subsection{Brat}
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=1.0\textwidth]{./images/brat_img}
+  \caption[The Brat rapid annotation tool, an online environment for collaborative text annotation.]{The Brat rapid annotation tool, an online environment for collaborative text annotation.}
+  \label{fig:brat_img}
+\end{figure}
+
 
 \subsection{Jupyter}
 

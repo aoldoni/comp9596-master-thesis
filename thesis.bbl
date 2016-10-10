@@ -770,6 +770,23 @@
   \field{year}{2016}
 \endentry
 
+\entry{standoff2conll}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Pyysalo}{P.}%
+     {Sampo}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{PS1}
+  \strng{fullhash}{PS1}
+  \field{sortinit}{P}
+  \field{howpublished}{\url{https://github.com/spyysalo/standoff2conll}}
+  \field{note}{[Online; accessed 14-August-2016]}
+  \field{title}{{standoff2conll}}
+  \field{year}{2016}
+\endentry
+
 \entry{semanticscholar}{misc}{}
   \field{sortinit}{S}
   \field{howpublished}{\url{http://allenai.org/semantic-scholar/}}
