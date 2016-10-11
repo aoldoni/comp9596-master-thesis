@@ -20,9 +20,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}Analysis of Academic Text}{21}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Peculiarities with Academic Text}{27}{section.3.2}
+\contentsline {section}{\numberline {3.2}Open Information Extraction}{27}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Related Work}{27}{section.3.3}
+\contentsline {section}{\numberline {3.3}Peculiarities with Academic Text}{27}{section.3.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\chapternumberline {4}Developed Workflow}{29}{chapter.4}
 \defcounter {refsection}{0}\relax 
@@ -50,8 +50,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.2}Developed process and programs}{30}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {5}Results}{33}{chapter.5}
+\contentsline {chapter}{\chapternumberline {5}Results}{31}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {6}Conclusion and Future Work}{35}{chapter.6}
+\contentsline {chapter}{\chapternumberline {6}Conclusion and Future Work}{33}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{37}{section*.4}
+\contentsline {chapter}{Bibliography}{35}{section*.4}

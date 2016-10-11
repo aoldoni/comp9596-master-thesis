@@ -689,7 +689,7 @@ The model was trained mostly with the recommended settings and features, such as
 
 In this image, please observer the attempt of differentiate entities such as \emph{CONCEPT} and \emph{ENTITY}. We also annotated references to other papers using the \emph{PAPER} entity, in general they appears as numbers between square brackets. Initially, we attempted to annotated using a hierarchy where entities were very specific proper nouns, while concepts had a more loose definition, and would likely be more general concepts. During the process, however, this type of annotation also proved to be difficult as it would require domain-specific knowledge of very deep database discussions in order to differentiate concepts by these two classes, and could still sometimes generate debates.
 
-As an attempt of further improve the quality of the NER model, we made use of a gazetteer. As part of this research, the Microsoft Academic Graph \cite{microsoft-academic-data} was found to contain a very relevant list of \emph{keywords} and \emph{fields of study} available for download and academic use. Another custom script was developed to transform the data from the format provided by Microsoft into the input format accepted by Stanford's NER shown in Table \ref{tab:concept_list_from_gazetteer}. The Stanford NER utilises the gazetteer input in both ways: matching the concepts token by token in their entirety, or in a \enquote{sloppy} manner accepting a positive match even if only one of the tokens in the gazetteer entry had a match \cite{Finkel:2005:INI:1219840.1219885}. In both cases, however, the gazetteer is treated simply as another feature and does not guarantee that if the entries are found in the text they would be marked as an entity \cite{Finkel:2005:INI:1219840.1219885}. We did not observed improvement with this addition.
+As an attempt of further improve the quality of the NER model, we made use of a gazetteer. As part of this research, the Microsoft Academic Graph \cite{microsoft-academic-data} was found to contain a very relevant list of \emph{keywords} and \emph{fields of study} available for download and academic use. Another custom script was developed to transform the data from the format provided by Microsoft into the input format accepted by Stanford's NER shown in Table \ref{tab:concept_list_from_gazetteer}. The Stanford NER utilises the gazetteer input in both ways: matching the concepts token by token in their entirety, or in a \enquote{sloppy} manner accepting a positive match even if only one of the tokens in the gazetteer entry had a match \cite{Finkel:2005:INI:1219840.1219885}. In both cases, however, the gazetteer is treated simply as another feature and does not guarantee that if the entries are found in the text they would be marked as an entity \cite{Finkel:2005:INI:1219840.1219885}. The gazetteer format has its first token denoting the type of the entry, all of the type \emph{CONCEPT} in this case, with the following words denoting the gazetteer entry itself, space separated. We did not observed improvement with this addition.
 
 \begin{table}[!htbp]
   \centering
@@ -704,7 +704,7 @@ CONCEPT RECOGNIZABLE
   \label{tab:concept_list_from_gazetteer}
 \end{table}
 
-The next step was to attempt to use the Stanford Relation Extractor (RE). The same small annotated sample by us in Brat would also contain the following relations: \emph{Improves}, \emph{Worsen}, \emph{IsA}, \emph{Uses}. The standoff2others custom library was then improved to be able to generate the more complex CoNLL format, accepted as an input for training of the Stanford's RE, denoted in Table \ref{tab:format_for_relation_extractor_input} \cite{Surdeanu:2011:CIE:2021153.2021155}.
+The next step was to attempt to use the Stanford Relation Extractor (RE). The same small annotated sample by us in Brat would also contain the following relations: \emph{Improves}, \emph{Worsen}, \emph{IsA}, \emph{Uses}. The standoff2others custom library was then improved to be able to generate the more complex CoNLL format, accepted as an input for training of the Stanford's RE, denoted in Table \ref{tab:format_for_relation_extractor_input} \cite{Surdeanu:2011:CIE:2021153.2021155}. Also, the Java parser code from the Relation Extractor had to be changed in a few places to accept custom labels (classes) for NER.
 
 \begin{table}[!htbp]
   \centering
@@ -737,15 +737,39 @@ The important columns of this format are: column 2 which denotes the entity tag,
 
 The results from the RE trained model, one of which is depicted in Figure \ref{fig:xml_output1}, were much poorer compared to the NER output, and we failed to find interesting relations with confidences above 50\%. In both cases, after analysing the models we were able to generate using the NER and the Relation Extractor software from Stanford, it was clear that much more annotated data would be needed as to achieve higher quality results.
 
+Please refer to Section \ref{section:tools} for more information on tools mentioned in this section.
+
+
+%
+%
+% RELATED WORK
+%
+%
+
+
+\section{Open Information Extraction}
+\label{section:related}
+
+Since we had no access to annotated data, we turned to a different approach called Open Information Extraction in an attempt for better results. This approach uses linguistic information from the text, among other techniques, as to attempt to extract the relations without the need of a trained model.
+
 \hl{- Attempt of using Stanford OpenIE}
 
 \hl{- Heuristics attempted with OpenIE results}
 
 \hl{To be completed: Querying a corpus? How to check for similar words statistically, etc}
 
-\hl{- Any further results?}
+\hl{- Any further results? Review code for other code.}
 
-Please refer to Section \ref{section:tools} for more information on tools mentioned in this section.
+
+Other methods for relation extraction such as the ones from papers:
+
+ClausIE: Clause-Based Open Information Extraction
+
+Extreme Extraction: Only One Hour per Relation
+
+IKE - An Interactive Tool for Knowledge Extraction
+
+All tools described in this section are similar in nature to our tool, thus describing the related work.
 
 
 %
@@ -779,27 +803,6 @@ Methods:
 * Perform entity disambiguation and linking to a reference Knowledge Graph (e.g., Yago2 or DBPedia). 
 * Design effective postprocessing methods to improve the quality of the extraction.
 * Evaluate the entire extraction system.
-
-
-%
-%
-% RELATED WORK
-%
-%
-
-
-\section{Related Work}
-\label{section:related}
-
-\hl{- Open Information Extraction}
-
-Other methods for relation extraction such as the ones from papers:
-
-ClausIE: Clause-Based Open Information Extraction
-
-Extreme Extraction: Only One Hour per Relation
-
-IKE - An Interactive Tool for Knowledge Extraction
 
 
 %
@@ -878,23 +881,40 @@ corenlp-xml
 
 \section{Developed process and programs}
 
-We leverage on existing pipeline for NER and Relatino Extraction (Stanford) , instead of independent tools.
+verb-centric
 
-We use IO notatoion instead of IOB notation  notation3 for entity mention la- bels (e.g., the labels for the tokens “over the Seattle Seahawks on Sunday” (from Figure 1) are encoded as “O O NFLTEAM NFLTEAM O DATE”). The IO notation facilitates faster inference than the IOB or IOB2 notations with minimal impact on performance, when there are fewer adjacent mentions with the same type. AS PER STANFORD RELATION EXTRACTOR PAPER.
+----------------------
+Attempted to generate a parametrized relation with "options", such as:
+http://verbs.colorado.edu/propbank/framesets-english-aliases/improve.html
 
-TALK ABOUT FEATURES WE PICKED FOR NER.
+We might use their results as a reference for our own grouping. 
+For more info on these resouces, a quick slides is http://faculty.ist.unomaha.edu/ylierler/teaching/material/sp13/FrameNetPropBankVerbNet.pptx
+----------------------
 
-TALK ABOUT FEATURES WE PICKED FOR REL.
+Q-TREE
 
-Open information extraction (open IE) has been shown to be useful in a number of NLP tasks, such as question answering (Fader et al., 2014), rela- tion extraction (Soderland et al., 2010), and infor- mation retrieval (Etzioni, 2011).
+We use some pair of delimiter (e.g., [, ] as you used) to enclose each subtree. (this is similar to lisp). 
 
-We did not implement coreference.
+u [ a [ b c d]
+     e [f [g h] i]
+     k 
+   ]
 
-Expected Outcome:
+btw, this is very similar to q-tree's syntax: 
 
-1. A system that can build a knowledge graph from research literatures.  
-2. A written report about the detailed designs and implementations of this system.
-3. A seminar to present the process and outcome of this project.
+http://texdoc.net/texmf-dist/doc/latex/tikz-qtree/tikz-qtree-manual.pdf
+
+----------------------
+
+To some extent, our current approach is similar to that of ClauseIE, but with several key differences:
+
+* We tailor the extraction process for each different verb, as long as there is a sufficiently large corpus to find typical usage of the verbs.
+
+* Instead of heuristically determining whether or which PP-attachment (named 'A' as in SVAA) to be used as object of the verb, we can do it more accurately given the verb and example sentences. It is also desirable for us to look for exceptions proactively, probably by using (enhanced) regexp matching (e.g., 'improve (up)on */VBG ...')
+
+* Also we extract more than binary relation with an optional typeless argument as ClauseIE did. The output is more inline with these semantic functional analysis of verbs (e..g, as in PropBank, etc.).
+
+* I cannot remember clearly, but I don't think ClauseIE tried hard to find the right NP (if existings) as the `subj` or `obj` argument of the verb. This is pretty important for KG (esp. for reasoning) and technically challenging too. But I do expect rules/experience gained in this aspect can be easily transferred to other verbs - that's the meta-rule I mentioned yesterday.
 
 
 %
@@ -907,6 +927,10 @@ Expected Outcome:
 \chapter{Results}
 
 \hl{- Evaluation}
+
+----------------------
+"improves" is an intransitive verb, hence there is no dobj. (the last few groups). 
+----------------------
 
 
 %
