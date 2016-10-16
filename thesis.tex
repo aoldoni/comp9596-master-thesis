@@ -3,6 +3,11 @@
 % font encoding
 \usepackage[T1]{fontenc}
 
+% better tables
+\usepackage{array}
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
 % being able to quote
 \usepackage[threshold=1]{csquotes}
 
@@ -600,6 +605,7 @@ This work intends to deliver a tool or a process in which one can extract inform
 \end{itemize}
 
 \section{Analysis of Academic Text}
+\label{section:analysis_of_academic_text}
 
 The corpus of text used was generated utilising papers published from the following conferences during various years: ACL \cite{acl}, EMNLP \cite{emnlp}, ICDE \cite{icde}, SIGMOD \cite{sigmod}, VLDB \cite{vldb}. More specifically, the section of \emph{Related Work of} these papers were the ones used to build the corpus. This was done due to the characteristics and patterns of this section compared to the rest of the paper. After careful reading, we observed that the \emph{Related Work} section generally contains objective comparisons between other algorithms or softwares in contrast with more opaque or abstract explanations form other parts of the paper. This would mean that this section was a good candidate to start the analysis from. Note the following examples of sentences from the \emph{Related Work} section of papers from the corpus:
 \begin{enumerate}
@@ -750,24 +756,213 @@ Please refer to Section \ref{section:tools} for more information on tools mentio
 \section{Open Information Extraction}
 \label{section:related}
 
-Since we had no access to annotated data, we turned to a different approach called Open Information Extraction in an attempt for better results. This approach uses linguistic information from the text, among other techniques, as to attempt to extract the relations without the need of a trained model.
+Since we had no access to annotated data, we turned to a different approach called Open Information Extraction in an attempt for better results. This approach uses linguistic information from the text, among other techniques, as to attempt to extract the relations without the need of labelled data for a trained model.
 
-\hl{- Attempt of using Stanford OpenIE}
+\begin{table}[!htbp]
+  \centering
+  \tiny
+    \begin{tabular}{|m{6cm}|m{5cm}|}
+      \hline
+      \textbf{Text}             & \textbf{Extracted relation} \\
+      \hline
+      We stress that our method improves a supervised baseline.      & \emph{improves}(our method ; supervised baseline)          \\
+      \hline
+      (2008) demonstrate that adding part-of-speech tags to frequency counts substantially improves performance.
+& -          \\
+      \hline
+      Experiments with an arc-standard parser showed that our method effectively improves parsing performance and we achieved the best accuracy for single-model transition-based parser.
+&
+\emph{achieved}(we ; best accuracy for single-model transition-based parser)
 
-\hl{- Heuristics attempted with OpenIE results}
+\emph{is with} ( Experiments , arc-standard parser)\\
+      \hline
+      (2007) revealed that adding non-minimal rules improves translation quality in this setting.
+&
+\emph{adding}(translation quality ; rules)
 
-\hl{To be completed: Querying a corpus? How to check for similar words statistically, etc}
+\emph{is in}(translation quality ; setting)
+\\
+      \hline
+      (CBS Detroit, 2011-02-11) improves substantially over prior approaches.
+&
 
-\hl{- Any further results? Review code for other code.}
+\emph{improves over}(CBS Detroit ; approaches)
+
+\emph{improves substantially over}(CBS Detroit ; prior approaches)
+
+\emph{improves over}(CBS Detroit ; prior approaches)
+
+\emph{improves substantially over}(CBS Detroit ; approaches)
+
+\\
+      \hline
+    \end{tabular}
+  \caption[Examples of results from the Open Information Extraction.]{Examples of results from the Open Information Extraction software from Stanford, Stanford OpenIE.}
+  \label{tab:extractions_from_open_ie}
+\end{table}
+
+Stanford's OpenIE \cite{angeli-johnsonpremkumar-manning:2015:ACL-IJCNLP} is the first of these tools which we experimented with and works by utilising two classifiers, both applied on linguistic information from the text. The first one works at the text level and attempts to predict how to yield self-contained sentences from the text. As it processes the text, this classifier decides on three possible action: yield, which outputs a new sentence; recurse, which navigates further in the dependency tree arcs for the actual subject of the sentence; or stop, which decides then not to recurse further.
 
 
-Other methods for relation extraction such as the ones from papers:
+\begin{table}[!htbp]
+  \centering
+  \tiny
+    \begin{tabular}{|m{2cm}|m{5cm}|m{2cm}|m{1cm}|}
+%    \begin{tabular}{m{1cm} m m m}
+\hline
 
-ClausIE: Clause-Based Open Information Extraction
+\textbf{Comparison type} &
+\textbf{OpenIE sample parameters} &
+\textbf{NER sample output} &
+\textbf{Result} \\
+\hline
 
-Extreme Extraction: Only One Hour per Relation
+\textbf{At least 1 full match}  &
+Exists(Entity One ; Entity Two Three)  &
+Entity One &
+True \\
+\hline
 
-IKE - An Interactive Tool for Knowledge Extraction
+\textbf{At least 1 full match}  &
+Exists(Entity One ; Entity Two Three)  &
+Entity Four &
+False \\
+\hline
+
+\textbf{At most 2-grams}  &
+Exists(Entity One ; Entity Two Three)  &
+Entity Two &
+True \\
+\hline
+
+\textbf{At most 2-grams}  &
+Exists(Entity One ; Entity Two Three)  &
+Two &
+False \\
+\hline
+
+\textbf{Exact match, both equal}  &
+Exists(Entity One ; Entity Two Three)  &
+Entity Two Three &
+True \\
+\hline
+
+\textbf{Exact match, both equal}  &
+Exists(Entity One ; Entity Two Three)  &
+Two &
+False \\
+\hline
+
+\textbf{1-gram}  &
+Exists(Entity One ; Entity Two Three)  &
+Entity Two Three &
+True \\
+\hline
+
+\textbf{1-gram}  &
+Exists(Entity One ; Entity Two Three)  &
+Two &
+True \\
+\hline
+
+\textbf{1-gram}  &
+Exists(Entity One ; Entity Two Three)  &
+Four &
+False \\
+\hline
+
+    \end{tabular}
+  \caption[List of heuristics attempted when trying to combine OpenIE with NER results.]{List of heuristics attempted when trying to combine OpenIE with NER results. Note that the \emph{At least 1} comparison type is the only one that accepts that yields true by matching only 1 of the OpenIE parameters, all others are comparing both OpenIE parameters against NER resulted entities.}
+  \label{tab:ngram_comparison}
+\end{table}
+
+Once these sub-sentences are decided upon, its linguistic patterns are then further used to help a second classifier which will decide the format of the relation to be returned. It tries to yield the minimal meaningful patterns, or relation triplets, by carefully deciding with arcs to delete from the dependency tree, and which arcs are useful.
+
+In some experiments, we observed that when applied to academic text, in the context of searching for the \emph{Improves} relation (see Table \ref{tab:possible_academic_relations} for a proposal of possible useful relations to be extracted), OpenIE can end up observing the pattern but not including in its output, or including it in a non-canonical form. For an example, Table \ref{tab:extractions_from_open_ie} shows the output for a small range of sentences. Row 1 of this table shows a correct extraction, while row 2 shows a similar sentence that however yielded no result. Rows 3 and 4 present a situation where the \emph{Improves} relation could be observed but it is not extracted, while row 5 shows a situation where this relation is present, but its non-canonical form is extracted with some other variations. Regarding this presented data, one observation is that OpenIE does not know what the researcher is after when extracting information from the text. While this might be interesting in several cases (i.e.: in early iterations with a corpus, as to observe what are the kinds of relations one could possibly find), the tool might not include relevant results once a specific type of relation is being sought after.
+
+\begin{table}[!htbp]
+  \centering
+  \tiny
+    \begin{tabular}{|m{2cm}|m{7cm}|}
+%    \begin{tabular}{m{1cm} m m m}
+\hline
+
+\textbf{Comparison type} &
+\textbf{Result} \\
+\hline
+
+\textbf{At least 1}  &
+\emph{is in}(Several research projects ; databases)  
+
+\emph{focuses on}(IVM ; ﬁxed query)  
+
+\emph{is in}(IVM ; DBToaster)  
+
+\emph{has}(IVM ; has developed)  
+
+\emph{aggressively pre-processing}(IVM ; query)  
+
+\emph{computing query over}(we ; database)  
+
+ \\
+\hline
+
+\textbf{At most 2-grams}  &
+
+\emph{utilizing constraints in}(IVM ; IVM)
+
+\emph{hash}(k ; functions)
+
+\emph{focuses on}( Association Queries Prior work ; association queries)
+
+\emph{deploy}(RDF data ; own storage subsystem tailored to RDF)
+
+\emph{using}(String Transformation ; Examples)
+
+\emph{combining}(Samples ; samples)
+
+
+ \\
+\hline
+
+\textbf{Exact match}  &
+
+N/A
+
+ \\
+\hline
+
+\textbf{1-gram}  &
+
+\emph{are}(Spatial kNN ; important queries worth of further studying)
+
+\emph{are}(graph databases ; suitable for number of graph processing applications on non-changing static graphs)
+
+\emph{have}(several graph algorithms ; With increase in graph size have proposed in literature)
+
+\emph{compute}(I/O efficient algorithm ; components in graph)
+
+\emph{builds on}(Leopard 's light-weight dynamic graph ; work on light-weight partitioners)
+
+\emph{are related to}(Package queries ; queries) \\
+
+\hline
+    \end{tabular}
+  \caption[Sample of results of combining output from OpenIE with NER.]{Sample of results of combining output from OpenIE with NER.}
+  \label{tab:ngram_comparison_results}
+\end{table}
+
+Further exploring OpenIE's potential, an experiment we did was to attempt N-gram matching with the OpenIE results as to cross-analyse its output with the NER results from the model trained, as explained in Section \ref{section:analysis_of_academic_text}. More precisely, given the relation and its 2 parameters extracted from the text, what are the relations in the output from Stanford OpenIE in which the parameters match an recognized entity from the output of Stanford NER. The types of comparisons done are depicted in Table \ref{tab:ngram_comparison} and some selected results are in Table \ref{tab:ngram_comparison_results}. In general, we found this approach to yield only a very small number of the possible results, while also presenting inconsistencies (too much variation) in regards to the types of relations obtained.
+
+\hl{Other methods for relation extraction such as the ones from papers:}
+
+AllenAI OpenIE \cite{Etzioni:2011:OIE:2283396.2283398}
+
+ClausIE: Clause-Based Open Information Extraction \cite{DelCorro:2013:CCO:2488388.2488420}
+
+Extreme Extraction: Only One Hour per Relation \cite{DBLP:journals/corr/HoffmannZW15}
+
+IKE - An Interactive Tool for Knowledge Extraction \cite{DBLP:conf/akbc/DalviBCCEFG16}
 
 All tools described in this section are similar in nature to our tool, thus describing the related work.
 
@@ -881,14 +1076,26 @@ corenlp-xml
 
 \section{Developed process and programs}
 
-verb-centric
+----------------------
+
+verb-centric process
 
 ----------------------
+
 Attempted to generate a parametrized relation with "options", such as:
 http://verbs.colorado.edu/propbank/framesets-english-aliases/improve.html
 
 We might use their results as a reference for our own grouping. 
 For more info on these resouces, a quick slides is http://faculty.ist.unomaha.edu/ylierler/teaching/material/sp13/FrameNetPropBankVerbNet.pptx
+
+----------------------
+
+SpaCy customization not to split token on dash -.
+
+----------------------
+
+Adjusted "et al." which SpaCy didn't segmented very well in this instance, breaking the sentence in most cases.
+
 ----------------------
 
 Q-TREE

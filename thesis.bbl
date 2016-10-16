@@ -84,6 +84,42 @@
   \field{year}{2016}
 \endentry
 
+\entry{angeli-johnsonpremkumar-manning:2015:ACL-IJCNLP}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Angeli}{A.}%
+     {Gabor}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Johnson~Premkumar}{J.~P.}%
+     {Melvin~Jose}{M.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Manning}{M.}%
+     {Christopher~D.}{C.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Association for Computational Linguistics}%
+  }
+  \strng{namehash}{AGJPMJMCD1}
+  \strng{fullhash}{AGJPMJMCD1}
+  \field{sortinit}{A}
+  \field{booktitle}{Proceedings of the 53rd Annual Meeting of the Association
+  for Computational Linguistics and the 7th International Joint Conference on
+  Natural Language Processing (Volume 1: Long Papers)}
+  \field{pages}{344\bibrangedash 354}
+  \field{title}{Leveraging Linguistic Structure For Open Domain Information
+  Extraction}
+  \list{location}{1}{%
+    {Beijing, China}%
+  }
+  \field{year}{2015}
+\endentry
+
 \entry{bing}{misc}{}
   \field{sortinit}{B}
   \field{howpublished}{\url{https://www.bing.com/partners/knowledgegraph}}
@@ -225,6 +261,54 @@
   \field{year}{2015}
 \endentry
 
+\entry{DBLP:conf/akbc/DalviBCCEFG16}{inproceedings}{}
+  \name{author}{7}{}{%
+    {{}%
+     {Dalvi}{D.}%
+     {Bhavana}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bhakthavatsalam}{B.}%
+     {Sumithra}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Clark}{C.}%
+     {Chris}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Clark}{C.}%
+     {Peter}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Etzioni}{E.}%
+     {Oren}{O.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fader}{F.}%
+     {Anthony}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Groeneveld}{G.}%
+     {Dirk}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DB+1}
+  \strng{fullhash}{DBBSCCCPEOFAGD1}
+  \field{sortinit}{D}
+  \field{booktitle}{Proceedings of the 5th Workshop on Automated Knowledge Base
+  Construction, AKBC@NAACL-HLT 2016, San Diego, CA, USA, June 17, 2016}
+  \field{pages}{12\bibrangedash 17}
+  \field{title}{{IKE} - An Interactive Tool for Knowledge Extraction}
+  \field{year}{2016}
+\endentry
+
 \entry{icde}{misc}{}
   \field{sortinit}{D}
   \field{howpublished}{\url{http://ieeexplore.ieee.org/xpl/conhome.jsp?reload=true&punumber=1000178}}
@@ -233,12 +317,95 @@
   \field{year}{2016}
 \endentry
 
+\entry{DelCorro:2013:CCO:2488388.2488420}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Del~Corro}{D.~C.}%
+     {Luciano}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gemulla}{G.}%
+     {Rainer}{R.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {ACM}%
+  }
+  \strng{namehash}{DCLGR1}
+  \strng{fullhash}{DCLGR1}
+  \field{sortinit}{D}
+  \field{booktitle}{Proceedings of the 22Nd International Conference on World
+  Wide Web}
+  \field{isbn}{978-1-4503-2035-1}
+  \field{pages}{355\bibrangedash 366}
+  \field{series}{WWW '13}
+  \field{title}{ClausIE: Clause-based Open Information Extraction}
+  \list{location}{1}{%
+    {Rio de Janeiro, Brazil}%
+  }
+  \field{year}{2013}
+\endentry
+
 \entry{emnlp}{misc}{}
   \field{sortinit}{E}
   \field{howpublished}{\url{https://www.aclweb.org/website/emnlp}}
   \field{note}{[Online; accessed 09-October-2016]}
   \field{title}{Empirical Methods in Natural Language Processing}
   \field{year}{2016}
+\endentry
+
+\entry{Etzioni:2011:OIE:2283396.2283398}{inproceedings}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Etzioni}{E.}%
+     {Oren}{O.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fader}{F.}%
+     {Anthony}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Christensen}{C.}%
+     {Janara}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Soderland}{S.}%
+     {Stephen}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mausam}{M.}%
+     {Mausam}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {AAAI Press}%
+  }
+  \strng{namehash}{EO+1}
+  \strng{fullhash}{EOFACJSSMM1}
+  \field{sortinit}{E}
+  \field{booktitle}{Proceedings of the Twenty-Second International Joint
+  Conference on Artificial Intelligence - Volume Volume One}
+  \verb{doi}
+  \verb 10.5591/978-1-57735-516-8/IJCAI11-012
+  \endverb
+  \field{isbn}{978-1-57735-513-7}
+  \field{pages}{3\bibrangedash 10}
+  \field{series}{IJCAI'11}
+  \field{title}{Open Information Extraction: The Second Generation}
+  \verb{url}
+  \verb http://dx.doi.org/10.5591/978-1-57735-516-8/IJCAI11-012
+  \endverb
+  \list{location}{1}{%
+    {Barcelona, Catalonia, Spain}%
+  }
+  \field{year}{2011}
 \endentry
 
 \entry{xml}{misc}{}
@@ -334,6 +501,33 @@
   \list{location}{1}{%
     {Denver, Colorado}%
   }
+  \field{year}{2015}
+\endentry
+
+\entry{DBLP:journals/corr/HoffmannZW15}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Hoffmann}{H.}%
+     {Raphael}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zettlemoyer}{Z.}%
+     {Luke~S.}{L.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Weld}{W.}%
+     {Daniel~S.}{D.~S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{HRZLSWDS1}
+  \strng{fullhash}{HRZLSWDS1}
+  \field{sortinit}{H}
+  \field{title}{Extreme Extraction: Only One Hour per Relation}
+  \field{volume}{abs/1506.06418}
+  \field{journaltitle}{CoRR}
   \field{year}{2015}
 \endentry
 

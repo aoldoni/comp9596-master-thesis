@@ -13,50 +13,54 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 10560 items from 5000.
+Reallocated field_info (elt_size=4) to 11255 items from 5000.
 Database file #1: thesis-blx.bib
 Database file #2: thesis.bib
+A bad cross reference---entry "DBLP:conf/akbc/DalviBCCEFG16"
+refers to entry "DBLP:conf/akbc/2016", which doesn't exist
+Warning--I didn't find a database entry for "DBLP:conf/akbc/2016"
 Biblatex version: 2.9
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-You've used 40 entries,
+You've used 45 entries,
             6047 wiz_defined-function locations,
-            1349 strings with 16194 characters,
-and the built_in function-call counts, 125977 in all, are:
-= -- 5745
-> -- 3540
-< -- 1533
-+ -- 1575
-- -- 1187
-* -- 8398
-:= -- 6230
+            1391 strings with 17989 characters,
+and the built_in function-call counts, 146946 in all, are:
+= -- 6730
+> -- 4284
+< -- 1787
++ -- 1883
+- -- 1456
+* -- 10055
+:= -- 7414
 add.period$ -- 0
-call.type$ -- 40
-change.case$ -- 975
+call.type$ -- 45
+change.case$ -- 1140
 chr.to.int$ -- 46
-cite$ -- 78
-duplicate$ -- 14521
-empty$ -- 13530
-format.name$ -- 2122
-if$ -- 29201
+cite$ -- 88
+duplicate$ -- 16841
+empty$ -- 15522
+format.name$ -- 2593
+if$ -- 33973
 int.to.chr$ -- 0
-int.to.str$ -- 93
+int.to.str$ -- 109
 missing$ -- 0
-newline$ -- 987
-num.names$ -- 1689
-pop$ -- 12705
+newline$ -- 1175
+num.names$ -- 2025
+pop$ -- 14347
 preamble$ -- 1
-purify$ -- 1069
+purify$ -- 1259
 quote$ -- 0
-skip$ -- 7527
+skip$ -- 8804
 stack$ -- 0
-substring$ -- 4344
-swap$ -- 4883
-text.length$ -- 943
-text.prefix$ -- 39
+substring$ -- 5089
+swap$ -- 5692
+text.length$ -- 1099
+text.prefix$ -- 44
 top$ -- 1
-type$ -- 1508
+type$ -- 1698
 warning$ -- 0
-while$ -- 521
+while$ -- 617
 width$ -- 0
-write$ -- 946
+write$ -- 1129
+(There was 1 error message)
