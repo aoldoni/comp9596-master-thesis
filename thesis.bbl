@@ -120,6 +120,14 @@
   \field{year}{2015}
 \endentry
 
+\entry{open-nlp}{misc}{}
+  \field{sortinit}{A}
+  \field{howpublished}{\url{https://opennlp.apache.org/}}
+  \field{note}{[Online; accessed 17-October-2016]}
+  \field{title}{Apache OpenNLP}
+  \field{year}{2010}
+\endentry
+
 \entry{bing}{misc}{}
   \field{sortinit}{B}
   \field{howpublished}{\url{https://www.bing.com/partners/knowledgegraph}}
@@ -201,6 +209,27 @@
     {New York, NY, USA}%
   }
   \field{year}{2008}
+\endentry
+
+\entry{json}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Bray}{B.}%
+     {Timothy~William}{T.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {ECMA International}%
+  }
+  \strng{namehash}{BTW1}
+  \strng{fullhash}{BTW1}
+  \field{sortinit}{B}
+  \field{howpublished}{\url{http://www.rfc-editor.org/info/rfc7159}}
+  \field{note}{[Online; accessed 17-October-2016]}
+  \field{title}{{The JavaScript Object Notation (JSON) Data Interchange
+  Format}}
+  \field{year}{2014}
 \endentry
 
 \entry{chen-manning:2014:EMNLP2014}{inproceedings}{}
@@ -561,6 +590,15 @@
   \field{year}{2015}
 \endentry
 
+\entry{html}{misc}{}
+  \field{sortinit}{H}
+  \field{howpublished}{\url{https://www.w3.org/TR/html51/}}
+  \field{note}{[Online; accessed 17-October-2016]}
+  \field{title}{{Hypertext Markup Language (HTML) 5.1 W3C Proposed
+  Recommendation}}
+  \field{year}{2016}
+\endentry
+
 \entry{Jurafsky:2000:SLP:555733}{book}{}
   \name{author}{2}{}{%
     {{}%
@@ -659,6 +697,27 @@
   \field{volume}{6}
   \field{journaltitle}{Semantic Web Journal}
   \field{year}{2015}
+\endentry
+
+\entry{pdf-extraction}{misc}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Ma}{M.}%
+     {Haojun}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {Wei}{W.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{MHWW1}
+  \strng{fullhash}{MHWW1}
+  \field{sortinit}{M}
+  \field{note}{{UNSW} University of New South Wales, Technical Report}
+  \field{title}{Academic PDF Content Extraction}
+  \field{year}{2016}
 \endentry
 
 \entry{manning-EtAl:2014:P14-5}{inproceedings}{}
@@ -964,21 +1023,60 @@
   \field{year}{2016}
 \endentry
 
-\entry{standoff2conll}{misc}{}
-  \name{author}{1}{}{%
+\entry{Palmer:2005:PBA:1122624.1122628}{article}{}
+  \name{author}{3}{}{%
     {{}%
-     {Pyysalo}{P.}%
-     {Sampo}{S.}%
+     {Palmer}{P.}%
+     {Martha}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gildea}{G.}%
+     {Daniel}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kingsbury}{K.}%
+     {Paul}{P.}%
      {}{}%
      {}{}}%
   }
-  \strng{namehash}{PS1}
-  \strng{fullhash}{PS1}
+  \list{publisher}{1}{%
+    {MIT Press}%
+  }
+  \strng{namehash}{PMGDKP1}
+  \strng{fullhash}{PMGDKP1}
   \field{sortinit}{P}
-  \field{howpublished}{\url{https://github.com/spyysalo/standoff2conll}}
-  \field{note}{[Online; accessed 14-August-2016]}
-  \field{title}{{standoff2conll}}
-  \field{year}{2016}
+  \field{issn}{0891-2017}
+  \field{number}{1}
+  \field{pages}{71\bibrangedash 106}
+  \field{title}{The Proposition Bank: An Annotated Corpus of Semantic Roles}
+  \field{volume}{31}
+  \field{journaltitle}{Comput. Linguist.}
+  \field{month}{03}
+  \field{year}{2005}
+\endentry
+
+\entry{Schuler:2005:VBC:1104493}{thesis}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Schuler}{S.}%
+     {Karin~Kipper}{K.~K.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {University of Pennsylvania}%
+  }
+  \strng{namehash}{SKK1}
+  \strng{fullhash}{SKK1}
+  \field{sortinit}{S}
+  \field{title}{Verbnet: A Broad-coverage, Comprehensive Verb Lexicon}
+  \list{location}{1}{%
+    {Philadelphia, PA, USA}%
+  }
+  \field{type}{phdthesis}
+  \field{year}{2005}
 \endentry
 
 \entry{semanticscholar}{misc}{}
@@ -987,6 +1085,31 @@
   \field{note}{[Online; accessed 20-August-2016]}
   \field{title}{{Semantic Scholar}}
   \field{year}{2016}
+\endentry
+
+\entry{qtree}{manual}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Siskind}{S.}%
+     {Jeffrey~Mark}{J.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dimitriadis}{D.}%
+     {Alexis}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {University of Pennsylvania}%
+  }
+  \strng{namehash}{SJMDA1}
+  \strng{fullhash}{SJMDA1}
+  \field{sortinit}{S}
+  \field{title}{Qtree, a LATEX tree-drawing package}
+  \list{location}{1}{%
+    {Philadelphia, PA, USA}%
+  }
 \endentry
 
 \entry{spacy}{misc}{}

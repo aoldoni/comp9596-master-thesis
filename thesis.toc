@@ -22,36 +22,34 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.2}Open Information Extraction}{27}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Peculiarities with Academic Text}{29}{section.3.3}
+\contentsline {section}{\numberline {3.3}Peculiarities with Academic Text}{30}{section.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {4}Developed Workflow}{31}{chapter.4}
+\contentsline {chapter}{\chapternumberline {4}Developed Workflow}{33}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Tools}{31}{section.4.1}
+\contentsline {section}{\numberline {4.1}Tools}{34}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.1}PDF extraction generates noisy output}{31}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.1}Programming Languages and Libraries}{34}{subsection.4.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.2}Programming Languages}{31}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.2}Stanford CoreNLP}{35}{subsection.4.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.3}Python Modules}{31}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.3}NLTK}{35}{subsection.4.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.4}NLTK}{32}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.4}Syntaxnet}{35}{subsection.4.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.5}Brat}{32}{subsection.4.1.5}
+\contentsline {subsection}{\numberline {4.1.5}SpaCy}{36}{subsection.4.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.6}Jupyter}{32}{subsection.4.1.6}
+\contentsline {subsection}{\numberline {4.1.6}Brat}{36}{subsection.4.1.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.7}Parsey}{32}{subsection.4.1.7}
+\contentsline {subsection}{\numberline {4.1.7}Graphviz}{37}{subsection.4.1.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.8}SpaCy}{32}{subsection.4.1.8}
+\contentsline {section}{\numberline {4.2}Developed Program}{38}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.9}Stanford CoreNLP}{32}{subsection.4.1.9}
+\contentsline {section}{\numberline {4.3}Grouping Sentence Types}{42}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.10}Graphviz}{32}{subsection.4.1.10}
+\contentsline {section}{\numberline {4.4}Dependency Tree Manipulation Rules}{42}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Developed process and programs}{32}{section.4.2}
+\contentsline {chapter}{\chapternumberline {5}Results}{43}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {5}Results}{35}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}Conclusion and Future Work}{45}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {6}Conclusion and Future Work}{37}{chapter.6}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{39}{section*.4}
+\contentsline {chapter}{Bibliography}{47}{section*.4}

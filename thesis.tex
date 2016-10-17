@@ -11,6 +11,9 @@
 % being able to quote
 \usepackage[threshold=1]{csquotes}
 
+% being able to cite code
+\usepackage{verbatim}
+
 % being able to use images
 \usepackage{graphicx}
 
@@ -37,6 +40,11 @@
 
 % This one includes babel in Australian mode
 \usepackage{unswcover} 
+
+% For the algorithm
+\usepackage{algorithm}% http://ctan.org/pkg/algorithms
+\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
+\newcommand{\var}[1]{{\ttfamily#1}}% variable
 
 % Include bibliography
 \addbibresource{thesis.bib} 
@@ -203,6 +211,7 @@ Several initiatives in the Natural Language Processing area attempt to understan
 
 
 \section{Natural Language Processing}
+\label{section:nlp}
 
 \emph{Natural Language Processing} (or \emph{NLP}) can be a term used to discuss any kind of computer manipulation of natural language text, also called raw text. It can mean simple things such as counting words and obtain their frequency distribution to compare different writing styles, or in a more complex sense it would require the understanding of human writings, to the extent of being able to extract information and meaning from it, or also give useful responses to them \cite{BirdKleinLoper09}. On this more complex end of the spectrum, where one wants to understand raw text, language technology and existing tools rely on formal models, or representations, of knowledge of language at the levels of morphology, syntax, semantics, among others linguistic concepts. A number of formal models including state machines, formal rule systems, logic, and probabilistic models are used to capture this knowledge from text and reason with it \cite{Jurafsky:2000:SLP:555733}.
 
@@ -299,7 +308,7 @@ Starting again with the POS tagging discussed earlier, one can see in \ref{fig:p
   \label{fig:sub_sentences_phrase_structure}
 \end{figure}
 
-After discovering the structure between the phrases and its sub-phrases, finding the syntactical dependency between words themselves is also a very interesting and useful task. Continuing on the same example, one can see how the sentence states the simple fact that one company (\emph{Jetstar}) is a unit of another company (\emph{Qantas}). The dependency tree in this case tells us that \emph{Jetstar/NN} is the head of another noun \emph{Airways} and that the relation between them is of the \emph{compound} type. This relation is held between any noun that serves to modify the head noun and in this case indicate that this single entity is formed by two different words that are nouns. Note that \emph{Jetstar} has no parents and thus is the root of the sentence. The dependencies can be fully viewed is Figure \ref{fig:sub_sentences_dependency}.
+After discovering the structure between the phrases and its sub-phrases, finding the syntactical dependency between words themselves is also a very interesting and useful task. Continuing on the same example, one can see how the sentence states the simple fact that one company (\emph{Jetstar}) is a unit of another company (\emph{Qantas}). The Dependency Tree in this case tells us that \emph{Jetstar/NN} is the head of another noun \emph{Airways} and that the relation between them is of the \emph{compound} type. This relation is held between any noun that serves to modify the head noun and in this case indicate that this single entity is formed by two different words that are nouns. Note that \emph{Jetstar} has no parents and thus is the root of the sentence. The dependencies can be fully viewed is Figure \ref{fig:sub_sentences_dependency}.
 
 The next relation is the \emph{appos} from \emph{\enquote{Airways}} to \emph{\enquote{unit}}. The appositional modifier relation indicates that the noun  immediately to the right of the first noun that serves to define or modify the meaning of the former. One now already knows that \emph{\enquote{Jetstar Airways}} is a \emph{\enquote{unit}}, and, in the business context, it probably means that it is a company that belongs to a bigger company.
 
@@ -382,6 +391,7 @@ All linguistic data mentioned in this section is data that can be obtained from 
 
 
 \section{Information Extraction}
+\label{section:information_extraction}
 
 The IE (Information Extraction) process is described by the following subtasks: Named Entity Recognition (NER), Coreference Resolution, Entity Disambiguation, Relation Extraction (RE), Event Detection, and Temporal Analysis \cite{Jurafsky:2000:SLP:555733}. The main subtasks relevant to this report will be described further in this section.
 
@@ -682,7 +692,7 @@ Other possible relations from the Stanford Relation Extractor standard relations
 
 One of the initial attempts to explore how to extract information from the generated corpus was to use the Stanford Named Entity Recognizer (NER) to recognize the concepts discussed so far in the academic text. To do so, a small set of around 20 papers' \emph{Related Work} section was annotated for the concepts contained in them using Brat \cite{Stenetorp:2012:BWT:2380921.2380942}. An example of this annotated data can be seen in Figure \ref{fig:brat_img}.
 
-The annotated data is then transformed form Brat's standoff format \cite{Stenetorp:2012:BWT:2380921.2380942} into a Table Separated Value (TSV) format, using a custom script, based on customised version of from standoff2conll \cite{standoff2conll}, renamed standoff2others. The output is similar to the one showed in Table \ref{tab:james_cook_iob}, but its simplified version without the \emph{B-} and \emph{I-} prefixes.
+The annotated data is then transformed form Brat's standoff format \cite{Stenetorp:2012:BWT:2380921.2380942} into a Table Separated Value (TSV) format, using a custom script, based on customised version of from standoff2conll\footnote{\url{https://github.com/spyysalo/standoff2conll}}, renamed standoff2others. The output is similar to the one showed in Table \ref{tab:james_cook_iob}, but its simplified version without the \emph{B-} and \emph{I-} prefixes.
 
 The model was trained mostly with the recommended settings and features, such as the word itself, its class, surrounding words and word shapes. When applying this trained NER model (Figure \ref{fig:stanford_ner_usage}), we observed that the success was moderated, as it was, at times, able to detect clearly delineated concepts by its shape (.e.g: capital words), but for non-capitalized words it appeared as it would only recognize the concepts if its words were present in the training set.
 
@@ -954,15 +964,19 @@ N/A
 
 Further exploring OpenIE's potential, an experiment we did was to attempt N-gram matching with the OpenIE results as to cross-analyse its output with the NER results from the model trained, as explained in Section \ref{section:analysis_of_academic_text}. More precisely, given the relation and its 2 parameters extracted from the text, what are the relations in the output from Stanford OpenIE in which the parameters match an recognized entity from the output of Stanford NER. The types of comparisons done are depicted in Table \ref{tab:ngram_comparison} and some selected results are in Table \ref{tab:ngram_comparison_results}. In general, we found this approach to yield only a very small number of the possible results, while also presenting inconsistencies (too much variation) in regards to the types of relations obtained.
 
-\hl{Other methods for relation extraction such as the ones from papers:}
 
-AllenAI OpenIE \cite{Etzioni:2011:OIE:2283396.2283398}
+As a similar tool, ClausIE, a Clause-Based Open Information Extraction \cite{DelCorro:2013:CCO:2488388.2488420} from the Max-Planck-Institute runs the sentences through a dependency parser, and use rules in order to find relations from constituents. ClauseIE starts finding clauses (candidate relations) by searching for subject dependencies (\emph{nsubj}, \emph{csubj}, \emph{nsubjpass}, \emph{csubjpass}), and then parse the entire sentence to get the contents of this relation. More precisely, in this final process it then attempts to detect the type of the sentence based on a sequence of decisions, as to match a known type of sentence. These types of phrases take into consideration all dependencies of the constituents of this clause, and then classify them as, e.g.:
+\begin{itemize}
+	\item \textbf{SV}: Subject and Verb, such as: \emph{Albert Eistein died};
+	\item \textbf{SVA}: Subject,  Verb and Adverb, such as: \emph{AE remained in Princeton};
+	\item \textbf{SVO}: Subject,  Verb and Direct Object, such as: \emph{AE has won the Nobel Prize};
+	\item Among others.
+\end{itemize}
+With all this information at hand, it then yields relations by deciding the combinations of constituents that will form a relation. An on-line demo\footnote{\url{https://gate.d5.mpi-inf.mpg.de/ClausIEGate/ClausIEGate}} exists in which its capabilities can be observed.
 
-ClausIE: Clause-Based Open Information Extraction \cite{DelCorro:2013:CCO:2488388.2488420}
+In contrast, AllenAI's OpenIE \cite{Etzioni:2011:OIE:2283396.2283398} utilises the text linguistic information in a different manner. As a first step it apply a Part-of-Speech tagging in the text and the NP-chunks of the sentence are then obtained through constituency parsing, both process are done using the Apache OpenNLP parser \cite{open-nlp}. I then then utilises regular expressions on the result as to restrict the patterns to be treated. More specifically, it obtain the relations through searches for clauses in the format \emph{V | VP | VW*P}, where \emph{V} is a verb or adverb, \emph{W} is a noun, adjective, adverb, pronoun or determiner, and \emph{P} is a preposition, particle or information marker. Once the clause is identified it uses a custom classifier called ARGLEARNER to find its arguments \emph{Arg1} and \emph{Arg2} and the left bound and the right bound of each argument.
 
-Extreme Extraction: Only One Hour per Relation \cite{DBLP:journals/corr/HoffmannZW15}
-
-IKE - An Interactive Tool for Knowledge Extraction \cite{DBLP:conf/akbc/DalviBCCEFG16}
+Some approaches rely on human intervention as to control the quality of the extracted relations, or to guide the types of relations needed. Extreme Extraction \cite{DBLP:journals/corr/HoffmannZW15} provides an interface where one can narrow sentences for a given relation; provides suggestions for words surrounded by similar context; and allows for extraction rules creation using logic entailments. AllenAI's IKE \cite{DBLP:conf/akbc/DalviBCCEFG16} is also a tool of similar nature, and provides its own query language which resembles regular expressions which apply at the Part-of-Speech level, or NP-chunks. It also provides powerful suggestions using probabilistic techniques as to narrow rules that are too general, or broadens rules that are too specific. IKE also provides a way to define a schema to store the items found by the rules from its query language for faster reuse as smaller parts of more complex conditions.
 
 All tools described in this section are similar in nature to our tool, thus describing the related work.
 
@@ -976,28 +990,12 @@ All tools described in this section are similar in nature to our tool, thus desc
 
 \section{Peculiarities with Academic Text}
 
-Problem accross domains, strict language vs. creative language.
+It was clear that existing model-based tools for IE, such as the ones shown in Section \ref{section:information_extraction}, do not come equipped to predict relation in Academic Text, mainly due to the different classes of entities presented. Academic text, however, has some characteristics that facilitate in some sense its parsing. More specifically, the language used in academia is more strict and precise, and does not contain attempts of inventive language or linguistic creative which would be common in romances or other type of written information such as literary books. We also did not observe academic text present difficult to understand notions, such as sarcasm or humour. We then attempt to remove complexity further by narrowing our scope to papers from the database area, such as noted in Section \ref{section:analysis_of_academic_text}.
 
-Sarcasm.
+During our experimentation with manually tagging data, described in Section \ref{section:information_extraction}, this text also presented itself very difficult to tag by humans, as it would sometimes require domain knowledge on very advanced or narrow areas of the database topic.
 
-We are extracting explicit information, and not trying to infer implicit information. That would be a different logical problem that would need to reason about using a database of information to compare what is being learned from the natural text with.
+The text also present a high number of coreference problems, e.g.: \emph{\enquote{their work}}, \emph{\enquote{the technique explained in [X]}}, or simply \emph{\enquote{[X] facilitates this by using a certain algorithm}}. In these previous examples \emph{X} would represent a number, generally a reference to another academic paper. One technique to alleviate these problems could be to parse the above references numbers and replace with the paper name or technique names from the papers.
 
-Difficult to manually tag.
-
-Existing tools that are based in models don't come equiped to predict relation in this kind of text. E.g.:
-
-Relations that could be extracted, e.g. deﬁnes, don't appear with relevant Entities.
-
-A lot of coreference problems, e.g. "their work". Even when their work is simply a paper reference - with unclear. One could trivially parse the above reference with the actual Entity name of the system or algorithm or technique elabrated in the reference paper as to mine the relations between the proper entities.
-
-Methods:
-
-* Use semi-automatic methods to collect research literature and convert them into plain text with certain markups. 
-* Use existing open source solutions to parse the store the input data. 
-* Build a pipeline to extract entities and relationship from the input data. 
-* Perform entity disambiguation and linking to a reference Knowledge Graph (e.g., Yago2 or DBPedia). 
-* Design effective postprocessing methods to improve the quality of the extraction.
-* Evaluate the entire extraction system.
 
 
 %
@@ -1009,7 +1007,21 @@ Methods:
 
 \chapter{Developed Workflow}
 
-\hl{The first step to in achieving our goal is obtaining the raw natural language text from papers in the area. Most research products such as thesis, papers, or any other report, are mostly available primarily in the Portable Document Format (PDF) format} \cite{pdf} \hl{- which then needs to then be parsed into a raw text in an automated manner.}
+We developed an open information extraction tool that is capable of extracting information from academic text with the following characteristics:
+\begin{itemize}
+	\item A verb-centric search query (normally a verb in the 3rd person singular);
+	\item Exploiting linguistic properties of the text by obtaining this text Part-of-Speech tags and Dependency Tree using SpaCy \cite{honnibal-johnson:2015:EMNLP, spacy};
+	\item Caching techniques for the parsed values for faster future re-runs, or iterations in adjusting rules in case one wants to customize the code further.
+	\item Some other minor adjustments in the text parsing, away from defaults, to improve performance and quality.
+	\item Local optimisations and adjustments within the tree from the verbs perspective as to prepare the relations for the output. More specifically, by local we mean near the nodes in the tree in which the verb is found to be in.
+	\item Ability to export triplets for monotransitive verbs, or simpler relations for intransitive verbs, with optional parameters.
+	\item The output of the relations in an HTML \cite{html}, and graphical way for easy grouping and visualisation using Graphviz\footnote{\url{http://www.graphviz.org/}}.
+	\item Or the output in a machine-readable way, the JSON \cite{json} format.
+\end{itemize}
+
+With these characteristics, the tool is able to extract information from text for both analysis and further fine-tuning by a competent Python developer, or for down-the-line processing by another software.
+
+Our corpus was generated using an extraction process developed by Haojun Ma and Wei Wang at the University of New South Wales \cite{pdf-extraction}, which uses the pdftohtml\footnote{\url{http://www.foolabs.com/xpdf/download.html}} tool. All academic papers were downloaded into individual file-system directories, generally in the PDF \cite{pdf} format. In each folder the conversion occurs by detecting the PDF file's layout and further detection and extraction of the \enquote{Related Works} section. Files are then centralized in a single folder for parsing.
 
 
 %
@@ -1022,31 +1034,49 @@ Methods:
 \section{Tools}
 \label{section:tools}
 
-\subsection{PDF extraction generates noisy output}
+\subsection{Programming Languages and Libraries}
 
-\subsection{Programming Languages}
+Java\footnote{\url{https://docs.oracle.com/javase/specs/}} is a programming language used in several of NLP tools, such as Stanford's CoreNLP \cite{manning-EtAl:2014:P14-5} and Apache OpenNLP \cite{open-nlp}. Java is an imperative, static-typed, compiled language and provides several utilities such a comprehensive standard library and strong Unicode\footnote{\url{http://unicode.org/standard/standard.html}} support. 
 
-Java
+Python\footnote{\url{https://docs.python.org/3.4/reference/}} on the other hand is a scripting language that has been recently associated with Data Analysis\footnote{\url{https://www.quora.com/Why-is-Python-a-language-of-choice-for-data-scientists}} due to its powerful built-in idioms for data processing and its clean syntax. Although not as fast as a compiled language, it has the ability to have more low-level extensions through tools such as Cython\footnote{\url{http://cython.org/}}, which is used for an example by the SpaCy \cite{honnibal-johnson:2015:EMNLP, spacy} parser.
 
-Python
+Due to familiarity and above points, we have chosen utilising SpaCy and Python (version 3.4) to develop this tool. With that some modules (external libraries, or external dependencies) from the Python ecosystem that were used were: requests\footnote{\url{http://docs.python-requests.org/en/master/}} and BeautifulSoup4\footnote{\url{https://www.crummy.com/software/BeautifulSoup/bs4/doc/}} for downloading data from an Web Server; standoff2conll\footnote{\url{https://github.com/spyysalo/standoff2conll}} for experiments with Brat and Stanford's Relation Extractor data transformation; and corpkit\footnote{\url{https://interrogator.github.io/corpkit/}} for some text queries like concordance (e.g.: other words that appear in the same context, or surrounded by similar words) and lemma-based search instead of token-based during an early exploratory stage of this research. Note that corpkit utilises corenlp-xml\footnote{\url{https://github.com/relwell/corenlp-xml-lib}} as a way to parse Stanfords CoreNLP output in Python. For generating HTML output we used Django\footnote{\url{https://www.djangoproject.com/}} template engine in standalone mode.
 
-\subsection{Python Modules}
+\subsection{Stanford CoreNLP}
 
-requests
-
-BeautifulSoup4
-
-standoff2conll
-
-corpkit
-
-Tregex
-
-corenlp-xml
+Stanford CoreNLP \cite{manning-EtAl:2014:P14-5} is an integrated framework of linguistic tools written in Java. As discussed and presented in previous section in more detail (Sections \ref{section:nlp} and \ref{section:nlp} and \ref{section:information_extraction}), it is done in this way with the intent of facilitate the creation of pipelines in which more fundamental. In the CoreNLP each of these tools are called annotators. It provides the following annotators out of the box: Tokenization; Sentence Splitting; Lemmatization; Parts of Speech; Named Entity Recognition (described further in this document in Section \ref{section:nlp}); RegexNER (Named Entity Recognition); Constituency Parsing; Dependency Parsing (also in Section \ref{section:nlp}); Coreference Resolution; Natural Logic; Open Information Extraction (Section \ref{section:related}); Sentiment; Relation Extraction (Section \ref{section:information_extraction}); Quote Annotator; CleanXML Annotator; True case Annotator; Entity Mentions Annotator.
 
 \subsection{NLTK}
 
+NLTK \cite{BirdKleinLoper09} is a popular Python toolkit, or set of libraries for NLP, generally associated with its companion book and popular in introductory NLP courses. NLTK provides interfaces to over 50 corpora and lexical resources such as WordNet \cite{Miller:1995:WLD:219717.219748}, along with a suite of text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning. Stemming is a concept related to simplifying the handling of variations of words, such as plural or past tenses, in a more simple way of lemmatization. In stemming the root (or certain prefix range) of a word is kept while its varying part is removed.
+
+NLTK also provides implementation of classification algorithms that can be trained for further text classification, and grammar parsers that can be defined and used, for example, to return a NP-chunking tree. It also has interfaces to the Stanford CoreNLP pipeline, so it can be used to externalise operations to it. While heavily used in an interactive manner together with Jupyter\footnote{\url{https://jupyter.org/about.html}} in early exploratory stages of this research, only parts of its tree data structure remain used in some stages of the final developed workflow of this work.
+
+\subsection{Syntaxnet}
+
+The Syntaxnet parser \cite{google-syntaxnet} is a Tensorflow\footnote{\url{https://www.tensorflow.org/}} implementation of the models described in \cite{DBLP:journals/corr/AndorAWSPGPC16}. TensorFlow is an Open Source Software Library for Machine Intelligence developed by Google. Syntaxnet parses a document or text feed through the standard input and outputs the annotated text in the CoNLL format (see sample in Table \ref{tab:format_for_relation_extractor_input}), accepted as an input for training of the Stanford's RE.
+
+In this project, Syntaxnet was used in the experiments described in Section \ref{section:information_extraction} when adding Part-of-Speech tags for the Stanford Relation Extractor training input.
+
+
+\subsection{SpaCy}
+
+SpaCy \cite{spacy} is Python/Cython NLP parser that provides Tokenizing, Sentence Segmentation, Part-of-Speech tagging and Dependency Parsing \cite{honnibal-johnson:2015:EMNLP}. Although this encompasses less functionality in comparison with CoreNLP, the processing is done in a very fast manner, and conveniently into the Python language. SpaCy features a whole-document design: where CoreNLP for an example relies on sentence detection/segmentation as a pre-process step in the pipeline, spaCy reads the whole document at once and provides Object-oriented interfaces for reaching the data. A web interface DisplaCy\footnote{\url{https://demos.explosion.ai/displacy/}} is also available for more impromptu checks on its dependency parser output.
+
+More specifically, the hierarchy of Object-oriented classes are:
+\begin{itemize}
+	\item \textbf{English}: the class that loads the language model for further parsing.
+	\item \textbf{Doc}: it accepts a document as it is input, parses it, and then provides iterators for sentences, and tokens.
+	\item \textbf{Span}: A group of tokens, e.g.: a sentence, or a noun-chunk.
+	\item \textbf{Token}: A token. It contains its raw value, position in the document and in the sentence, POS tag information at different granularities (Table \ref{tab:pos_tags_list}), and position in the dependency tree.
+\end{itemize}
+
+
 \subsection{Brat}
+
+Brat \cite{Stenetorp:2012:BWT:2380921.2380942} is a web-based tool, written in Python, for text annotation. It provides a method for define possible annotations, number of parameters, and possible relatinos between these annotation. Once this is defined, the interface allows for text selection and point-and-click, drag-and-drop interfaces to facilitate such annotation process. See Figure \ref{fig:brat_img} for an example of annotated text.
+
+Since Brat is designed in particular for structured annotation, the text or data observed is in free form text, but will then have a rigid structure for future machine interpretation. As noted in Section \ref{section:information_extraction}, we developed a data transformation tool from the standoff format used by Brat named standoff2others, extending the existing standoff2conll\footnote{\url{https://github.com/spyysalo/standoff2conll}} library.
 
 \begin{figure}[!htbp]
   \centering
@@ -1056,72 +1086,192 @@ corenlp-xml
 \end{figure}
 
 
-\subsection{Jupyter}
-
-\subsection{Parsey}
-
-\subsection{SpaCy}
-
-\subsection{Stanford CoreNLP}
-
 \subsection{Graphviz}
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=0.4\textwidth]{./images/command-simplified-group-uses-16}
+  \caption[The resulting graphic from graphviz.]{The resulting graphic from graphviz from the Figure \ref{fig:dot_lang} DOT specification.}
+  \label{fig:dot_img}
+\end{figure}
+
+Graphviz\footnote{\url{http://www.graphviz.org/}} is open source graph generation software. It utilises a graph describing language called DOT\footnote{\url{http://www.graphviz.org/doc/info/lang.html}} which is used to generate the graphs using the distributed DOT binary that companions the Graphviz distribution.
+
+In this project, we used its Python wrapper\footnote{\url{https://pypi.python.org/pypi/graphviz}}, which allowed for seamless generation of the DOT file straight from Python objects. As an example, Figure \ref{fig:dot_lang} shows the specification in DOT language that generated the graphic image in Figure \ref{fig:dot_img}
+
+\begin{figure}[!htbp]
+
+\begin{verbatim}
+digraph uses {
+    node [shape=box]
+    1376 [label=VERB]
+    1378 [label="???"]
+        1376 -> 1378 [label=obj]
+    1379 [label="???"]
+        1376 -> 1379 [label=subj]
+    1377 [label="???"]
+        1376 -> 1377 [label=advcl]
+}
+\end{verbatim}
+
+  \caption[The DOT language.]{The DOT language.}
+  \label{fig:dot_lang}
+\end{figure}
 
 
 %
 %
 % DEVELOPED PROCESS AND PROGRAMS
 %
+%å
+
+\section{Developed Program}
+
+Our developed program, namely \emph{corpus\_analysis.py}, accepts as an input a file-system folder of raw text and a verb in its singular third person form, and it then outputs relations of the parameters surrounding that verb in the sentence, aiming for a triplet relation type such as the format: \texttt{Relation ( Argument1 ; Argument2 )}. Figure \ref{fig:html_output} presents the HTML output of the program rendered in a Web Browser.
+
+To some extent, our current approach is similar to that of ClauseIE, in the sense that it completely relies on the dependency parsing tree, but with several key differences:
+
+\begin{itemize}
+	\item Due to this verb-centric nature, since the verb is the relation being searched for and is part of the input, our tool tailors the extraction process for each different verb. It does so in the sense that ignores parts of the corpus that does not contain the token we are searching for, as long as there is a sufficiently large corpus to find typical usage of the verbs;
+	\item Instead of heuristically determining whether or which PP-attachment, (named \enquote{A} as in the \emph{SVA} sentence type) to be used as object of the verb, we can do it more accurately given that the verb is given as an input. The same is true for \enquote{O} in the \emph{SVO} sentence type;
+	\item Also, we extract more than binary relations with an optional typeless argument as ClauseIE did. The output is more in line with these semantic functional analysis of verbs, as in PropBank \cite{Palmer:2005:PBA:1122624.1122628}, or VerNet \cite{Schuler:2005:VBC:1104493}.);
+	\item ClauseIE classifies the sentence being extracted against a list of possible sentences using a decision tree, and then uses this information to decide how to extract the information. In contrast, our method simply applies a sequence of rules in an arbitrary order that attempts to reach out for information in case it is missing in the nodes near the position of the verb in the dependency tree;
+	\item Finally, it utilises SpaCy for dependency parsing instead of Stanford CoreNLP. This might affect technological choices as this process could more easily fit into a Python-based pipeline.
+\end{itemize}
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=1.0\textwidth]{./images/html_output}
+  \caption[The HTML output generated by our program.]{The HTML output generated by our program.}
+  \label{fig:html_output}
+\end{figure}
+
+Contrary to other tools, such as Stanford OpenIE, we are extracting only explicit information. There is no logical reasoning to better present the information obtained and that is implicit in the text. Moreover, we do not try to match the results of our tool against any knowledge database with the intention to compare what is being learned from the natural text with.
+
+\begin{algorithm}[t]
+  \caption{Main loop}\label{main}
+  \begin{algorithmic}[1]
+    \Procedure{SimplifiedGroup}{$files,verb$}
+	
+    \For{$sentence, token \ \ \texttt{in} \ \ \Call{GetTokens}{files, verb}$}
+       \State $\Call{ApplyGrowthRules}{token}$
+       \State $\Call{ApplyReductionRules}{token}$
+       \State $\Call{ApplyObjRules}{token}$
+       \State $\Call{ApplySubjRules}{token}$
+       \State $relations\gets \Call{Extraction}{token}$
+       \State $\Call{AddToGroup}{sentence, token, relations}$
+    \EndFor
+    
+    \State $\Call{GenerateOutput}{groups}$
+    
+    \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
+
+The main algorithm of our tool is simple in the sense that the goal is to process all entries found in the text containing the verb being looked after. Note that, in Algorithm \ref{main}, \texttt{token} is actually a node in the dependency tree, thus why rules are applied directly into the \texttt{token} variable. The main loop then extract the relations and prepare the grouping presentation. After all this is done, the output is then generated. The goal of the HTML output is for human evaluation and analysis, while the goal of the JSON output is for down-the-line processing by other program.
+
+\begin{algorithm}[t]
+  \caption{Iterator to tokens and sentences}\label{get_tokens}
+  \begin{algorithmic}[1]
+  
+    \Procedure{GetTokens}{$files, verb$}
+    		\State $finalList\gets \Call{GetFromCache}{files}$
+        \If{$\texttt{NOT} \ \ finalList$}
+       		\State $list\gets \Call{GetFilesWithVerb}{files, verb}$
+       		\State $finalList\gets []$\Comment{Empty list}
+    		
+           \For{$text \ \ \texttt{in} \ \ list$}
+             \State $rawParsed\gets \Call{ParseRawText}{text}$
+             \State $spacyParsed\gets \Call{EnglishSpacyModel}{rawParsed}$
+             \State $cacheableTreeNode\gets \Call{TranformTree}{spacyParsed}$
+             \State $\Call{AppendToList}{finalList, cacheableTreeNode}$
+           \EndFor
+        
+       		\State $\Call{SaveCache}{finalList}$
+    		\EndIf
+    		
+    \State $\texttt{Yield  each} \ \ token, sentence \ \ \texttt{from} \ \ finalList$
+
+    \EndProcedure
+    
+  \end{algorithmic}
+\end{algorithm}
+
+Algorithm \ref{get_tokens} implements a Python iterator\footnote{\url{https://docs.python.org/3.4/reference/expressions.html\#generator-iterator-methods}} using the \texttt{yield} keyword. It starts by attempting to find a copy of the parsed tree already cached for performance purposes. If a cached version exists, it is used instead. Caching was implemented as follows: A cache entry has a key, which combines the verb being searched for and the date in which the input folder containing the raw text was last modified. This means that a cache entry can only be found if the folder was not modified and the verb being searched for now was already searched for before. We had to implement our own tree data structure that mimics the SpaCy data structure since the SpaCy tree was not serializable with Pickle\footnote{\url{https://docs.python.org/3.4/library/pickle.html}}, the Python library responsible for serialization. In line 9 of Algorithm \ref{get_tokens} we can see that the \texttt{cacheableTreeNode} variable is the same as the \texttt{token} variable, which is yielded later on by the function.
+
+
+\begin{figure}[!htbp]
+
+\begin{verbatim}
+u [ a [ b c d]
+    e [f [g h] i]
+    k 
+  ]
+}
+\end{verbatim}
+
+  \caption[A tree denoted using QTREE.]{A tree denoted using QTREE.}
+  \label{fig:qtree_lang}
+\end{figure}
+
+
+Algorithm \ref{generate_representation} depicts the grouping of sentences by representation in a dictionary, which is the Python equivalent to a hash-table. In line 2, one can see the method which, given the token data structure, generated the QTREE \cite{qtree} representation of it for grouping purposes. Note that this is not the full tree, but only a smaller version used for analysis as described in Section \ref{section:grouping}. The QTREE representation was chosen to be the canonical representation of the tree data structure, and is then used as the key of the dictionary. This is the result of a performance optimisation on earlier versions of the tool, which instead compared the tree which already existing entry in a list before deciding if it already existed in it or not. This brings this part of the process asymptotically from $\mathcal{O}(n)$ time to a much faster in practice constant $\mathcal{O}(1)$ time.
+
+\begin{algorithm}[t]
+  \caption{Accumulate sentences}\label{generate_representation}
+  \begin{algorithmic}[1]
+    
+    \Procedure{AddToGroup}{$sentence, token, relations$}
+    		\State $groupRepr\gets \Call{GroupQTREERepr}{token}$ \Comment{Group representation}
+    		\State $\Call{GenerateSentenceImage}{sentence}$
+    		\State $\Call{GenerateGroupImage}{groupRepr}$
+    		
+    		\If{$groupRepr \ \ \texttt{not in} \ \ groups$}
+    			\State $\Call{AppendToGroup}{groups, groupRepr}$
+    		\EndIf
+    		
+    		\State $\Call{AppendSentAndRulesToGroup}{groups[_{groupRepr}], sentence, relations}$
+    		
+    \EndProcedure
+    
+  \end{algorithmic}
+\end{algorithm}
+
+
+In QTREE one uses the square brackets symbol to denote the edges and the hierarchy of the tree in text mode, resulting in a string representation of it. See an example in Figure \ref{fig:qtree_lang}.
+
+A note is on how the procedure \textsc{ParseRawText} works, in line 7 of Algorithm \ref{get_tokens}. In the current implementation it simply finds and replaces all \emph{\enquote{et al.}} references in a text and replaces for \emph{\enquote{et al}}. This is done to improve sentence segmentation in SpaCy which was in several occasions specifically confusing the former with a sentence boundary. Further on this, another small tweak was done in the SpaCy tokenizer as to not split words that contain a dash in the middle, such as \emph{\enquote{data-mining}}. A file called \texttt{infix.txt}, which is part of the SpaCy data, contains a set of regular expressions for the tokenizer, and the \texttt{(?<=[a-zA-Z])-(?=[a-zA-z])} responsible for tokenizing words with a dash symbol was then deleted.
+
+
+
+%
+%
+% GROUPING SENTENCE TYPES
+%
 %
 
+\section{Grouping Sentence Types}
+\label{section:grouping}
 
-\section{Developed process and programs}
+The grouping of the sentences was done with the goal of human local analysis. There are four possibilities for grouping: based on the \emph{verb} node (the original verb in which the relation is being searched for), based on the \emph{subj} node, based on the \emph{obj} node, and based on any other of the optional relations nodes.
 
-----------------------
+The grouping works as follows. Given the node, the immediate children are extracted and a new tree is formed only with the node plus its children.
 
-verb-centric process
+\hl{To be completed.}
 
-----------------------
 
-Attempted to generate a parametrized relation with "options", such as:
-http://verbs.colorado.edu/propbank/framesets-english-aliases/improve.html
 
-We might use their results as a reference for our own grouping. 
-For more info on these resouces, a quick slides is http://faculty.ist.unomaha.edu/ylierler/teaching/material/sp13/FrameNetPropBankVerbNet.pptx
 
-----------------------
+%
+%
+% DEPENDENCY TREE MANIPULATION RULES
+%
+%
 
-SpaCy customization not to split token on dash -.
+\section{Dependency Tree Manipulation Rules}
 
-----------------------
+\hl{To be completed.}
 
-Adjusted "et al." which SpaCy didn't segmented very well in this instance, breaking the sentence in most cases.
-
-----------------------
-
-Q-TREE
-
-We use some pair of delimiter (e.g., [, ] as you used) to enclose each subtree. (this is similar to lisp). 
-
-u [ a [ b c d]
-     e [f [g h] i]
-     k 
-   ]
-
-btw, this is very similar to q-tree's syntax: 
-
-http://texdoc.net/texmf-dist/doc/latex/tikz-qtree/tikz-qtree-manual.pdf
-
-----------------------
-
-To some extent, our current approach is similar to that of ClauseIE, but with several key differences:
-
-* We tailor the extraction process for each different verb, as long as there is a sufficiently large corpus to find typical usage of the verbs.
-
-* Instead of heuristically determining whether or which PP-attachment (named 'A' as in SVAA) to be used as object of the verb, we can do it more accurately given the verb and example sentences. It is also desirable for us to look for exceptions proactively, probably by using (enhanced) regexp matching (e.g., 'improve (up)on */VBG ...')
-
-* Also we extract more than binary relation with an optional typeless argument as ClauseIE did. The output is more inline with these semantic functional analysis of verbs (e..g, as in PropBank, etc.).
-
-* I cannot remember clearly, but I don't think ClauseIE tried hard to find the right NP (if existings) as the `subj` or `obj` argument of the verb. This is pretty important for KG (esp. for reasoning) and technically challenging too. But I do expect rules/experience gained in this aspect can be easily transferred to other verbs - that's the meta-rule I mentioned yesterday.
 
 
 %
@@ -1130,7 +1280,6 @@ To some extent, our current approach is similar to that of ClauseIE, but with se
 %
 %
 
-
 \chapter{Results}
 
 \hl{- Evaluation}
@@ -1138,6 +1287,27 @@ To some extent, our current approach is similar to that of ClauseIE, but with se
 ----------------------
 "improves" is an intransitive verb, hence there is no dobj. (the last few groups). 
 ----------------------
+
+Sample some of the sentences
+
+Stratified sampling, based on our groups, and different words. Raw grouping.
+
+Output the other results in the same html.
+
+correct
+partial correct
+
+at least 1 or 2, upper bound is percentage.
+
+better way the rules are presented.
+
+----------------------
+
+error
+new output
+and
+dates
+
 
 
 %
