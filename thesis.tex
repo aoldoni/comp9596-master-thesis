@@ -101,6 +101,8 @@
 \chapter*{Abstract}
 \pdfbookmark{Abstract}{pdfmark:abs}
 
+This research provides a method for extracting information from academic text from the databases domain, using a verb as a query. The amount of latent information in documents in non-structured format or natural language  texts is known to be very large, and this is motivation for the development of methods that are able to bring this information into a structured format that can be computationally useful. Most of the academic output is provided in different formats, mostly PDF (Portable Document Format), and contain a very large amount of information and comparison across methods and techniques. We chose to use language models to extract language information, such as part-of-speech tags or dependency trees, and use sets of rules to output a relation in the Relation(Arg\textsubscript{1}, Arg\textsubscript{2}, Arg\textsubscript{n}) format. \hl{Our results, for the types of relation we propose to extract, are similar to other existing tools}.
+
 %\cleardoublepage
 \clearpage
 \tableofcontents
@@ -674,14 +676,7 @@ Moreover, the entities in Table \ref{tab:entities_from_academic_text} are harder
   \label{tab:possible_academic_relations}
 \end{table}
 
-Other possible relations from the Stanford Relation Extractor standard relations that are applicable to the above news text example are: \emph{OrgBased\_In} (again for \emph{\enquote{Toshiba Corp}} and \emph{\enquote{Japan}}) and \emph{Work\_For} regarding its newly placed chief executive officer. Again, contrasting with the academic text, one might consider relations such as the one possibles between concepts as denoted in Table \ref{tab:possible_academic_relations}. In fact, by analysing the corpus for the top 50 words in the singular third-person form, such as \emph{\enquote{improves}} or \emph{\enquote{employs}}, one can have an idea of the possible relations that can be extracted. This process is illustrated in Figure \ref{fig:words_most_used_all}. The same data is illustrated in Figure \ref{fig:words_most_use_no_top2}, but with the top two words removed (\emph{\enquote{is}} and \emph{\enquote{has}}).
-
-\begin{figure}[!htbp]
-  \centering
-    \includegraphics[width=1.0\textwidth]{./images/words_most_used_all}
-  \caption[Samples of the most common words in the singular third-person form.]{Samples of the most common words in the singular third-person form. The \emph{y} axis represents the number of times the word in the \emph{x} axis appeared in the text.}
-  \label{fig:words_most_used_all}
-\end{figure}
+Other possible relations from the Stanford Relation Extractor standard relations that are applicable to the above news text example are: \emph{OrgBased\_In} (again for \emph{\enquote{Toshiba Corp}} and \emph{\enquote{Japan}}) and \emph{Work\_For} regarding its newly placed chief executive officer. Again, contrasting with the academic text, one might consider relations such as the one possibles between concepts as denoted in Table \ref{tab:possible_academic_relations}. In fact, by analysing the corpus for the top 50 words in the singular third-person form, such as \emph{\enquote{improves}} or \emph{\enquote{employs}}, one can have an idea of the possible relations that can be extracted. This process is illustrated in Figure \ref{fig:words_most_use_no_top2}: note that the top two words were removed from the graph (\emph{\enquote{is}} with a count of 41694, and \emph{\enquote{has}} with a count of 8157) as their usage counts are too high compared to the other words.
 
 \begin{figure}[!htbp]
   \centering
@@ -1134,7 +1129,7 @@ To some extent, our current approach is similar to that of ClauseIE, in the sens
 \begin{itemize}
 	\item Due to this verb-centric nature, since the verb is the relation being searched for and is part of the input, our tool tailors the extraction process for each different verb. It does so in the sense that ignores parts of the corpus that does not contain the token we are searching for, as long as there is a sufficiently large corpus to find typical usage of the verbs;
 	\item Instead of heuristically determining whether or which PP-attachment, (named \enquote{A} as in the \emph{SVA} sentence type) to be used as object of the verb, we can do it more accurately given that the verb is given as an input. The same is true for \enquote{O} in the \emph{SVO} sentence type;
-	\item Also, we extract more than binary relations with an optional typeless argument as ClauseIE did. The output is more in line with these semantic functional analysis of verbs, as in PropBank \cite{Palmer:2005:PBA:1122624.1122628}, or VerNet \cite{Schuler:2005:VBC:1104493}.);
+	\item Also, we extract more than binary relations with an optional typeless argument as ClauseIE did. The output is more in line with these semantic functional analysis of verbs, as in PropBank \cite{Palmer:2005:PBA:1122624.1122628}, or VerNet \cite{Schuler:2005:VBC:1104493};
 	\item ClauseIE classifies the sentence being extracted against a list of possible sentences using a decision tree, and then uses this information to decide how to extract the information. In contrast, our method simply applies a sequence of rules in an arbitrary order that attempts to reach out for information in case it is missing in the nodes near the position of the verb in the dependency tree;
 	\item Finally, it utilises SpaCy for dependency parsing instead of Stanford CoreNLP. This might affect technological choices as this process could more easily fit into a Python-based pipeline.
 \end{itemize}
@@ -1142,7 +1137,7 @@ To some extent, our current approach is similar to that of ClauseIE, in the sens
 \begin{figure}[!htbp]
   \centering
     \includegraphics[width=1.0\textwidth]{./images/html_output}
-  \caption[The HTML output generated by our program.]{The HTML output generated by our program.}
+  \caption[The HTML output generated by our program.]{The HTML output generated by our program. Note how it organizes sentences orders by its grouping.}
   \label{fig:html_output}
 \end{figure}
 
@@ -1215,7 +1210,7 @@ u [ a [ b c d]
 \end{figure}
 
 
-Algorithm \ref{generate_representation} depicts the grouping of sentences by representation in a dictionary, which is the Python equivalent to a hash-table. In line 2, one can see the method which, given the token data structure, generated the QTREE \cite{qtree} representation of it for grouping purposes. Note that this is not the full tree, but only a smaller version used for analysis as described in Section \ref{section:grouping}. The QTREE representation was chosen to be the canonical representation of the tree data structure, and is then used as the key of the dictionary. This is the result of a performance optimisation on earlier versions of the tool, which instead compared the tree which already existing entry in a list before deciding if it already existed in it or not. This brings this part of the process asymptotically from $\mathcal{O}(n)$ time to a much faster in practice constant $\mathcal{O}(1)$ time.
+Algorithm \ref{generate_representation} depicts the grouping of sentences by representation in a dictionary, which is the Python equivalent to a hash-table. In line 2, one can see the \textsc{GroupQTREERepr} method which, given the token data structure, generated the QTREE \cite{qtree} representation of it for grouping purposes. Note that this is not the full tree, but only a smaller version used for analysis as described in Section \ref{section:grouping}. The QTREE representation was chosen to be the canonical representation of the tree data structure, and is then used as the key of the dictionary. This is the result of a performance optimisation on earlier versions of the tool, which instead compared the tree which already existing entry in a list before deciding if it already existed in it or not. This brings this part of the process asymptotically from $\mathcal{O}(n)$ time to a much faster in practice constant $\mathcal{O}(1)$ time.
 
 \begin{algorithm}[t]
   \caption{Accumulate sentences}\label{generate_representation}
@@ -1230,7 +1225,7 @@ Algorithm \ref{generate_representation} depicts the grouping of sentences by rep
     			\State $\Call{AppendToGroup}{groups, groupRepr}$
     		\EndIf
     		
-    		\State $\Call{AppendSentAndRulesToGroup}{groups[_{groupRepr}], sentence, relations}$
+    		\State $\Call{AppendToGroup}{groups[_{groupRepr}], sentence, relations}$
     		
     \EndProcedure
     
@@ -1240,7 +1235,7 @@ Algorithm \ref{generate_representation} depicts the grouping of sentences by rep
 
 In QTREE one uses the square brackets symbol to denote the edges and the hierarchy of the tree in text mode, resulting in a string representation of it. See an example in Figure \ref{fig:qtree_lang}.
 
-A note is on how the procedure \textsc{ParseRawText} works, in line 7 of Algorithm \ref{get_tokens}. In the current implementation it simply finds and replaces all \emph{\enquote{et al.}} references in a text and replaces for \emph{\enquote{et al}}. This is done to improve sentence segmentation in SpaCy which was in several occasions specifically confusing the former with a sentence boundary. Further on this, another small tweak was done in the SpaCy tokenizer as to not split words that contain a dash in the middle, such as \emph{\enquote{data-mining}}. A file called \texttt{infix.txt}, which is part of the SpaCy data, contains a set of regular expressions for the tokenizer, and the \texttt{(?<=[a-zA-Z])-(?=[a-zA-z])} responsible for tokenizing words with a dash symbol was then deleted.
+A note is on how the procedure \textsc{ParseRawText} works, in line 7 of Algorithm \ref{get_tokens}. In the current implementation it simply finds and replaces all \emph{\enquote{et al.}} references in a text and replaces for \emph{\enquote{et al}}. This is done to improve sentence segmentation in SpaCy which was in several occasions specifically confusing the former with a sentence boundary. Further on this, another small tweak was done in the SpaCy tokenizer as to not split words that contain a dash in the middle, such as \emph{\enquote{data-mining}}. A file called \texttt{infix.txt}\footnote{More precisely, when using virtualenv, it sits in in the following location: \texttt{.env/lib/python3.4/site-packages/spacy/data/en-1.1.0/tokenizer/infix.txt}. Virtualenv is a method of installing Python packages only to the local scope of a project, without affecting the traditional global folder where packages are installed (which affect all Python programs in the computer) - more information about virtualenv can be found at \url{https://virtualenv.pypa.io/en/stable/}.}, which is part of the SpaCy data, contains a set of regular expressions for the tokenizer, and the \texttt{(?<=[a-zA-Z])-(?=[a-zA-z])} responsible for tokenizing words with a dash symbol was then deleted. This change made the tree simpler in some situations by reducing the amount of punctuation nodes.
 
 
 
@@ -1253,12 +1248,34 @@ A note is on how the procedure \textsc{ParseRawText} works, in line 7 of Algorit
 \section{Grouping Sentence Types}
 \label{section:grouping}
 
-The grouping of the sentences was done with the goal of human local analysis. There are four possibilities for grouping: based on the \emph{verb} node (the original verb in which the relation is being searched for), based on the \emph{subj} node, based on the \emph{obj} node, and based on any other of the optional relations nodes.
+This section further describes the purpose of the \textsc{GroupQTREERepr} method from Algorithm \ref{generate_representation}. The grouping of the sentences was done with the goal to facilitate human local analysis. There are four possibilities for grouping: based on the \emph{verb} node (the original verb in which the relation is being searched for), based on the \emph{subj} node, based on the \emph{obj} node, and based on any other of the optional relations nodes.
 
-The grouping works as follows. Given the node, the immediate children are extracted and a new tree is formed only with the node plus its children.
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=0.6\textwidth]{./images/sentence-91-37}
+  \caption[The Graphviz output generated by SpaCy dependency tree.]{The Graphviz output generated by SpaCy dependency tree.}
+  \label{fig:tree_output}
+\end{figure}
 
-\hl{To be completed.}
+The grouping works as follows. Given the node the grouping is based on, the immediate children are extracted and a new tree is formed only with the node plus its children. For an example, given the sentence \emph{\enquote{	MACK uses articulated graphical embodiment with ability to gesture.}}. Suppose we are searching for the \emph{Uses} relation. The dependency tree from SpaCy is generated and presented in Figure \ref{fig:tree_output}. The \texttt{token} being analysed by the algorithm is then the word \emph{uses}, at the top of the tree. The tree has four child nodes, however we disregard the actual child nodes values, and pay attention only to the actual dependencies, or edges values, between \texttt{token} and its children. This results in the summarized version of the tree presented in Figure \ref{fig:group_output_2}. This is the tree that represents this sentence in this grouping.
 
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=0.4\textwidth]{./images/command-simplified-group-uses-3}
+  \caption[The group of the sentence.]{The group of the sentence from Figure \ref{fig:tree_output}.}
+  \label{fig:group_output_2}
+\end{figure}
+
+Note that the \emph{punct} dependency is missing in the final group, and this is due to the rules applied by Algorithm \ref{main} to this resulting tree as to adjust and improve the grouping. More precisely, we wanted to ignore the \emph{punct} dependency in the group, as it had no observed effect in our analysis of the tree and the location of the \emph{subj}-like and \emph{dobj} dependencies we are mostly after. This will be explained further in Section \ref{section:rules}. 
+
+We also used a similar grouping in an attempt to observe the other parameters that are optionally part of the relation, assuming they would be attached to the \texttt{token} node by SpaCy. This would be more in line with efforts such as PropBank \cite{Palmer:2005:PBA:1122624.1122628}, or VerNet \cite{Schuler:2005:VBC:1104493}. A more complex example is the sentence \emph{\enquote{Our work not only improves the CPU efficiency by three orders of magnitude, but also reduces the memory consumption}} which, through the same process, produces the group representation in Figure \ref{fig:group_output_3}.
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=0.6\textwidth]{./images/command-simplified-group-improves-29}
+  \caption[A more complex example of sentence grouping.]{A more complex example of sentence grouping.}
+  \label{fig:group_output_3}
+\end{figure}
 
 
 
@@ -1269,6 +1286,7 @@ The grouping works as follows. Given the node, the immediate children are extrac
 %
 
 \section{Dependency Tree Manipulation Rules}
+\label{section:rules}
 
 \hl{To be completed.}
 
@@ -1283,6 +1301,21 @@ The grouping works as follows. Given the node, the immediate children are extrac
 \chapter{Results}
 
 \hl{- Evaluation}
+
+
+----------------------
+
+	SemTag uses the TAP knowledge base5 , and employs the cosine similarity with TF-IDF weighting scheme to compute the match degree between a mention and an entity, achieving an accuracy of around 82%.
+	
+need reasoning in order to break it properly
+
+There are also issues with Proximity. I can say employ, 
+
+----------------------
+
+Syntatical might not be enough, semantic might be needed.
+
+
 
 ----------------------
 "improves" is an intransitive verb, hence there is no dobj. (the last few groups). 
@@ -1323,8 +1356,20 @@ dates
 
 Furhter ideas:
 - Research relations through time. You could have a certain feature.
+
 - Reinforcements made to definitions in other papers.
+
 - Events, such as changes in conclusions - e.g.: this was the better technique, now this other technique is the best.
+
+- Actually pluging these results in some sort of database and see what comes out of it.
+
+AND RULE
+Sentence: 37	employs	( subj: PAS analysis ; obj: global and sentence-wide features )
+( mod: widely )
+As PAS analysis widely employs global and sentence-wide features, it is computationally expensive to integrate target side predicateargument structures into the dynamic programming style of SMT decoding (Wu and Fung, 2009b).
+
+
+
 
 \backmatter
 

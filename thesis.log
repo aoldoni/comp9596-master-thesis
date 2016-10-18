@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.4.28)  18 OCT 2016 00:18
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.4.28)  18 OCT 2016 22:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1599,24 +1599,24 @@ File: ./images/unsw_high_res_logo.png Graphic file (type QTm)
 
 
 
-] [2] [3
+] [2]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 104.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 104.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 104.
+ [3
 
-] (./thesis.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 7.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 7.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 7.
-) [4
+] (./thesis.toc) [4
 
 ]
-Overfull \hbox (3.44751pt too wide) in paragraph at lines 128--128
+Overfull \hbox (3.44751pt too wide) in paragraph at lines 130--130
 \T1/cmr/m/it/10.95 quarter-final berth after se-cur-ing a 1-1 draw with Shan-do
 ng Lun-eng in China.\T1/cmr/m/n/10.95 '  
  []
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 133.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 135.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -1625,32 +1625,32 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 
 
 ]
-Overfull \hbox (5.7456pt too wide) in paragraph at lines 146--146
+Overfull \hbox (5.7456pt too wide) in paragraph at lines 148--148
 []\T1/cmr/m/n/10.95 `  \T1/cmr/m/it/10.95 SYDNEY FC take the ad-vant-age of an 
 away goal in China, leav-ing the second 
  []
 
 File: ./images/google_knowledge_graph.png Graphic file (type QTm)
 <use  "./images/google_knowledge_graph.png" > [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 178.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 180.
 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 178.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 180.
  [3] [4] [5
 
 ]
 [6]
-Overfull \hbox (1.52078pt too wide) in paragraph at lines 277--278
+Overfull \hbox (1.52078pt too wide) in paragraph at lines 279--280
 \T1/cmr/m/n/10.95 in a raw text sen-tence, and what are its sen-tences. As an e
 x-ample, the token- 
  []
 
 [7] [8]
-Underfull \hbox (badness 1057) in paragraph at lines 307--307
+Underfull \hbox (badness 1057) in paragraph at lines 309--309
 []\T1/cmr/bx/n/10.95 Figure 2.3: []\T1/cmr/m/n/10.95 A sen-tence broken down to
  its Phrase Struc-ture (sub- 
  []
@@ -1658,7 +1658,7 @@ Underfull \hbox (badness 1057) in paragraph at lines 307--307
 [9] [10]
 Missing character: There is no – in font ecrm1095!
  [11]
-Overfull \hbox (0.27718pt too wide) in paragraph at lines 398--399
+Overfull \hbox (0.27718pt too wide) in paragraph at lines 400--401
 \T1/cmr/m/n/10.95 plate Filling [[][]26[][]], Ques-tion and An-swer-ing sys-tem
 s [[][]34[][]], or stored as a Know- 
  []
@@ -1682,14 +1682,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 1.
 ) [16]
-Overfull \hbox (20.3838pt too wide) in paragraph at lines 540--541
+Overfull \hbox (20.3838pt too wide) in paragraph at lines 542--543
 \T1/cmr/m/n/10.95 to ex-tract the fol-low-ing re-la-tions: \T1/cmr/m/it/10.95 L
 ive_In\T1/cmr/m/n/10.95 , \T1/cmr/m/it/10.95 Loc-ated_In\T1/cmr/m/n/10.95 , \T1
 /cmr/m/it/10.95 Or-gBased_In\T1/cmr/m/n/10.95 , \T1/cmr/m/it/10.95 Work_For 
  []
 
 
-Overfull \hbox (1.4938pt too wide) in paragraph at lines 540--541
+Overfull \hbox (1.4938pt too wide) in paragraph at lines 542--543
 \T1/cmr/m/n/10.95 - and the fol-low-ing classes: \T1/cmr/m/it/10.95 PER-SON\T1/
 cmr/m/n/10.95 , \T1/cmr/m/it/10.95 OR-GAN-IZ-A-TION\T1/cmr/m/n/10.95 , \T1/cmr/
 m/it/10.95 LOC-A-TION\T1/cmr/m/n/10.95 . There 
@@ -1697,7 +1697,7 @@ m/it/10.95 LOC-A-TION\T1/cmr/m/n/10.95 . There
 
 Missing character: There is no ’ in font ecrm1095!
 
-Overfull \hbox (2.6202pt too wide) in paragraph at lines 552--553
+Overfull \hbox (2.6202pt too wide) in paragraph at lines 554--555
 \T1/cmr/m/n/10.95 tra-di-tion-ally ori-gin-ally mined from table-like struc-tur
 es form places like Wiki- 
  []
@@ -1707,13 +1707,13 @@ File: ./images/yago_graph.png Graphic file (type QTm)
  <use  "./images/yago_graph.png" >
 File: ./images/yago.png Graphic file (type QTm)
  <use  "./images/yago.png" > [18]
-Overfull \hbox (0.94797pt too wide) in paragraph at lines 596--597
+Overfull \hbox (0.94797pt too wide) in paragraph at lines 598--599
 \T1/cmr/m/n/10.95 ful query-ing. Fi-nally, it at-taches a tem-poral and a spa-c
 ial di-men-sion to many 
  []
 
 [19] [20]
-Overfull \hbox (1.10722pt too wide) in paragraph at lines 613--614
+Overfull \hbox (1.10722pt too wide) in paragraph at lines 615--616
 []\T1/cmr/m/n/10.95 Find which al-gorithms are used to re-solve, or re-lated to
 , a cer-tain prob- 
  []
@@ -1721,106 +1721,115 @@ Overfull \hbox (1.10722pt too wide) in paragraph at lines 613--614
 [21
 
 ] [22]
-File: ./images/words_most_used_all.png Graphic file (type QTm)
- <use  "./images/words_most_used_all.png" >
 File: ./images/words_most_use_no_top2.png Graphic file (type QTm)
+ <use  "./images/words_most_use_no_top2.png" >
+Underfull \vbox (badness 3942) has occurred while \output is active []
 
-<use  "./images/words_most_use_no_top2.png" > [23]
-Overfull \hbox (1.4536pt too wide) in paragraph at lines 695--696
+ [23]
+Overfull \hbox (1.4536pt too wide) in paragraph at lines 690--691
 \T1/cmr/m/n/10.95 [[][]43[][]] into a Table Sep-ar-ated Value (TSV) format, us-
 ing a cus-tom script, based 
  []
 
 File: ./images/stanford_ner.png Graphic file (type QTm)
-<use  "./images/stanford_ner.png" > [24]
-Overfull \hbox (6.41158pt too wide) in paragraph at lines 712--719
+<use  "./images/stanford_ner.png" >
+Underfull \vbox (badness 3396) has occurred while \output is active []
+
+ [24]
+Overfull \hbox (6.41158pt too wide) in paragraph at lines 707--714
  [][] 
  []
 
-
-Underfull \vbox (badness 7326) has occurred while \output is active []
-
- [25]
-[26]
+[25]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 774.
+(Font)              <7> on input line 769.
+ [26]
+Underfull \vbox (badness 5817) has occurred while \output is active []
+
  [27]
 Missing character: There is no ﬁ in font ecrm0700!
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [28]
-[29] [30]
-Overfull \hbox (0.29965pt too wide) in paragraph at lines 997--998
+[28] [29]
+Overfull \hbox (0.29965pt too wide) in paragraph at lines 992--993
 []\T1/cmr/m/n/10.95 The text also present a high num-ber of core-fer-ence prob-
 lems, e.g.: \T1/cmr/m/it/10.95 `  their 
  []
 
-[31] [32
+[30] [31
 
-] [33]
-Overfull \hbox (14.11053pt too wide) in paragraph at lines 1041--1041
+]
+Overfull \hbox (14.11053pt too wide) in paragraph at lines 1036--1036
 [][][][][]$\T1/cmtt/m/n/9 https : / / www . quora . com / Why-[]is-[]Python-[]a
 -[]language-[]of-[]choice-[]for-[]data-[]scientists$[][]|  
  []
 
-[34] [35]
+[32] [33]
 File: ./images/brat_img.png Graphic file (type QTm)
  <use  "./images/brat_img.png" >
 File: ./images/command-simplified-group-uses-16.png Graphic file (type QTm)
 
-<use  "./images/command-simplified-group-uses-16.png" > [36]
+<use  "./images/command-simplified-group-uses-16.png" > [34]
 Underfull \vbox (badness 5847) has occurred while \output is active []
 
- [37]
-[38]
+ [35]
+[36]
 File: ./images/html_output.png Graphic file (type QTm)
  <use  "./images/html_output.png" >
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 1152.
- [39]
-Underfull \hbox (badness 6944) in paragraph at lines 1200--1200
+put line 1147.
+ [37]
+Underfull \hbox (badness 6944) in paragraph at lines 1195--1195
 [][][][][]$\T1/cmtt/m/n/9 https : / / docs . python . org / 3 . 4 / reference /
  expressions . html # 
  []
 
-[40]
-
-LaTeX Warning: Reference `section:grouping' on page 41 undefined on input line 
-1218.
-
-
-Overfull \hbox (23.62369pt too wide) in paragraph at lines 1233--1234
-[] $[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 groups\OT1/cmr/m/n/10.95 [[]]\OML
-/cmm/m/it/10.95 ; sentence; relations\OT1/cmr/m/n/10.95 )$  
+[38]
+Underfull \hbox (badness 1515) in paragraph at lines 1238--1238
+[][][]\T1/cmr/m/n/9 More pre-cisely, when us-ing vir-tualenv, it sits in in the
+ fol-low-ing loc-a-tion: 
  []
 
-[41] [42] [43
+[39]
+Overfull \hbox (11.17197pt too wide) in paragraph at lines 1251--1252
+\T1/cmr/m/n/10.95 This sec-tion fur-ther de-scribes the pur-pose of the \T1/cmr
+/m/sc/10.95 GroupQT-REERepr \T1/cmr/m/n/10.95 method 
+ []
 
-] [44
+File: ./images/sentence-91-37.png Graphic file (type QTm)
+<use  "./images/sentence-91-37.png" >
+File: ./images/command-simplified-group-uses-3.png Graphic file (type QTm)
+
+<use  "./images/command-simplified-group-uses-3.png" > [40]
+File: ./images/command-simplified-group-improves-29.png Graphic file (type QTm)
+
+
+<use  "./images/command-simplified-group-improves-29.png" > [41] [42] [43
+
+]
+[44
 
 ] [45] [46
 
 ]
-Overfull \hbox (0.89635pt too wide) in paragraph at lines 1332--1332
+Overfull \hbox (0.89635pt too wide) in paragraph at lines 1377--1377
 []\T1/cmr/m/it/10.95 Bing Know-ledge and Ac-tion Graph\T1/cmr/m/n/10.95 . [][]$
 \T1/cmtt/m/n/10.95 https : / / www . bing . com / partners / 
  []
 
 
-Overfull \hbox (1.25372pt too wide) in paragraph at lines 1332--1332
+Overfull \hbox (1.25372pt too wide) in paragraph at lines 1377--1377
 []\T1/cmr/m/n/10.95 Kurt Bol-lacker et al. `  Free-base: A Col-lab-or-at-ively 
 Cre-ated Graph Data- 
  []
 
 
-Overfull \hbox (8.83812pt too wide) in paragraph at lines 1332--1332
+Overfull \hbox (8.83812pt too wide) in paragraph at lines 1377--1377
 \T1/cmr/m/it/10.95 fer-ence on Em-pir-ical Meth-ods in Nat-ural Lan-guage Pro-c
 essing (EMNLP)\T1/cmr/m/n/10.95 . 
  []
 
 
-Overfull \hbox (1.818pt too wide) in paragraph at lines 1332--1332
+Overfull \hbox (1.818pt too wide) in paragraph at lines 1377--1377
 \T1/cmr/m/n/10.95 Doha, Qatar: As-so-ci-ation for Com-pu-ta-tional Lin-guist-ic
 s, 2014, pp. 740^^U 
  []
@@ -1828,38 +1837,38 @@ s, 2014, pp. 740^^U
 [47
 
 ] [48]
-Overfull \hbox (2.24106pt too wide) in paragraph at lines 1332--1332
+Overfull \hbox (2.24106pt too wide) in paragraph at lines 1377--1377
 \T1/cmr/m/it/10.95 2015 Con-fer-ence on Em-pir-ical Meth-ods in Nat-ural Lan-gu
 age Pro-cessing\T1/cmr/m/n/10.95 . 
  []
 
 
-Overfull \hbox (1.96327pt too wide) in paragraph at lines 1332--1332
+Overfull \hbox (1.96327pt too wide) in paragraph at lines 1377--1377
 []\T1/cmr/m/n/10.95 Daniel Jur-af-sky and James H. Mar-tin. \T1/cmr/m/it/10.95 
 Speech and Lan-guage Pro-cessing: 
  []
 
 
-Overfull \hbox (0.17776pt too wide) in paragraph at lines 1332--1332
+Overfull \hbox (0.17776pt too wide) in paragraph at lines 1377--1377
 []\T1/cmr/m/n/10.95 Haojun Ma and Wei Wang. \T1/cmr/m/it/10.95 Aca-demic PDF Co
 n-tent Ex-trac-tion\T1/cmr/m/n/10.95 . UNSW 
  []
 
 [49]
-Overfull \hbox (12.5609pt too wide) in paragraph at lines 1332--1332
+Overfull \hbox (12.5609pt too wide) in paragraph at lines 1377--1377
 []\T1/cmr/m/n/10.95 Ndapandula Na-kashole, Ger-hard Weikum and Fa-bian Suchanek
 . `  PATTY: 
  []
 
 
-Overfull \hbox (55.86662pt too wide) in paragraph at lines 1332--1332
+Overfull \hbox (55.86662pt too wide) in paragraph at lines 1377--1377
 []\T1/cmr/m/n/10.95 Joakim Nivre et al. \T1/cmr/m/it/10.95 Uni-ver-sal De-pend-
 en-cies 1.3\T1/cmr/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 http : / / universaldepe
 ndencies . 
  []
 
 
-Overfull \hbox (6.80707pt too wide) in paragraph at lines 1332--1332
+Overfull \hbox (6.80707pt too wide) in paragraph at lines 1377--1377
 []\T1/cmr/m/it/10.95 SyntaxNet: Neural Mod-els of Syn-tax\T1/cmr/m/n/10.95 . []
 []$\T1/cmtt/m/n/10.95 https : / / github . com / tensorflow / 
  []
@@ -1868,27 +1877,20 @@ Overfull \hbox (6.80707pt too wide) in paragraph at lines 1332--1332
 \tf@toc=\write7
 \openout7 = `thesis.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1335.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1335.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1380.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1380.
  (./thesis.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1335.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1335.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1380.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1380.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 43375 strings out of 493724
- 930605 string characters out of 6145899
- 1276841 words of memory out of 5000000
- 46030 multiletter control sequences out of 15000+600000
+ 43382 strings out of 493724
+ 930810 string characters out of 6145899
+ 1277201 words of memory out of 5000000
+ 46035 multiletter control sequences out of 15000+600000
  23044 words of font info for 49 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  60i,14n,104p,1586b,2345s stack positions out of 5000i,500n,10000p,200000b,80000s
