@@ -48,12 +48,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.4}Dependency Tree Manipulation Rules}{42}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {5}Results}{47}{chapter.5}
+\contentsline {chapter}{\chapternumberline {5}Results}{51}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Experiments}{47}{section.5.1}
+\contentsline {section}{\numberline {5.1}Experiments}{51}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Observations}{47}{section.5.2}
+\contentsline {section}{\numberline {5.2}Observations}{51}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {6}Conclusion and Future Work}{49}{chapter.6}
+\contentsline {chapter}{\chapternumberline {6}Conclusion and Future Work}{55}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{51}{section*.4}
+\contentsline {chapter}{Bibliography}{57}{section*.4}
