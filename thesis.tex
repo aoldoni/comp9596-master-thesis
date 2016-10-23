@@ -62,6 +62,10 @@
 \usepackage[unicode]{hyperref}
 \hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue, pdftitle={\theTitle}, pdfauthor={\theAuthor}, pdfkeywords={\theKeywords}}
 
+%rules and theorem packages
+\usepackage{amsthm}
+\newtheorem{treerule}{Rule}
+
 \unswschool{School of Computer Science and Engineering\\}
 %% PhD is the default
 \unswdegree{Master of Computing and Information Technology}
@@ -186,7 +190,7 @@ In this project, we focus on studying and presenting some Information Extraction
 
 An existing service that organises data from academic papers is the Semantic Scholar \cite{semanticscholar} project, by Professor Oren Etzioni from Allen Institute for AI. However, Semantic Scholar only understands a limited number of relationships (such as 'cite', 'comment', 'use\_data\_set', and 'has\_caption') which are also more closely related to the meta-data about the paper, but not from the knowledge that the paper itself presents. Other similar services are Microsoft Academic Graph \cite{microsoft-academic-data}, Google Scholar \cite{google-scholar}, and CiteSeerX \cite{citeseer-x}.
 
-\hl{In the next sections, this document will give some background information on the techniques needed to achieve the above (Chapter 2), and it will also define the problem more precisely (Chapter 3), building as to introduce the development of this research (Chapter 4). In Chapter 5 we will describe some of the results, followed by the some final remarks in Chapter 6.}
+In the next sections, this document will give some background information on the techniques needed to achieve the above (Chapter \ref{chapter:information}), and it will also define the problem more precisely (Chapter \ref{chapter:analysis}), building as to introduce the development of this research (Chapter \ref{chapter:developed}). In Chapter \ref{chapter:results} we will describe some of the results, followed by the some final remarks in Chapter \ref{chapter:conclusion}.
 
 
 %
@@ -197,6 +201,7 @@ An existing service that organises data from academic papers is the Semantic Sch
 
 
 \chapter{Information Extraction}
+\label{chapter:information}
 
 Information Extraction, a term already defined in the introduction, is a hard problem which mostly relies in attempting to use a computer to understand information explicitly stated in the form of natural language.
 
@@ -608,6 +613,7 @@ WordNet is a semantically-oriented dictionary of English, similar to a tradition
 
 
 \chapter{Analysis and Related Work}
+\label{chapter:analysis}
 
 This work intends to deliver a tool or a process in which one can extract information from academic text, more specifically Computer Science papers form the Database and Data Mining topics. The intention is to obtain entities, and relations between these entities. The motivation is that, with such tool, one could for an example:
 \begin{itemize}
@@ -983,7 +989,7 @@ All tools described in this section are similar in nature to our tool, thus desc
 %
 
 
-\section{Peculiarities with Academic Text}
+\section{Peculiarities of Academic Text}
 
 It was clear that existing model-based tools for IE, such as the ones shown in Section \ref{section:information_extraction}, do not come equipped to predict relation in Academic Text, mainly due to the different classes of entities presented. Academic text, however, has some characteristics that facilitate in some sense its parsing. More specifically, the language used in academia is more strict and precise, and does not contain attempts of inventive language or linguistic creative which would be common in romances or other type of written information such as literary books. We also did not observe academic text present difficult to understand notions, such as sarcasm or humour. We then attempt to remove complexity further by narrowing our scope to papers from the database area, such as noted in Section \ref{section:analysis_of_academic_text}.
 
@@ -1001,6 +1007,7 @@ The text also present a high number of coreference problems, e.g.: \emph{\enquot
 
 
 \chapter{Developed Workflow}
+\label{chapter:developed}
 
 We developed an open information extraction tool that is capable of extracting information from academic text with the following characteristics:
 \begin{itemize}
@@ -1235,7 +1242,13 @@ Algorithm \ref{generate_representation} depicts the grouping of sentences by rep
 
 In QTREE one uses the square brackets symbol to denote the edges and the hierarchy of the tree in text mode, resulting in a string representation of it. See an example in Figure \ref{fig:qtree_lang}.
 
-A note is on how the procedure \textsc{ParseRawText} works, in line 7 of Algorithm \ref{get_tokens}. In the current implementation it simply finds and replaces all \emph{\enquote{et al.}} references in a text and replaces for \emph{\enquote{et al}}. This is done to improve sentence segmentation in SpaCy which was in several occasions specifically confusing the former with a sentence boundary. Further on this, another small tweak was done in the SpaCy tokenizer as to not split words that contain a dash in the middle, such as \emph{\enquote{data-mining}}. A file called \texttt{infix.txt}\footnote{More precisely, when using virtualenv, it sits in in the following location: \texttt{.env/lib/python3.4/site-packages/spacy/data/en-1.1.0/tokenizer/infix.txt}. Virtualenv is a method of installing Python packages only to the local scope of a project, without affecting the traditional global folder where packages are installed (which affect all Python programs in the computer) - more information about virtualenv can be found at \url{https://virtualenv.pypa.io/en/stable/}.}, which is part of the SpaCy data, contains a set of regular expressions for the tokenizer, and the \texttt{(?<=[a-zA-Z])-(?=[a-zA-z])} responsible for tokenizing words with a dash symbol was then deleted. This change made the tree simpler in some situations by reducing the amount of punctuation nodes.
+Some specific adjustments were added to the procedure \textsc{ParseRawText} (in line 7 of Algorithm \ref{get_tokens}), as follows:
+\begin{itemize}
+  \item Applies a regular expression to replace all \emph{\enquote{et al.}} strings with an empty string. This is done to improve sentence segmentation in SpaCy which was in several occasions specifically confusing the term with a sentence boundary;
+  \item Another small tweak was done in the SpaCy tokenizer as to not split words that contain a dash in the middle, such as \emph{\enquote{data-mining}}. A file called \texttt{infix.txt}\footnote{More precisely, when using virtualenv, it sits in in the following location: \texttt{.env/lib/python3.4/site-packages/spacy/data/en-1.1.0/tokenizer/infix.txt}. Virtualenv is a method of installing Python packages only to the local scope of a project, without affecting the traditional global folder where packages are installed (which affect all Python programs in the computer) - more information about virtualenv can be found at \url{https://virtualenv.pypa.io/en/stable/}.}, which is part of the SpaCy data, contains a set of regular expressions for the tokenizer, and the \texttt{(?<=[a-zA-Z])-(?=[a-zA-z])} responsible for tokenizing words with a dash symbol was then deleted. This change made the tree simpler in some situations by reducing the amount of punctuation nodes;
+  \item Removed unicode characters from the output by using Python filters to achieve so;
+  \item Added a regular expression to remove citations of the type \emph{\enquote{(Lenat, 1995)}}. This avoids SpaCy breaking these as nodes in the tree and diminishes the chances of misclassifications of the dependencies.
+\end{itemize}
 
 
 
@@ -1288,8 +1301,123 @@ We also used a similar grouping in an attempt to observe the other parameters th
 \section{Dependency Tree Manipulation Rules}
 \label{section:rules}
 
-\hl{To be completed.}
+This section further describes the purpose of the rule application methods in the main loop of Algorithm \ref{main}. During the process of obtaining the trees for the searched verb, several rules are applied as to organise the tree in a way that facilitates the extraction method. These rules are applied by four different Python classes: \texttt{Growth}, \texttt{Reduction}, \texttt{Obj}, \texttt{Subj}, in this order. We use a custom annotator to identify which methods of these classes are actual rules to be applied. The rules are applied in the order they appear in these classes. The addition of new rules, in an investigative setting, simply requires the addition of an annotated method in any of these classes.
 
+The \texttt{Growth} and \texttt{Reduction} classes apply the rules from the perspective of the node which represents the verb being looked for, i.e., the method receives the verb as the node to do the analysis on. The \texttt{Growth} class intends to have rules which cause currently unavailable information to be obtained from other parts of the tree, while the \texttt{Reduction} class intends to have rules that remove irrelevant information.
+
+Moreover, in the \texttt{Obj} and \texttt{Subj} classes, the rules are applied on the node that currently represents respectively:
+
+\begin{itemize}
+  \item \emph{obj}-like relations: Direct Object (\emph{dobj}); Object of Preposition (\emph{pobj}), Indirect Object (\emph{iobj}); or
+  \item \emph{subj}-like relations: Nominal Subject (\emph{nsubj}), Clausal Subject  (\emph{csubj}), Passive Nominal Subject (\emph{nsubjpass}), Passive Clausal Subject (\emph{csubjpass}) \cite{Marneffe08stanfordtyped}.
+\end{itemize}
+
+Further describing the tree structure, it is important to note the strong characteristic that every node of the dependency tree can have from \emph{0} to \emph{n} children, however exactly \emph{1} head (or parent) node. For each actual node dependency tree, we also generate a separate tree representation which is used for grouping. In some cases (which will be denoted), these rules apply only in the representation and not to the original tree. This means that, although we want some trees to be grouped together to facilitate analysis, the original version might still be used for the rule extraction.
+
+A final class called \texttt{Extraction} apply a single extraction method which obtains the parts of the relation after all rules above are applied. The extraction method trivially outputs all the child nodes from the node that represents the verb which is the relation being looked for. The rules are defined as follows.
+
+An interesting example to start with is the sentence \emph{\enquote{We stress that our method improves a supervised baseline}}. The tree generated by the dependency parser is already \enquote{optimal} in the sense that the information is ready to be extracted without any tree manipulation. \hl{See Figure X for this tree}, the extracted relation would be \texttt{improves ( our method ; supervised baseline )}. We list now the rules created for our system to increase its ability to extract information in other \enquote{non-optimal} trees. 
+
+
+
+
+\begin{treerule}[\texttt{Growth}]
+\label{treerule:rule1}
+If the edge to the head node is of the type \emph{relcl} or \emph{ccomp}, and the existing \emph{subj}-like child node does not have the POS tag \emph{NOUN}, \emph{PROPN}, \emph{VERB}, \emph{NUM}, \emph{PRON}, or \emph{X}, replace the \emph{subj}-like child node with the immediate head node. If there is no \emph{subj}-like child node, simply move the head node as to be its \emph{subj}-like child.
+\end{treerule}
+
+In Rule \ref{treerule:rule1}, we replace the subject when in a relative clause or clausal complement. In this setting, it is common that the verb does not have a \emph{subj}-like child node, or that it has a non-meaningful one (such as \emph{\enquote{which}}, or \emph{\enquote{that}}). Note how this situation occurs in the sentence \emph{\enquote{Calvin [21] is a distributed main-memory database system that uses a deterministic execution strategy}}
+
+\begin{treerule}[\texttt{Growth}]
+\label{treerule:rule2}
+If the current node is part of a \emph{conj} relation through its head edge, and no \emph{subj}-like child node exists, search for a \emph{subj}-like child node in the parent (a sibling node). Recurse in case this is not found and the head edge is again a \emph{conj}.
+\end{treerule}
+
+In Rule \ref{treerule:rule2}, we obtain subject from parent if in a conjunct relation. This normally occurs once the parser decides that the relation being searched for is part of a bigger set of relations the subject of the sentence is part of. For an example, the sentence \emph{\enquote{SemTag uses the TAP knowledge base5, and employs}} depicts the subject \emph{\enquote{SemTag}} being further away from the verb \emph{\enquote{employs}}, the relation being searched for. In this case, \emph{\enquote{SemTag}} is sibling node of \emph{\enquote{employs}}, both being child nodes of \emph{\enquote{uses}}.
+
+\begin{treerule}[\texttt{Growth}]
+\label{treerule:rule3}
+If no \emph{obj}-like child node exists, transform nodes \emph{xcomp} or \emph{ccomp} in a \emph{dobj}. If no \emph{subj}-like child node exists, transform nodes \emph{xcomp} or \emph{ccomp} in a \emph{nsubj}.
+\end{treerule}
+
+\begin{treerule}[\texttt{Growth}]
+\label{treerule:rule4}
+If no \emph{obj}-like child node exists, transform \emph{prep} relation whose preposition word is \emph{\enquote{in}} in a \emph{dobj} node.
+\end{treerule}
+
+Rules \ref{treerule:rule3} and \ref{treerule:rule4}, handle further transformations, or edge renaming, on existing child nodes to improve relation extractions. In Rule \ref{treerule:rule3} the clausal complements with both internal or external subjects, which often contain the missing part of a relation are renamed to be the subject of or object of the sentence.
+
+An example for Rule \ref{treerule:rule4} is the partial sentence \emph{\enquote{matrix co-factorization helps to handle multiple aspects of the data and improves in predicting individual decisions}}, when searching for the \emph{\enquote{improves}} relation. While normally the parser would annotate \emph{\enquote{in predicting (...)}} as a sub clause with a \emph{prep} edge relation, this clause does contain the object being improved by the subject.
+
+\begin{treerule}[\texttt{Growth}]
+\label{treerule:rule5}
+If no \emph{obj}-like child edge exists, a \emph{subj}-like child edge exists, and the head edge is of the \emph{subj}-like type, move the head node as to be its \emph{dobj}-like child.
+\end{treerule}
+
+Another rule that does tree manipulation, Rule \ref{treerule:rule5} caters for situations where the relation being searched for is itself found in a \emph{subj}-like edge connected with its head node.
+
+\begin{treerule}[\texttt{Reduction}, representation only]
+\label{treerule:rule_reduction1}
+For any two child with same incoming edge type, remove the duplicate edge.
+\end{treerule}
+
+\begin{treerule}[\texttt{Reduction}]
+\label{treerule:rule_reduction2}
+Remove tags of type \emph{punct}, \emph{mark}, \emph{\enquote{ }} (empty space), \emph{meta}.
+\end{treerule}
+
+\begin{treerule}[\texttt{Reduction}]
+\label{treerule:rule_reduction3}
+Transform specific edge types of child nodes into a more general version. More specifically, transform all \emph{obj}-like relations into \emph{obj}, all \emph{subj}-like relations into \emph{subj}, and all \emph{mod}-like relations into \emph{mod}.
+\end{treerule}
+
+Rule \ref{treerule:rule_reduction1} is the first one we describe of the \texttt{Reduction} type, and together with Rules  \ref{treerule:rule_reduction2} and \ref{treerule:rule_reduction3} serve a main purpose of simplifying the tree representation for grouping and analysis purposes. Rule \ref{treerule:rule_reduction1} removes duplicates only in the representation and causes the analysis of a node with two \emph{prep} child nodes to be the same as a node with only one.
+
+\begin{treerule}[\texttt{Reduction}]
+\label{treerule:rule_reduction4}
+Merge all \emph{obj}-like relations into one single \emph{obj} node, and all \emph{subj}-like relations into one \emph{subj} node.
+\end{treerule}
+
+To describe Rule \ref{treerule:rule_reduction4}, it is important to note the definition of \emph{mod}-like relations, as per the following:
+\begin{itemize}
+  \item \emph{mod}-like relations: Noun Phrase Adverbial Modifier (\emph{npadvmod}), Adjectival Modifier (\emph{amod}), Adverbial Modifier (\emph{advmod}), Numeric Modifier (\emph{nummod}), Quantifier Modifier (\emph{quantmod}), Relative Clause Modifier (\emph{rcmod}), Temporal Modifier (\emph{tmod}), Reduced Non-finite Verbal Modifier (\emph{vmod}) \cite{Marneffe08stanfordtyped}.
+\end{itemize}
+
+\begin{treerule}[\texttt{Subj} and \texttt{Obj}, representation only]
+\label{treerule:rule_subj1}
+For any two child with same incoming edge type, remove the duplicate edge.
+\end{treerule}
+
+\begin{treerule}[\texttt{Subj} and \texttt{Obj}]
+\label{treerule:rule_subj2}
+Remove tags of type \emph{det} and \emph{\enquote{ }} (empty space).
+\end{treerule}
+
+\begin{treerule}[\texttt{Subj} and \texttt{Obj}]
+\label{treerule:rule_subj3}
+Transform specific edge types of child nodes into a more general version. More specifically, transform all \emph{obj}-like relations into \emph{obj}, all \emph{subj}-like relations into \emph{subj}, and all \emph{mod}-like relations into \emph{mod}.
+\end{treerule}
+
+Rules \ref{treerule:rule_subj1}, \ref{treerule:rule_subj2}, \ref{treerule:rule_subj3} behave similarly to the \texttt{Reduction} rules, but at the \texttt{Subj}, \texttt{Obj} level - these rules intend to facilitate grouping and analysis.
+
+We observed that, in several situations, the subject or object sentences were too long, mainly due to containing too much information beyond the subject/object concept definition. With information extraction, it is reasonable to assume that the tool should return the information as granular as possible, while still maintaining the possibility for the user to use extra context if needed. In an attempt to alleviate this situation, Rule \ref{treerule:rule_subj4} was created.
+
+\begin{treerule}[\texttt{Subj} and \texttt{Obj}]
+\label{treerule:rule_subj4}
+Search for the sub-tree rooted by the current node being analysed (either \emph{subj}-like or a \emph{obj}-like) for certain types of nodes and then split the sub-tree in the following way: the found node is removed from the current sub-tree, and moved to be a child node (sub-tree) of the node that represents the relation (the verb). The node that represents the relation is the head (parent) of the current node being analysed. This rule also renames the node as per the below:
+	\begin{itemize}
+	  \item \emph{relcl}, \emph{acl}, \emph{advcl} with any token: split and rename to  \emph{mod}.
+	  \item \emph{prep} with tokens \emph{\enquote{by}}, \emph{\enquote{to}}, \emph{\enquote{for}}, \emph{\enquote{with}}, \emph{\enquote{whereby}}: split and rename to \emph{prep}.
+	\end{itemize}
+\end{treerule}
+
+After continuous revision, some rules were adjusted to, by omission, also cater for a certain number of cases such as:
+	\begin{itemize}
+	  \item Appositional modifier: once an apposition is found attached to a subject through an \emph{appos} edge, this will be output in the output as part of the relation.
+	  \item Punctuation: it is in general also added to the output given, in this corpus, an excess of situations where square brackets or symbols are used to point to extra information around a concept, such as in a references. 
+	\end{itemize}
+
+\hl{Add table each rule and its python name}
 
 
 %
@@ -1299,49 +1427,39 @@ We also used a similar grouping in an attempt to observe the other parameters th
 %
 
 \chapter{Results}
+\label{chapter:results}
 
-\hl{- Evaluation}
-
-
-----------------------
-
-	SemTag uses the TAP knowledge base5 , and employs the cosine similarity with TF-IDF weighting scheme to compute the match degree between a mention and an entity, achieving an accuracy of around 82%.
-	
-need reasoning in order to break it properly
-
-There are also issues with Proximity. I can say employ, 
-
-----------------------
-
-Syntatical might not be enough, semantic might be needed.
+This section describes the experiments and comparisons done of this tool with similar existing ones. To prepare for the experiment, we modified the HTML output to:
+	\begin{itemize}
+	  \item include the output of three other similar tools: Stanford OpenIE \cite{angeli-johnsonpremkumar-manning:2015:ACL-IJCNLP}, Max Planck Institute ClauseIE \cite{DelCorro:2013:CCO:2488388.2488420}, AllenAI OpenIE \cite{Etzioni:2011:OIE:2283396.2283398}.
+	  \item modified the interface as to provide an input for comments, and ability to save and load comments using the JSON format.
+	\end{itemize}
 
 
+\section{Experiments}
 
-----------------------
-"improves" is an intransitive verb, hence there is no dobj. (the last few groups). 
-----------------------
+\hl{To be added: further results of the evaluation.}
 
-Sample some of the sentences
+\section{Observations}
 
-Stratified sampling, based on our groups, and different words. Raw grouping.
+We observed that in some cases the limits of the decision process os this tool, where the linguistic syntactical information from the text might not be enough, and further semantic knowledge might be needed. Note for an example the sentence \emph{\enquote{SemTag uses the TAP knowledge base5 , and employs the cosine similarity with TF-IDF weighting scheme to compute the match degree between a mention and an entity, achieving an accuracy of around 82\%}}. As a result it has the following main structure, mainly due to Rule \ref{treerule:rule_subj4}:
+	\begin{itemize}
+	  \item \emph{obj}: \emph{\enquote{SemTag}}
+	  \item \emph{sub}: \emph{\enquote{cosine similarity}}
+	  \item \emph{prep}: \emph{\enquote{with TF-IDF weighting scheme, achieving an accuracy of around 82\%}}
+	\end{itemize}
 
-Output the other results in the same html.
+In this domain, \emph{\enquote{cosine similarity with TF-IDF weighting scheme}} would represent a single concept instead, since it is a specific type of \emph{\enquote{cosine similarity}}, contrary to what was the output of the rule. One then observes that, for improved correctness Rule \ref{treerule:rule_subj4} should rely on more information and apply reasoning in order to break the sub-tree more appropriately.
 
-correct
-partial correct
+Moreover, it was also possible to note the incapacity of the rules to be applied together, or chained, as to output the correct answers.
 
-at least 1 or 2, upper bound is percentage.
+\hl{IS RULE employs	( subj: database system ; obj: serial transaction execution ) Sentence: H-Store is an example of a database system which employs serial transaction execution, and works best when workloads are perfectly partitionable [44].}
 
-better way the rules are presented.
+Moreover, a further challenge would be having the tool to be capable of deciding when to chain rules, or when the result is already optimal.
 
-----------------------
+\hl{AND RULE Sentence: 37	employs	( subj: PAS analysis ; obj: global and sentence-wide features ) ( mod: widely ) As PAS analysis widely employs global and sentence-wide features, it is computationally expensive to integrate target side predicateargument structures into the dynamic programming style of SMT decoding (Wu and Fung, 2009b).}
 
-error
-new output
-and
-dates
-
-
+\hl{To be added: further observations done after the experiment.}
 
 %
 %
@@ -1351,25 +1469,21 @@ dates
 
 
 \chapter{Conclusion and Future Work}
+\label{chapter:conclusion}
 
-\hl{- What drives the field forward}d
+The maturity and fast-pacing on current development of NLP algorithms and frameworks is very positive and provides advanced linguistic information for tackling problems such as information extraction. We observed that the developed tool was reasonably successful, but as the previous section notes that are room for future work on improving the details of its operation.
 
-Furhter ideas:
-- Research relations through time. You could have a certain feature.
+The addition of semantic information for reasoning in certain rules application would certainly improve the ability of the system to better decide what to do in certain situations, it is unclear however at this point how this would be done. The entities that are part of the relations would benefit from a good disambiguation system and the development of canonical representations of them.
 
-- Reinforcements made to definitions in other papers.
+Extra meta-data from the papers, and the entirety of the paper itself, could start being considered. With this one could attempt to answers questions such as:
+	\begin{itemize}
+	  \item Research relations through time. You could have, e.g., certain historical insights into which algorithm was more popular for a certain task during certain periods;
+	  \item Explore coreference resolution more deeply, not only within a paper but across papers and the references between them;
+	  \item Events, or introductions of new algorithms or concepts in certain years and how it changes further outputs;
+	  \item Building and using a database of the extracted concepts and the relations between them (Knowledge Graph).
+	\end{itemize}
 
-- Events, such as changes in conclusions - e.g.: this was the better technique, now this other technique is the best.
-
-- Actually pluging these results in some sort of database and see what comes out of it.
-
-AND RULE
-Sentence: 37	employs	( subj: PAS analysis ; obj: global and sentence-wide features )
-( mod: widely )
-As PAS analysis widely employs global and sentence-wide features, it is computationally expensive to integrate target side predicateargument structures into the dynamic programming style of SMT decoding (Wu and Fung, 2009b).
-
-
-
+\hl{To be added: further notes from the experiments}
 
 \backmatter
 

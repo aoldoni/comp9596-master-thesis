@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.4.28)  18 OCT 2016 22:29
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.4.28)  23 OCT 2016 14:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1512,6 +1512,20 @@ tly
 \Hy@SectionHShift=\skip220
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 63.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2009/07/02 v2.20.1
+\thm@style=\toks55
+\thm@bodyfont=\toks56
+\thm@headfont=\toks57
+\thm@notefont=\toks58
+\thm@headpunct=\toks59
+\thm@preskip=\skip221
+\thm@postskip=\skip222
+\thm@headsep=\skip223
+\dth@everypar=\toks60
+)
+\c@treerule=\count387
 \compiledate=\box99
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -1536,25 +1550,25 @@ File: english.lbx 2014/06/25 v2.9a biblatex localization (PK/JW/AB)
 (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-Package ragged2e Info: ABD: executing \RaggedRight on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+Package ragged2e Info: ABD: executing \RaggedRight on input line 84.
  ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 80.
+LaTeX Info: Redefining \selectfont on input line 84.
 Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Data encoding 'ascii' specified.
@@ -1564,30 +1578,30 @@ Package biblatex Info: Data encoding 'ascii' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
  (./thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 80.
-Package biblatex Info: Reference segment=0 on input line 80.
+Package biblatex Info: Reference section=0 on input line 84.
+Package biblatex Info: Reference segment=0 on input line 84.
 
 ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.12}).
 
-\c@lstlisting=\count387
+\c@lstlisting=\count388
 \AtBeginShipoutBox=\box100
-Package hyperref Info: Link coloring ON on input line 80.
+Package hyperref Info: Link coloring ON on input line 84.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count388
+\c@section@level=\count389
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 80.
-LaTeX Info: Redefining \ref on input line 80.
-LaTeX Info: Redefining \pageref on input line 80.
-LaTeX Info: Redefining \nameref on input line 80.
+LaTeX Info: Redefining \nameref on input line 84.
+LaTeX Info: Redefining \ref on input line 84.
+LaTeX Info: Redefining \pageref on input line 84.
+LaTeX Info: Redefining \nameref on input line 84.
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write6
 \openout6 = `thesis.out'.
@@ -1601,22 +1615,22 @@ File: ./images/unsw_high_res_logo.png Graphic file (type QTm)
 
 ] [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 104.
+(Font)              <10.95> on input line 108.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 104.
+(Font)              <8> on input line 108.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 104.
+(Font)              <6> on input line 108.
  [3
 
 ] (./thesis.toc) [4
 
 ]
-Overfull \hbox (3.44751pt too wide) in paragraph at lines 130--130
+Overfull \hbox (3.44751pt too wide) in paragraph at lines 134--134
 \T1/cmr/m/it/10.95 quarter-final berth after se-cur-ing a 1-1 draw with Shan-do
 ng Lun-eng in China.\T1/cmr/m/n/10.95 '  
  []
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 135.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 139.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -1625,32 +1639,32 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 
 
 ]
-Overfull \hbox (5.7456pt too wide) in paragraph at lines 148--148
+Overfull \hbox (5.7456pt too wide) in paragraph at lines 152--152
 []\T1/cmr/m/n/10.95 `  \T1/cmr/m/it/10.95 SYDNEY FC take the ad-vant-age of an 
 away goal in China, leav-ing the second 
  []
 
 File: ./images/google_knowledge_graph.png Graphic file (type QTm)
 <use  "./images/google_knowledge_graph.png" > [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 180.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 184.
 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 180.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 184.
  [3] [4] [5
 
 ]
 [6]
-Overfull \hbox (1.52078pt too wide) in paragraph at lines 279--280
+Overfull \hbox (1.52078pt too wide) in paragraph at lines 284--285
 \T1/cmr/m/n/10.95 in a raw text sen-tence, and what are its sen-tences. As an e
 x-ample, the token- 
  []
 
 [7] [8]
-Underfull \hbox (badness 1057) in paragraph at lines 309--309
+Underfull \hbox (badness 1057) in paragraph at lines 314--314
 []\T1/cmr/bx/n/10.95 Figure 2.3: []\T1/cmr/m/n/10.95 A sen-tence broken down to
  its Phrase Struc-ture (sub- 
  []
@@ -1658,7 +1672,7 @@ Underfull \hbox (badness 1057) in paragraph at lines 309--309
 [9] [10]
 Missing character: There is no – in font ecrm1095!
  [11]
-Overfull \hbox (0.27718pt too wide) in paragraph at lines 400--401
+Overfull \hbox (0.27718pt too wide) in paragraph at lines 405--406
 \T1/cmr/m/n/10.95 plate Filling [[][]26[][]], Ques-tion and An-swer-ing sys-tem
 s [[][]34[][]], or stored as a Know- 
  []
@@ -1682,14 +1696,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 1.
 ) [16]
-Overfull \hbox (20.3838pt too wide) in paragraph at lines 542--543
+Overfull \hbox (20.3838pt too wide) in paragraph at lines 547--548
 \T1/cmr/m/n/10.95 to ex-tract the fol-low-ing re-la-tions: \T1/cmr/m/it/10.95 L
 ive_In\T1/cmr/m/n/10.95 , \T1/cmr/m/it/10.95 Loc-ated_In\T1/cmr/m/n/10.95 , \T1
 /cmr/m/it/10.95 Or-gBased_In\T1/cmr/m/n/10.95 , \T1/cmr/m/it/10.95 Work_For 
  []
 
 
-Overfull \hbox (1.4938pt too wide) in paragraph at lines 542--543
+Overfull \hbox (1.4938pt too wide) in paragraph at lines 547--548
 \T1/cmr/m/n/10.95 - and the fol-low-ing classes: \T1/cmr/m/it/10.95 PER-SON\T1/
 cmr/m/n/10.95 , \T1/cmr/m/it/10.95 OR-GAN-IZ-A-TION\T1/cmr/m/n/10.95 , \T1/cmr/
 m/it/10.95 LOC-A-TION\T1/cmr/m/n/10.95 . There 
@@ -1697,7 +1711,7 @@ m/it/10.95 LOC-A-TION\T1/cmr/m/n/10.95 . There
 
 Missing character: There is no ’ in font ecrm1095!
 
-Overfull \hbox (2.6202pt too wide) in paragraph at lines 554--555
+Overfull \hbox (2.6202pt too wide) in paragraph at lines 559--560
 \T1/cmr/m/n/10.95 tra-di-tion-ally ori-gin-ally mined from table-like struc-tur
 es form places like Wiki- 
  []
@@ -1707,13 +1721,13 @@ File: ./images/yago_graph.png Graphic file (type QTm)
  <use  "./images/yago_graph.png" >
 File: ./images/yago.png Graphic file (type QTm)
  <use  "./images/yago.png" > [18]
-Overfull \hbox (0.94797pt too wide) in paragraph at lines 598--599
+Overfull \hbox (0.94797pt too wide) in paragraph at lines 603--604
 \T1/cmr/m/n/10.95 ful query-ing. Fi-nally, it at-taches a tem-poral and a spa-c
 ial di-men-sion to many 
  []
 
 [19] [20]
-Overfull \hbox (1.10722pt too wide) in paragraph at lines 615--616
+Overfull \hbox (1.10722pt too wide) in paragraph at lines 621--622
 []\T1/cmr/m/n/10.95 Find which al-gorithms are used to re-solve, or re-lated to
 , a cer-tain prob- 
  []
@@ -1726,7 +1740,7 @@ File: ./images/words_most_use_no_top2.png Graphic file (type QTm)
 Underfull \vbox (badness 3942) has occurred while \output is active []
 
  [23]
-Overfull \hbox (1.4536pt too wide) in paragraph at lines 690--691
+Overfull \hbox (1.4536pt too wide) in paragraph at lines 696--697
 \T1/cmr/m/n/10.95 [[][]43[][]] into a Table Sep-ar-ated Value (TSV) format, us-
 ing a cus-tom script, based 
  []
@@ -1736,13 +1750,13 @@ File: ./images/stanford_ner.png Graphic file (type QTm)
 Underfull \vbox (badness 3396) has occurred while \output is active []
 
  [24]
-Overfull \hbox (6.41158pt too wide) in paragraph at lines 707--714
+Overfull \hbox (6.41158pt too wide) in paragraph at lines 713--720
  [][] 
  []
 
 [25]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 769.
+(Font)              <7> on input line 775.
  [26]
 Underfull \vbox (badness 5817) has occurred while \output is active []
 
@@ -1750,7 +1764,7 @@ Underfull \vbox (badness 5817) has occurred while \output is active []
 Missing character: There is no ﬁ in font ecrm0700!
 
 [28] [29]
-Overfull \hbox (0.29965pt too wide) in paragraph at lines 992--993
+Overfull \hbox (0.29965pt too wide) in paragraph at lines 998--999
 []\T1/cmr/m/n/10.95 The text also present a high num-ber of core-fer-ence prob-
 lems, e.g.: \T1/cmr/m/it/10.95 `  their 
  []
@@ -1758,7 +1772,7 @@ lems, e.g.: \T1/cmr/m/it/10.95 `  their
 [30] [31
 
 ]
-Overfull \hbox (14.11053pt too wide) in paragraph at lines 1036--1036
+Overfull \hbox (14.11053pt too wide) in paragraph at lines 1043--1043
 [][][][][]$\T1/cmtt/m/n/9 https : / / www . quora . com / Why-[]is-[]Python-[]a
 -[]language-[]of-[]choice-[]for-[]data-[]scientists$[][]|  
  []
@@ -1776,123 +1790,145 @@ Underfull \vbox (badness 5847) has occurred while \output is active []
 File: ./images/html_output.png Graphic file (type QTm)
  <use  "./images/html_output.png" >
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 1147.
+put line 1154.
  [37]
-Underfull \hbox (badness 6944) in paragraph at lines 1195--1195
+Underfull \hbox (badness 6944) in paragraph at lines 1202--1202
 [][][][][]$\T1/cmtt/m/n/9 https : / / docs . python . org / 3 . 4 / reference /
  expressions . html # 
  []
 
-[38]
-Underfull \hbox (badness 1515) in paragraph at lines 1238--1238
+[38] [39]
+Overfull \hbox (2.98949pt too wide) in paragraph at lines 1247--1248
+[]\T1/cmr/m/n/10.95 Applies a reg-u-lar ex-pres-sion to re-place all \T1/cmr/m/
+it/10.95 `  et al.' \T1/cmr/m/n/10.95 strings with an empty 
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 1248--1248
 [][][]\T1/cmr/m/n/9 More pre-cisely, when us-ing vir-tualenv, it sits in in the
  fol-low-ing loc-a-tion: 
  []
 
-[39]
-Overfull \hbox (11.17197pt too wide) in paragraph at lines 1251--1252
+
+Overfull \hbox (24.06236pt too wide) in paragraph at lines 1248--1249
+\T1/cmr/m/n/10.95 reg-u-lar ex-pres-sions for the token-izer, and the \T1/cmtt/
+m/n/10.95 (?<=[a-zA-Z])-(?=[a-zA-z]) 
+ []
+
+
+Overfull \hbox (11.17197pt too wide) in paragraph at lines 1264--1265
 \T1/cmr/m/n/10.95 This sec-tion fur-ther de-scribes the pur-pose of the \T1/cmr
 /m/sc/10.95 GroupQT-REERepr \T1/cmr/m/n/10.95 method 
  []
 
 File: ./images/sentence-91-37.png Graphic file (type QTm)
-<use  "./images/sentence-91-37.png" >
+<use  "./images/sentence-91-37.png" > [40]
 File: ./images/command-simplified-group-uses-3.png Graphic file (type QTm)
 
-<use  "./images/command-simplified-group-uses-3.png" > [40]
+<use  "./images/command-simplified-group-uses-3.png" > [41]
 File: ./images/command-simplified-group-improves-29.png Graphic file (type QTm)
 
 
-<use  "./images/command-simplified-group-improves-29.png" > [41] [42] [43
+<use  "./images/command-simplified-group-improves-29.png" > [42] [43] [44]
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1409.
+
+
+[45] [46
 
 ]
-[44
+Overfull \hbox (0.73248pt too wide) in paragraph at lines 1450--1451
+[]\T1/cmr/m/n/10.95 In this do-main, \T1/cmr/m/it/10.95 `  co-sine sim-il-ar-it
+y with TF-IDF weight-ing scheme' \T1/cmr/m/n/10.95 would 
+ []
 
-] [45] [46
+[47] [48] [49
+
+] [50
 
 ]
-Overfull \hbox (0.89635pt too wide) in paragraph at lines 1377--1377
+Overfull \hbox (0.89635pt too wide) in paragraph at lines 1489--1489
 []\T1/cmr/m/it/10.95 Bing Know-ledge and Ac-tion Graph\T1/cmr/m/n/10.95 . [][]$
 \T1/cmtt/m/n/10.95 https : / / www . bing . com / partners / 
  []
 
 
-Overfull \hbox (1.25372pt too wide) in paragraph at lines 1377--1377
+Overfull \hbox (1.25372pt too wide) in paragraph at lines 1489--1489
 []\T1/cmr/m/n/10.95 Kurt Bol-lacker et al. `  Free-base: A Col-lab-or-at-ively 
 Cre-ated Graph Data- 
  []
 
 
-Overfull \hbox (8.83812pt too wide) in paragraph at lines 1377--1377
+Overfull \hbox (8.83812pt too wide) in paragraph at lines 1489--1489
 \T1/cmr/m/it/10.95 fer-ence on Em-pir-ical Meth-ods in Nat-ural Lan-guage Pro-c
 essing (EMNLP)\T1/cmr/m/n/10.95 . 
  []
 
 
-Overfull \hbox (1.818pt too wide) in paragraph at lines 1377--1377
+Overfull \hbox (1.818pt too wide) in paragraph at lines 1489--1489
 \T1/cmr/m/n/10.95 Doha, Qatar: As-so-ci-ation for Com-pu-ta-tional Lin-guist-ic
 s, 2014, pp. 740^^U 
  []
 
-[47
+[51
 
-] [48]
-Overfull \hbox (2.24106pt too wide) in paragraph at lines 1377--1377
+] [52]
+Overfull \hbox (2.24106pt too wide) in paragraph at lines 1489--1489
 \T1/cmr/m/it/10.95 2015 Con-fer-ence on Em-pir-ical Meth-ods in Nat-ural Lan-gu
 age Pro-cessing\T1/cmr/m/n/10.95 . 
  []
 
 
-Overfull \hbox (1.96327pt too wide) in paragraph at lines 1377--1377
+Overfull \hbox (1.96327pt too wide) in paragraph at lines 1489--1489
 []\T1/cmr/m/n/10.95 Daniel Jur-af-sky and James H. Mar-tin. \T1/cmr/m/it/10.95 
 Speech and Lan-guage Pro-cessing: 
  []
 
 
-Overfull \hbox (0.17776pt too wide) in paragraph at lines 1377--1377
+Overfull \hbox (0.17776pt too wide) in paragraph at lines 1489--1489
 []\T1/cmr/m/n/10.95 Haojun Ma and Wei Wang. \T1/cmr/m/it/10.95 Aca-demic PDF Co
 n-tent Ex-trac-tion\T1/cmr/m/n/10.95 . UNSW 
  []
 
-[49]
-Overfull \hbox (12.5609pt too wide) in paragraph at lines 1377--1377
+[53]
+Overfull \hbox (12.5609pt too wide) in paragraph at lines 1489--1489
 []\T1/cmr/m/n/10.95 Ndapandula Na-kashole, Ger-hard Weikum and Fa-bian Suchanek
 . `  PATTY: 
  []
 
 
-Overfull \hbox (55.86662pt too wide) in paragraph at lines 1377--1377
+Overfull \hbox (55.86662pt too wide) in paragraph at lines 1489--1489
 []\T1/cmr/m/n/10.95 Joakim Nivre et al. \T1/cmr/m/it/10.95 Uni-ver-sal De-pend-
 en-cies 1.3\T1/cmr/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 http : / / universaldepe
 ndencies . 
  []
 
 
-Overfull \hbox (6.80707pt too wide) in paragraph at lines 1377--1377
+Overfull \hbox (6.80707pt too wide) in paragraph at lines 1489--1489
 []\T1/cmr/m/it/10.95 SyntaxNet: Neural Mod-els of Syn-tax\T1/cmr/m/n/10.95 . []
 []$\T1/cmtt/m/n/10.95 https : / / github . com / tensorflow / 
  []
 
-[50] [51]
+[54] [55]
 \tf@toc=\write7
 \openout7 = `thesis.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1380.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1380.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1492.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1492.
  (./thesis.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1380.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1380.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1492.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1492.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 43382 strings out of 493724
- 930810 string characters out of 6145899
- 1277201 words of memory out of 5000000
- 46035 multiletter control sequences out of 15000+600000
+ 43484 strings out of 493724
+ 932188 string characters out of 6145899
+ 1279847 words of memory out of 5000000
+ 46133 multiletter control sequences out of 15000+600000
  23044 words of font info for 49 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 60i,14n,104p,1586b,2345s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,14n,104p,1586b,2346s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (55 pages).
+Output written on thesis.pdf (59 pages).

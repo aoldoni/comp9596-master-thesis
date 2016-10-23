@@ -22,7 +22,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.2}Open Information Extraction}{26}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Peculiarities with Academic Text}{30}{section.3.3}
+\contentsline {section}{\numberline {3.3}Peculiarities of Academic Text}{30}{section.3.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\chapternumberline {4}Developed Workflow}{31}{chapter.4}
 \defcounter {refsection}{0}\relax 
@@ -46,10 +46,14 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.3}Grouping Sentence Types}{40}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Dependency Tree Manipulation Rules}{41}{section.4.4}
+\contentsline {section}{\numberline {4.4}Dependency Tree Manipulation Rules}{42}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {5}Results}{43}{chapter.5}
+\contentsline {chapter}{\chapternumberline {5}Results}{47}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\chapternumberline {6}Conclusion and Future Work}{45}{chapter.6}
+\contentsline {section}{\numberline {5.1}Experiments}{47}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{47}{section*.4}
+\contentsline {section}{\numberline {5.2}Observations}{47}{section.5.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\chapternumberline {6}Conclusion and Future Work}{49}{chapter.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{51}{section*.4}
