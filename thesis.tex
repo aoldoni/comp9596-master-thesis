@@ -105,7 +105,7 @@
 \chapter*{Abstract}
 \pdfbookmark{Abstract}{pdfmark:abs}
 
-This research provides a method for extracting information from academic text from the databases domain, using a verb as a query. The amount of latent information in documents in non-structured format or natural language  texts is known to be very large, and this is motivation for the development of methods that are able to bring this information into a structured format that can be computationally useful. Most of the academic output is provided in different formats, mostly PDF (Portable Document Format), and contain a very large amount of information and comparison across methods and techniques. We chose to use language models to extract language information, such as part-of-speech tags or dependency trees, and use sets of rules to output a relation in the Relation(Arg\textsubscript{1}, Arg\textsubscript{2}, Arg\textsubscript{n}) format. \hl{Our results, for the types of relation we propose to extract, are similar to other existing tools}.
+This research provides a method for extracting information from academic text from the databases domain, using a verb as a query. The amount of latent information in documents in non-structured format or natural language  texts is known to be very large, and this is motivation for the development of methods that are able to bring this information into a structured format that can be computationally useful. Most of the academic output is provided in different formats, mostly PDF (Portable Document Format), and contain a very large amount of information and comparison across methods and techniques. We chose to use language models to extract language information, such as part-of-speech tags or dependency trees, and use sets of rules to output a relation in the Relation(Arg\textsubscript{1}, Arg\textsubscript{2}, Arg\textsubscript{n}) format. Our results correctness, for the types of relation we propose to extract, are comparable to other existing tools.
 
 %\cleardoublepage
 \clearpage
@@ -153,7 +153,7 @@ On the above example, one can observe that the \emph{Team 1} is \emph{Sydney FC}
 
 Although roughly similar in this case, the approach to retrieve the data from Natural Language text needs to be able to generalise to the various ways a reporter might write such information. This effort becomes more complex as one moves through different domains and audiences of a text, such as: technical manuals, academic papers from different areas, legal text, contracts, financial news, biomedical, among others.
 
-More recently, the output of such Information Extraction systems are used as to build other systems, more prominently Knowledge Graphs. A Knowledge Graph (KG), also known as the knowledge base, is a collection of the machine-readable database that contains entities, the attributes of entities and the relationships between entities \cite{google}. Information Extraction tools would harvest data form unstructured or semi-structured text and provide such databases.
+More recently, the output of such Information Extraction systems are used as to build other systems, more prominently Knowledge Graphs. A Knowledge Graph (KG), also known as the knowledge base, is a collection of the machine-readable database that contains entities, the attributes of entities and the relationships between entities \cite{google}. Information Extraction tools would harvest data from unstructured or semi-structured text and provide such databases.
 
 Popular search engines such as Google \cite{google} and Bing \cite{bing} leverage Knowledge Graphs as to provide entity summary information and the related entities based on the query that the user is searching for. It is an essential foundation for many applications that requires machine understanding.
 
@@ -170,8 +170,8 @@ Modern pipelines for building Knowledge Graphs from raw text would then encompas
 \begin{enumerate}
   \item Discover entities in the text;
   \item Discover relationships between these entities;
-  \item Perform entity disambiguation
-  \item Link entities to a reference Knowledge Graph (e.g., Yago2 \cite{Suchanek2007} or DBPedia \cite{dbpedia-swj}).
+  \item Perform entity disambiguation;
+  \item Link entities to a reference Knowledge Graph (e.g., Yago2 \cite{Suchanek2007} or DBPedia \cite{dbpedia-swj});
   \item Improve the quality of the output via input data cleaning, robust extraction, and learning-based post-processing methods;
   \item Reason about how accurate these facts are;
   \item Finally presenting the facts in a graph (the Knowledge Graph).
@@ -283,7 +283,7 @@ A Part-Of-Speech Tagger is then a system that, given a raw text as input, assign
 
 The task of assigning these tags starts by deciding what are the tokens in a raw text sentence, and what are its sentences. As an example, the tokenizer needs to decide if a period symbol near a word represents an abbreviation (e.g. \emph{Dr.}) or a sentence boundary - in case of an abbreviation, this period is then considered simply a token within the sentence. Another common problem in this step is deciding if a single quote is part of a word,(e.g. \emph{\enquote{It's}}), or is delimiting a quoted part of the sentence, thus potentially hinting other semantic meanings. The Stanford POS Tagger used in this example also contain a tokenizer, which is part of the Stanford CoreNLP \cite{manning-EtAl:2014:P14-5}, a set of natural language analysis tools.
 
-Modern POS Taggers tackle this task using a technique called Sequence Classification. A machine learning classifier model is then trained with a corpus of manually tagged text and has as an input certain features that might indicate which tag a token being currently analysed should be assigned with. Observing again the example from Figure \ref{fig:pos_tags}, but now presented in table format in \ref{tab:pos_tags_features}, it is easier to see how this learning algorithm would be trained to predict tags on unseen test. Note the second word \emph{\enquote{police}}. For this word we are providing 4 features for the learning algorithm: the manually labelled POS Tag, the word itself, the previous word and the previous POS Tag. Suppose now that this sentence in included in a bigger corpus, and this pattern is a common one and the learning algorithm is provided with a substantial amount of labelled data in which this situation repeats itself: a \emph{NN} is the second word in a sentence, with \emph{\enquote{The}} and \emph{DT} being the previous word and tag respectively.
+Modern POS Taggers tackle this task using a technique called Sequence Classification. A machine learning classifier model is then trained with a corpus of manually tagged text and has as an input certain features that might indicate which tag a token being currently analysed should be assigned with. Observing again the example from Figure \ref{fig:pos_tags}, but now presented in table format in Table \ref{tab:pos_tags_features}, it is easier to see how this learning algorithm would be trained to predict tags on unseen test. Note the second word \emph{\enquote{police}}. For this word we are providing 4 features for the learning algorithm: the manually labelled POS Tag, the word itself, the previous word and the previous POS Tag. Suppose now that this sentence is included in a bigger corpus, and this pattern is a common one and the learning algorithm is provided with a substantial amount of labelled data in which this situation repeats itself: a \emph{NN} is the second word in a sentence, with \emph{\enquote{The}} and \emph{DT} being the previous word and tag respectively.
 
 After the training, this model would behave in a similar fashion once presented with unseen data. Suppose now the first column on Table \ref{tab:pos_tags_features} is not presented. The model would pick the first word \emph{\enquote{The}} and observe the features: \emph{<START>} and \emph{<START>} respectively and given that in our previously described corpus this is a common occurrence, it would then label this word with \emph{DT}. Now, for the second word \emph{\enquote{police}}, the features would be \emph{\enquote{The}} for previous word, and \emph{DT} for previous tag. Again, it is common for a noun to be placed after a determiner so the model assigns the label \emph{NN} to the word \emph{\enquote{police}}. The features used by the Sequence Classifies both while training and when using the model may vary and they impact the quality of the predictions it makes. The Stanford POS Tagger uses a broad use of lexical features, including jointly conditioning on multiple consecutive words \cite{Toutanova:2003:FPT:1073445.1073478}.
 
@@ -298,7 +298,7 @@ A helpful concept at this stage is known as the lemma. A lemma is a canonical wa
 
 When reading a text, it is also important to understand the relation between the words or sub-sentences that are contained in the phrase, and this is specially useful for information extraction. As an example, suppose the sentence \emph{\enquote{Jetstar Airways, a unit of Qantas Airways Limited}}. There are different ways of breaking down the relationship of the words in this sentence. 
 
-Starting again with the POS tagging discussed earlier, one can see in \ref{fig:pos_tags_2} what are the types of the words that constitutes this sentence. As a further step, it's possible to see what are the sub-sentences or parts that form the phrase structure, also called constituency parsing. The sub-sentences are connected upwards to one head (also called, \emph{parent}), and downwards to one or more governors (also called \emph{dependants}, or \emph{children}), in a recursive structure.  In Figure \ref{fig:sub_sentences_phrase_structure}, the phrase \emph{\enquote{of Qantas Airways Limited}}, which is part of the bigger phrase we are using as an example, is a prepositional phrase. A prepositional phrase lacks either a verb or a subject, and serve to assert binary relations between their heads and the constituents to which they are attached, in this case \emph{\enquote{a unit}} \cite{Jurafsky:2000:SLP:555733}. The sub-sentence \emph{\enquote{a unit of Qantas Airways Limited}} is then a noun phrase, since it contains and talks about a noun \emph{\enquote{unit}}.
+Starting again with the POS tagging discussed earlier, one can see in Figure \ref{fig:pos_tags_2} what are the types of the words that constitutes this sentence. As a further step, it's possible to see what are the sub-sentences or parts that form the phrase structure, also called constituency parsing. The sub-sentences are connected upwards to one head (also called, \emph{parent}), and downwards to one or more governors (also called \emph{dependants}, or \emph{children}), in a recursive structure.  In Figure \ref{fig:sub_sentences_phrase_structure}, the phrase \emph{\enquote{of Qantas Airways Limited}}, which is part of the bigger phrase we are using as an example, is a prepositional phrase. A prepositional phrase lacks either a verb or a subject, and serve to assert binary relations between their heads and the constituents to which they are attached, in this case \emph{\enquote{a unit}} \cite{Jurafsky:2000:SLP:555733}. The sub-sentence \emph{\enquote{a unit of Qantas Airways Limited}} is then a noun phrase, since it contains and talks about a noun \emph{\enquote{unit}}.
 
 \begin{figure}[!htbp]
   \centering
@@ -361,7 +361,7 @@ Continuing the analysis, the next relation is of the \emph{prep} type and it ind
 \label{fig:sub_sentences_dependency_tree}
 \end{figure}
 
-The software that is able to output a syntactical dependency tree, given a sentence, is called a dependency parser. Several different methods can be used to achieve this. One way is by defining dependency grammars, and then parsing text using these grammar. The grammar would contain words and its possible heads, and it would be applied repeatedly into the text in a process called cascaded chunking \cite{BirdKleinLoper09}. More recent methods use a process called Shift-reduce, in which the sentence is kept in a queue with the left-most token in front of the queue. The model could then decide between applying 3 operations:
+The software that is able to output a syntactical dependency tree, given a sentence, is called a dependency parser. Several different methods can be used to achieve this. One way is by defining dependency grammars, and then parsing text using these grammars. The grammar would contain words and its possible heads, and it would be applied repeatedly into the text in a process called cascaded chunking \cite{BirdKleinLoper09}. More recent methods use a process called Shift-reduce, in which the sentence is kept in a queue with the left-most token in front of the queue. The model could then decide between applying 3 operations:
 \begin{enumerate}
   \item Shift: move one token from the queue to stack.
   \item Reduce left: top word on stack is head of second word.
@@ -536,7 +536,7 @@ Another tool in the Stanford CoreNLP package, the Relation Extractor \cite{Surde
 
 As part of its training, annotated relation mentions are used as an input together with the text it belongs to, and the annotation becomes a positive example for the corresponding label, while all the other possible combinations between entity mentions in the same sentence become negative examples. The feature set models the relation between the arguments by using the distance between the relation arguments, the syntactic path between the two arguments, using both constituency and dependency representations.
 
-Note how at this point it's important to no note the notion of a \emph{pipeline} of natural language processing tasks. Stanford's CoreNLP is able to, by itself, perform all the steps needed to produce such relation extraction output from the raw text input. The steps of this pipeline are executed in a certain order, as they depend on the previous step (e.g.: POS tagging is needed for Dependency Parsing). In this case, the process was:
+Note how at this point it's important to note the notion of a \emph{pipeline} of natural language processing tasks. Stanford's CoreNLP is able to, by itself, perform all the steps needed to produce such relation extraction output from the raw text input. The steps of this pipeline are executed in a certain order, as they depend on the previous step (e.g.: POS tagging is needed for Dependency Parsing). In this case, the process was:
 
 \begin{enumerate}
   \item Tokenize;
@@ -654,7 +654,7 @@ Entities from academic text in this setting are not as straightforward to define
   \label{tab:entities_from_business_text}
 \end{table}
 
-From the news text example above, Table \ref{tab:entities_from_business_text} lists the entities that are clearly notes in the text. One can observe a very strong feature which is the common capitalization of the first letter of each of these entities. Another characteristic is how entities from this news text example are \emph{global} or \emph{unconditional}: \emph{\enquote{Japan}} is a location regardless of any condition or any context in this document. Another observation is that, referring to the Stanford's Relation Extraction default relations, \emph{\enquote{Toshiba Corp}} is an organisation \emph{Located\_In} \emph{\enquote{Japan}} regardless of other context in this document. This contrasts with concepts and their relations observed in academic papers, thus that while \emph{\enquote{large-scale clustering}} has the \emph{Improves} with \emph{\enquote{gender classification}} in the context of the paper where this data is presented, it might not be true in all cases.
+From the news text example above, Table \ref{tab:entities_from_business_text} lists the entities that are clearly noted in the text. One can observe a very strong feature which is the common capitalization of the first letter of each of these entities. Another characteristic is how entities from this news text example are \emph{global} or \emph{unconditional}: \emph{\enquote{Japan}} is a location regardless of any condition or any context in this document. Another observation is that, referring to the Stanford's Relation Extraction default relations, \emph{\enquote{Toshiba Corp}} is an organisation \emph{Located\_In} \emph{\enquote{Japan}} regardless of other context in this document. This contrasts with concepts and their relations observed in academic papers, thus that while \emph{\enquote{large-scale clustering}} has the \emph{Improves} relation with \emph{\enquote{gender classification}} in the context of the paper where this data is presented, it might not be true in all cases.
 
 \begin{table}[!htbp]
   \centering
@@ -665,6 +665,7 @@ From the news text example above, Table \ref{tab:entities_from_business_text} li
       gender classification     & CONCEPT         \\
       ethnicity classification  & CONCEPT         \\
       location classification   & CONCEPT         \\
+      Twitter                   & ORG             \\
     \end{tabular}
   \caption[NER from the academic text example.]{Examples of Named Entity Recognition (NER) from the academic text example.}
   \label{tab:entities_from_academic_text}
@@ -980,7 +981,7 @@ As a similar tool, ClausIE, a Clause-Based Open Information Extraction \cite{Del
 \end{itemize}
 With all this information at hand, it then yields relations by deciding the combinations of constituents that will form a relation. An on-line demo\footnote{\url{https://gate.d5.mpi-inf.mpg.de/ClausIEGate/ClausIEGate}} exists in which its capabilities can be observed.
 
-In contrast, AllenAI's OpenIE \cite{Etzioni:2011:OIE:2283396.2283398} utilises the text linguistic information in a different manner. As a first step it apply a Part-of-Speech tagging in the text and the NP-chunks of the sentence are then obtained through constituency parsing, both process are done using the Apache OpenNLP parser \cite{open-nlp}. I then then utilises regular expressions on the result as to restrict the patterns to be treated. More specifically, it obtain the relations through searches for clauses in the format \emph{V | VP | VW*P}, where \emph{V} is a verb or adverb, \emph{W} is a noun, adjective, adverb, pronoun or determiner, and \emph{P} is a preposition, particle or information marker. Once the clause is identified it uses a custom classifier called ARGLEARNER to find its arguments \emph{Arg1} and \emph{Arg2} and the left bound and the right bound of each argument.
+In contrast, AllenAI's OpenIE \cite{Etzioni:2011:OIE:2283396.2283398} utilises the text linguistic information in a different manner. As a first step it apply a Part-of-Speech tagging in the text and the NP-chunks of the sentence are then obtained through constituency parsing, both process are done using the Apache OpenNLP parser \cite{open-nlp}. It then utilises regular expressions on the result as to restrict the patterns to be treated. More specifically, it obtain the relations through searches for clauses in the format \emph{V | VP | VW*P}, where \emph{V} is a verb or adverb, \emph{W} is a noun, adjective, adverb, pronoun or determiner, and \emph{P} is a preposition, particle or information marker. Once the clause is identified it uses a custom classifier called ARGLEARNER to find its arguments \emph{Arg1} and \emph{Arg2} and the left bound and the right bound of each argument.
 
 Some approaches rely on human intervention as to control the quality of the extracted relations, or to guide the types of relations needed. Extreme Extraction \cite{DBLP:journals/corr/HoffmannZW15} provides an interface where one can narrow sentences for a given relation; provides suggestions for words surrounded by similar context; and allows for extraction rules creation using logic entailments. AllenAI's IKE \cite{DBLP:conf/akbc/DalviBCCEFG16} is also a tool of similar nature, and provides its own query language which resembles regular expressions which apply at the Part-of-Speech level, or NP-chunks. It also provides powerful suggestions using probabilistic techniques as to narrow rules that are too general, or broadens rules that are too specific. IKE also provides a way to define a schema to store the items found by the rules from its query language for faster reuse as smaller parts of more complex conditions.
 
@@ -1047,15 +1048,15 @@ Java\footnote{\url{https://docs.oracle.com/javase/specs/}} is a programming lang
 
 Python\footnote{\url{https://docs.python.org/3.4/reference/}} on the other hand is a scripting language that has been recently associated with Data Analysis\footnote{\url{https://www.quora.com/Why-is-Python-a-language-of-choice-for-data-scientists}} due to its powerful built-in idioms for data processing and its clean syntax. Although not as fast as a compiled language, it has the ability to have more low-level extensions through tools such as Cython\footnote{\url{http://cython.org/}}, which is used for an example by the SpaCy \cite{honnibal-johnson:2015:EMNLP, spacy} parser.
 
-Due to familiarity and above points, we have chosen utilising SpaCy and Python (version 3.4) to develop this tool. With that some modules (external libraries, or external dependencies) from the Python ecosystem that were used were: requests\footnote{\url{http://docs.python-requests.org/en/master/}} and BeautifulSoup4\footnote{\url{https://www.crummy.com/software/BeautifulSoup/bs4/doc/}} for downloading data from an Web Server; standoff2conll\footnote{\url{https://github.com/spyysalo/standoff2conll}} for experiments with Brat and Stanford's Relation Extractor data transformation; and corpkit\footnote{\url{https://interrogator.github.io/corpkit/}} for some text queries like concordance (e.g.: other words that appear in the same context, or surrounded by similar words) and lemma-based search instead of token-based during an early exploratory stage of this research. Note that corpkit utilises corenlp-xml\footnote{\url{https://github.com/relwell/corenlp-xml-lib}} as a way to parse Stanfords CoreNLP output in Python. For generating HTML output we used Django\footnote{\url{https://www.djangoproject.com/}} template engine in standalone mode.
+Due to familiarity and above points, we have chosen utilising SpaCy and Python (version 3.4) to develop this tool. In addition, some modules (external libraries, or external dependencies) from the Python ecosystem were used, such as: requests\footnote{\url{http://docs.python-requests.org/en/master/}} and BeautifulSoup4\footnote{\url{https://www.crummy.com/software/BeautifulSoup/bs4/doc/}} for downloading data from an Web Server; standoff2conll\footnote{\url{https://github.com/spyysalo/standoff2conll}} for experiments with Brat and Stanford's Relation Extractor data transformation; and corpkit\footnote{\url{https://interrogator.github.io/corpkit/}} for some text queries like concordance (e.g.: other words that appear in the same context, or surrounded by similar words) and lemma-based search instead of token-based during an early exploratory stage of this research. Note that corpkit utilises corenlp-xml\footnote{\url{https://github.com/relwell/corenlp-xml-lib}} as a way to parse Stanfords CoreNLP output in Python. For generating HTML output we used Django\footnote{\url{https://www.djangoproject.com/}} template engine in standalone mode.
 
 \subsection{Stanford CoreNLP}
 
-Stanford CoreNLP \cite{manning-EtAl:2014:P14-5} is an integrated framework of linguistic tools written in Java. As discussed and presented in previous section in more detail (Sections \ref{section:nlp} and \ref{section:nlp} and \ref{section:information_extraction}), it is done in this way with the intent of facilitate the creation of pipelines in which more fundamental. In the CoreNLP each of these tools are called annotators. It provides the following annotators out of the box: Tokenization; Sentence Splitting; Lemmatization; Parts of Speech; Named Entity Recognition (described further in this document in Section \ref{section:nlp}); RegexNER (Named Entity Recognition); Constituency Parsing; Dependency Parsing (also in Section \ref{section:nlp}); Coreference Resolution; Natural Logic; Open Information Extraction (Section \ref{section:related}); Sentiment; Relation Extraction (Section \ref{section:information_extraction}); Quote Annotator; CleanXML Annotator; True case Annotator; Entity Mentions Annotator.
+Stanford CoreNLP \cite{manning-EtAl:2014:P14-5} is an integrated framework of linguistic tools written in Java. As discussed and presented in previous section in more detail (Sections \ref{section:nlp} and \ref{section:information_extraction} and \ref{section:related}), it is done in this way with the intent of facilitate the creation of pipelines in which more fundamental tools are executed earlier in the process, generating output in which other of these tools build upon. In the CoreNLP each of these tools are called annotators. It provides the following annotators out of the box: Tokenization; Sentence Splitting; Lemmatization; Parts of Speech; Named Entity Recognition (described further in this document in Section \ref{section:nlp}); RegexNER (Named Entity Recognition); Constituency Parsing; Dependency Parsing (also in Section \ref{section:nlp}); Coreference Resolution; Natural Logic; Open Information Extraction (Section \ref{section:related}); Sentiment; Relation Extraction (Section \ref{section:information_extraction}); Quote Annotator; CleanXML Annotator; True case Annotator; Entity Mentions Annotator.
 
 \subsection{NLTK}
 
-NLTK \cite{BirdKleinLoper09} is a popular Python toolkit, or set of libraries for NLP, generally associated with its companion book and popular in introductory NLP courses. NLTK provides interfaces to over 50 corpora and lexical resources such as WordNet \cite{Miller:1995:WLD:219717.219748}, along with a suite of text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning. Stemming is a concept related to simplifying the handling of variations of words, such as plural or past tenses, in a more simple way of lemmatization. In stemming the root (or certain prefix range) of a word is kept while its varying part is removed.
+NLTK \cite{BirdKleinLoper09} is a popular Python toolkit, or set of libraries for NLP, generally associated with its companion book and popular in introductory NLP courses. NLTK provides interfaces to over 50 corpora and lexical resources such as WordNet \cite{Miller:1995:WLD:219717.219748}, along with a suite of text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning. Stemming is a concept related to simplifying the handling of variations of words, such as plural or past tenses, in a more simple way than lemmatization. In stemming the root (or certain prefix range) of a word is kept while its varying part is removed.
 
 NLTK also provides implementation of classification algorithms that can be trained for further text classification, and grammar parsers that can be defined and used, for example, to return a NP-chunking tree. It also has interfaces to the Stanford CoreNLP pipeline, so it can be used to externalise operations to it. While heavily used in an interactive manner together with Jupyter\footnote{\url{https://jupyter.org/about.html}} in early exploratory stages of this research, only parts of its tree data structure remain used in some stages of the final developed workflow of this work.
 
@@ -1081,7 +1082,7 @@ More specifically, the hierarchy of Object-oriented classes are:
 
 \subsection{Brat}
 
-Brat \cite{Stenetorp:2012:BWT:2380921.2380942} is a web-based tool, written in Python, for text annotation. It provides a method for define possible annotations, number of parameters, and possible relatinos between these annotation. Once this is defined, the interface allows for text selection and point-and-click, drag-and-drop interfaces to facilitate such annotation process. See Figure \ref{fig:brat_img} for an example of annotated text.
+Brat \cite{Stenetorp:2012:BWT:2380921.2380942} is a web-based tool, written in Python, for text annotation. It provides a method for define possible annotations, number of parameters, and possible relations between these annotation. Once this is defined, the interface allows for text selection and point-and-click, drag-and-drop interfaces to facilitate such annotation process. See Figure \ref{fig:brat_img} for an example of annotated text.
 
 Since Brat is designed in particular for structured annotation, the text or data observed is in free form text, but will then have a rigid structure for future machine interpretation. As noted in Section \ref{section:information_extraction}, we developed a data transformation tool from the standoff format used by Brat named standoff2others, extending the existing standoff2conll\footnote{\url{https://github.com/spyysalo/standoff2conll}} library.
 
@@ -1275,7 +1276,7 @@ This section further describes the purpose of the \textsc{GroupQTREERepr} method
   \label{fig:tree_output}
 \end{figure}
 
-The grouping works as follows. Given the node the grouping is based on, the immediate children are extracted and a new tree is formed only with the node plus its children. For an example, given the sentence \emph{\enquote{	MACK uses articulated graphical embodiment with ability to gesture.}}. Suppose we are searching for the \emph{Uses} relation. The dependency tree from SpaCy is generated and presented in Figure \ref{fig:tree_output}. The \texttt{token} being analysed by the algorithm is then the word \emph{uses}, at the top of the tree. The tree has four child nodes, however we disregard the actual child nodes values, and pay attention only to the actual dependencies, or edges values, between \texttt{token} and its children. This results in the summarized version of the tree presented in Figure \ref{fig:group_output_2}. This is the tree that represents this sentence in this grouping.
+The grouping works as follows. Given the node the grouping is based on, the immediate children are extracted and a new tree is formed only with the node plus its children. For an example, given the sentence \emph{\enquote{MACK uses articulated graphical embodiment with ability to gesture.}}. Suppose we are searching for the \emph{Uses} relation. The dependency tree from SpaCy is generated and presented in Figure \ref{fig:tree_output}. The \texttt{token} being analysed by the algorithm is then the word \emph{uses}, at the top of the tree. The tree has four child nodes, however we disregard the actual child nodes values, and pay attention only to the actual dependencies, or edges values, between \texttt{token} and its children. This results in the summarized version of the tree presented in Figure \ref{fig:group_output_2}. This is the tree that represents this sentence in this grouping.
 
 \begin{figure}[!htbp]
   \centering
@@ -1284,7 +1285,7 @@ The grouping works as follows. Given the node the grouping is based on, the imme
   \label{fig:group_output_2}
 \end{figure}
 
-Note that the \emph{punct} dependency is missing in the final group, and this is due to the rules applied by Algorithm \ref{main} to this resulting tree as to adjust and improve the grouping. More precisely, we wanted to ignore the \emph{punct} dependency in the group, as it had no observed effect in our analysis of the tree and the location of the \emph{subj}-like and \emph{dobj} dependencies we are mostly after. This will be explained further in Section \ref{section:rules}. 
+Note that the \emph{punct} dependency is missing in the final group, and this is due to the rules applied by Algorithm \ref{main} to this resulting tree as to adjust and improve the grouping. More precisely, we wanted to ignore the \emph{punct} dependency in the group, as it had no observed effect in our analysis of the tree and the location of the \emph{subj}-like and \emph{dobj}-like dependencies we are mostly after. This will be explained further in Section \ref{section:rules}. 
 
 We also used a similar grouping in an attempt to observe the other parameters that are optionally part of the relation, assuming they would be attached to the \texttt{token} node by SpaCy. This would be more in line with efforts such as PropBank \cite{Palmer:2005:PBA:1122624.1122628}, or VerNet \cite{Schuler:2005:VBC:1104493}. A more complex example is the sentence \emph{\enquote{Our work not only improves the CPU efficiency by three orders of magnitude, but also reduces the memory consumption}} which, through the same process, produces the group representation in Figure \ref{fig:group_output_3}.
 
@@ -1576,7 +1577,7 @@ Rule \ref{treerule:rule_reduction1} is the first one we describe of the \texttt{
 Merge all \emph{obj}-like relations into one single \emph{obj} node, and all \emph{subj}-like relations into one \emph{subj} node.
 \end{treerule}
 
-To describe Rule \ref{treerule:rule_reduction4}, it is important to note the definition of \emph{mod}-like relations, as per the following:
+To describe Rules \ref{treerule:rule_reduction3} and \ref{treerule:rule_subj3}, it is important to note the definition of \emph{mod}-like relations, as per the following:
 \begin{itemize}
   \item \emph{mod}-like relations: Noun Phrase Adverbial Modifier (\emph{npadvmod}), Adjectival Modifier (\emph{amod}), Adverbial Modifier (\emph{advmod}), Numeric Modifier (\emph{nummod}), Quantifier Modifier (\emph{quantmod}), Relative Clause Modifier (\emph{rcmod}), Temporal Modifier (\emph{tmod}), Reduced Non-finite Verbal Modifier (\emph{vmod}) \cite{Marneffe08stanfordtyped}.
 \end{itemize}
@@ -1722,17 +1723,42 @@ Finally, after continuous revision, some rules were adjusted to, by omission, al
 This section describes the experiments and comparisons done of this tool with similar existing ones. To prepare for the experiment, we modified the HTML output to:
 	\begin{itemize}
 	  \item Include the output of three other similar tools: Stanford OpenIE \cite{angeli-johnsonpremkumar-manning:2015:ACL-IJCNLP}, Max Planck Institute ClauseIE \cite{DelCorro:2013:CCO:2488388.2488420}, AllenAI OpenIE \cite{Etzioni:2011:OIE:2283396.2283398}.
-	  \item Modified the interface as to provide an input for comments, and ability to save and load comments using the JSON format.
+	  \item Modified the program to be able to generate a CSV output so evaluation is possible through normal spreadsheet software.
 	\end{itemize}
 
 
 \section{Experiments}
 
-\hl{To be added: further results of the evaluation.}
+We used SpaCy to segment sentences containing selected words and input the relevant sentences through each system. The output was then evaluated by human in the following way below. Note that there were no points added for the optional parts of a relation.
+
+\begin{itemize}
+  \item If \emph{subj} and \emph{obj} are correct, the extractor gets 10 points.
+  \item If \emph{subj} or \emph{obj} are correct, but not both, the extractor gets 5 points.
+  \item If none \emph{subj} and \emph{obj} are correct, the extractor gets 0 points.
+\end{itemize}
+
+Both Figures \ref{fig:result_enables} and \ref{fig:result_provides} shows promising results from our tools. In the \emph{\enquote{provides}} relation our tool had the best results.
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=0.8\textwidth]{./images/image001}
+  \caption[Results for the \emph{\enquote{enables}} relation.]{Results for the \emph{\enquote{enables}} relation.}
+  \label{fig:result_enables}
+\end{figure}
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=0.8\textwidth]{./images/image002}
+  \caption[Results for the \emph{\enquote{provides}} relation.]{Results for the \emph{\enquote{provides}} relation.}
+  \label{fig:result_provides}
+\end{figure}
+
+
 
 \section{Observations}
+\label{section:observations}
 
-We observed that in some cases the limits of the decision process os this tool, where the linguistic syntactical information from the text might not be enough, and further semantic knowledge might be needed. Note for an example the sentence \emph{\enquote{SemTag uses the TAP knowledge base5 , and employs the cosine similarity with TF-IDF weighting scheme to compute the match degree between a mention and an entity, achieving an accuracy of around 82\%}}. As a result it has the following main structure, mainly due to Rule \ref{treerule:rule_subj4}:
+We observed that in some cases there are limits on the decision process done by this tool, where the linguistic syntactical information from the text might not be enough, or further semantic knowledge might be needed. Note, for an example, the sentence \emph{\enquote{SemTag uses the TAP knowledge base5 , and employs the cosine similarity with TF-IDF weighting scheme to compute the match degree between a mention and an entity, achieving an accuracy of around 82\%}}. As a result it has the following main structure, mainly due to Rule \ref{treerule:rule_subj4}:
 	\begin{itemize}
 	  \item \emph{obj}: \emph{\enquote{SemTag}}
 	  \item \emph{sub}: \emph{\enquote{cosine similarity}}
@@ -1751,8 +1777,9 @@ Moreover, it was also possible to note the incapacity of the rules to be applied
    level distance=1.75cm,sibling distance=0.5cm,
    edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}]
 \Tree
-[.\textit{is}
-  \edge node[auto=right] {nsubj}; [.\textit{improves} ]
+[
+.\textit{is}
+  \edge node[auto=right] {nsubj}; [.\textit{LSD} ]
   \edge node[auto=left] {attr}; [.\textit{framework}
   		\edge node[auto=right] {det}; [.\textit{an} ]
   		\edge node[auto=left,pos=0.4] {relcl}; [.\textit{\textbf{employs}}
@@ -1762,7 +1789,7 @@ Moreover, it was also possible to note the incapacity of the rules to be applied
   			]
   		]
   		\edge node[auto=left] {amod}; [.\textit{extensible} ]
-  ]
+]
 ]
 \end{tikzpicture}
 
@@ -1784,7 +1811,12 @@ The second case being, as previously mentioned, regarding the \emph{appos} edge,
 	\item \texttt{employs	( LightLDA ; cycle-based Metropolis Hastings mixing )}.
 \end{itemize}
 
-\hl{To be added: further observations done after the experiment.}
+Another class of errors observed was when the \emph{obj} contains an intermediate token like \emph{\enquote{us}}. Note, for an example, the sentence \emph{\enquote{Modeling the positions of moving objects as functions of time not only enables us to make tentative future predictions}}. While the expected extraction is \texttt{enables	( Modeling the positions of moving objects as functions of time ; us to make tentative future predictions )}, the system outputs \texttt{enables	( Modeling the positions of moving objects as functions of time ; us )}. This could be resolved by further rules that act on the \emph{obj} replacing the token \emph{\enquote{us}} with the content of the \emph{xcomp} relation where the content of the expected \emph{obj} normally is in these cases and then manipulating the tree accordingly.
+
+Sentence complexity also plays a part in causing errors. Note this sentence: \emph{\enquote{Doing so enables SECOA to securely answer not only all aggregates in [11] without any false positives or false negatives, but also many other aggregates (such as Max, Top- k , Frequent Items, Popular Items) that proof sketches cannot deal with at all.}}. The facts are posed in a format where the sentence structure is more complex (\emph{... not only X ... but also Y}), and there are no rules capable of extracting the information in this format. The extraction is then the follow incomplete fact \texttt{enables	( Doing so ; SECOA )}.
+
+In several other situations, we tracked the error to be due to the dependency tree being incorrect from SpaCy, which was reported as a bug in the project's github page \footnote{\url{https://github.com/explosion/spaCy/issues/480}}.
+
 
 %
 %
@@ -1808,7 +1840,7 @@ Extra meta-data from the papers, and the entirety of the paper itself, could sta
 	  \item Building and using a database of the extracted concepts and the relations between them (Knowledge Graph).
 	\end{itemize}
 
-\hl{To be added: further notes from the experiments}
+Moreover, as future work, one could address the issues described here in Section \ref{section:observations} by strengthening the rules for the remaining cases the tool should work for, or refine intra-sentence distance by, for an example, using Stanford's Coreference Resolution output.
 
 \backmatter
 
