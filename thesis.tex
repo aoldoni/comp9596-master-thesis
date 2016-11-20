@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}
 
 % better tables
+\usepackage{multirow}
 \usepackage{array}
 \newcommand{\specialcell}[2][c]{%
   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
@@ -1737,8 +1738,6 @@ We used SpaCy to segment sentences containing selected words and input the relev
   \item If none \emph{subj} and \emph{obj} are correct, the extractor gets 0 points.
 \end{itemize}
 
-Both Figures \ref{fig:result_enables} and \ref{fig:result_provides} shows promising results from our tools. In the \emph{\enquote{provides}} relation our tool had the best results.
-
 \begin{figure}[!htbp]
   \centering
     \includegraphics[width=0.8\textwidth]{./images/image001}
@@ -1753,9 +1752,101 @@ Both Figures \ref{fig:result_enables} and \ref{fig:result_provides} shows promis
   \label{fig:result_provides}
 \end{figure}
 
+Evaluations were done by 2 human specialists. Both Figures \ref{fig:result_enables} and \ref{fig:result_provides} shows the evaluation done by evaluator 1, and promising results from our tool. In the \emph{\enquote{provides}} relation our tool had the best results for this evaluator. These figures are based on the counts form Tables \ref{tab:evaluation_count_provides} and \ref{tab:evaluation_count_enables}.
 
 
-\section{Observations}
+\begin{table}[!htbp]
+  \centering
+    \begin{tabular}{|m{2cm}|m{2cm}|m{2cm}|m{2cm}|}
+%    \begin{tabular}{m{1cm} m m m}
+\hline
+
+ & \textbf{Incorrect} & \textbf{Partial} & \textbf{Correct} \\
+\hline
+
+\textbf{Ours}  & 0 & 23 & 34 \\
+\hline
+
+\textbf{Stanford}  & 25 & 7 & 25 \\
+\hline
+
+\textbf{OpenIE}  & 4 & 18 & 35 \\
+\hline
+
+\textbf{ClauseIE}  & 5 & 23 & 29 \\
+\hline
+    \end{tabular}
+  \caption[Evaluation count from evaluator 1 for the \emph{\enquote{provides}} relation.]{Evaluation count from evaluator 1 for the \emph{\enquote{provides}} relation.}
+  \label{tab:evaluation_count_provides}
+\end{table}
+
+
+
+\begin{table}[!htbp]
+  \centering
+    \begin{tabular}{|m{2cm}|m{2cm}|m{2cm}|m{2cm}|}
+%    \begin{tabular}{m{1cm} m m m}
+\hline
+
+ & \textbf{Incorrect} & \textbf{Partial} & \textbf{Correct} \\
+\hline
+
+\textbf{Ours}  & 0 & 25 & 22 \\
+\hline
+
+\textbf{Stanford}  & 28 & 11 & 8 \\
+\hline
+
+\textbf{OpenIE}  & 4 & 21 & 22 \\
+\hline
+
+\textbf{ClauseIE}  & 1 & 19 & 27 \\
+\hline
+    \end{tabular}
+  \caption[Evaluation count from evaluator 1 for the \emph{\enquote{enables}} relation.]{Evaluation count from evaluator 1 for the \emph{\enquote{enables}} relation.}
+  \label{tab:evaluation_count_enables}
+\end{table}
+
+For the \emph{\enquote{provides}} relation there is data available from 2 different evaluators. In this case it is possible to calculate the Kappa measures for the results of our tool, which provides more insights on how they agree to each other.
+
+\begin{table}[!htbp]
+  \centering
+\begin{tabular}{l|l|c|c|c|c}
+\multicolumn{2}{c}{}&\multicolumn{3}{c}{Evaluator 1}&\\
+\cline{3-5}
+\multicolumn{2}{c|}{}&Incorrect&Partial&Correct&\multicolumn{1}{c}{Total}\\
+\cline{2-5}
+\multirow{2}{*}{Evaluator 2}& Incorrect & $a$ & $b$ & $a+b$ & 10 \\
+\cline{2-5}
+& Partial & $c$ & $d$ & $c+d$ & 5 \\
+\cline{2-5}
+& Correct & $c$ & $d$ & $c+d$ & 7 \\
+\cline{2-5}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{Total} & \multicolumn{1}{c}{$a+c$} & \multicolumn{1}{c}{$b+d$} & \multicolumn{1}{c}{$N$} & \\
+\end{tabular}
+
+
+  \caption[Comparison between evaluators for the results of our tool.]{Comparison between evaluators for the results of our tool, based on the \emph{\enquote{provides}} relation.}
+  \label{tab:comparison_results_evaluators}
+\end{table}
+
+As per Table \ref{tab:comparison_results_evaluators} ...
+
+\hl{Table of corrects vs wrongs}
+
+\hl{Mention and measure the disagreement among assessors (e.g, using the Kappa measure).}
+
+\hl{Review all references to section:observations}
+
+\hl{Adjust all PDF bookmarks}
+
+\section{Cases Analysis}
+\label{section:cases}
+
+\hl{Some comparisons with ClauseIE}
+
+
+\section{Observed Limits}
 \label{section:observations}
 
 We observed that in some cases there are limits on the decision process done by this tool, where the linguistic syntactical information from the text might not be enough, or further semantic knowledge might be needed. Note, for an example, the sentence \emph{\enquote{SemTag uses the TAP knowledge base5 , and employs the cosine similarity with TF-IDF weighting scheme to compute the match degree between a mention and an entity, achieving an accuracy of around 82\%}}. As a result it has the following main structure, mainly due to Rule \ref{treerule:rule_subj4}:
@@ -1815,7 +1906,9 @@ Another class of errors observed was when the \emph{obj} contains an intermediat
 
 Sentence complexity also plays a part in causing errors. Note this sentence: \emph{\enquote{Doing so enables SECOA to securely answer not only all aggregates in [11] without any false positives or false negatives, but also many other aggregates (such as Max, Top- k , Frequent Items, Popular Items) that proof sketches cannot deal with at all.}}. The facts are posed in a format where the sentence structure is more complex (\emph{... not only X ... but also Y}), and there are no rules capable of extracting the information in this format. The extraction is then the follow incomplete fact \texttt{enables	( Doing so ; SECOA )}.
 
-In several other situations, we tracked the error to be due to the dependency tree being incorrect from SpaCy, which was reported as a bug in the project's github page \footnote{\url{https://github.com/explosion/spaCy/issues/480}}.
+In several other situations, we tracked the error to be due to the dependency tree being incorrect from SpaCy, which was reported as a bug in the project's github page \footnote{\url{https://github.com/explosion/spaCy/issues/480}}. In another category of errors, the problem is due to the data quality problem - the source data (i.e., sentence) is incorrect. This is either due to errors early on in the PDF-to-text extraction process, or issues in SpaCy's segmentation step \hl{percentage of errors}.
+
+\hl{Table of category of errors}
 
 
 %
@@ -1841,6 +1934,8 @@ Extra meta-data from the papers, and the entirety of the paper itself, could sta
 	\end{itemize}
 
 Moreover, as future work, one could address the issues described here in Section \ref{section:observations} by strengthening the rules for the remaining cases the tool should work for, or refine intra-sentence distance by, for an example, using Stanford's Coreference Resolution output.
+
+\hl{More details on coreference.}
 
 \backmatter
 

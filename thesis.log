@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.4.28)  9 NOV 2016 20:46
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.4.28)  20 NOV 2016 13:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -347,6 +347,9 @@ Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen147
+)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2011/10/22 v5.1d context-sensitive quotations
 
@@ -393,8 +396,8 @@ Package graphics Info: Driver file: xetex.def on input line 91.
 File: xetex.def 2015/03/25 v4.04 LaTeX color/graphics driver for XeTeX (TeX Liv
 e/RRM/JK)
 ))
-\Gin@req@height=\dimen147
-\Gin@req@width=\dimen148
+\Gin@req@height=\dimen148
+\Gin@req@width=\dimen149
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/soul/soul.sty
 Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
@@ -404,29 +407,29 @@ Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 \SOUL@buffer=\toks27
 \SOUL@token=\toks28
 \SOUL@spaceskip=\skip185
-\SOUL@ttwidth=\dimen149
-\SOUL@uldp=\dimen150
-\SOUL@ulht=\dimen151
+\SOUL@ttwidth=\dimen150
+\SOUL@uldp=\dimen151
+\SOUL@ulht=\dimen152
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2014/10/28 v1.8i multicolumn formatting (FMi)
 \c@tracingmulticols=\count146
 \mult@box=\box29
-\multicol@leftmargin=\dimen152
+\multicol@leftmargin=\dimen153
 \c@unbalance=\count147
 \c@collectmore=\count148
 \doublecol@number=\count149
 \multicoltolerance=\count150
 \multicolpretolerance=\count151
-\full@width=\dimen153
-\page@free=\dimen154
-\premulticols=\dimen155
-\postmulticols=\dimen156
+\full@width=\dimen154
+\page@free=\dimen155
+\premulticols=\dimen156
+\postmulticols=\dimen157
 \multicolsep=\skip186
 \multicolbaselineskip=\skip187
 \partial@page=\box30
 \last@line=\box31
-\maxbalancingoverflow=\dimen157
+\maxbalancingoverflow=\dimen158
 \mult@rightbox=\box32
 \mult@grightbox=\box33
 \mult@gfirstbox=\box34
@@ -450,9 +453,9 @@ Package: multicol 2014/10/28 v1.8i multicolumn formatting (FMi)
 \@tempa=\box52
 \c@columnbadness=\count152
 \c@finalcolumnbadness=\count153
-\last@try=\dimen158
-\multicolovershoot=\dimen159
-\multicolundershoot=\dimen160
+\last@try=\dimen159
+\multicolovershoot=\dimen160
+\multicolundershoot=\dimen161
 \mult@nat@firstbox=\box53
 \colbreak@box=\box54
 \mc@col@check@num=\count154
@@ -466,7 +469,7 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
 \FN@temptoken=\toks29
-\footnotemargin=\dimen161
+\footnotemargin=\dimen162
 \c@pp@next@reset=\count155
 Package footmisc Info: Declaring symbol style bringhurst on input line 855.
 Package footmisc Info: Declaring symbol style chicago on input line 863.
@@ -690,8 +693,8 @@ File: biblatex.cfg
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
 x
 \pgfutil@everybye=\toks30
-\pgfutil@tempdima=\dimen162
-\pgfutil@tempdimb=\dimen163
+\pgfutil@tempdima=\dimen163
+\pgfutil@tempdimb=\dimen164
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
 sts.tex))
@@ -716,14 +719,14 @@ Package: pgfsys 2013/11/30 v3.0.0 (rcs-revision 1.47)
 ode.tex
 \pgfkeys@tmptoks=\toks33
 ))
-\pgf@x=\dimen164
-\pgf@y=\dimen165
-\pgf@xa=\dimen166
-\pgf@ya=\dimen167
-\pgf@xb=\dimen168
-\pgf@yb=\dimen169
-\pgf@xc=\dimen170
-\pgf@yc=\dimen171
+\pgf@x=\dimen165
+\pgf@y=\dimen166
+\pgf@xa=\dimen167
+\pgf@ya=\dimen168
+\pgf@xb=\dimen169
+\pgf@yb=\dimen170
+\pgf@xc=\dimen171
+\pgf@yc=\dimen172
 \w@pgf@writea=\write5
 \r@pgf@reada=\read3
 \c@pgf@counta=\count318
@@ -784,7 +787,7 @@ Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen172
+\pgfmath@dimen=\dimen173
 \pgfmath@count=\count325
 \pgfmath@box=\box56
 \pgfmath@toks=\toks37
@@ -815,32 +818,32 @@ erarithmetics.code.tex)))
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
 de.tex
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
-\pgf@picminx=\dimen173
-\pgf@picmaxx=\dimen174
-\pgf@picminy=\dimen175
-\pgf@picmaxy=\dimen176
-\pgf@pathminx=\dimen177
-\pgf@pathmaxx=\dimen178
-\pgf@pathminy=\dimen179
-\pgf@pathmaxy=\dimen180
-\pgf@xx=\dimen181
-\pgf@xy=\dimen182
-\pgf@yx=\dimen183
-\pgf@yy=\dimen184
-\pgf@zx=\dimen185
-\pgf@zy=\dimen186
+\pgf@picminx=\dimen174
+\pgf@picmaxx=\dimen175
+\pgf@picminy=\dimen176
+\pgf@picmaxy=\dimen177
+\pgf@pathminx=\dimen178
+\pgf@pathmaxx=\dimen179
+\pgf@pathminy=\dimen180
+\pgf@pathmaxy=\dimen181
+\pgf@xx=\dimen182
+\pgf@xy=\dimen183
+\pgf@yx=\dimen184
+\pgf@yy=\dimen185
+\pgf@zx=\dimen186
+\pgf@zy=\dimen187
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
 ruct.code.tex
 File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
-\pgf@path@lastx=\dimen187
-\pgf@path@lasty=\dimen188
+\pgf@path@lastx=\dimen188
+\pgf@path@lasty=\dimen189
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
 .code.tex
 File: pgfcorepathusage.code.tex 2013/12/13  (rcs-revision 1.23)
-\pgf@shorten@end@additional=\dimen189
-\pgf@shorten@start@additional=\dimen190
+\pgf@shorten@end@additional=\dimen190
+\pgf@shorten@start@additional=\dimen191
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
 de.tex
@@ -853,14 +856,14 @@ File: pgfcorescopes.code.tex 2013/10/09  (rcs-revision 1.44)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
 ate.code.tex
 File: pgfcoregraphicstate.code.tex 2013/09/19  (rcs-revision 1.11)
-\pgflinewidth=\dimen191
+\pgflinewidth=\dimen192
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
 ations.code.tex
 File: pgfcoretransformations.code.tex 2013/10/10  (rcs-revision 1.17)
-\pgf@pt@x=\dimen192
-\pgf@pt@y=\dimen193
-\pgf@pt@temp=\dimen194
+\pgf@pt@x=\dimen193
+\pgf@pt@y=\dimen194
+\pgf@pt@temp=\dimen195
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
 e.tex
@@ -877,12 +880,12 @@ File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
 de.tex
 File: pgfcorearrows.code.tex 2013/11/07  (rcs-revision 1.40)
-\pgfarrowsep=\dimen195
+\pgfarrowsep=\dimen196
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
 e.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
-\pgf@max=\dimen196
+\pgf@max=\dimen197
 \pgf@sys@shading@range@num=\count328
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
@@ -918,8 +921,8 @@ File: pgfmoduleplot.code.tex 2013/07/31  (rcs-revision 1.12)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.0 (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen197
-\pgf@nodesepend=\dimen198
+\pgf@nodesepstart=\dimen198
+\pgf@nodesepend=\dimen199
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -1-18.sty
@@ -934,8 +937,8 @@ Package: pgfcomp-version-1-18 2007/07/23 v3.0.0 (rcs-revision 1.1)
 Package: pgffor 2013/12/13 v3.0.0 (rcs-revision 1.25)
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen199
-\pgffor@skip=\dimen200
+\pgffor@iter=\dimen200
+\pgffor@skip=\dimen201
 \pgffor@stack=\toks40
 \pgffor@toks=\toks41
 ))
@@ -947,14 +950,14 @@ Package: tikz 2013/12/13 v3.0.0 (rcs-revision 1.142)
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.0 (rcs-revision 1.20)
 \pgf@plot@mark@count=\count329
-\pgfplotmarksize=\dimen201
+\pgfplotmarksize=\dimen202
 )
-\tikz@lastx=\dimen202
-\tikz@lasty=\dimen203
-\tikz@lastxsaved=\dimen204
-\tikz@lastysaved=\dimen205
-\tikzleveldistance=\dimen206
-\tikzsiblingdistance=\dimen207
+\tikz@lastx=\dimen203
+\tikz@lasty=\dimen204
+\tikz@lastxsaved=\dimen205
+\tikz@lastysaved=\dimen206
+\tikzleveldistance=\dimen207
+\tikzsiblingdistance=\dimen208
 \tikz@figbox=\box62
 \tikz@figbox@bg=\box63
 \tikz@tempbox=\box64
@@ -980,33 +983,34 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.0 (rcs-revision 1.2)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tikz-qtree/pgftree.sty
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tikz-qtree/pgfsubpic.sty
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tikz-qtree/pgfsubpic.tex
-\pgf@subpicminx=\dimen208
-\pgf@subpicminy=\dimen209
-\pgf@subpicmaxx=\dimen210
-\pgf@subpicmaxy=\dimen211
+\pgf@subpicminx=\dimen209
+\pgf@subpicminy=\dimen210
+\pgf@subpicmaxx=\dimen211
+\pgf@subpicmaxy=\dimen212
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tikz-qtree/pgftree.tex
-\levelsep=\dimen212
-\subtreesep=\dimen213
-\smuggle@levelsep=\dimen214
-\smuggle@subtreesep=\dimen215
-\this@levelsep=\dimen216
-\this@subtreesep=\dimen217
-\pgftree@childx=\dimen218
-\pgftree@savechildx=\dimen219
-\pgftree@childy=\dimen220
-\pgftree@savechildy=\dimen221
+\levelsep=\dimen213
+\subtreesep=\dimen214
+\smuggle@levelsep=\dimen215
+\smuggle@subtreesep=\dimen216
+\this@levelsep=\dimen217
+\this@subtreesep=\dimen218
+\pgftree@childx=\dimen219
+\pgftree@savechildx=\dimen220
+\pgftree@childy=\dimen221
+\pgftree@savechildy=\dimen222
 \pgftree@childi=\count338
 \pgftree@savechildi=\count339
 \pgftree@level=\count340
-\pgftree@depth=\dimen222
+\pgftree@depth=\dimen223
 \pgf@subpic@hbox@children=\box66
-\pgf@subpic@minx@children=\dimen223
-\pgf@subpic@miny@children=\dimen224
-\pgf@subpic@maxx@children=\dimen225
-\pgf@subpic@maxy@children=\dimen226
-\pgftree@lastchildx=\dimen227
-\pgftree@lastchildy=\dimen228
+\pgf@subpic@minx@children=\dimen224
+\pgf@subpic@miny@children=\dimen225
+\pgf@subpic@maxx@children=\dimen226
+\pgf@subpic@maxy@children=\dimen227
+\pgftree@lastchildx=\dimen228
+Normal \dimen register pool exhausted, switching to extended pool.
+\pgftree@lastchildy=\dimen256
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tikz-qtree/tikz-qtree.tex
 \@result=\toks42
@@ -1035,8 +1039,7 @@ File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
 code.tex
 File: pgflibraryarrows.code.tex 2013/09/23 v3.0.0 (rcs-revision 1.16)
-Normal \dimen register pool exhausted, switching to extended pool.
-\arrowsize=\dimen256
+\arrowsize=\dimen257
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarybackgrounds.code.tex
@@ -1150,7 +1153,7 @@ Package: pgfplots 2015/01/31 v1.12 Data Visualization (1.12)
 \t@pgfplots@toka=\toks46
 \t@pgfplots@tokb=\toks47
 \t@pgfplots@tokc=\toks48
-\pgfplots@tmpa=\dimen257
+\pgfplots@tmpa=\dimen258
 \c@pgfplots@coordindex=\count342
 \c@pgfplots@scanlineindex=\count343
 
@@ -1233,14 +1236,14 @@ x)
 s/tikzlibrarydecorations.code.tex
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
 s.code.tex
-\pgfdecoratedcompleteddistance=\dimen258
-\pgfdecoratedremainingdistance=\dimen259
-\pgfdecoratedinputsegmentcompleteddistance=\dimen260
-\pgfdecoratedinputsegmentremainingdistance=\dimen261
-\pgf@decorate@distancetomove=\dimen262
+\pgfdecoratedcompleteddistance=\dimen259
+\pgfdecoratedremainingdistance=\dimen260
+\pgfdecoratedinputsegmentcompleteddistance=\dimen261
+\pgfdecoratedinputsegmentremainingdistance=\dimen262
+\pgf@decorate@distancetomove=\dimen263
 \pgf@decorate@repeatstate=\count349
-\pgfdecorationsegmentamplitude=\dimen263
-\pgfdecorationsegmentlength=\dimen264
+\pgfdecorationsegmentamplitude=\dimen264
+\pgfdecorationsegmentlength=\dimen265
 )
 \tikz@lib@dec@box=\box91
 )
@@ -1253,12 +1256,12 @@ s/tikzlibrarydecorations.pathreplacing.code.tex
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.pathreplacing.code.tex))
 \pgfplots@numplots=\count350
-\pgfplots@xmin@reg=\dimen265
-\pgfplots@xmax@reg=\dimen266
-\pgfplots@ymin@reg=\dimen267
-\pgfplots@ymax@reg=\dimen268
-\pgfplots@zmin@reg=\dimen269
-\pgfplots@zmax@reg=\dimen270
+\pgfplots@xmin@reg=\dimen266
+\pgfplots@xmax@reg=\dimen267
+\pgfplots@ymin@reg=\dimen268
+\pgfplots@ymax@reg=\dimen269
+\pgfplots@zmin@reg=\dimen270
+\pgfplots@zmax@reg=\dimen271
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryplotmarks.code.tex
@@ -1273,14 +1276,14 @@ File: pgflibraryplotmarks.code.tex 2013/07/20 v3.0.0 (rcs-revision 1.13)
 \lst@gtempboxa=\box92
 \lst@token=\toks50
 \lst@length=\count352
-\lst@currlwidth=\dimen271
+\lst@currlwidth=\dimen272
 \lst@column=\count353
 \lst@pos=\count354
-\lst@lostspace=\dimen272
-\lst@width=\dimen273
+\lst@lostspace=\dimen273
+\lst@width=\dimen274
 \lst@newlines=\count355
 \lst@lineno=\count356
-\lst@maxwidth=\dimen274
+\lst@maxwidth=\dimen275
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
@@ -1305,7 +1308,7 @@ Language: english 2012/08/20 v3.3p English support from the babel system
 (/usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2014/09/25 3.9l Babel common definitions
 \babel@savecnt=\count359
-\U@D=\dimen275
+\U@D=\dimen276
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/babel/xebabel.def))
 \l@canadian = a dialect from \language\l@american 
@@ -1319,8 +1322,8 @@ Package: pdfpages 2013/08/25 v0.4v Insert pages of external PDF documents (AM)
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count360
 \calc@Bcount=\count361
-\calc@Adimen=\dimen276
-\calc@Bdimen=\dimen277
+\calc@Adimen=\dimen277
+\calc@Bdimen=\dimen278
 \calc@Askip=\skip214
 \calc@Bskip=\skip215
 LaTeX Info: Redefining \setlength on input line 75.
@@ -1435,7 +1438,7 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen278
+\@linkdim=\dimen279
 \Hy@linkcounter=\count373
 \Hy@pagecounter=\count374
 
@@ -1461,10 +1464,10 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count376
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen279
+\XeTeXLinkMargin=\dimen280
 \Fld@menulength=\count377
-\Field@Width=\dimen280
-\Fld@charsize=\dimen281
+\Field@Width=\dimen281
+\Fld@charsize=\dimen282
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -1511,7 +1514,7 @@ tly
 )
 \Hy@SectionHShift=\skip220
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 63.
+Package hyperref Info: Option `colorlinks' set `true' on input line 64.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2009/07/02 v2.20.1
@@ -1550,25 +1553,25 @@ File: english.lbx 2014/06/25 v2.9a biblatex localization (PK/JW/AB)
 (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-Package ragged2e Info: ABD: executing \RaggedRight on input line 84.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+Package ragged2e Info: ABD: executing \RaggedRight on input line 85.
  ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 84.
+LaTeX Info: Redefining \selectfont on input line 85.
 Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Data encoding 'ascii' specified.
@@ -1578,8 +1581,8 @@ Package biblatex Info: Data encoding 'ascii' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
  (./thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 84.
-Package biblatex Info: Reference segment=0 on input line 84.
+Package biblatex Info: Reference section=0 on input line 85.
+Package biblatex Info: Reference segment=0 on input line 85.
 
 ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': document ha
@@ -1587,7 +1590,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.12}).
 
 \c@lstlisting=\count388
 \AtBeginShipoutBox=\box100
-Package hyperref Info: Link coloring ON on input line 84.
+Package hyperref Info: Link coloring ON on input line 85.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1598,10 +1601,10 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 84.
-LaTeX Info: Redefining \ref on input line 84.
-LaTeX Info: Redefining \pageref on input line 84.
-LaTeX Info: Redefining \nameref on input line 84.
+LaTeX Info: Redefining \nameref on input line 85.
+LaTeX Info: Redefining \ref on input line 85.
+LaTeX Info: Redefining \pageref on input line 85.
+LaTeX Info: Redefining \nameref on input line 85.
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write6
 \openout6 = `thesis.out'.
@@ -1615,62 +1618,63 @@ File: ./images/unsw_high_res_logo.png Graphic file (type QTm)
 
 ] [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 108.
+(Font)              <10.95> on input line 109.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 108.
+(Font)              <8> on input line 109.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 108.
+(Font)              <6> on input line 109.
  [3
 
 ] (./thesis.toc) [4
 
+] [5] [6
+
 ]
-Overfull \hbox (3.44751pt too wide) in paragraph at lines 134--134
+Overfull \hbox (3.44751pt too wide) in paragraph at lines 135--135
 \T1/cmr/m/it/10.95 quarter-final berth after se-cur-ing a 1-1 draw with Shan-do
 ng Lun-eng in China.\T1/cmr/m/n/10.95 '  
  []
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 139.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 140.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ) [1
 
 
-
 ]
-Overfull \hbox (5.7456pt too wide) in paragraph at lines 152--152
+Overfull \hbox (5.7456pt too wide) in paragraph at lines 153--153
 []\T1/cmr/m/n/10.95 `  \T1/cmr/m/it/10.95 SYDNEY FC take the ad-vant-age of an 
 away goal in China, leav-ing the second 
  []
 
 File: ./images/google_knowledge_graph.png Graphic file (type QTm)
 <use  "./images/google_knowledge_graph.png" > [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 184.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 185.
 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 184.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 185.
  [3] [4] [5
 
 ]
 [6]
-Overfull \hbox (1.52078pt too wide) in paragraph at lines 284--285
+Overfull \hbox (1.52078pt too wide) in paragraph at lines 285--286
 \T1/cmr/m/n/10.95 in a raw text sen-tence, and what are its sen-tences. As an e
 x-ample, the token- 
  []
 
 [7]
-Overfull \hbox (0.94063pt too wide) in paragraph at lines 301--302
+Overfull \hbox (0.94063pt too wide) in paragraph at lines 302--303
 \T1/cmr/m/n/10.95 sentences are con-nec-ted up-wards to one head (also called, 
 \T1/cmr/m/it/10.95 par-ent\T1/cmr/m/n/10.95 ), and down- 
  []
 
 [8]
-Underfull \hbox (badness 1057) in paragraph at lines 314--314
+Underfull \hbox (badness 1057) in paragraph at lines 315--315
 []\T1/cmr/bx/n/10.95 Figure 2.3: []\T1/cmr/m/n/10.95 A sen-tence broken down to
  its Phrase Struc-ture (sub- 
  []
@@ -1681,7 +1685,7 @@ Missing character: There is no – in font ecrm1095!
 Underfull \vbox (badness 1043) has occurred while \output is active []
 
  [11]
-Overfull \hbox (0.27718pt too wide) in paragraph at lines 410--411
+Overfull \hbox (0.27718pt too wide) in paragraph at lines 411--412
 \T1/cmr/m/n/10.95 plate Filling [[][]26[][]], Ques-tion and An-swer-ing sys-tem
 s [[][]34[][]], or stored as a Know- 
  []
@@ -1701,14 +1705,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 1.
 ) [16]
-Overfull \hbox (20.3838pt too wide) in paragraph at lines 552--553
+Overfull \hbox (20.3838pt too wide) in paragraph at lines 553--554
 \T1/cmr/m/n/10.95 to ex-tract the fol-low-ing re-la-tions: \T1/cmr/m/it/10.95 L
 ive_In\T1/cmr/m/n/10.95 , \T1/cmr/m/it/10.95 Loc-ated_In\T1/cmr/m/n/10.95 , \T1
 /cmr/m/it/10.95 Or-gBased_In\T1/cmr/m/n/10.95 , \T1/cmr/m/it/10.95 Work_For 
  []
 
 
-Overfull \hbox (1.4938pt too wide) in paragraph at lines 552--553
+Overfull \hbox (1.4938pt too wide) in paragraph at lines 553--554
 \T1/cmr/m/n/10.95 - and the fol-low-ing classes: \T1/cmr/m/it/10.95 PER-SON\T1/
 cmr/m/n/10.95 , \T1/cmr/m/it/10.95 OR-GAN-IZ-A-TION\T1/cmr/m/n/10.95 , \T1/cmr/
 m/it/10.95 LOC-A-TION\T1/cmr/m/n/10.95 . There 
@@ -1717,7 +1721,7 @@ m/it/10.95 LOC-A-TION\T1/cmr/m/n/10.95 . There
 [17]
 Missing character: There is no ’ in font ecrm1095!
 
-Overfull \hbox (2.6202pt too wide) in paragraph at lines 564--565
+Overfull \hbox (2.6202pt too wide) in paragraph at lines 565--566
 \T1/cmr/m/n/10.95 tra-di-tion-ally ori-gin-ally mined from table-like struc-tur
 es form places like Wiki- 
  []
@@ -1726,13 +1730,13 @@ File: ./images/yago_graph.png Graphic file (type QTm)
 <use  "./images/yago_graph.png" >
 File: ./images/yago.png Graphic file (type QTm)
  <use  "./images/yago.png" > [18] [19]
-Overfull \hbox (0.94797pt too wide) in paragraph at lines 608--609
+Overfull \hbox (0.94797pt too wide) in paragraph at lines 609--610
 \T1/cmr/m/n/10.95 ful query-ing. Fi-nally, it at-taches a tem-poral and a spa-c
 ial di-men-sion to many 
  []
 
 [20]
-Overfull \hbox (1.10722pt too wide) in paragraph at lines 626--627
+Overfull \hbox (1.10722pt too wide) in paragraph at lines 627--628
 []\T1/cmr/m/n/10.95 Find which al-gorithms are used to re-solve, or re-lated to
 , a cer-tain prob- 
  []
@@ -1745,7 +1749,7 @@ File: ./images/words_most_use_no_top2.png Graphic file (type QTm)
 Underfull \vbox (badness 3942) has occurred while \output is active []
 
  [23]
-Overfull \hbox (1.4536pt too wide) in paragraph at lines 702--703
+Overfull \hbox (1.4536pt too wide) in paragraph at lines 703--704
 \T1/cmr/m/n/10.95 [[][]43[][]] into a Table Sep-ar-ated Value (TSV) format, us-
 ing a cus-tom script, based 
  []
@@ -1755,13 +1759,13 @@ File: ./images/stanford_ner.png Graphic file (type QTm)
 Underfull \vbox (badness 3396) has occurred while \output is active []
 
  [24]
-Overfull \hbox (6.41158pt too wide) in paragraph at lines 719--726
+Overfull \hbox (6.41158pt too wide) in paragraph at lines 720--727
  [][] 
  []
 
 [25]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 781.
+(Font)              <7> on input line 782.
  [26]
 Underfull \vbox (badness 5817) has occurred while \output is active []
 
@@ -1769,7 +1773,7 @@ Underfull \vbox (badness 5817) has occurred while \output is active []
 Missing character: There is no ﬁ in font ecrm0700!
 
 [28] [29]
-Overfull \hbox (0.29965pt too wide) in paragraph at lines 1004--1005
+Overfull \hbox (0.29965pt too wide) in paragraph at lines 1005--1006
 []\T1/cmr/m/n/10.95 The text also present a high num-ber of core-fer-ence prob-
 lems, e.g.: \T1/cmr/m/it/10.95 `  their 
  []
@@ -1777,7 +1781,7 @@ lems, e.g.: \T1/cmr/m/it/10.95 `  their
 [30] [31
 
 ]
-Overfull \hbox (14.11053pt too wide) in paragraph at lines 1049--1049
+Overfull \hbox (14.11053pt too wide) in paragraph at lines 1050--1050
 [][][][][]$\T1/cmtt/m/n/9 https : / / www . quora . com / Why-[]is-[]Python-[]a
 -[]language-[]of-[]choice-[]for-[]data-[]scientists$[][]|  
  []
@@ -1795,33 +1799,33 @@ Underfull \vbox (badness 5847) has occurred while \output is active []
 File: ./images/html_output.png Graphic file (type QTm)
  <use  "./images/html_output.png" >
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 1160.
+put line 1161.
  [37]
-Underfull \hbox (badness 6944) in paragraph at lines 1208--1208
+Underfull \hbox (badness 6944) in paragraph at lines 1209--1209
 [][][][][]$\T1/cmtt/m/n/9 https : / / docs . python . org / 3 . 4 / reference /
  expressions . html # 
  []
 
 [38] [39]
-Overfull \hbox (2.98949pt too wide) in paragraph at lines 1253--1254
+Overfull \hbox (2.98949pt too wide) in paragraph at lines 1254--1255
 []\T1/cmr/m/n/10.95 Applies a reg-u-lar ex-pres-sion to re-place all \T1/cmr/m/
 it/10.95 `  et al.' \T1/cmr/m/n/10.95 strings with an empty 
  []
 
 
-Underfull \hbox (badness 1515) in paragraph at lines 1254--1254
+Underfull \hbox (badness 1515) in paragraph at lines 1255--1255
 [][][]\T1/cmr/m/n/9 More pre-cisely, when us-ing vir-tualenv, it sits in in the
  fol-low-ing loc-a-tion: 
  []
 
 
-Overfull \hbox (24.06236pt too wide) in paragraph at lines 1254--1255
+Overfull \hbox (24.06236pt too wide) in paragraph at lines 1255--1256
 \T1/cmr/m/n/10.95 reg-u-lar ex-pres-sions for the token-izer, and the \T1/cmtt/
 m/n/10.95 (?<=[a-zA-Z])-(?=[a-zA-z]) 
  []
 
 
-Overfull \hbox (11.17197pt too wide) in paragraph at lines 1270--1271
+Overfull \hbox (11.17197pt too wide) in paragraph at lines 1271--1272
 \T1/cmr/m/n/10.95 This sec-tion fur-ther de-scribes the pur-pose of the \T1/cmr
 /m/sc/10.95 GroupQT-REERepr \T1/cmr/m/n/10.95 method 
  []
@@ -1835,18 +1839,18 @@ File: ./images/command-simplified-group-improves-29.png Graphic file (type QTm)
 
 
 <use  "./images/command-simplified-group-improves-29.png" > [42] [43]
-Overfull \hbox (27.18414pt too wide) in paragraph at lines 1389--1390
+Overfull \hbox (27.18414pt too wide) in paragraph at lines 1390--1391
  [][] 
  []
 
 [44] [45] [46]
-Overfull \hbox (0.63603pt too wide) in paragraph at lines 1622--1623
+Overfull \hbox (0.63603pt too wide) in paragraph at lines 1623--1624
  [][] 
  []
 
 [47] [48]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1698.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1699.
 
  [49] [50
 
@@ -1855,48 +1859,48 @@ File: ./images/image001.png Graphic file (type QTm)
  <use  "./images/image001.png" >
 File: ./images/image002.png Graphic file (type QTm)
 
-<use  "./images/image002.png" > [51]
-Overfull \hbox (0.73248pt too wide) in paragraph at lines 1768--1769
+<use  "./images/image002.png" > [51] [52]
+Overfull \hbox (0.73248pt too wide) in paragraph at lines 1859--1860
 []\T1/cmr/m/n/10.95 In this do-main, \T1/cmr/m/it/10.95 `  co-sine sim-il-ar-it
 y with TF-IDF weight-ing scheme' \T1/cmr/m/n/10.95 would 
  []
 
-[52] [53]
-Overfull \hbox (3.53569pt too wide) in paragraph at lines 1810--1811
+[53] [54]
+Overfull \hbox (3.53569pt too wide) in paragraph at lines 1901--1902
 []\T1/cmtt/m/n/10.95 employs ( similar technique ; cycle-based Metropolis Hasti
 ngs 
  []
 
 
-Overfull \hbox (4.10982pt too wide) in paragraph at lines 1814--1815
+Overfull \hbox (4.10982pt too wide) in paragraph at lines 1905--1906
 \T1/cmtt/m/n/10.95 us to make tentative future predictions )\T1/cmr/m/n/10.95 ,
  the sys-tem out-puts \T1/cmtt/m/n/10.95 enables 
  []
 
-[54] [55] [56
+[55] [56] [57
 
-] [57] [58
+] [58
 
 ]
-Overfull \hbox (0.89635pt too wide) in paragraph at lines 1848--1848
+Overfull \hbox (0.89635pt too wide) in paragraph at lines 1943--1943
 []\T1/cmr/m/it/10.95 Bing Know-ledge and Ac-tion Graph\T1/cmr/m/n/10.95 . [][]$
 \T1/cmtt/m/n/10.95 https : / / www . bing . com / partners / 
  []
 
 
-Overfull \hbox (1.25372pt too wide) in paragraph at lines 1848--1848
+Overfull \hbox (1.25372pt too wide) in paragraph at lines 1943--1943
 []\T1/cmr/m/n/10.95 Kurt Bol-lacker et al. `  Free-base: A Col-lab-or-at-ively 
 Cre-ated Graph Data- 
  []
 
 
-Overfull \hbox (8.83812pt too wide) in paragraph at lines 1848--1848
+Overfull \hbox (8.83812pt too wide) in paragraph at lines 1943--1943
 \T1/cmr/m/it/10.95 fer-ence on Em-pir-ical Meth-ods in Nat-ural Lan-guage Pro-c
 essing (EMNLP)\T1/cmr/m/n/10.95 . 
  []
 
 
-Overfull \hbox (1.818pt too wide) in paragraph at lines 1848--1848
+Overfull \hbox (1.818pt too wide) in paragraph at lines 1943--1943
 \T1/cmr/m/n/10.95 Doha, Qatar: As-so-ci-ation for Com-pu-ta-tional Lin-guist-ic
 s, 2014, pp. 740^^U 
  []
@@ -1904,38 +1908,38 @@ s, 2014, pp. 740^^U
 [59
 
 ] [60]
-Overfull \hbox (2.24106pt too wide) in paragraph at lines 1848--1848
+Overfull \hbox (2.24106pt too wide) in paragraph at lines 1943--1943
 \T1/cmr/m/it/10.95 2015 Con-fer-ence on Em-pir-ical Meth-ods in Nat-ural Lan-gu
 age Pro-cessing\T1/cmr/m/n/10.95 . 
  []
 
 
-Overfull \hbox (1.96327pt too wide) in paragraph at lines 1848--1848
+Overfull \hbox (1.96327pt too wide) in paragraph at lines 1943--1943
 []\T1/cmr/m/n/10.95 Daniel Jur-af-sky and James H. Mar-tin. \T1/cmr/m/it/10.95 
 Speech and Lan-guage Pro-cessing: 
  []
 
 
-Overfull \hbox (0.17776pt too wide) in paragraph at lines 1848--1848
+Overfull \hbox (0.17776pt too wide) in paragraph at lines 1943--1943
 []\T1/cmr/m/n/10.95 Haojun Ma and Wei Wang. \T1/cmr/m/it/10.95 Aca-demic PDF Co
 n-tent Ex-trac-tion\T1/cmr/m/n/10.95 . UNSW 
  []
 
 [61]
-Overfull \hbox (12.5609pt too wide) in paragraph at lines 1848--1848
+Overfull \hbox (12.5609pt too wide) in paragraph at lines 1943--1943
 []\T1/cmr/m/n/10.95 Ndapandula Na-kashole, Ger-hard Weikum and Fa-bian Suchanek
 . `  PATTY: 
  []
 
 
-Overfull \hbox (55.86662pt too wide) in paragraph at lines 1848--1848
+Overfull \hbox (55.86662pt too wide) in paragraph at lines 1943--1943
 []\T1/cmr/m/n/10.95 Joakim Nivre et al. \T1/cmr/m/it/10.95 Uni-ver-sal De-pend-
 en-cies 1.3\T1/cmr/m/n/10.95 . [][]$\T1/cmtt/m/n/10.95 http : / / universaldepe
 ndencies . 
  []
 
 
-Overfull \hbox (6.80707pt too wide) in paragraph at lines 1848--1848
+Overfull \hbox (6.80707pt too wide) in paragraph at lines 1943--1943
 []\T1/cmr/m/it/10.95 SyntaxNet: Neural Mod-els of Syn-tax\T1/cmr/m/n/10.95 . []
 []$\T1/cmtt/m/n/10.95 https : / / github . com / tensorflow / 
  []
@@ -1944,22 +1948,22 @@ Overfull \hbox (6.80707pt too wide) in paragraph at lines 1848--1848
 \tf@toc=\write7
 \openout7 = `thesis.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1851.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1851.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1946.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1946.
  (./thesis.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1851.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1851.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1946.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1946.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 44776 strings out of 493724
- 956137 string characters out of 6145899
- 1317196 words of memory out of 5000000
- 47422 multiletter control sequences out of 15000+600000
+ 44794 strings out of 493724
+ 956578 string characters out of 6145899
+ 1317910 words of memory out of 5000000
+ 47436 multiletter control sequences out of 15000+600000
  23745 words of font info for 50 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  68i,14n,104p,1586b,2346s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (67 pages).
+Output written on thesis.pdf (69 pages).
