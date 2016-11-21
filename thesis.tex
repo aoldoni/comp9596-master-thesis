@@ -75,10 +75,11 @@
 \author{\theAuthor}
 \newsavebox{\compiledate}
 \savebox{\compiledate}{\begin{otherlanguage}{australian}\today\end{otherlanguage}}
+
 %\date{\today (document compilation)}
 %% By forcing the date as follows, we let Babel do its job of formatting it
 %% properly
-\renewcommand\day{01}
+\renewcommand\day{20}
 \renewcommand\month{11}
 \renewcommand\year{2016}
 
@@ -126,6 +127,8 @@ This research provides a method for extracting information from academic text fr
 
 
 \chapter{Introduction}
+\pdfbookmark{Introduction}{pdfmark:introd}
+
 Information extraction (IE) is the process of obtaining in an automatic fashion facts and information from unstructured text that can be read by a machine \cite{Jurafsky:2000:SLP:555733}.
 
 Historically, it mostly started with exercises on template filling based on raw natural text \cite{Moens:2006:IEA:1177314} as part of the Message Understanding Conferences (MUC) from the late 1980s and 1990s. As part of the MUC, competitions would take place in which a corpus would be made available of a specific domain, and different teams with different programs would try to extract the information from the natural text as to fill in the intended templates.
@@ -203,6 +206,7 @@ In the next sections, this document will give some background information on the
 
 \chapter{Information Extraction}
 \label{chapter:information}
+\pdfbookmark{Information Extraction}{pdfmark:infor}
 
 Information Extraction, a term already defined in the introduction, is a hard problem which mostly relies in attempting to use a computer to understand information explicitly stated in the form of natural language.
 
@@ -220,6 +224,7 @@ Several initiatives in the Natural Language Processing area attempt to understan
 
 \section{Natural Language Processing}
 \label{section:nlp}
+\pdfbookmark{Natural Language Processing}{pdfmark:nlp}
 
 \emph{Natural Language Processing} (or \emph{NLP}) can be a term used to discuss any kind of computer manipulation of natural language text, also called raw text. It can mean simple things such as counting words and obtain their frequency distribution to compare different writing styles, or in a more complex sense it would require the understanding of human writings, to the extent of being able to extract information and meaning from it, or also give useful responses to them \cite{BirdKleinLoper09}. On this more complex end of the spectrum, where one wants to understand raw text, language technology and existing tools rely on formal models, or representations, of knowledge of language at the levels of morphology, syntax, semantics, among others linguistic concepts. A number of formal models including state machines, formal rule systems, logic, and probabilistic models are used to capture this knowledge from text and reason with it \cite{Jurafsky:2000:SLP:555733}.
 
@@ -405,6 +410,7 @@ All linguistic data mentioned in this section is data that can be obtained from 
 
 \section{Information Extraction}
 \label{section:information_extraction}
+\pdfbookmark{Information Extraction}{pdfmark:ie}
 
 The IE (Information Extraction) process is described by the following subtasks: Named Entity Recognition (NER), Coreference Resolution, Entity Disambiguation, Relation Extraction (RE), Event Detection, and Temporal Analysis \cite{Jurafsky:2000:SLP:555733}. The main subtasks relevant to this report will be described further in this section.
 
@@ -561,6 +567,8 @@ The Stanford Relation Extractor comes with a model that was trained to extract t
 
 
 \section{Knowledge Graphs}
+\pdfbookmark{Knowledge Graphs}{pdfmark:kg}
+
 
 Knowledge Graphs contain a valuable of information in a structured format, traditionally originally mined from table-like structures form places like Wikipedia \cite{wiki} tables \cite{dbpedia-swj}, or from processes like Information Extraction as described in the previous section. It can be used for a diverse range of applications, such as helping other systems reason about quality of harvested facts \cite{Suchanek2007}, provide table-like facts about an entity \cite{google}, and question-answering systems \cite{hixon-clark-hajishirzi-2015}. Moreover, recent years have witnessed a surge in large scale knowledge graphs, such as DBpedia \cite{dbpedia-swj}, Freebase \cite{Bollacker2008}, Google’s Knowledge Graph \cite{google}, and YAGO \cite{Suchanek2007}.
 
@@ -620,6 +628,7 @@ WordNet is a semantically-oriented dictionary of English, similar to a tradition
 
 \chapter{Analysis and Related Work}
 \label{chapter:analysis}
+\pdfbookmark{Analysis and Related Work}{pdfmark:related}
 
 This work intends to deliver a tool or a process in which one can extract information from academic text, more specifically Computer Science papers form the Database and Data Mining topics. The intention is to obtain entities, and relations between these entities. The motivation is that, with such tool, one could for an example:
 \begin{itemize}
@@ -630,6 +639,7 @@ This work intends to deliver a tool or a process in which one can extract inform
 
 \section{Analysis of Academic Text}
 \label{section:analysis_of_academic_text}
+\pdfbookmark{Analysis of Academic Text}{pdfmark:academic}
 
 The corpus of text used was generated utilising papers published from the following conferences during various years: ACL \cite{acl}, EMNLP \cite{emnlp}, ICDE \cite{icde}, SIGMOD \cite{sigmod}, VLDB \cite{vldb}. More specifically, the section of \emph{Related Work of} these papers were the ones used to build the corpus. This was done due to the characteristics and patterns of this section compared to the rest of the paper. After careful reading, we observed that the \emph{Related Work} section generally contains objective comparisons between other algorithms or softwares in contrast with more opaque or abstract explanations form other parts of the paper. This would mean that this section was a good candidate to start the analysis from. Note the following examples of sentences from the \emph{Related Work} section of papers from the corpus:
 \begin{enumerate}
@@ -773,6 +783,7 @@ Please refer to Section \ref{section:tools} for more information on tools mentio
 
 \section{Open Information Extraction}
 \label{section:related}
+\pdfbookmark{Open Information Extraction}{pdfmark:openie}
 
 Since we had no access to annotated data, we turned to a different approach called Open Information Extraction in an attempt for better results. This approach uses linguistic information from the text, among other techniques, as to attempt to extract the relations without the need of labelled data for a trained model.
 
@@ -997,6 +1008,7 @@ All tools described in this section are similar in nature to our tool, thus desc
 
 
 \section{Peculiarities of Academic Text}
+\pdfbookmark{Peculiarities of Academic Text}{pdfmark:peculiarities}
 
 It was clear that existing model-based tools for IE, such as the ones shown in Section \ref{section:information_extraction}, do not come equipped to predict relation in Academic Text, mainly due to the different classes of entities presented. Academic text, however, has some characteristics that facilitate in some sense its parsing. More specifically, the language used in academia is more strict and precise, and does not contain attempts of inventive language or linguistic creative which would be common in romances or other type of written information such as literary books. We also did not observe academic text present difficult to understand notions, such as sarcasm or humour. We then attempt to remove complexity further by narrowing our scope to papers from the database area, such as noted in Section \ref{section:analysis_of_academic_text}.
 
@@ -1015,6 +1027,7 @@ The text also present a high number of coreference problems, e.g.: \emph{\enquot
 
 \chapter{Developed Workflow}
 \label{chapter:developed}
+\pdfbookmark{Developed Workflow}{pdfmark:developedwork}
 
 We developed an open information extraction tool that is capable of extracting information from academic text with the following characteristics:
 \begin{itemize}
@@ -1042,8 +1055,12 @@ Our corpus was generated using an extraction process developed by Haojun Ma and 
 
 \section{Tools}
 \label{section:tools}
+\pdfbookmark{Tools}{pdfmark:tools}
+
+This section describes the tools used in the system we built.
 
 \subsection{Programming Languages and Libraries}
+\pdfbookmark{Programming Languages and Libraries}{pdfmark:programming}
 
 Java\footnote{\url{https://docs.oracle.com/javase/specs/}} is a programming language used in several of NLP tools, such as Stanford's CoreNLP \cite{manning-EtAl:2014:P14-5} and Apache OpenNLP \cite{open-nlp}. Java is an imperative, static-typed, compiled language and provides several utilities such a comprehensive standard library and strong Unicode\footnote{\url{http://unicode.org/standard/standard.html}} support. 
 
@@ -1052,16 +1069,19 @@ Python\footnote{\url{https://docs.python.org/3.4/reference/}} on the other hand 
 Due to familiarity and above points, we have chosen utilising SpaCy and Python (version 3.4) to develop this tool. In addition, some modules (external libraries, or external dependencies) from the Python ecosystem were used, such as: requests\footnote{\url{http://docs.python-requests.org/en/master/}} and BeautifulSoup4\footnote{\url{https://www.crummy.com/software/BeautifulSoup/bs4/doc/}} for downloading data from an Web Server; standoff2conll\footnote{\url{https://github.com/spyysalo/standoff2conll}} for experiments with Brat and Stanford's Relation Extractor data transformation; and corpkit\footnote{\url{https://interrogator.github.io/corpkit/}} for some text queries like concordance (e.g.: other words that appear in the same context, or surrounded by similar words) and lemma-based search instead of token-based during an early exploratory stage of this research. Note that corpkit utilises corenlp-xml\footnote{\url{https://github.com/relwell/corenlp-xml-lib}} as a way to parse Stanfords CoreNLP output in Python. For generating HTML output we used Django\footnote{\url{https://www.djangoproject.com/}} template engine in standalone mode.
 
 \subsection{Stanford CoreNLP}
+\pdfbookmark{Stanford CoreNLP}{pdfmark:stanford}
 
 Stanford CoreNLP \cite{manning-EtAl:2014:P14-5} is an integrated framework of linguistic tools written in Java. As discussed and presented in previous section in more detail (Sections \ref{section:nlp} and \ref{section:information_extraction} and \ref{section:related}), it is done in this way with the intent of facilitate the creation of pipelines in which more fundamental tools are executed earlier in the process, generating output in which other of these tools build upon. In the CoreNLP each of these tools are called annotators. It provides the following annotators out of the box: Tokenization; Sentence Splitting; Lemmatization; Parts of Speech; Named Entity Recognition (described further in this document in Section \ref{section:nlp}); RegexNER (Named Entity Recognition); Constituency Parsing; Dependency Parsing (also in Section \ref{section:nlp}); Coreference Resolution; Natural Logic; Open Information Extraction (Section \ref{section:related}); Sentiment; Relation Extraction (Section \ref{section:information_extraction}); Quote Annotator; CleanXML Annotator; True case Annotator; Entity Mentions Annotator.
 
 \subsection{NLTK}
+\pdfbookmark{NLTK}{pdfmark:nltk}
 
 NLTK \cite{BirdKleinLoper09} is a popular Python toolkit, or set of libraries for NLP, generally associated with its companion book and popular in introductory NLP courses. NLTK provides interfaces to over 50 corpora and lexical resources such as WordNet \cite{Miller:1995:WLD:219717.219748}, along with a suite of text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning. Stemming is a concept related to simplifying the handling of variations of words, such as plural or past tenses, in a more simple way than lemmatization. In stemming the root (or certain prefix range) of a word is kept while its varying part is removed.
 
 NLTK also provides implementation of classification algorithms that can be trained for further text classification, and grammar parsers that can be defined and used, for example, to return a NP-chunking tree. It also has interfaces to the Stanford CoreNLP pipeline, so it can be used to externalise operations to it. While heavily used in an interactive manner together with Jupyter\footnote{\url{https://jupyter.org/about.html}} in early exploratory stages of this research, only parts of its tree data structure remain used in some stages of the final developed workflow of this work.
 
 \subsection{Syntaxnet}
+\pdfbookmark{Syntaxnet}{pdfmark:syntaxnet}
 
 The Syntaxnet parser \cite{google-syntaxnet} is a Tensorflow\footnote{\url{https://www.tensorflow.org/}} implementation of the models described in \cite{DBLP:journals/corr/AndorAWSPGPC16}. TensorFlow is an Open Source Software Library for Machine Intelligence developed by Google. Syntaxnet parses a document or text feed through the standard input and outputs the annotated text in the CoNLL format (see sample in Table \ref{tab:format_for_relation_extractor_input}), accepted as an input for training of the Stanford's RE.
 
@@ -1069,6 +1089,7 @@ In this project, Syntaxnet was used in the experiments described in Section \ref
 
 
 \subsection{SpaCy}
+\pdfbookmark{SpaCy}{pdfmark:spacy}
 
 SpaCy \cite{spacy} is Python/Cython NLP parser that provides Tokenizing, Sentence Segmentation, Part-of-Speech tagging and Dependency Parsing \cite{honnibal-johnson:2015:EMNLP}. Although this encompasses less functionality in comparison with CoreNLP, the processing is done in a very fast manner, and conveniently into the Python language. SpaCy features a whole-document design: where CoreNLP for an example relies on sentence detection/segmentation as a pre-process step in the pipeline, spaCy reads the whole document at once and provides Object-oriented interfaces for reaching the data. A web interface DisplaCy\footnote{\url{https://demos.explosion.ai/displacy/}} is also available for more impromptu checks on its dependency parser output.
 
@@ -1082,6 +1103,7 @@ More specifically, the hierarchy of Object-oriented classes are:
 
 
 \subsection{Brat}
+\pdfbookmark{Brat}{pdfmark:brat}
 
 Brat \cite{Stenetorp:2012:BWT:2380921.2380942} is a web-based tool, written in Python, for text annotation. It provides a method for define possible annotations, number of parameters, and possible relations between these annotation. Once this is defined, the interface allows for text selection and point-and-click, drag-and-drop interfaces to facilitate such annotation process. See Figure \ref{fig:brat_img} for an example of annotated text.
 
@@ -1096,6 +1118,7 @@ Since Brat is designed in particular for structured annotation, the text or data
 
 
 \subsection{Graphviz}
+\pdfbookmark{Graphviz}{pdfmark:graphviz}
 
 \begin{figure}[!htbp]
   \centering
@@ -1135,6 +1158,7 @@ digraph uses {
 %å
 
 \section{Developed Program}
+\pdfbookmark{Developed Program}{pdfmark:devprogram}
 
 Our developed program, namely \emph{corpus\_analysis.py}, accepts as an input a file-system folder of raw text and a verb in its singular third person form, and it then outputs relations of the parameters surrounding that verb in the sentence, aiming for a triplet relation type such as the format: \texttt{Relation ( Argument1 ; Argument2 )}. Figure \ref{fig:html_output} presents the HTML output of the program rendered in a Web Browser.
 
@@ -1267,6 +1291,7 @@ Some specific adjustments were added to the procedure \textsc{ParseRawText} (in 
 
 \section{Grouping Sentence Types}
 \label{section:grouping}
+\pdfbookmark{Grouping Sentence Types}{pdfmark:grouping}
 
 This section further describes the purpose of the \textsc{GroupQTREERepr} method from Algorithm \ref{generate_representation}. The grouping of the sentences was done with the goal to facilitate human local analysis. There are four possibilities for grouping: based on the \emph{verb} node (the original verb in which the relation is being searched for), based on the \emph{subj} node, based on the \emph{obj} node, and based on any other of the optional relations nodes.
 
@@ -1307,6 +1332,7 @@ We also used a similar grouping in an attempt to observe the other parameters th
 
 \section{Dependency Tree Manipulation Rules}
 \label{section:rules}
+\pdfbookmark{Dependency Tree Manipulation Rules}{pdfmark:dependencyrules}
 
 This section further describes the purpose of the rule application methods in the main loop of Algorithm \ref{main}. During the process of obtaining the trees for the searched verb, several rules are applied as to organise the tree in a way that facilitates the extraction method. These rules are applied by four different Python classes: \texttt{Growth}, \texttt{Reduction}, \texttt{Obj}, \texttt{Subj}, in this order. We use a custom annotator to identify which methods of these classes are actual rules to be applied. The rules are applied in the order they appear in these classes. The addition of new rules, in an investigative setting, simply requires the addition of an annotated method in any of these classes.
 
@@ -1720,6 +1746,7 @@ Finally, after continuous revision, some rules were adjusted to, by omission, al
 
 \chapter{Results}
 \label{chapter:results}
+\pdfbookmark{Results}{pdfmark:results}
 
 This section describes the experiments and comparisons done of this tool with similar existing ones. To prepare for the experiment, we modified the HTML output to:
 	\begin{itemize}
@@ -1729,6 +1756,7 @@ This section describes the experiments and comparisons done of this tool with si
 
 
 \section{Experiments}
+\pdfbookmark{Experiments}{pdfmark:experiments}
 
 We used SpaCy to segment sentences containing selected words and input the relevant sentences through each system. The output was then evaluated by human in the following way below. Note that there were no points added for the optional parts of a relation.
 
@@ -1807,7 +1835,11 @@ Evaluations were done by 2 human specialists. Both Figures \ref{fig:result_enabl
   \label{tab:evaluation_count_enables}
 \end{table}
 
-For the \emph{\enquote{provides}} relation there is data available from 2 different evaluators. In this case it is possible to calculate the Kappa measures for the results of our tool, which provides more insights on how they agree to each other.
+For the \emph{\enquote{provides}} relation there is data available from 2 different evaluators. In this case, it is possible to calculate the Kappa measures for the results of the tools, which provides more insights on how the evaluators agree to each other. Tables \ref{tab:comparison_results_evaluators}, \ref{tab:comparison_results_evaluators_stanford}, \ref{tab:comparison_results_evaluators_allenai}, and \ref{tab:comparison_results_evaluators_clauseie} show the agreement of the evaluators across the tools in the format of a confusion matrix. This results in Kappa measures of 41.27\% for our tool, 73.49\% for the Stanford OpenIE tool, 36.81\% for the AllenAI OpenIE tool, and 48.89\% for Max Planck Institute ClauseIE tool.
+
+We believe that these low agreement measures show how difficult it is to standardize the expert evaluation of the understand of what is correctness in Open Information Extraction. Even in this constrained domain (papers from the database area), with experts in this area doing the evaluation, different opinions on what would be the correct extraction emerge, causing differences in the evaluation. The higher agreement number for the Stanford OpenIE extractor comes from the high number of completely incorrect results yielded by the tool.
+
+Another room for disagreement comes from the fact that, while our tool yields only one result, all other Open Information Extraction tools yield multiple relations. Evaluators might then pick different results as the correct one, given the various options in output relations.
 
 \begin{table}[!htbp]
   \centering
@@ -1816,38 +1848,140 @@ For the \emph{\enquote{provides}} relation there is data available from 2 differ
 \cline{3-5}
 \multicolumn{2}{c|}{}&Incorrect&Partial&Correct&\multicolumn{1}{c}{Total}\\
 \cline{2-5}
-\multirow{2}{*}{Evaluator 2}& Incorrect & $a$ & $b$ & $a+b$ & 10 \\
+\multirow{2}{*}{Evaluator 2}& Incorrect & 0 & 6 & 0 & 6 \\
 \cline{2-5}
-& Partial & $c$ & $d$ & $c+d$ & 5 \\
+& Partial & 0 & 5 & 6 & 11 \\
 \cline{2-5}
-& Correct & $c$ & $d$ & $c+d$ & 7 \\
+& Correct & 0 & 12 & 28 & 40 \\
 \cline{2-5}
-\multicolumn{1}{c}{} & \multicolumn{1}{c}{Total} & \multicolumn{1}{c}{$a+c$} & \multicolumn{1}{c}{$b+d$} & \multicolumn{1}{c}{$N$} & \\
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{Total} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{23} & \multicolumn{1}{c}{34} & 57 \\
 \end{tabular}
-
 
   \caption[Comparison between evaluators for the results of our tool.]{Comparison between evaluators for the results of our tool, based on the \emph{\enquote{provides}} relation.}
   \label{tab:comparison_results_evaluators}
 \end{table}
 
-As per Table \ref{tab:comparison_results_evaluators} ...
 
-\hl{Table of corrects vs wrongs}
+\begin{table}[!htbp]
+  \centering
+\begin{tabular}{l|l|c|c|c|c}
+\multicolumn{2}{c}{}&\multicolumn{3}{c}{Evaluator 1}&\\
+\cline{3-5}
+\multicolumn{2}{c|}{}&Incorrect&Partial&Correct&\multicolumn{1}{c}{Total}\\
+\cline{2-5}
+\multirow{2}{*}{Evaluator 2}& Incorrect & 25 & 2 & 1 & 28 \\
+\cline{2-5}
+& Partial & 0 & 5 & 9 & 14 \\
+\cline{2-5}
+& Correct & 0 & 0 & 15 & 15 \\
+\cline{2-5}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{Total} & \multicolumn{1}{c}{25} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{25} & 57 \\
+\end{tabular}
 
-\hl{Mention and measure the disagreement among assessors (e.g, using the Kappa measure).}
+  \caption[Comparison between evaluators for the results of Stanford OpenIE tool.]{Comparison between evaluators for the results of Stanford OpenIE tool, based on the \emph{\enquote{provides}} relation.}
+  \label{tab:comparison_results_evaluators_stanford}
+\end{table}
 
-\hl{Review all references to section:observations}
 
-\hl{Adjust all PDF bookmarks}
+\begin{table}[!htbp]
+  \centering
+\begin{tabular}{l|l|c|c|c|c}
+\multicolumn{2}{c}{}&\multicolumn{3}{c}{Evaluator 1}&\\
+\cline{3-5}
+\multicolumn{2}{c|}{}&Incorrect&Partial&Correct&\multicolumn{1}{c}{Total}\\
+\cline{2-5}
+\multirow{2}{*}{Evaluator 2}& Incorrect & 2 & 2 & 0 & 5 \\
+\cline{2-5}
+& Partial & 0 & 4 & 11 & 15 \\
+\cline{2-5}
+& Correct & 1 & 12 & 24 & 37 \\
+\cline{2-5}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{Total} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{18} & \multicolumn{1}{c}{35} & 57 \\
+\end{tabular}
+
+  \caption[Comparison between evaluators for the results of AllenAI OpenIE tool.]{Comparison between evaluators for the results of AllenAI OpenIE tool, based on the \emph{\enquote{provides}} relation.}
+  \label{tab:comparison_results_evaluators_allenai}
+\end{table}
+
+
+\begin{table}[!htbp]
+  \centering
+\begin{tabular}{l|l|c|c|c|c}
+\multicolumn{2}{c}{}&\multicolumn{3}{c}{Evaluator 1}&\\
+\cline{3-5}
+\multicolumn{2}{c|}{}&Incorrect&Partial&Correct&\multicolumn{1}{c}{Total}\\
+\cline{2-5}
+\multirow{2}{*}{Evaluator 2}& Incorrect & 5 & 4 & 0 & 9 \\
+\cline{2-5}
+& Partial & 0 & 4 & 3 & 7 \\
+\cline{2-5}
+& Correct & 1 & 15 & 26 & 41 \\
+\cline{2-5}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{Total} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{23} & \multicolumn{1}{c}{29} & 57 \\
+\end{tabular}
+
+  \caption[Comparison between evaluators for the results of Max Planck Institute ClauseIE tool.]{Comparison between evaluators for the results of Max Planck Institute ClauseIE tool, based on the \emph{\enquote{provides}} relation.}
+  \label{tab:comparison_results_evaluators_clauseie}
+\end{table}
 
 \section{Cases Analysis}
 \label{section:cases}
+\pdfbookmark{Cases Analysis}{pdfmark:cases}
 
-\hl{Some comparisons with ClauseIE}
+This section presents some comparisons of outputs from our tool and ClauseIE.
+
+Given the sentence \emph{\enquote{Crowdsourcing provides a new problem-solving paradigm [3], [21], which has been blended into several research communities, including database and data mining.}}, our tool extracts the relation \texttt{provides	( subj: Crowdsourcing ; obj: a new problem-solving paradigm [ 3 )} with the optional parameter \texttt{( dep: [ 21 ] , which has been blended into several research communities , including database and data mining )}. While Stanford OpenIE extracts no results, and ClauseIE fails to extract any \emph{\enquote{provides}} relation, AllenAI OpenIE extracts the relation but with a very long \emph{obj} that contains the entire sentence starting from \emph{\enquote{a new problem-...}}. This was a situation where the evaluators considered the results of our tool correct, while all others were at most partially correct.
+
+Another similar situation is depicted in Figure \ref{fig:our_tool_success}, which is the actual output of our tool. Note the extracted values at the top, in comparison to the other tools. In this instance the evaluators observed that the Stanford OpenIE tool also yielded a correct result.
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=1.0\textwidth]{./images/ours-vs-clauseie}
+  \caption[In this example again, our tool is successful in extract the result.]{In this example again, our tool is successful in extract the result.}
+  \label{fig:our_tool_success}
+\end{figure}
+
+An important point is how reliable our tool is on the correctness of the dependency tree. Figure \ref{fig:our_tool_comparison2} shows a situation where SpaCy mislabels the Part-of-Speech tag of the word \emph{\enquote{set}} in sentence \emph{\enquote{more advantages over a linear result set that are not highlighted in these evaluations}} as a \emph{verb} instead of a \emph{noun} (as it talks about a \emph{\enquote{result set}}). Because of this error, Rule \ref{treerule:rule_subj4} is triggered, causing an incorrect extraction (Figure \ref{fig:our_tool_output_sentence}).
+
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=1.0\textwidth]{./images/ours-vs-clauseie-2}
+  \caption[In this example, the dependency tree returned by SpaCy is incorrect.]{In this example, the dependency tree returned by SpaCy is incorrect and the rules from our tool cause an incorrect output to be returned.}
+  \label{fig:our_tool_comparison2}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=1.0\textwidth]{./images/sentence-164-3}
+  \caption[SpaCy's dependency tree.]{SpaCy's dependency tree. Since \emph{\enquote{set}} is wrongly believed to be a verb in this case, it then receives an \emph{acl} dependency label on the edge, triggering Rule \ref{treerule:rule_subj4}. This graph was created by Graphviz also as part of the output of our tool.}
+  \label{fig:our_tool_output_sentence}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=1.0\textwidth]{./images/our-vs-clauseie-3}
+  \caption[In this case our tool removes all notions of negation, again yielding an incorrect output.]{In this case our tool removes all notions of negation, again yielding an incorrect output.}
+  \label{fig:our_tool_comparison3}
+\end{figure}
+
+ClauseIE and AllenAI OpenIE results also retain a notion of negation, while our tool fails to do so. Note that in Figure \ref{fig:our_tool_comparison3} the example shows this behaviour from the output of our tool. Note how in Figure \ref{fig:our_tool_output_sentence2} the dependency tree contains information regarding the negation, however we have no rules that can use this information.
+
+\begin{figure}[!htbp]
+  \centering
+    \includegraphics[width=1.0\textwidth]{./images/sentence-4310-6}
+  \caption[SpaCy's dependency tree with negation.]{SpaCy's dependency tree correctly provides the negative relations, but our rules fail to use them. This graph was created by Graphviz also as part of the output of our tool.}
+  \label{fig:our_tool_output_sentence2}
+\end{figure}
+
+The full output of the comparison between the tools contains further examples and nuances, showing the complexity of the problem.
 
 
 \section{Observed Limits}
 \label{section:observations}
+\pdfbookmark{Observed Limits}{pdfmark:limits}
 
 We observed that in some cases there are limits on the decision process done by this tool, where the linguistic syntactical information from the text might not be enough, or further semantic knowledge might be needed. Note, for an example, the sentence \emph{\enquote{SemTag uses the TAP knowledge base5 , and employs the cosine similarity with TF-IDF weighting scheme to compute the match degree between a mention and an entity, achieving an accuracy of around 82\%}}. As a result it has the following main structure, mainly due to Rule \ref{treerule:rule_subj4}:
 	\begin{itemize}
@@ -1906,9 +2040,7 @@ Another class of errors observed was when the \emph{obj} contains an intermediat
 
 Sentence complexity also plays a part in causing errors. Note this sentence: \emph{\enquote{Doing so enables SECOA to securely answer not only all aggregates in [11] without any false positives or false negatives, but also many other aggregates (such as Max, Top- k , Frequent Items, Popular Items) that proof sketches cannot deal with at all.}}. The facts are posed in a format where the sentence structure is more complex (\emph{... not only X ... but also Y}), and there are no rules capable of extracting the information in this format. The extraction is then the follow incomplete fact \texttt{enables	( Doing so ; SECOA )}.
 
-In several other situations, we tracked the error to be due to the dependency tree being incorrect from SpaCy, which was reported as a bug in the project's github page \footnote{\url{https://github.com/explosion/spaCy/issues/480}}. In another category of errors, the problem is due to the data quality problem - the source data (i.e., sentence) is incorrect. This is either due to errors early on in the PDF-to-text extraction process, or issues in SpaCy's segmentation step \hl{percentage of errors}.
-
-\hl{Table of category of errors}
+In several other situations, we tracked the error to be due to the dependency tree being incorrect from SpaCy, which was reported as a bug in the project's github page \footnote{\url{https://github.com/explosion/spaCy/issues/480}}. In another category of errors, the problem is due to the data quality problem - the source data (i.e., sentence) is incorrect. This is either due to errors early on in the PDF-to-text extraction process, or issues in SpaCy's segmentation step.
 
 
 %
@@ -1920,6 +2052,7 @@ In several other situations, we tracked the error to be due to the dependency tr
 
 \chapter{Conclusion and Future Work}
 \label{chapter:conclusion}
+\pdfbookmark{Conclusion and Future Work}{pdfmark:conclusion}
 
 The maturity and fast-pacing on current development of NLP algorithms and frameworks is very positive and provides advanced linguistic information for tackling problems such as information extraction. We observed that the developed tool was reasonably successful, but as the previous section notes that are room for future work on improving the details of its operation.
 
@@ -1933,9 +2066,8 @@ Extra meta-data from the papers, and the entirety of the paper itself, could sta
 	  \item Building and using a database of the extracted concepts and the relations between them (Knowledge Graph).
 	\end{itemize}
 
-Moreover, as future work, one could address the issues described here in Section \ref{section:observations} by strengthening the rules for the remaining cases the tool should work for, or refine intra-sentence distance by, for an example, using Stanford's Coreference Resolution output.
+Moreover, as future work, one could address the issues described here in Sections \ref{section:cases} and \ref{section:observations} by strengthening the rules for the remaining cases the tool is currently failing. Another issue observed often is the need for a more refined intra-sentence distance evaluation by, for an example, using Stanford's Coreference Resolution output to resolve pronouns into the actual concepts or entities for a more complete relation output.
 
-\hl{More details on coreference.}
 
 \backmatter
 
